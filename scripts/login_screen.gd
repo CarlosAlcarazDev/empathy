@@ -7,6 +7,9 @@
 # ===============================
 extends Control
 
+@onready var audio_stream_player = $CreateButton/AudioStreamPlayer
+
+
 # Precarga las texturas que se mostrarán aleatoriamente
 const TEXTURES = [
 	preload("res://assets/ui/backgrounds/login_bg_1.png"),
@@ -71,3 +74,16 @@ func load_last_texture_index():
 # Señal botón salir presionada
 func _on_quit_button_pressed():
 	get_tree().quit(0)
+
+
+func _on_login_button_pressed():
+	audio_stream_player.playing = true
+	
+
+
+func _on_create_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/CreateUser.tscn")
+
+
+func _on_audio_stream_player_finished():
+	get_tree().change_scene_to_file("res://scenes/CreateUser.tscn")

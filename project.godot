@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Empathy"
+run/main_scene="res://scenes/LoginScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://assets/ui/backgrounds/intro_bg.png"
+config/icon="res://assets/ui/icons/caminos_de_empatia.ico"
+boot_splash/minimum_display_time=3000
 
 [display]
 

@@ -1,2 +1,7 @@
 res://scenes/LoginScreen.tscn
+res://scripts/create_user.gd
+res://scenes/CreateUser.tscn
 res://scripts/login_screen.gd
+res://save/last_texture_index.save.txt
+res://scenes/create_button.gd
+res://README.md
