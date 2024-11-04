@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://syly166ddjcr"]
+
+[ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="1_hhy0g"]
+[ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_p6odj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vtvub"]
+bg_color = Color(0.10748, 0.10748, 0.10748, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72kjt"]
+content_margin_left = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="LoginScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6odj")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 121.0
+offset_right = 495.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("1_hhy0g")
+theme_override_font_sizes/font_size = 100
+text = "Caminos de Empatía"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.963
+anchor_top = 0.5
+anchor_right = 0.963
+anchor_bottom = 0.5
+offset_left = 0.039917
+offset_right = 0.039917
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="QuitButton" type="Button" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 564.0
+offset_top = 885.0
+offset_right = 702.0
+offset_bottom = 1005.0
+mouse_filter = 1
+text = "Salir"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.065
+anchor_bottom = 0.206
+offset_left = 137.0
+offset_top = 558.0
+offset_right = 385.0
+offset_bottom = 721.72
+theme_override_styles/panel = SubResource("StyleBoxFlat_vtvub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_hhy0g")
+theme_override_font_sizes/font_size = 29
+theme_override_styles/normal = SubResource("StyleBoxFlat_72kjt")
+text = "Cuenta de usuario"
+
+[node name="Line2D" type="Line2D" parent="Panel/VBoxContainer"]
+points = PackedVector2Array(2, 40, 371, 40)
+width = 2.0
+
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
