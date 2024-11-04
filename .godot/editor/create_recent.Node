@@ -1,9 +1,12 @@
-Line2D
-HSeparator
+HBoxContainer
+LineEdit
 Label
 VBoxContainer
+HSeparator
+VSplitContainer
+Control
+Line2D
 Panel
 TextureRect
 Button
 RichTextLabel
-Control
