@@ -1,0 +1,244 @@
+[gd_scene load_steps=12 format=3 uid="uid://syly166ddjcr"]
+
+[ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="1_hhy0g"]
+[ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_p6odj"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="3_y3fwr"]
+[ext_resource type="Script" path="res://scripts/create_button.gd" id="4_j3y46"]
+[ext_resource type="AudioStream" uid="uid://tmcckyoghhtp" path="res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3" id="5_7p6uj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okqh2"]
+bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6332v"]
+bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xegu"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85w5e"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6dih"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m64l8"]
+bg_color = Color(0, 0, 0, 1)
+draw_center = false
+
+[node name="LoginScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p6odj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.963
+anchor_top = 0.5
+anchor_right = 0.963
+anchor_bottom = 0.5
+offset_left = 0.039917
+offset_right = 0.039917
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 121.0
+offset_right = 446.0
+offset_bottom = 440.0
+theme_override_fonts/font = ExtResource("1_hhy0g")
+theme_override_font_sizes/font_size = 100
+text = "Caminos de Empatía"
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.061
+anchor_top = 0.505
+anchor_right = 0.061
+anchor_bottom = 0.505
+offset_left = -0.12001
+offset_top = -0.400024
+offset_right = 392.88
+offset_bottom = 128.6
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 22
+text = " "
+
+[node name="UsernameInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 20
+placeholder_text = " Nombre de usuario"
+max_length = 30
+
+[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 22
+text = " "
+
+[node name="PasswordInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 20
+placeholder_text = " Password"
+max_length = 15
+secret = true
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0604167
+anchor_top = 0.662037
+anchor_right = 0.265104
+anchor_bottom = 0.711111
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoginButton" type="Button" parent="HBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_okqh2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6332v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xegu")
+text = "Entrar"
+
+[node name="ExitButton" type="Button" parent="."]
+z_index = 1
+layout_mode = 2
+anchor_left = 0.881
+anchor_top = 0.939
+anchor_right = 0.881
+anchor_bottom = 0.939
+offset_left = -0.52002
+offset_top = -0.120056
+offset_right = 193.48
+offset_bottom = 44.8799
+size_flags_horizontal = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/focus = SubResource("StyleBoxFlat_okqh2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6332v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8xegu")
+text = "Salir"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VersionLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 15
+text = "Version: 0.0.1.0"
+
+[node name="FooterLabel" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 15
+text = "Caminos de Empatía 2024-2025 Carlos Alcaraz Benítez"
+vertical_alignment = 1
+
+[node name="CreateButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 779.0
+offset_right = 437.0
+offset_bottom = 806.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxFlat_85w5e")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q6dih")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m64l8")
+text = "¿No tienes cuenta? Regístrate ahora."
+script = ExtResource("4_j3y46")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CreateButton"]
+stream = ExtResource("5_7p6uj")
+
+[node name="ErrorLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.043
+anchor_top = 0.473
+anchor_right = 0.295
+anchor_bottom = 0.51
+offset_left = 0.439995
+offset_top = 0.159973
+offset_right = -0.400024
+offset_bottom = 0.199951
+horizontal_alignment = 1
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="text_submitted" from="VBoxContainer/PasswordInput" to="." method="_on_password_input_text_submitted"]
+[connection signal="pressed" from="HBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="CreateButton" to="CreateButton" method="_on_pressed"]
+[connection signal="finished" from="CreateButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]

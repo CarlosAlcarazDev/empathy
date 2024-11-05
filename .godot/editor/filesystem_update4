@@ -1,0 +1,6 @@
+res://scenes/LoginScreen.tscn
+res://scenes/CreateUser.tscn
+res://scripts/login_screen.gd
+res://scripts/global_data.gd
+res://scenes/MainMenu.tscn
+res://scenes/main_menu.gd

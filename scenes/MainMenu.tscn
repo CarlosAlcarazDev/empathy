@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://fl3m5e2kgfnv"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_60ffg"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60ffg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 47.0
+offset_right = -1303.0
+offset_bottom = -857.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENÚ PRINCIPAL"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1502.0
+offset_top = 869.0
+offset_right = -134.0
+offset_bottom = -125.0
+text = "VOLVER"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 883.0
+offset_right = -1659.0
+offset_bottom = -65.0
+text = "SALIR"
+
+[node name="UserLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1162.0
+offset_top = 80.0
+offset_right = 1557.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 34
+
+[node name="IDLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1196.0
+offset_top = 217.0
+offset_right = 1567.0
+offset_bottom = 331.0
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 34
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
