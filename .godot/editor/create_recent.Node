@@ -1,7 +1,8 @@
-AudioStreamPlayer
 Label
 Button
 Control
+Timer
+AudioStreamPlayer
 LinkButton
 VBoxContainer
 HBoxContainer
@@ -11,4 +12,3 @@ VSplitContainer
 Line2D
 Panel
 TextureRect
-RichTextLabel
