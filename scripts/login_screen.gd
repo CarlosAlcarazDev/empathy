@@ -11,7 +11,7 @@ extends Control
 @onready var texture_rect = $TextureRect
 @onready var username_input = $VBoxContainer/UsernameInput
 @onready var password_input = $VBoxContainer/PasswordInput
-@onready var error_timer = $ErrorTimer
+
 @onready var info_label = $InfoLabel
 @onready var login_button = $HBoxContainer/LoginButton
 
@@ -23,7 +23,7 @@ const TEXTURES = [
 	preload("res://assets/ui/backgrounds/login_bg_3.png"),
 	preload("res://assets/ui/backgrounds/login_bg_4.png")
 ]
-const LAST_TEXTURE = "res://save/last_texture_index.txt"
+const LAST_TEXTURE = "user://last_texture_index.txt"
 # Ruta del archivo JSON donde se almacenan los datos de usuario
 const USER_DATA_FILE := "user://users.json"
 
@@ -161,5 +161,5 @@ func _on_audio_stream_player_finished():
 
 
 #Señal enter en password presionado, ejecuta un sonido.
-func _on_password_input_text_submitted(new_text):
+func _on_password_input_text_submitted():
 	audio_stream_player.playing = true

@@ -1,3 +1,12 @@
+# ===============================
+# Nombre del Script: RegisterUser.gd
+# Desarrollador: Carlos Alcaraz Benítez
+# Fecha de Creación: 05 de Noviembre de 2024
+# Descripción: Este script maneja la lógica de la pantalla de registrar usuario del juego,
+# Comprueba que no exista el usuario o el email en la base de datos
+# 
+# ===============================
+
 extends Control
 
 

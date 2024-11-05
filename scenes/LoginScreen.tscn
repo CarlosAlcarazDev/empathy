@@ -185,7 +185,7 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_y3fwr")
 theme_override_font_sizes/font_size = 15
-text = "Version: 0.0.1.0"
+text = "Version: 0.0.2.0"
 
 [node name="FooterLabel" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
@@ -229,9 +229,6 @@ offset_right = -0.400024
 offset_bottom = 0.199951
 horizontal_alignment = 1
 
-[node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 2.0
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7p6uj")
 
@@ -239,5 +236,4 @@ stream = ExtResource("5_7p6uj")
 [connection signal="pressed" from="HBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
-[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

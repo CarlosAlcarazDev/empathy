@@ -174,7 +174,7 @@ offset_bottom = 534.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_k2bfx")
 theme_override_font_sizes/font_size = 15
-text = "Version: 0.0.1.0"
+text = "Version: 0.0.2.0"
 
 [node name="FooterLabel" type="Label" parent="HBoxContainer2"]
 layout_mode = 2

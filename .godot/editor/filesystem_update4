@@ -1,8 +1,2 @@
-res://scenes/LoginScreen.tscn
-res://scenes/CreateUser.tscn
-res://scenes/MainMenu.tscn
 res://scenes/RegisterUser.tscn
-res://scenes/register_user.gd
-res://scripts/login_screen.gd
-res://scripts/register_user.gd
-res://save/users.json
+res://README.md
