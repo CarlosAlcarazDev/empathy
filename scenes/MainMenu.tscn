@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://fl3m5e2kgfnv"]
 
-[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_60ffg"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_60ffg"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
 
 [node name="MainMenu" type="Control"]
@@ -34,6 +34,8 @@ offset_left = 1502.0
 offset_top = 869.0
 offset_right = -134.0
 offset_bottom = -125.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "VOLVER"
 
 [node name="Button2" type="Button" parent="."]

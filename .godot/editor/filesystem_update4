@@ -1,6 +1,8 @@
 res://scenes/LoginScreen.tscn
 res://scenes/CreateUser.tscn
-res://scripts/login_screen.gd
-res://scripts/global_data.gd
 res://scenes/MainMenu.tscn
-res://scenes/main_menu.gd
+res://scenes/RegisterUser.tscn
+res://scenes/register_user.gd
+res://scripts/login_screen.gd
+res://scripts/register_user.gd
+res://save/users.json

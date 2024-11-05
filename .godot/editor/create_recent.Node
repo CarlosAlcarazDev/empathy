@@ -1,7 +1,9 @@
+TextureRect
+Timer
 Label
 Button
+CanvasLayer
 Control
-Timer
 AudioStreamPlayer
 LinkButton
 VBoxContainer
@@ -11,4 +13,3 @@ HSeparator
 VSplitContainer
 Line2D
 Panel
-TextureRect

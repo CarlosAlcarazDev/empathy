@@ -7,12 +7,14 @@
 # ===============================
 extends Control
 
-@onready var audio_stream_player = $CreateButton/AudioStreamPlayer
+@onready var audio_stream_player = $AudioStreamPlayer
 @onready var texture_rect = $TextureRect
 @onready var username_input = $VBoxContainer/UsernameInput
 @onready var password_input = $VBoxContainer/PasswordInput
-@onready var error_label = $ErrorLabel
 @onready var error_timer = $ErrorTimer
+@onready var info_label = $InfoLabel
+@onready var login_button = $HBoxContainer/LoginButton
+
 
 # Precarga las texturas que se mostrarán aleatoriamente
 const TEXTURES = [
@@ -22,7 +24,8 @@ const TEXTURES = [
 	preload("res://assets/ui/backgrounds/login_bg_4.png")
 ]
 const LAST_TEXTURE = "res://save/last_texture_index.txt"
-const USER_DATA_FILE = "res://save/users.json"
+# Ruta del archivo JSON donde se almacenan los datos de usuario
+const USER_DATA_FILE := "user://users.json"
 
 
 var last_texture_index = -1  # Índice de la última textura seleccionada
@@ -107,10 +110,8 @@ func login():
 	for user in users:
 		if user["username"] == username and user["password"] == password:
 			print("Inicio de sesión exitoso!")
-			error_label.text = "Inicio de sesión exitoso"
-			error_label.visible = true  # Asegúrate de que el label esté visible
-			error_timer.stop()  # Detener el temporizador si es necesario
-			
+			show_success("Inicio de sesión exitoso")
+
 			# Se utilizan la variable GlobalData como un singleton
 			# que se configura en Autoload de la configuración del Proyecto
 			# de esta manera podemos pasar la información del usuario cargado
@@ -123,9 +124,22 @@ func login():
 			get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 			return
 			
-	error_label.text = "Usuario o contraseña incorrectos"
-	error_label.visible = true  # Muestra el mensaje de error
-	error_timer.start()  # Inicia el temporizador
+	show_error("Usuario o Contraseña incorrectos")
+
+func show_error(message: String):
+	info_label.text = message
+	info_label.modulate = Color(1, 0, 0)  # Cambia el color a rojo para indicar error
+	info_label.visible = true
+
+
+# Función para mostrar un mensaje de éxito
+func show_success(message: String):
+	login_button.disabled = true
+	info_label.text = message
+	info_label.modulate = Color(0, 1, 0)  # Cambia el color a verde para indicar éxito
+	info_label.visible = true
+	
+
 
 # Señal botón salir presionada
 func _on_quit_button_pressed():
@@ -138,16 +152,13 @@ func _on_login_button_pressed():
 
 
 func _on_create_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/CreateUser.tscn")
+	get_tree().change_scene_to_file("res://scenes/RegisterUser.tscn")
 
 #Señal sonido finalizado, carga la función login()
 func _on_audio_stream_player_finished():
 	login()
 	
 
-
-func _on_error_timer_timeout():
-	error_label.visible = false
 
 #Señal enter en password presionado, ejecuta un sonido.
 func _on_password_input_text_submitted(new_text):
