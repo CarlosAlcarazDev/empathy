@@ -1,32 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://fl3m5e2kgfnv"]
+[gd_scene load_steps=7 format=3 uid="uid://fl3m5e2kgfnv"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_60ffg"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="2_ne65k"]
 [ext_resource type="AudioStream" uid="uid://dx2fo7t2540dk" path="res://assets/audio/music/Stand Strong.mp3" id="4_uk030"]
+[ext_resource type="Theme" uid="uid://rl3jywk2q1pr" path="res://popup_theme.tres" id="5_kky05"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qmmk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whmx2"]
-content_margin_left = 7.0
-content_margin_top = 10.0
-content_margin_bottom = 11.0
-bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb1un"]
-bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 1.0
-expand_margin_top = 31.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="Theme" id="Theme_748rs"]
-AcceptDialog/styles/panel = SubResource("StyleBoxFlat_whmx2")
-Window/styles/embedded_border = SubResource("StyleBoxFlat_gb1un")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -136,19 +116,15 @@ stream = ExtResource("4_uk030")
 autoplay = true
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-title = "Confirma..."
-initial_position = 3
-size = Vector2i(217, 100)
-current_screen = 0
-unresizable = true
-borderless = true
-theme = SubResource("Theme_748rs")
-dialog_text = "¿Seguro que quieres salir?"
-dialog_hide_on_ok = false
-dialog_close_on_escape = false
+msaa_2d = 3
+msaa_3d = 3
+title = "¿Seguro deseas salir?"
+initial_position = 2
+size = Vector2i(300, 80)
+visible = true
+theme = ExtResource("5_kky05")
 cancel_button_text = "Cancelar"
 
-[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

@@ -4,6 +4,7 @@
 # Fecha de Creación: 04 de Noviembre de 2024
 # Descripción: Este script maneja la lógica de la pantalla de login del juego,
 # incluyendo el inicio y la creación de un nuevo usuario.
+# Se muestran imagenes aleatoriamente cada vez que se carga la escena
 # ===============================
 extends Control
 

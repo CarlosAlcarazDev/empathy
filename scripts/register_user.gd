@@ -4,7 +4,7 @@
 # Fecha de Creación: 05 de Noviembre de 2024
 # Descripción: Este script maneja la lógica de la pantalla de registrar usuario del juego,
 # Comprueba que no exista el usuario o el email en la base de datos
-# 
+# También comprueba que los datos de usuario sean correctos
 # ===============================
 
 extends Control
