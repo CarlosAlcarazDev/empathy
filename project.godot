@@ -15,9 +15,11 @@ run/main_scene="res://scenes/LoginScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=30
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/image="res://assets/ui/backgrounds/intro_bg.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://assets/ui/backgrounds/intro_bg.png"
-boot_splash/minimum_display_time=3000
 
 [autoload]
 

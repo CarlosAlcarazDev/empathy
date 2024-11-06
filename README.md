@@ -1,6 +1,5 @@
 # empathy
-05/11/24
-Desarrollado el registro de usuarios.
-Faltaría comprobar los campos, que no excedan de n elementos, que el password tenga letras y números y que 
-el email esté con el formato correcto.
-Tengo que buscar la manera de encriptar el json para que no se pueda tener acceso a los usuarios y sus datos
+06/11/24
+Validación Correcta en registro de usuarios
+Password debe tener mínimo 8 caracteres
+He creado regex para validad introducción correcta del email de tipo nombre@dominio.com

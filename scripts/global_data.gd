@@ -3,3 +3,4 @@ extends Node
 
 var user = ""
 var id = ""
+var password = ""

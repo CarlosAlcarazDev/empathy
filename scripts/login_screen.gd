@@ -32,6 +32,12 @@ var last_texture_index = -1  # Índice de la última textura seleccionada
 
 
 func _ready():
+	
+	# En caso de venir de la escena de registro se añaden los datos del  
+	# nuevo usuario al formulario de login
+	username_input.text = GlobalData.user
+	password_input.text = GlobalData.password
+	
 	randomize()  # Inicializa el generador de números aleatorios
 	
 	# Carga el último índice de textura desde el archivo

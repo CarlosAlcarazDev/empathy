@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1730850358
+::res://::1730883365
 export_presets.cfg::TextFile::-1::1730850232::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730808415::1730808452::1::::<><>::
-README.md::TextFile::-1::1730808415::0::1::::<><>::
+README.md::TextFile::-1::1730850501::0::1::::<><>::
 ::res://assets/::1730808415
 ::res://assets/audio/::1730808415
 ::res://assets/audio/music/::1730759693
@@ -25,10 +25,10 @@ login_bg_4.png::CompressedTexture2D::3182301854997895449::1730808415::1730808452
 ::res://data/::1730718310
 ::res://Release/::1730850231
 ::res://save/::1730850017
-::res://scenes/::1730850113
+::res://scenes/::1730850501
 LoginScreen.tscn::PackedScene::1313656412464842337::1730847696::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
 MainMenu.tscn::PackedScene::375375461929223059::1730847696::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
-RegisterUser.tscn::PackedScene::6858974625120363631::1730850113::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
+RegisterUser.tscn::PackedScene::6858974625120363631::1730850501::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
 ::res://scripts/::1730850113
 global_data.gd::GDScript::-1::1730808415::0::1::::<>Node<>::
 login_screen.gd::GDScript::-1::1730847215::0::1::::<>Control<>::

@@ -25,8 +25,20 @@ const USER_DATA_FILE := "user://users.json"
 # Variable para almacenar los datos de usuarios cargados
 var users = []
 
+# Declara las expresiones regulares de manera global o de clase para evitar compilarlas cada vez
+var email_regex := RegEx.new()
+
+
+
 # Cargar usuarios al iniciar
 func _ready():
+	var domain_name_regex_str := "[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?"
+	var domain_regex_str := domain_name_regex_str + "(?:\\." + domain_name_regex_str + ")*"
+	var email_pattern := "^[a-zA-Z0-9.!#$%&'*+/=?^_\u0060{|}~-]+@" + domain_regex_str + "\\.[a-zA-Z]{2,}$"
+
+# Compilamos la expresión regular solo una vez
+	email_regex.compile(email_pattern)
+
 	load_users()
 
 # Función para cargar usuarios desde el archivo JSON
@@ -71,6 +83,17 @@ func register_user():
 	if is_username_registered(username):
 		show_error("El nombre de usuario ya está registrado. Usa otro.")
 		return
+	# Comprobar que se cumplen los criterios del formato de la contraseña
+	if !is_valid_password(password):
+		show_error("El password debe tener mínimo 8 caracteres.")
+		return
+		# Comprobar que se cumplen los criterios del formato del email
+	if !is_valid_email(email):
+		show_error("Escribe un email correcto")
+		return
+		
+	
+	
 	# Generar un nuevo ID incremental para el usuario
 	var new_id = get_next_id()
 	
@@ -88,6 +111,10 @@ func register_user():
 	save_users()
 	
 	# Confirmación de registro
+	# Guardamos en la variable Global los datos recien registrados
+	# del usuario para que en la pantalla de Login aparezcan directamente
+	GlobalData.user = username
+	GlobalData.password = password
  # Mostrar mensaje de éxito
 	show_success("Usuario registrado con éxito.")
 
@@ -108,6 +135,14 @@ func show_success(message: String):
 	await get_tree().create_timer(2.5).timeout
 	get_tree().change_scene_to_file("res://scenes/LoginScreen.tscn")
 	
+# Función para validar la contraseña
+func is_valid_password(password: String) -> bool:
+	return password.length() >= 8
+	
+# Función para validar el email
+func is_valid_email(email: String) -> bool:
+	return email_regex.search(email) != null
+
 # Función para verificar si el correo ya está registrado
 func is_email_registered(email: String) -> bool:
 	for user in users:
