@@ -1,27 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://syly166ddjcr"]
+[gd_scene load_steps=11 format=3 uid="uid://syly166ddjcr"]
 
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="1_hhy0g"]
 [ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_p6odj"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="3_y3fwr"]
-[ext_resource type="Script" path="res://scripts/create_button.gd" id="4_j3y46"]
 [ext_resource type="AudioStream" uid="uid://tmcckyoghhtp" path="res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3" id="5_7p6uj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okqh2"]
-bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xegu"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6332v"]
-bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+bg_color = Color(0.0802329, 0.388847, 0.580558, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xegu"]
-bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okqh2"]
+bg_color = Color(0.0784314, 0.388235, 0.580392, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -131,13 +130,15 @@ theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_y3fwr")
 theme_override_font_sizes/font_size = 22
-theme_override_styles/focus = SubResource("StyleBoxFlat_okqh2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8xegu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_8xegu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6332v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8xegu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_8xegu")
 text = "Entrar"
 
@@ -184,7 +185,7 @@ grow_vertical = 0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_y3fwr")
 theme_override_font_sizes/font_size = 15
-text = "Version: 0.0.1.0"
+text = "Version: 0.0.2.0"
 
 [node name="FooterLabel" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
@@ -214,12 +215,8 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_85w5e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_q6dih")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m64l8")
 text = "¿No tienes cuenta? Regístrate ahora."
-script = ExtResource("4_j3y46")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CreateButton"]
-stream = ExtResource("5_7p6uj")
-
-[node name="ErrorLabel" type="Label" parent="."]
+[node name="InfoLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.043
@@ -230,15 +227,15 @@ offset_left = 0.439995
 offset_top = 0.159973
 offset_right = -0.400024
 offset_bottom = 0.199951
+theme_override_fonts/font = ExtResource("3_y3fwr")
+theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
 
-[node name="ErrorTimer" type="Timer" parent="."]
-wait_time = 2.0
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7p6uj")
 
 [connection signal="text_submitted" from="VBoxContainer/PasswordInput" to="." method="_on_password_input_text_submitted"]
 [connection signal="pressed" from="HBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
-[connection signal="pressed" from="CreateButton" to="CreateButton" method="_on_pressed"]
-[connection signal="finished" from="CreateButton/AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
-[connection signal="timeout" from="ErrorTimer" to="." method="_on_error_timer_timeout"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4ysksk7b8y44"]
+
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="1_k2bfx"]
+[ext_resource type="Script" path="res://scenes/register_user.gd" id="1_pr4cq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qae06"]
+bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m3hrx"]
+bg_color = Color(0.0509804, 0.298039, 0.45098, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_umuhy"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="RegisterUser" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pr4cq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -175.0
+offset_right = 197.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Registrar Usuario" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 29
+text = "Registrar Usuario"
+horizontal_alignment = 1
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 22
+text = " "
+
+[node name="UsernameInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 20
+placeholder_text = " Nombre de usuario"
+max_length = 30
+
+[node name="PasswordLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 22
+text = " "
+
+[node name="PasswordInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 20
+placeholder_text = " Password"
+max_length = 15
+secret = true
+
+[node name="EmailLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 22
+text = " "
+
+[node name="EmailInput" type="LineEdit" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_k2bfx")
+theme_override_font_sizes/font_size = 20
+placeholder_text = " Email"
+max_length = 30
+
+[node name="ErrorLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="RegisterButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = 134.0
+offset_right = 196.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_styles/focus = SubResource("StyleBoxFlat_qae06")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m3hrx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_umuhy")
+text = "Registrar"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -919.0
+offset_top = 366.0
+offset_right = -725.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_styles/focus = SubResource("StyleBoxFlat_qae06")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m3hrx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_umuhy")
+text = "Volver"
+
+[node name="ErrorTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

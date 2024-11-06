@@ -13,10 +13,13 @@ config_version=5
 config/name="Empathy"
 run/main_scene="res://scenes/LoginScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=30
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/image="res://assets/ui/backgrounds/intro_bg.png"
-config/icon="res://assets/ui/icons/caminos_de_empatia.ico"
-boot_splash/minimum_display_time=3000
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://assets/ui/backgrounds/intro_bg.png"
 
 [autoload]
 
@@ -26,7 +29,7 @@ GlobalData="*res://scripts/global_data.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
@@ -34,5 +37,6 @@ window/vsync/vsync_mode=0
 
 textures/canvas_textures/default_texture_filter=2
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
-anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/msaa_2d=3
 anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true

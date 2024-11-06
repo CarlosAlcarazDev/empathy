@@ -1,2 +1,3 @@
-res://scenes/CreateUser.tscn::3dee11f6a8cc53fe3a79beb69936402b::1730762437::res://.godot/exported/133200997/export-58afa8543f90d22c570007e4bd081fa2-CreateUser.scn
-res://scenes/LoginScreen.tscn::233cca39b3697805204617b95ad5e77b::1730762437::res://.godot/exported/133200997/export-8b70ab87375f5e03b0cabbed8eb15de9-LoginScreen.scn
+res://scenes/LoginScreen.tscn::cb81bccb502e109cd35bf40dfca22cc5::1730847696::res://.godot/exported/133200997/export-8b70ab87375f5e03b0cabbed8eb15de9-LoginScreen.scn
+res://scenes/MainMenu.tscn::798010880dafb61d618586fca5f47f7e::1730847696::res://.godot/exported/133200997/export-23c8b2a48d59a0cd018bd8ad5ce7794c-MainMenu.scn
+res://scenes/RegisterUser.tscn::3e3a099ad18102815a15e42d972ade13::1730850113::res://.godot/exported/133200997/export-e28441d47fa8234b986ddd61fecab6ef-RegisterUser.scn
