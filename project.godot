@@ -24,6 +24,7 @@ config/icon="res://assets/ui/backgrounds/intro_bg.png"
 [autoload]
 
 GlobalData="*res://scripts/global_data.gd"
+GameConfig="*res://scripts/game_config.gd"
 
 [display]
 

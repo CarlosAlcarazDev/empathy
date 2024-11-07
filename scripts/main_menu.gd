@@ -14,7 +14,10 @@ extends Control
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 @onready var texture_rect = $TextureRect
-@onready var confirmation_dialog = $ConfirmationDialog
+
+@onready var blur_overlay = $Overlay/BlurOverlay
+@onready var exit_window = $Overlay/ExitWindow
+@onready var mode_selection_window = $Overlay/ModeSelectionWindow
 
 
 # Precarga las texturas que se mostrarán aleatoriamente
@@ -91,17 +94,42 @@ func _on_button_pressed():
 
 
 
-func _on_confirmation_dialog_confirmed():
+
+func _on_quit_button_pressed():
+	# Mostrar el desenfoque en el fondo
+	blur_overlay.visible = true
+
+	# Mostrar el panel de selección de modo	
+	exit_window.show()
+	
+
+func _on_new_game_button_pressed():
+		# Mostrar el desenfoque en el fondo
+	blur_overlay.visible = true
+
+	# Mostrar el panel de selección de modo	
+	mode_selection_window.show()
+
+func _on_strategy_button_pressed():
+	GameConfig.game_mode = "Opción 1"
+	close_mode_selection_window()
+
+func close_mode_selection_window():
+	# Ocultar la ventana y el desenfoque del fondo
+	mode_selection_window.hide()
+	blur_overlay.visible = false
+
+
+func _on_intuition_button_pressed():
+	GameConfig.game_mode = "Opción 2"
+	close_mode_selection_window()
+
+
+func _on_ok_button_pressed():
 	get_tree().quit()
 
 
-func _on_quit_button_pressed():
-	confirmation_dialog.popup()  # Muestra la ventana emergente
 
-
-func _on_confirmation_dialog_canceled():
-	pass # Replace with function body.
-
-
-func _on_new_game_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/NewGame.tscn")
+func _on_cancel_button_pressed():
+	exit_window.hide()
+	blur_overlay.visible = false

@@ -1,2 +1,9 @@
+res://scenes/LoginScreen.tscn
+res://scenes/MainMenu.tscn
 res://scenes/NewGame.tscn
-res://README.md
+res://scripts/GameConfig.gd
+res://scripts/new_game.gd
+res://scripts/game_config.gd
+res://scripts/MainMenu.gdshader
+res://scripts/main_menu.gd
+res://scenes/strategy_button.gd

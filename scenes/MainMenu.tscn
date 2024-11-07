@@ -1,32 +1,54 @@
-[gd_scene load_steps=9 format=3 uid="uid://fl3m5e2kgfnv"]
+[gd_scene load_steps=15 format=3 uid="uid://fl3m5e2kgfnv"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_60ffg"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="2_ne65k"]
 [ext_resource type="AudioStream" uid="uid://dx2fo7t2540dk" path="res://assets/audio/music/Stand Strong.mp3" id="4_uk030"]
+[ext_resource type="Shader" path="res://scripts/MainMenu.gdshader" id="5_4lncx"]
+[ext_resource type="Script" path="res://scenes/strategy_button.gd" id="6_g1x1w"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qmmk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whmx2"]
-content_margin_left = 7.0
-content_margin_top = 10.0
-content_margin_bottom = 11.0
-bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w366t"]
+shader = ExtResource("5_4lncx")
+shader_parameter/blur_size = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gb1un"]
-bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-expand_margin_left = 1.0
-expand_margin_top = 31.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
+[sub_resource type="Theme" id="Theme_d07m3"]
 
-[sub_resource type="Theme" id="Theme_748rs"]
-AcceptDialog/styles/panel = SubResource("StyleBoxFlat_whmx2")
-Window/styles/embedded_border = SubResource("StyleBoxFlat_gb1un")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eibd6"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daadh"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj1oc"]
+bg_color = Color(0.0802329, 0.388847, 0.580558, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4eia"]
+bg_color = Color(0.0802329, 0.388847, 0.580558, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_li4e7"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -49,19 +71,19 @@ text = "Caminos de Empatía"
 
 [node name="UserLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1162.0
-offset_top = 80.0
-offset_right = 1557.0
-offset_bottom = 212.0
+offset_left = 1519.0
+offset_top = 776.0
+offset_right = 1914.0
+offset_bottom = 908.0
 theme_override_fonts/font = ExtResource("2_dav8f")
 theme_override_font_sizes/font_size = 34
 
 [node name="IDLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 1196.0
-offset_top = 217.0
-offset_right = 1567.0
-offset_bottom = 331.0
+offset_left = 1525.0
+offset_top = 941.0
+offset_right = 1896.0
+offset_bottom = 1055.0
 theme_override_fonts/font = ExtResource("2_dav8f")
 theme_override_font_sizes/font_size = 34
 
@@ -135,20 +157,148 @@ scale = Vector2(0.4, 0.4)
 stream = ExtResource("4_uk030")
 autoplay = true
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-title = "Confirma..."
-initial_position = 3
-size = Vector2i(217, 100)
-current_screen = 0
+[node name="Overlay" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlurOverlay" type="ColorRect" parent="Overlay"]
+visible = false
+material = SubResource("ShaderMaterial_w366t")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 48.0
+anchor_bottom = 27.0
+offset_right = -0.00012207
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501961, 0.501961, 0.501961, 0.301961)
+
+[node name="ExitWindow" type="Window" parent="Overlay"]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(221, 112)
+visible = false
+transient = true
+exclusive = true
 unresizable = true
 borderless = true
-theme = SubResource("Theme_748rs")
-dialog_text = "¿Seguro que quieres salir?"
-dialog_hide_on_ok = false
-dialog_close_on_escape = false
-cancel_button_text = "Cancelar"
+popup_window = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/ExitWindow"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -4.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Overlay/ExitWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 22
+text = "¿Seguro deseas salir?"
+
+[node name="HSeparator" type="HSeparator" parent="Overlay/ExitWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/ExitWindow/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="OKButton" type="Button" parent="Overlay/ExitWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_d07m3")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_eibd6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_daadh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kj1oc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f4eia")
+theme_override_styles/normal = SubResource("StyleBoxFlat_li4e7")
+text = "Sí"
+
+[node name="CancelButton" type="Button" parent="Overlay/ExitWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_eibd6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_daadh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kj1oc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f4eia")
+theme_override_styles/normal = SubResource("StyleBoxFlat_li4e7")
+text = "Cancelar"
+
+[node name="ModeSelectionWindow" type="Window" parent="Overlay"]
+initial_position = 2
+size = Vector2i(300, 100)
+transient = true
+exclusive = true
+unresizable = true
+borderless = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/ModeSelectionWindow"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 236.0
+offset_bottom = 97.0
+
+[node name="Label" type="Label" parent="Overlay/ModeSelectionWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 20
+text = "Selecciona el modo de partida"
+
+[node name="StrategyButton" type="Button" parent="Overlay/ModeSelectionWindow/VBoxContainer"]
+layout_mode = 2
+text = "Strategy"
+script = ExtResource("6_g1x1w")
+
+[node name="IntuitionButton" type="Button" parent="Overlay/ModeSelectionWindow/VBoxContainer"]
+layout_mode = 2
+text = "Intuition"
+
+[node name="Timer" type="Timer" parent="Overlay/ModeSelectionWindow/VBoxContainer"]
+wait_time = 1.5
+
+[node name="TextureButton" type="TextureButton" parent="Overlay/ModeSelectionWindow/VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="."]
+visible = false
+offset_left = 1117.0
+offset_top = 529.0
+offset_right = 1389.0
+offset_bottom = 552.0
+text = "sdfasldjfalsdjfalsdjf
+"
 
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
-[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/OKButton" to="." method="_on_ok_button_pressed"]
+[connection signal="pressed" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/StrategyButton" to="." method="_on_strategy_button_pressed"]
+[connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/IntuitionButton" to="." method="_on_intuition_button_pressed"]
+[connection signal="timeout" from="Overlay/ModeSelectionWindow/VBoxContainer/Timer" to="Overlay/ModeSelectionWindow/VBoxContainer/StrategyButton" method="_on_timer_timeout"]
