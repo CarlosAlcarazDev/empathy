@@ -17,9 +17,10 @@ var game_mode: String = ""
 var ia_difficulty: Difficulty = Difficulty.ESTUDIANTE  # Valor por defecto
 
 # Opciones
-var music_volume = 50
-var sfx_volume = 50
-
+var music_volume: int
+var sfx_volume: int
+var antialiasing_selected: int
+var temp_antialiasing_selected: int
 
 
 

@@ -48,7 +48,8 @@ var last_texture_index = -1  # Índice de la última textura seleccionada
 func _ready():
 	# Carga la configuración de las opciones guardadas en //users
 	load_config()
-	music_player.volume_db = volume["music"]
+	var volume_db = lerp(-80, 0, volume["music"] / 100.0)
+	music_player.volume_db = volume_db
 	id_label.text = "ID: " + str(GlobalData.id)
 	user_label.text = "Usuario: " + GlobalData.user
 	exit_window.position = Vector2(785,484)
@@ -195,7 +196,3 @@ func _on_options_button_pressed():
 
 	# Mostrar el panel de selección de modo	
 	option_window.show()
-
-
-func _on_cancel_option_button_pressed():
-	close_option_window()
