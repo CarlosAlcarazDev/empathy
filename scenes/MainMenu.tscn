@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://fl3m5e2kgfnv"]
+[gd_scene load_steps=29 format=3 uid="uid://fl3m5e2kgfnv"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_60ffg"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
@@ -6,10 +6,11 @@
 [ext_resource type="AudioStream" uid="uid://dx2fo7t2540dk" path="res://assets/audio/music/Stand Strong.mp3" id="4_uk030"]
 [ext_resource type="Shader" path="res://scripts/MainMenu.gdshader" id="5_4lncx"]
 [ext_resource type="Texture2D" uid="uid://bmqx20spjktk8" path="res://assets/images/backgrounds/bg_card_intuition_info.png" id="6_pae60"]
-[ext_resource type="Script" path="res://scenes/bg_card_1_texture_button.gd" id="7_ll3kt"]
+[ext_resource type="Script" path="res://scripts/bg_card_1_texture_button.gd" id="7_ll3kt"]
 [ext_resource type="Texture2D" uid="uid://c2ndnemxcb3qi" path="res://assets/images/backgrounds/bg_card_strategy_stats.png" id="7_o0epr"]
-[ext_resource type="Script" path="res://scenes/bg_card_2_texture_button.gd" id="9_sta3f"]
-[ext_resource type="Script" path="res://scenes/option_window.gd" id="10_aj7d5"]
+[ext_resource type="Script" path="res://scripts/bg_card_2_texture_button.gd" id="9_sta3f"]
+[ext_resource type="Script" path="res://scripts/option_window.gd" id="10_aj7d5"]
+[ext_resource type="AudioStream" uid="uid://don1lj4prc0rk" path="res://assets/audio/sfx/146721__leszek_szary__menu-click.wav" id="11_1oieo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qmmk"]
 
@@ -95,6 +96,13 @@ bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpojq"]
 bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nyjw5"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63l8y"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -110,6 +118,7 @@ offset_left = 45.0
 offset_top = 107.0
 offset_right = 1186.0
 offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_fonts/font = ExtResource("2_ne65k")
 theme_override_font_sizes/font_size = 200
 text = "Caminos de Empatía"
@@ -139,8 +148,8 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 100.0
 offset_top = 160.0
-offset_right = 273.0
-offset_bottom = 416.0
+offset_right = 289.0
+offset_bottom = 436.0
 
 [node name="NewGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -445,7 +454,7 @@ script = ExtResource("10_aj7d5")
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/OptionWindow"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 197.0
+offset_bottom = 245.0
 grow_horizontal = 2
 alignment = 1
 
@@ -469,6 +478,8 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 18
 text = "Volumen de la música"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer"]
@@ -483,6 +494,8 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 18
 text = "Volumen de los efectos"
 
 [node name="SFXVolumeSlider" type="HSlider" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer2"]
@@ -497,12 +510,33 @@ size_flags_vertical = 3
 [node name="Label2" type="Label" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 18
 text = "Antialiasing"
 
 [node name="AntialiasingOption" type="OptionButton" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_nyjw5")
+flat = true
+
+[node name="CreditsHBoxContainer" type="HBoxContainer" parent="Overlay/OptionWindow/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreditsButton" type="Button" parent="Overlay/OptionWindow/VBoxContainer/CreditsHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/focus = SubResource("StyleBoxFlat_63l8y")
+text = "Créditos"
+
+[node name="HSeparator2" type="HSeparator" parent="Overlay/OptionWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="Overlay/OptionWindow/VBoxContainer"]
 layout_mode = 2
@@ -548,10 +582,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_f4eia")
 theme_override_styles/normal = SubResource("StyleBoxFlat_li4e7")
 text = "Cancelar"
 
+[node name="BeepAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_1oieo")
+
+[connection signal="mouse_entered" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_mouse_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/OKButton" to="." method="_on_ok_button_mouse_entered"]
 [connection signal="pressed" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/OKButton" to="." method="_on_ok_button_pressed"]
+[connection signal="mouse_entered" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_mouse_entered"]
 [connection signal="pressed" from="Overlay/ExitWindow/VBoxContainer/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
 [connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer2/IntuitionButton" to="." method="_on_intuition_button_pressed"]
 [connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer2/StrategyButton" to="." method="_on_strategy_button_pressed"]
@@ -559,5 +602,8 @@ text = "Cancelar"
 [connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer/BgCardIntuitionTextureButton" to="." method="_on_bg_card_intuition_texture_button_pressed"]
 [connection signal="mouse_entered" from="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer/BgCardStrategyTextureButton" to="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer/BgCardStrategyTextureButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="Overlay/ModeSelectionWindow/VBoxContainer/HBoxContainer/BgCardStrategyTextureButton" to="." method="_on_bg_card_strategy_texture_button_pressed"]
+[connection signal="pressed" from="Overlay/OptionWindow/VBoxContainer/CreditsHBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="mouse_entered" from="Overlay/OptionWindow/VBoxContainer/HBoxContainer4/SaveOptionButton" to="." method="_on_save_option_button_mouse_entered"]
 [connection signal="pressed" from="Overlay/OptionWindow/VBoxContainer/HBoxContainer4/SaveOptionButton" to="Overlay/OptionWindow" method="_on_save_option_button_pressed"]
+[connection signal="mouse_entered" from="Overlay/OptionWindow/VBoxContainer/HBoxContainer4/CancelOptionButton" to="." method="_on_cancel_option_button_mouse_entered"]
 [connection signal="pressed" from="Overlay/OptionWindow/VBoxContainer/HBoxContainer4/CancelOptionButton" to="Overlay/OptionWindow" method="_on_cancel_option_button_pressed"]

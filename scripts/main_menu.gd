@@ -23,6 +23,9 @@ extends Control
 @onready var exit_window = $Overlay/ExitWindow
 @onready var mode_selection_window = $Overlay/ModeSelectionWindow
 @onready var option_window = $Overlay/OptionWindow
+@onready var beep_audio_stream_player = $BeepAudioStreamPlayer
+
+@onready var new_game_button = $VBoxContainer/NewGameButton
 
 
 # Precarga las texturas que se mostrarán aleatoriamente
@@ -50,6 +53,8 @@ func _ready():
 	load_config()
 	var volume_db = lerp(-80, 0, volume["music"] / 100.0)
 	music_player.volume_db = volume_db
+	volume_db = lerp(-80, 0, volume["sfx"] / 100.0)
+	beep_audio_stream_player.volume_db = volume_db
 	id_label.text = "ID: " + str(GlobalData.id)
 	user_label.text = "Usuario: " + GlobalData.user
 	exit_window.position = Vector2(785,484)
@@ -57,7 +62,7 @@ func _ready():
 	mode_selection_window.position = Vector2(500,450)
 	mode_selection_window.size = Vector2(850,600)
 	option_window.position = Vector2(710,500)
-	option_window.size = Vector2(500,500)
+	option_window.size = Vector2(500,550)
 	randomize()  # Inicializa el generador de números aleatorios
 	
 	# Carga el último índice de textura desde el archivo
@@ -196,3 +201,42 @@ func _on_options_button_pressed():
 
 	# Mostrar el panel de selección de modo	
 	option_window.show()
+
+
+func _on_new_game_button_mouse_entered():
+	play_beep_sound()
+
+func _on_load_game_button_mouse_entered():
+	play_beep_sound()
+	
+func _on_options_button_mouse_entered():
+	play_beep_sound()
+
+func _on_quit_button_mouse_entered():
+	play_beep_sound()
+
+func play_beep_sound():
+	if beep_audio_stream_player.playing:
+		beep_audio_stream_player.stop()
+	beep_audio_stream_player.play()
+
+
+func _on_ok_button_mouse_entered():
+	play_beep_sound()
+
+
+func _on_cancel_button_mouse_entered():
+	play_beep_sound()
+
+
+func _on_save_option_button_mouse_entered():
+	play_beep_sound()
+
+
+func _on_cancel_option_button_mouse_entered():
+	play_beep_sound()
+
+
+func _on_credits_button_pressed():
+	
+	get_tree().change_scene_to_file("res://scenes/CreditsScreen.tscn")

@@ -1,14 +1,37 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731089094
+::res://::1731104462
 export_presets.cfg::TextFile::-1::1730889504::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1730905698::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
 README.md::TextFile::-1::1730905698::0::1::::<><>::
-::res://assets/::1730889615
+::res://assets/::1731095490
+::res://assets/animations/::1731100901
+credits_scroll.res::Animation::8710586602819653987::1731100901::0::1::::<><>::
 ::res://assets/audio/::1730905698
-::res://assets/audio/music/::1730905712
+::res://assets/audio/music/::1731101716
+Ace of Hearts (1).mp3::AudioStreamMP3::6798057598098858491::1731101228::1731101716::1::::<><>::
+Ace of Hearts.mp3::AudioStreamMP3::6031826633818659176::1731101223::1731101716::1::::<><>::
+Ascend the Horizon (1).mp3::AudioStreamMP3::7240173835850695567::1731101237::1731101716::1::::<><>::
+Ascend the Horizon.mp3::AudioStreamMP3::2436374502585709712::1731101233::1731101716::1::::<><>::
+Card Shark Groove (1).mp3::AudioStreamMP3::8424145542661734862::1731101219::1731101716::1::::<><>::
+Card Shark Groove.mp3::AudioStreamMP3::7752293313346854725::1731101216::1731101716::1::::<><>::
+Mystery Cards (1).mp3::AudioStreamMP3::4654139649019538336::1731101245::1731101716::1::::<><>::
+Mystery Cards.mp3::AudioStreamMP3::2520671723041167030::1731101240::1731101716::1::::<><>::
+Mystery Shuffle (1).mp3::AudioStreamMP3::3284714292544510553::1731101250::1731101716::1::::<><>::
+Mystery Shuffle.mp3::AudioStreamMP3::8429604635919543879::1731101247::1731101716::1::::<><>::
+Nebula Dreams (1).mp3::AudioStreamMP3::169197616817083405::1731101194::1731101716::1::::<><>::
+Nebula Dreams.mp3::AudioStreamMP3::5102383741517579345::1731101189::1731101716::1::::<><>::
+Neon Memories (1).mp3::AudioStreamMP3::5056199611208399782::1731101208::1731101716::1::::<><>::
+Neon Memories.mp3::AudioStreamMP3::5932694030459023232::1731101204::1731101716::1::::<><>::
+Neon Stardust (1).mp3::AudioStreamMP3::959844050964628641::1731101201::1731101716::1::::<><>::
+Neon Stardust.mp3::AudioStreamMP3::112456294520394647::1731101198::1731101716::1::::<><>::
+Sakura Beats at Midnight (1).mp3::AudioStreamMP3::9111683683674497114::1731101260::1731101716::1::::<><>::
+Sakura Beats at Midnight.mp3::AudioStreamMP3::4391336291095536349::1731101257::1731101716::1::::<><>::
+Shadow Chase (1).mp3::AudioStreamMP3::8010732380268152885::1731101213::1731101716::1::::<><>::
+Shadow Chase.mp3::AudioStreamMP3::5014600962900143729::1731101210::1731101716::1::::<><>::
 Stand Strong.mp3::AudioStreamMP3::8829673951558666684::1730905698::1730905712::1::::<><>::
-::res://assets/audio/sfx/::1730905712
+::res://assets/audio/sfx/::1731090492
+146721__leszek_szary__menu-click.wav::AudioStreamWAV::8170341576573252080::1731090492::1731090492::1::::<><>::
 611451__eminyildirim__ui-click-menu-hover.mp3::AudioStreamMP3::1358486130697880585::1730889615::1730905712::1::::<><>::
 ::res://assets/fonts/::1730905712
 AmaticSC-Bold.ttf::FontFile::3437342724375381772::1730889615::1730905712::1::::<><>::
@@ -31,20 +54,22 @@ login_bg_4.png::CompressedTexture2D::3182301854997895449::1730889615::1730905712
 ::res://assets/ui/icons/::1730889615
 ::res://data/::1730718310
 ::res://Release/::1730889616
-::res://scenes/::1731089028
+::res://scenes/::1731104408
+CreditsScreen.tscn::PackedScene::1759830202223811529::1731104408::0::1::::<><>::res://scripts/credits_screen.gd<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://0ei5ks106f0x::::res://assets/images/backgrounds/bg_2.png<>uid://d221dmqsad5h3::::res://assets/audio/music/Sakura Beats at Midnight (1).mp3
+LoginScreen.tscn::PackedScene::1313656412464842337::1731104408::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1731104408::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
+NewGame.tscn::PackedScene::8343482360881582560::1731104408::0::1::::<><>::res://scripts/new_game.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res
+RegisterUser.tscn::PackedScene::6858974625120363631::1731104408::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
+::res://scripts/::1731104429
 bg_card_1_texture_button.gd::GDScript::-1::1731058200::0::1::::<>TextureButton<>::
 bg_card_2_texture_button.gd::GDScript::-1::1731056698::0::1::::<>TextureButton<>::
-LoginScreen.tscn::PackedScene::1313656412464842337::1731089028::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1731089028::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scenes/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scenes/bg_card_2_texture_button.gd<>res://scenes/option_window.gd
-NewGame.tscn::PackedScene::8343482360881582560::1731089028::0::1::::<><>::res://scripts/new_game.gd
-option_window.gd::GDScript::-1::1731089027::0::1::::<>Window<>::
-RegisterUser.tscn::PackedScene::6858974625120363631::1731089028::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
-strategy_button.gd::GDScript::-1::1731020533::0::1::::<>Button<>::
-::res://scripts/::1731089085
+credits_screen.gd::GDScript::-1::1731104268::0::1::::<>Control<>::
 game_config.gd::GDScript::-1::1731087732::0::1::::<>Node<>::
 global_data.gd::GDScript::-1::1730889615::0::1::::<>Node<>::
 login_screen.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
-MainMenu.gdshader::Shader::-1::1731089085::0::1::::<><>::
-main_menu.gd::GDScript::-1::1731079421::0::1::::<>Control<>::
-new_game.gd::GDScript::-1::1731013556::0::1::::<>Control<>::
-register_user.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
+MainMenu.gdshader::Shader::-1::1731104429::0::1::::<><>::
+main_menu.gd::GDScript::-1::1731103837::0::1::::<>Control<>::
+new_game.gd::GDScript::-1::1731095573::0::1::::<>Control<>::
+option_window.gd::GDScript::-1::1731091504::0::1::::<>Window<>::
+register_user.gd::GDScript::-1::1731104268::0::1::::<>Control<>::
+strategy_button.gd::GDScript::-1::1731020533::0::1::::<>Button<>::
