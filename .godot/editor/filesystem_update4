@@ -1,9 +1,9 @@
 res://scenes/LoginScreen.tscn
+res://scripts/MainMenu.gdshader
 res://scenes/MainMenu.tscn
 res://scenes/NewGame.tscn
-res://scripts/GameConfig.gd
-res://scripts/new_game.gd
-res://scripts/game_config.gd
-res://scripts/MainMenu.gdshader
+res://scenes/bg_card_1_texture_button.gd
+res://scenes/bg_card_2_texture_button.gd
 res://scripts/main_menu.gd
-res://scenes/strategy_button.gd
+res://scenes/option_window.gd
+res://scripts/game_config.gd

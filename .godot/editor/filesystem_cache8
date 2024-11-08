@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731013774
+::res://::1731056216
 export_presets.cfg::TextFile::-1::1730889504::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1730905698::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
@@ -15,7 +15,12 @@ AmaticSC-Bold.ttf::FontFile::3437342724375381772::1730889615::1730905712::1::::<
 AmaticSC-Regular.ttf::FontFile::4055412093295606319::1730889615::1730905712::1::::<><>::
 Roboto-Bold.ttf::FontFile::2535961915004807042::1730889615::1730905712::1::::<><>::
 Roboto-Medium.ttf::FontFile::8681813818561923959::1730889615::1730905712::1::::<><>::
-::res://assets/images/::1730721797
+::res://assets/images/::1731023510
+::res://assets/images/backgrounds/::1731027366
+bg_1.webp::CompressedTexture2D::539942794984846246::1731023573::1731024794::1::::<><>::
+bg_2.png::CompressedTexture2D::1763518465982262725::1731023573::1731023574::1::::<><>::
+bg_card_intuition_info.png::CompressedTexture2D::3263162900267713793::1731027331::1731027366::1::::<><>::
+bg_card_strategy_stats.png::CompressedTexture2D::6694982652393729824::1731027352::1731027366::1::::<><>::
 ::res://assets/ui/::1730889615
 ::res://assets/ui/backgrounds/::1730905712
 intro_bg.png::CompressedTexture2D::3419680884151209951::1730889615::1730905712::1::::<><>::
@@ -26,16 +31,18 @@ login_bg_4.png::CompressedTexture2D::3182301854997895449::1730889615::1730905712
 ::res://assets/ui/icons/::1730889615
 ::res://data/::1730718310
 ::res://Release/::1730889616
-::res://scenes/::1731014838
-LoginScreen.tscn::PackedScene::1313656412464842337::1731014838::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1731014838::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3
-NewGame.tscn::PackedScene::8343482360881582560::1731014838::0::1::::<><>::res://scripts/new_game.gd
+::res://scenes/::1731056176
+bg_card_1_texture_button.gd::GDScript::-1::1731055843::0::1::::<>TextureButton<>::
+LoginScreen.tscn::PackedScene::1313656412464842337::1731056176::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1731056176::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scenes/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png
+NewGame.tscn::PackedScene::8343482360881582560::1731056176::0::1::::<><>::res://scripts/new_game.gd
 RegisterUser.tscn::PackedScene::6858974625120363631::1730904905::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
-MainMenu.gdshader::Shader::-1::1731015032::0::1::::<><>::
-::res://scripts/::1731014653
+strategy_button.gd::GDScript::-1::1731020533::0::1::::<>Button<>::
+::res://scripts/::1731056206
 game_config.gd::GDScript::-1::1731014653::0::1::::<>Node<>::
 global_data.gd::GDScript::-1::1730889615::0::1::::<>Node<>::
 login_screen.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
-main_menu.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
+MainMenu.gdshader::Shader::-1::1731056206::0::1::::<><>::
+main_menu.gd::GDScript::-1::1731056156::0::1::::<>Control<>::
 new_game.gd::GDScript::-1::1731013556::0::1::::<>Control<>::
 register_user.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
