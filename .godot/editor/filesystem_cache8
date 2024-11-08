@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731056216
+::res://::1731065017
 export_presets.cfg::TextFile::-1::1730889504::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1730905698::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
@@ -31,18 +31,20 @@ login_bg_4.png::CompressedTexture2D::3182301854997895449::1730889615::1730905712
 ::res://assets/ui/icons/::1730889615
 ::res://data/::1730718310
 ::res://Release/::1730889616
-::res://scenes/::1731056176
-bg_card_1_texture_button.gd::GDScript::-1::1731055843::0::1::::<>TextureButton<>::
-LoginScreen.tscn::PackedScene::1313656412464842337::1731056176::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1731056176::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scenes/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png
-NewGame.tscn::PackedScene::8343482360881582560::1731056176::0::1::::<><>::res://scripts/new_game.gd
+::res://scenes/::1731064859
+bg_card_1_texture_button.gd::GDScript::-1::1731058200::0::1::::<>TextureButton<>::
+bg_card_2_texture_button.gd::GDScript::-1::1731056698::0::1::::<>TextureButton<>::
+LoginScreen.tscn::PackedScene::1313656412464842337::1731064859::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1731064859::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scenes/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scenes/bg_card_2_texture_button.gd<>res://scenes/option_window.gd
+NewGame.tscn::PackedScene::8343482360881582560::1731064859::0::1::::<><>::res://scripts/new_game.gd
+option_window.gd::GDScript::-1::1731064640::0::1::::<>Window<>::
 RegisterUser.tscn::PackedScene::6858974625120363631::1730904905::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
 strategy_button.gd::GDScript::-1::1731020533::0::1::::<>Button<>::
-::res://scripts/::1731056206
-game_config.gd::GDScript::-1::1731014653::0::1::::<>Node<>::
+::res://scripts/::1731064948
+game_config.gd::GDScript::-1::1731064105::0::1::::<>Node<>::
 global_data.gd::GDScript::-1::1730889615::0::1::::<>Node<>::
 login_screen.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
-MainMenu.gdshader::Shader::-1::1731056206::0::1::::<><>::
-main_menu.gd::GDScript::-1::1731056156::0::1::::<>Control<>::
+MainMenu.gdshader::Shader::-1::1731064948::0::1::::<><>::
+main_menu.gd::GDScript::-1::1731064640::0::1::::<>Control<>::
 new_game.gd::GDScript::-1::1731013556::0::1::::<>Control<>::
 register_user.gd::GDScript::-1::1730905698::0::1::::<>Control<>::

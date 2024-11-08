@@ -35,14 +35,20 @@ const TEXTURES = [
 const LAST_TEXTURE = "user://last_texture_index.txt"
 # Ruta del archivo JSON donde se almacenan los datos de usuario
 const USER_DATA_FILE := "user://users.json"
+const CONFIG_FILE := "user://game_config.cfg"
 
+var volume = {
+	"music": 0.0,
+	"sfx": 0.0
+}
 
 var last_texture_index = -1  # Índice de la última textura seleccionada
 
 
 func _ready():
-	var volume_db = lerp(-80, 0, GameConfig.music_volume / 100.0)
-	music_player.volume_db = volume_db
+	# Carga la configuración de las opciones guardadas en //users
+	load_config()
+	music_player.volume_db = volume["music"]
 	id_label.text = "ID: " + str(GlobalData.id)
 	user_label.text = "Usuario: " + GlobalData.user
 	exit_window.position = Vector2(785,484)
@@ -99,6 +105,25 @@ func load_last_texture_index():
 		else:
 			last_texture_index = -1
 
+
+
+# Función para cargar la configuración desde un archivo con solo dos líneas
+func load_config():
+	if FileAccess.file_exists(CONFIG_FILE):
+		var file = FileAccess.open(CONFIG_FILE, FileAccess.READ)
+		if file:
+			var music_line = file.get_line().strip_edges()  # Leer la primera línea (música)
+			var sfx_line = file.get_line().strip_edges()    # Leer la segunda línea (SFX)
+			if music_line.is_valid_float():
+				volume["music"] = music_line.to_float()
+			if sfx_line.is_valid_float():
+				volume["sfx"] = sfx_line.to_float()
+			file.close()
+			print("Configuración cargada desde user://game_config.cfg")
+		else:
+			print("Error al leer el archivo de configuración")
+	else:
+		print("No se encontró un archivo de configuración, usando valores predeterminados")
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/LoginScreen.tscn")

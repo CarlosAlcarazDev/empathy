@@ -200,7 +200,6 @@ scale = Vector2(0.4, 0.4)
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_uk030")
-volume_db = 1.886
 autoplay = true
 
 [node name="Overlay" type="Control" parent="."]
