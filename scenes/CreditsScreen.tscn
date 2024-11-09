@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://0cqe8e2vkmp2"]
+[gd_scene load_steps=10 format=3 uid="uid://0cqe8e2vkmp2"]
 
 [ext_resource type="Script" path="res://scripts/credits_screen.gd" id="1_t2e7a"]
 [ext_resource type="Animation" uid="uid://dwdqdas5epdkl" path="res://assets/animations/credits_scroll.res" id="2_i3n5c"]
 [ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="2_tpfb1"]
 [ext_resource type="Texture2D" uid="uid://0ei5ks106f0x" path="res://assets/images/backgrounds/bg_2.png" id="3_jimqo"]
 [ext_resource type="AudioStream" uid="uid://d221dmqsad5h3" path="res://assets/audio/music/Sakura Beats at Midnight (1).mp3" id="5_40gtc"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="6_pk0vi"]
 
 [sub_resource type="Theme" id="Theme_kinoj"]
 
@@ -190,10 +191,12 @@ libraries = {
 stream = ExtResource("5_40gtc")
 autoplay = true
 
-[node name="Label" type="Label" parent="."]
+[node name="EscapeLabel" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_pk0vi")
+theme_override_font_sizes/font_size = 19
 text = "Esc para salir"
 
 [connection signal="animation_finished" from="VBoxContainer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

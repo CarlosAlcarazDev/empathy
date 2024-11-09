@@ -12,8 +12,6 @@
 extends Control
 
 
-@onready var user_label = $UserLabel
-@onready var id_label = $IDLabel
 
 @onready var music_player = $MusicPlayer
 
@@ -55,8 +53,6 @@ func _ready():
 	music_player.volume_db = volume_db
 	volume_db = lerp(-80, 0, volume["sfx"] / 100.0)
 	beep_audio_stream_player.volume_db = volume_db
-	id_label.text = "ID: " + str(GlobalData.id)
-	user_label.text = "Usuario: " + GlobalData.user
 	exit_window.position = Vector2(785,484)
 	exit_window.size = Vector2(350,112)
 	mode_selection_window.position = Vector2(500,450)
@@ -235,8 +231,3 @@ func _on_save_option_button_mouse_entered():
 
 func _on_cancel_option_button_mouse_entered():
 	play_beep_sound()
-
-
-func _on_credits_button_pressed():
-	
-	get_tree().change_scene_to_file("res://scenes/CreditsScreen.tscn")

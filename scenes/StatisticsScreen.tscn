@@ -1,0 +1,466 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmyg2g0gima31"]
+
+[ext_resource type="Script" path="res://scripts/statistics_screen.gd" id="1_h0gp4"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_l5hmj"]
+
+[node name="StatisticsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h0gp4")
+
+[node name="EscapeLabel" type="Label" parent="."]
+layout_mode = 1
+offset_right = 155.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 19
+text = "Esc para salir"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -190.0
+offset_right = 356.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 24
+text = "Perfil del Jugador"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IDHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IDLabel" type="Label" parent="VBoxContainer/IDHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "ID del Jugador"
+
+[node name="IDPlayer" type="Label" parent="VBoxContainer/IDHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "123"
+horizontal_alignment = 1
+
+[node name="UsernameHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Nombre de usuario"
+
+[node name="UsernamePlayer" type="Label" parent="VBoxContainer/UsernameHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Carlos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DateHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Fecha de creación"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "03/12/1978"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 24
+text = "Estadísticas generales"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IDHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IDLabel" type="Label" parent="VBoxContainer/IDHBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Nº de inicios de sesión"
+
+[node name="IDPlayer" type="Label" parent="VBoxContainer/IDHBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "53"
+horizontal_alignment = 1
+
+[node name="UsernameHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Partidas iniciadas
+"
+
+[node name="UsernamePlayer" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DateHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Partidas ganadas         "
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "12"
+horizontal_alignment = 1
+
+[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "(20% de las jugadas)"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Partidas perdidas         "
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 15
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "6"
+horizontal_alignment = 1
+
+[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "(30% de las jugadas)"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Partidas abandonadas"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "5"
+horizontal_alignment = 1
+
+[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "(20% de las jugadas)"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Puntuación media"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "67"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Media tiempos por tiradas"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "15.2 s"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Cartas Innovación y creatividad conseguidas"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Total de estrategias efectivas"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer11" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Total de estrategias efectivas"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Total tokens desde inicio"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "6"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer12" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens bullying Sexual"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer13" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens bullying Físico"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer14" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens Ciberbullying"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer15" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens bullying Psicológico"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer16" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens bullying Exclusión Social"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer17" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label6" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
+layout_mode = 2
+text = "          "
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens bullying Verbal"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tokens por partida"
+
+[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1

@@ -135,3 +135,10 @@ func play_beep_sound():
 	if beep_audio_stream_player.playing:
 		beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()
+
+
+func _on_statistics_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/StatisticsScreen.tscn")
+	
+func _on_credits_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/CreditsScreen.tscn")

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731104462
+::res://::1731111618
 export_presets.cfg::TextFile::-1::1730889504::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1730905698::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
@@ -54,22 +54,24 @@ login_bg_4.png::CompressedTexture2D::3182301854997895449::1730889615::1730905712
 ::res://assets/ui/icons/::1730889615
 ::res://data/::1730718310
 ::res://Release/::1730889616
-::res://scenes/::1731104408
-CreditsScreen.tscn::PackedScene::1759830202223811529::1731104408::0::1::::<><>::res://scripts/credits_screen.gd<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://0ei5ks106f0x::::res://assets/images/backgrounds/bg_2.png<>uid://d221dmqsad5h3::::res://assets/audio/music/Sakura Beats at Midnight (1).mp3
-LoginScreen.tscn::PackedScene::1313656412464842337::1731104408::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1731104408::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
-NewGame.tscn::PackedScene::8343482360881582560::1731104408::0::1::::<><>::res://scripts/new_game.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res
-RegisterUser.tscn::PackedScene::6858974625120363631::1731104408::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
-::res://scripts/::1731104429
+::res://scenes/::1731111526
+CreditsScreen.tscn::PackedScene::1759830202223811529::1731111525::0::1::::<><>::res://scripts/credits_screen.gd<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://0ei5ks106f0x::::res://assets/images/backgrounds/bg_2.png<>uid://d221dmqsad5h3::::res://assets/audio/music/Sakura Beats at Midnight (1).mp3<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
+LoginScreen.tscn::PackedScene::1313656412464842337::1731111525::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1731111525::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
+NewGame.tscn::PackedScene::8343482360881582560::1731111525::0::1::::<><>::res://scripts/new_game.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res
+RegisterUser.tscn::PackedScene::6858974625120363631::1731111525::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
+StatisticsScreen.tscn::PackedScene::5665065429576043442::1731111526::0::1::::<><>::res://scripts/statistics_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
+::res://scripts/::1731111598
 bg_card_1_texture_button.gd::GDScript::-1::1731058200::0::1::::<>TextureButton<>::
 bg_card_2_texture_button.gd::GDScript::-1::1731056698::0::1::::<>TextureButton<>::
 credits_screen.gd::GDScript::-1::1731104268::0::1::::<>Control<>::
 game_config.gd::GDScript::-1::1731087732::0::1::::<>Node<>::
-global_data.gd::GDScript::-1::1730889615::0::1::::<>Node<>::
-login_screen.gd::GDScript::-1::1730905698::0::1::::<>Control<>::
-MainMenu.gdshader::Shader::-1::1731104429::0::1::::<><>::
-main_menu.gd::GDScript::-1::1731103837::0::1::::<>Control<>::
+global_data.gd::GDScript::-1::1731111160::0::1::::<>Node<>::
+login_screen.gd::GDScript::-1::1731108053::0::1::::<>Control<>::
+MainMenu.gdshader::Shader::-1::1731111598::0::1::::<><>::
+main_menu.gd::GDScript::-1::1731107517::0::1::::<>Control<>::
 new_game.gd::GDScript::-1::1731095573::0::1::::<>Control<>::
-option_window.gd::GDScript::-1::1731091504::0::1::::<>Window<>::
-register_user.gd::GDScript::-1::1731104268::0::1::::<>Control<>::
+option_window.gd::GDScript::-1::1731107533::0::1::::<>Window<>::
+register_user.gd::GDScript::-1::1731108053::0::1::::<>Control<>::
+statistics_screen.gd::GDScript::-1::1731108731::0::1::::<>Control<>::
 strategy_button.gd::GDScript::-1::1731020533::0::1::::<>Button<>::

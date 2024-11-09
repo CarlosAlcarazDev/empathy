@@ -20,7 +20,8 @@ const USER_DATA_FILE := "user://users.json"
 @onready var email_input = $VBoxContainer/EmailInput
 @onready var info_label = $VBoxContainer/InfoLabel
 @onready var register_button = $RegisterButton
-
+# Importar el módulo Time para obtener la fecha y hora actuales
+var time_now = Time.get_datetime_dict_from_system()
 
 # Variable para almacenar los datos de usuarios cargados
 var users = []
@@ -102,7 +103,8 @@ func register_user():
 		"id": new_id,
 		"username": username,
 		"password": password,
-		"email": email
+		"email": email,
+		"created_at": time_now
 	}
 	
 	# Agregar el nuevo usuario a la lista de usuarios
@@ -115,6 +117,8 @@ func register_user():
 	# del usuario para que en la pantalla de Login aparezcan directamente
 	GlobalData.user = username
 	GlobalData.password = password
+	GlobalData.created_at = time_now
+	
  # Mostrar mensaje de éxito
 	show_success("Usuario registrado con éxito.")
 
