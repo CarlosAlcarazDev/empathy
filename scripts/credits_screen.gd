@@ -5,11 +5,15 @@ extends Control
 
 
 func _ready():
-	animation_player.play("credits_scroll")
+	var volume_db = lerp(-80, 0, GameConfig.music_volume / 100.0)
+	audio_stream_player.volume_db = volume_db
+	print("velocidad: " +str(animation_player.get_playing_speed()))
+	animation_player.play("credits_scroll", 0, 0.5)
+	
 
 	
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished():
 	
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 	

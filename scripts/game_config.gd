@@ -13,6 +13,7 @@ enum Difficulty { ESTUDIANTE, PROFESOR, PSICOLOGO }
 # Modo de partida
 var game_mode: String = ""
 
+
 # Dificultad de la IA: "Estudiante", "Profesor", "Psicólogo"
 var ia_difficulty: Difficulty = Difficulty.ESTUDIANTE  # Valor por defecto
 

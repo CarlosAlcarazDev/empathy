@@ -1,4 +1,16 @@
 # empathy
+12/11/24
+Inicio de las partidas. Da igual intuicion o estrategia por falta de los json.
+Se presentan las cartas en pantalla
+Creación NO dinamica. Falta acabar de crear los JSON
+Si se pasa por encima se amplia la carta
+si doble click se selecciona la carta
+Se eligen las 2 cartas y pasados n segundos muestra las cartas seleccionadas
+Cuenta atras de n segundos para las tiradas y 20 minutos para la partida final
+Se descarta drag drop para las cartas
+Version 0.1.1.0
+
+
 09/11/24
 Main menu listo a falta de cargar partida
 Primera aproximación de Créditos (Falta redactarlo entero)

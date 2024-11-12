@@ -148,9 +148,7 @@ func _on_new_game_button_pressed():
 	# Mostrar el panel de selección de modo	
 	mode_selection_window.show()
 
-func _on_strategy_button_pressed():
-	GameConfig.game_mode = "Estrategia"
-	close_mode_selection_window()
+
 
 func close_mode_selection_window():
 	# Ocultar la ventana y el desenfoque del fondo
@@ -163,10 +161,17 @@ func close_option_window():
 	blur_overlay.visible = false
 
 
-
+func _on_strategy_button_pressed():
+	GameConfig.game_mode = "Estrategia"
+	close_mode_selection_window()
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://scenes/NewGame.tscn")
+	
 func _on_intuition_button_pressed():
 	GameConfig.game_mode = "Intuición"
 	close_mode_selection_window()
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://scenes/NewGame.tscn")
 
 
 func _on_ok_button_pressed():
@@ -182,13 +187,11 @@ func _on_cancel_button_pressed():
 
 
 func _on_bg_card_strategy_texture_button_pressed():
-	print("pressed strategy")
-	close_mode_selection_window()
+	_on_strategy_button_pressed()
 
 
 func _on_bg_card_intuition_texture_button_pressed():
-	print("pressed intuition")
-	close_mode_selection_window()
+	_on_intuition_button_pressed()
 
 
 func _on_options_button_pressed():
