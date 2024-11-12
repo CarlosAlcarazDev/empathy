@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsaypf6s4pkc1"
+path="res://.godot/imported/Card Shark Groove (1).mp3-2152ae0bd4c27b3391253f7fda12154b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Card Shark Groove (1).mp3"
+dest_files=["res://.godot/imported/Card Shark Groove (1).mp3-2152ae0bd4c27b3391253f7fda12154b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

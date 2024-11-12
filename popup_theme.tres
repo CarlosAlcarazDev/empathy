@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://rl3jywk2q1pr"]
+
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="1_sd87f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fivj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d135k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1hg4a"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d22qf"]
+bg_color = Color(0.737193, 0.737193, 0.737193, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvmf8"]
+bg_color = Color(0.82846, 0.448349, 0.707674, 1)
+
+[resource]
+default_font = ExtResource("1_sd87f")
+default_font_size = 15
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxFlat_3fivj")
+AcceptDialog/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_d135k")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_1hg4a")
+Window/colors/title_color = Color(0.875, 0.875, 0.875, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
+Window/constants/close_h_offset = 18
+Window/constants/close_v_offset = 24
+Window/constants/resize_margin = 4
+Window/constants/title_height = 36
+Window/constants/title_outline_size = 0
+Window/font_sizes/title_font_size = 17
+Window/fonts/title_font = ExtResource("1_sd87f")
+Window/icons/close = null
+Window/icons/close_pressed = null
+Window/styles/embedded_border = SubResource("StyleBoxFlat_d22qf")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_bvmf8")

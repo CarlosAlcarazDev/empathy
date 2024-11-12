@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cexvrrb651xiv"
+path="res://.godot/imported/Nebula Dreams.mp3-28add5bd6ec12225372dd7a6bc045ca0.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Nebula Dreams.mp3"
+dest_files=["res://.godot/imported/Nebula Dreams.mp3-28add5bd6ec12225372dd7a6bc045ca0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

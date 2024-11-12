@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://syly166ddjcr"]
+[gd_scene load_steps=12 format=3 uid="uid://syly166ddjcr"]
 
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="1_hhy0g"]
 [ext_resource type="Script" path="res://scripts/login_screen.gd" id="1_p6odj"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="3_y3fwr"]
 [ext_resource type="AudioStream" uid="uid://tmcckyoghhtp" path="res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3" id="5_7p6uj"]
+
+[sub_resource type="Theme" id="Theme_hkrcc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xegu"]
 bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
@@ -126,6 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
+theme = SubResource("Theme_hkrcc")
 theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)

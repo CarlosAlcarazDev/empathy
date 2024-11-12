@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://xq2nciq3kbl"]
+
+[ext_resource type="Texture2D" uid="uid://w2rfngcbggle" path="res://assets/images/frames/black frame stat right.png" id="1_25q4g"]
+[ext_resource type="Script" path="res://scenes/card.gd" id="1_xbamo"]
+[ext_resource type="Texture2D" uid="uid://dyk8m7os7qjrp" path="res://assets/images/cards/bu/1_BU.webp" id="2_c1p4h"]
+[ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="3_ekob8"]
+
+[node name="Card" type="Control" node_paths=PackedStringArray("card_frame", "card_image", "title_card_label", "number_card_label", "type_card_label", "description_card_label")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = 386.0
+offset_right = -132.0
+offset_bottom = 1475.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.13, 0.13)
+script = ExtResource("1_xbamo")
+card_frame = NodePath("CardFrame")
+card_image = NodePath("CardImage")
+title_card_label = NodePath("TitleCardLabel")
+number_card_label = NodePath("NumberCardLabel")
+type_card_label = NodePath("TypeCardLabel")
+description_card_label = NodePath("DescriptionCardLabel")
+
+[node name="CardFrame" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("1_25q4g")
+
+[node name="CardImage" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("2_c1p4h")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("3_ekob8")
+theme_override_font_sizes/font_size = 72
+text = "Intimidación en el recreo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("3_ekob8")
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("3_ekob8")
+theme_override_font_sizes/font_size = 72
+text = "Físico"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("3_ekob8")
+theme_override_font_sizes/font_size = 70
+text = "Empatía - 1
+Apoyo Emocional - 5
+Intervención - 1
+Comunicación - 10
+Resolución de Conflictos - 5"
+horizontal_alignment = 1
+vertical_alignment = 1

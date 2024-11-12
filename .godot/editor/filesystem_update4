@@ -1,7 +1,3 @@
-res://scenes/LoginScreen.tscn
-res://scripts/register_user.gd
-res://scenes/MainMenu.tscn
-res://scenes/RegisterUser.tscn
+res://scenes/NewGame.tscn
+res://scripts/MainMenu.gdshader
 res://README.md
-res://scripts/global_data.gd
-res://scripts/login_screen.gd

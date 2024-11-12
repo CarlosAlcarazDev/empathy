@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb6bdh3a6hub3"
+path="res://.godot/imported/Mystery Cards.mp3-03a421f7fe8390762fb0941b99562bee.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Mystery Cards.mp3"
+dest_files=["res://.godot/imported/Mystery Cards.mp3-03a421f7fe8390762fb0941b99562bee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

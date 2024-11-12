@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buqeyncfwe5l"
+path="res://.godot/imported/Neon Stardust.mp3-66f10a5c48bb4a750caf9723d3fb6e08.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Neon Stardust.mp3"
+dest_files=["res://.godot/imported/Neon Stardust.mp3-66f10a5c48bb4a750caf9723d3fb6e08.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
