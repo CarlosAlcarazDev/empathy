@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://fl3m5e2kgfnv"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_60ffg"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="2_dav8f"]
+[ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="2_ne65k"]
+[ext_resource type="AudioStream" uid="uid://dx2fo7t2540dk" path="res://assets/audio/music/Stand Strong.mp3" id="4_uk030"]
+[ext_resource type="Theme" uid="uid://rl3jywk2q1pr" path="res://popup_theme.tres" id="5_kky05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qmmk"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60ffg")
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+offset_left = 45.0
+offset_top = 107.0
+offset_right = 1186.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("2_ne65k")
+theme_override_font_sizes/font_size = 200
+text = "Caminos de Empatía"
+
+[node name="UserLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1162.0
+offset_top = 80.0
+offset_right = 1557.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 34
+
+[node name="IDLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1196.0
+offset_top = 217.0
+offset_right = 1567.0
+offset_bottom = 331.0
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 34
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 160.0
+offset_right = 273.0
+offset_bottom = 416.0
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_fonts/font = ExtResource("2_ne65k")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qmmk")
+text = "Nueva Partida"
+flat = true
+
+[node name="LoadGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_fonts/font = ExtResource("2_ne65k")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qmmk")
+text = "Cargar Partida"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_fonts/font = ExtResource("2_ne65k")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qmmk")
+text = "Opciones"
+flat = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.117647, 0.564706, 1, 1)
+theme_override_colors/font_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_fonts/font = ExtResource("2_ne65k")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qmmk")
+text = "Salir"
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1356.0
+offset_top = 114.0
+offset_right = 2528.0
+offset_bottom = 1286.0
+scale = Vector2(0.4, 0.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_uk030")
+autoplay = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+msaa_2d = 3
+msaa_3d = 3
+title = "¿Seguro deseas salir?"
+initial_position = 2
+size = Vector2i(300, 80)
+visible = true
+theme = ExtResource("5_kky05")
+cancel_button_text = "Cancelar"
+
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

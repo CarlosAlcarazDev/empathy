@@ -1,0 +1,214 @@
+[gd_scene load_steps=10 format=3 uid="uid://0cqe8e2vkmp2"]
+
+[ext_resource type="Script" path="res://scripts/credits_screen.gd" id="1_t2e7a"]
+[ext_resource type="Animation" uid="uid://dwdqdas5epdkl" path="res://assets/animations/credits_scroll.res" id="2_i3n5c"]
+[ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="2_tpfb1"]
+[ext_resource type="Texture2D" uid="uid://0ei5ks106f0x" path="res://assets/images/backgrounds/bg_2.png" id="3_jimqo"]
+[ext_resource type="AudioStream" uid="uid://d221dmqsad5h3" path="res://assets/audio/music/Sakura Beats at Midnight (1).mp3" id="5_40gtc"]
+[ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="6_pk0vi"]
+
+[sub_resource type="Theme" id="Theme_kinoj"]
+
+[sub_resource type="Animation" id="Animation_n2ueq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(574, 1100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_404v1"]
+_data = {
+"RESET": SubResource("Animation_n2ueq"),
+"credits_scroll": ExtResource("2_i3n5c")
+}
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t2e7a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.729412, 0.541176, 0.368627, 0.419608)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kinoj")
+texture = ExtResource("3_jimqo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -386.0
+offset_top = 20.0
+offset_right = 223.0
+offset_bottom = 3388.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"
+
+Sección 1.10.32 de \"de Finibus Bonorum et Malorum\", escrito por Cicero en el 45 antes de Cristo
+\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"
+
+Traducci�n hecha por H. Rackham en 1914
+\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"
+
+Sección 1.10.33 de \"de Finibus Bonorum et Malorum\", escrito por Cicero en el 45 antes de Cristo
+\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"
+
+Traducci�n hecha por H. Rackham en 1914
+\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\""
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Segundo Programador: Carlos Alcaraz Benítez"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Creador prompts ilustraciones: Carlos Alcaraz Benítez
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Creador prompts sonido: Carlos Alcaraz Benítez
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "menu click by Leszek_Szary -- https://freesound.org/s/146721/ -- License: Creative Commons 0
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias a:"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label7" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "
+Quiero dar las gracias, de todo corazón, a mi hija Nora, quien ha sido una fuente de inspiración increíble para este proyecto. Este juego no existiría sin su fortaleza y valentía. A pesar de haber pasado por el dolor del bullying, ella ha transformado esa experiencia en algo positivo, inspirándome a crear un mundo donde los jugadores puedan encontrar apoyo, esperanza, y coraje.
+
+Gracias por tu resiliencia y por convertir el dolor en creatividad. Este juego es para ti, y para todos los que alguna vez se sintieron solos. Que encuentren en este mundo el refugio que tú me has inspirado a construir.
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias Isabel por tenerte cada día de mi vida a mi lado y sufrirme. Gracias Cariño."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label9" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias a Cris por esas horas revisando documentos. Mucho del texto de este videojuego salió de su mente. Gracias."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label10" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias a Javi  y Carlos, mis cuñaos que soportaron cientos de mensajes y videos contando todo lo que estaba realizando.
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label11" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias a mis padres. Os quiero."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label12" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tpfb1")
+theme_override_font_sizes/font_size = 22
+text = "Gracias a mi hermana. Seguro que estés donde estés estás viendo este proyecto. Esto va por tí tata.
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_404v1")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_40gtc")
+autoplay = true
+
+[node name="EscapeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("6_pk0vi")
+theme_override_font_sizes/font_size = 19
+text = "Esc para salir"
+
+[connection signal="animation_finished" from="VBoxContainer/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

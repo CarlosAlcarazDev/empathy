@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d221dmqsad5h3"
+path="res://.godot/imported/Sakura Beats at Midnight (1).mp3-ac9b2d93de918383dc7c977eea203a48.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Sakura Beats at Midnight (1).mp3"
+dest_files=["res://.godot/imported/Sakura Beats at Midnight (1).mp3-ac9b2d93de918383dc7c977eea203a48.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

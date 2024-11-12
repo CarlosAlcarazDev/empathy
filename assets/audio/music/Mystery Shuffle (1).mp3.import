@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bm2e080y1v30p"
+path="res://.godot/imported/Mystery Shuffle (1).mp3-f6c12a865b04fe874ff9bdc5ea2f8692.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/Mystery Shuffle (1).mp3"
+dest_files=["res://.godot/imported/Mystery Shuffle (1).mp3-f6c12a865b04fe874ff9bdc5ea2f8692.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
