@@ -3,11 +3,12 @@ extends Control
 
 const NORMAL_SCALE = Vector2(0.13, 0.13)
 const HOVER_SCALE = Vector2(0.22, 0.22)
+const TARGET_SCALE = Vector2(0.1, 0.1)
 var _position = position
 var original_z_index = 0  # Variable para almacenar el z_index original
 # Define la posición a la que se moverá la carta
-const TARGET_POSITION = Vector2(500, 346)  
-const ORIGINAL_POSITION = Vector2(557.3, 804)
+const TARGET_POSITION = Vector2(601, 494)   
+const ORIGINAL_POSITION = Vector2(759.9, 804)
 var is_moved = false  # Bandera para verificar si la carta ha sido movida
 
 func _ready():
@@ -24,7 +25,7 @@ func _on_mouse_entered():
 	if not is_moved:
 		position.y = _position.y - 190
 		scale = HOVER_SCALE
-		z_index = 4
+		z_index = 10
 
 func _on_mouse_exited():
 	# Restaura la escala y posición originales solo si la carta no ha sido movida
@@ -42,7 +43,7 @@ func on_gui_input(event):
 		# Mueve esta carta a TARGET_POSITION
 		is_moved = true  # Marca la carta como movida para que no vuelva al estado original
 		position = TARGET_POSITION
-		scale = NORMAL_SCALE
+		scale = TARGET_SCALE
 		z_index = 4
 		GlobalData.current_card_in_target_positionRE = self  # Actualiza la carta actual como la que está en TARGET_POSITION
 		print("Carta movida a TARGET_POSITION: ", self)

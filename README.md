@@ -1,4 +1,10 @@
 # empathy
+13/11/24
+Se presentan las cartas y se crean dinamicamente accediendo a los json correspondientes
+se generan todas las cartas bu, re, hs
+Se modifica el layout para la tirada de la IA.
+cuenta atras y boton de listo para acabar la ronda-
+
 12/11/24
 Inicio de las partidas. Da igual intuicion o estrategia por falta de los json.
 Se presentan las cartas en pantalla
