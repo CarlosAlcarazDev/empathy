@@ -1,5 +1,10 @@
 extends Control
+# Señal que se emitirá cuando la carta sea seleccionada
+signal card_chosen_hs(card_id)
+
+
 @onready var re_card_1 = $"."
+@onready var number_card_label = $NumberCardLabel
 
 const NORMAL_SCALE = Vector2(0.13, 0.13)
 const HOVER_SCALE = Vector2(0.22, 0.22)
@@ -47,6 +52,10 @@ func on_gui_input(event):
 		z_index = 4
 		GlobalData.current_card_in_target_positionHS = self  # Actualiza la carta actual como la que está en TARGET_POSITION
 		print("Carta movida a TARGET_POSITION: ", self)
+				
+				# Emitir la señal indicando que la carta fue seleccionada
+		emit_signal("card_chosen_hs", number_card_label.text)
+
 
 func move_to_original_position():
 	# Método para mover esta carta de vuelta a su posición original

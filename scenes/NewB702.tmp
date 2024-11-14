@@ -175,7 +175,6 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("23_kwiwh")
 texture_pressed = ExtResource("8_oxljk")
 texture_hover = ExtResource("8_oxljk")
-texture_disabled = ExtResource("8_oxljk")
 texture_focused = ExtResource("8_oxljk")
 
 [node name="Countdown30SecondsLabel" type="Label" parent="UI"]
@@ -227,6 +226,15 @@ text = "Opciones"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TimeOutMessageLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 118.0
+offset_right = 340.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 25
+text = "Fin tirada"
+
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
 position = Vector2i(34, 242)
@@ -241,57 +249,6 @@ theme = SubResource("Theme_b1oja")
 theme_override_styles/embedded_border = SubResource("StyleBoxFlat_x88fj")
 theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jcovi")
 
-[node name="Label" type="Label" parent="UI/EndTurnPopup"]
-offset_right = 500.0
-offset_bottom = 460.0
-text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
-autowrap_mode = 3
-
-[node name="Label2" type="Label" parent="UI/EndTurnPopup"]
-offset_top = 50.0
-offset_right = 500.0
-offset_bottom = 510.0
-text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
-autowrap_mode = 3
-
-[node name="Label3" type="Label" parent="UI/EndTurnPopup"]
-offset_top = 100.0
-offset_right = 500.0
-offset_bottom = 560.0
-text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
-autowrap_mode = 3
-
-[node name="Label4" type="Label" parent="UI/EndTurnPopup"]
-offset_top = 150.0
-offset_right = 500.0
-offset_bottom = 610.0
-text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
-autowrap_mode = 3
-
-[node name="Label5" type="Label" parent="UI/EndTurnPopup"]
-offset_top = 200.0
-offset_right = 500.0
-offset_bottom = 660.0
-text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
-autowrap_mode = 3
-
-[node name="Label6" type="Label" parent="UI/EndTurnPopup"]
-offset_top = 250.0
-offset_right = 500.0
-offset_bottom = 710.0
-text = "Faltaría calcular la puntuación de la IA y del Jugador y mostrarla a la derecha de la pantalla encuma y debajo del botón listo."
-autowrap_mode = 3
-
-[node name="ColorRect" type="ColorRect" parent="UI/EndTurnPopup"]
-offset_right = 531.0
-offset_bottom = 462.0
-color = Color(1, 1, 0.556863, 0)
-
-[node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
-offset_right = 531.0
-offset_bottom = 462.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fdknx")
-
 [node name="ContinueButton" type="Button" parent="UI/EndTurnPopup"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -304,6 +261,24 @@ offset_right = 43.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Continuar"
+
+[node name="Label" type="Label" parent="UI/EndTurnPopup"]
+offset_right = 500.0
+offset_bottom = 460.0
+text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI/EndTurnPopup"]
+anchors_preset = -1
+offset_right = 531.0
+offset_bottom = 462.0
+color = Color(1, 1, 0.556863, 0)
+
+[node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
+anchors_preset = -1
+offset_right = 531.0
+offset_bottom = 462.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdknx")
 
 [node name="DeckManager" type="Control" parent="."]
 anchors_preset = 0

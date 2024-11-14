@@ -1,6 +1,6 @@
+#ui.gd
 extends Control
-
-@onready var texture_button = $TextureButton
+@onready var ready_texture_button = $ReadyTextureButton
 @onready var countdown_30_seconds_label = $Countdown30SecondsLabel
 
 # Called when the node enters the scene tree for the first time.

@@ -21,5 +21,5 @@ var current_card_in_target_positionRE = null
 var current_card_in_target_positionHS = null
 
 # Variable global para rastrear la carta que está en TARGET_POSITION
-var id_current_card_in_target_positionRE = null
-var id_current_card_in_target_positionHS = null
+var id_current_card_in_target_positionRE = 0
+var id_current_card_in_target_positionHS = 0

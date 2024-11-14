@@ -1,4 +1,15 @@
 # empathy
+14/11/24
+* Se muestra todas las cartas, se pueden elegir.
+* Se generan los flujos de trabajo para poder jugar, turnos, reparto de cartas, etc.
+* Boton fin tirada listo
+* Tiempo tirada listo
+* Falta elaborar puntuaciones
+* Falta arreglar puntuación bloqueada mientras se visualiza WindowsPopup para las puntuaciones y explicaciones.
+* Hay que valorar utilizar los mismos botones que en el menú para el ingame (Azul)
+* Primera aproximación lista para la PEC 2
+
+
 13/11/24
 Se presentan las cartas y se crean dinamicamente accediendo a los json correspondientes
 se generan todas las cartas bu, re, hs

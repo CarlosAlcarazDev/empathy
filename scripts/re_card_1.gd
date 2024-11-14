@@ -1,4 +1,10 @@
+#re_card_1.gd
+
 extends Control
+
+# Señal que se emitirá cuando la carta sea seleccionada
+signal card_chosen_re(card_id)
+
 @onready var re_card_1 = $"."
 @onready var number_card_label = $NumberCardLabel
 
@@ -49,6 +55,9 @@ func on_gui_input(event):
 		GlobalData.current_card_in_target_positionRE = self  # Actualiza la carta actual como la que está en TARGET_POSITION
 		print("Carta movida a TARGET_POSITION: ", self)
 		GlobalData.id_current_card_in_target_positionRE = number_card_label.text
+		
+				# Emitir la señal indicando que la carta fue seleccionada
+		emit_signal("card_chosen_re", number_card_label.text)
 
 func move_to_original_position():
 	# Método para mover esta carta de vuelta a su posición original
