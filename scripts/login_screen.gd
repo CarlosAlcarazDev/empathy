@@ -1,18 +1,35 @@
 # ===============================
-# Nombre del Script: LoginScreen.gd
+# Nombre del Script: login_screen.gd
 # Desarrollador: Carlos Alcaraz Benítez
 # Fecha de Creación: 04 de Noviembre de 2024
 # Descripción: Este script maneja la lógica de la pantalla de login del juego,
 # incluyendo el inicio y la creación de un nuevo usuario.
-# Se muestran imagenes aleatoriamente cada vez que se carga la escena
+# Se muestran imagenes aleatoriamente cada vez que se carga la escena.
+
+#Listado de funciones:
+	#_ready(): Inicializa el nodo al cargarlo en la escena
+	#get_random_texture_index() -> int: #Obtiene una imagen aleatoria teniendo en cuenta la última textura que se cargó para no repetir
+	#save_last_texture_index(): Guarda la imagen para saber cúal ha sido la ultima utilizada
+	#load_last_texture_index(): Carga la imagen última utilizada
+	#load_last_texture_index(): Carga la imagen última utilizada
+	#load_users():# Función para cargar usuarios desde el archivo JSON
+	#login(): # Función para iniciar sesión
+	#show_error(message: String): #Función para mostrar mensaje de error
+	#show_success(message: String): # Función para mostrar un mensaje de éxito
+	#_on_quit_button_pressed(): # Señal de botón salir presionada
+	#_on_login_button_pressed(): #Señal boton login presionada, ejecuta un sonido.
+	#_on_create_button_pressed(): #Señal de boton registrar usuario presionada
+	#_on_audio_stream_player_finished(): #Señal sonido finalizado, carga la función login()
+	#_on_password_input_text_submitted(): #Señal enter en password presionado, ejecuta un sonido.
 # ===============================
 extends Control
+	
+# Referencias a los nodos de la escena
 
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var texture_rect = $TextureRect
 @onready var username_input = $VBoxContainer/UsernameInput
 @onready var password_input = $VBoxContainer/PasswordInput
-
 @onready var info_label = $InfoLabel
 @onready var login_button = $HBoxContainer/LoginButton
 
@@ -24,22 +41,24 @@ const TEXTURES = [
 	preload("res://assets/ui/backgrounds/login_bg_3.png"),
 	preload("res://assets/ui/backgrounds/login_bg_4.png")
 ]
+#Ruta del archivo JSON donde se almacen las texturas
 const LAST_TEXTURE = "user://last_texture_index.txt"
 # Ruta del archivo JSON donde se almacenan los datos de usuario
 const USER_DATA_FILE := "user://users.json"
 
-
-var last_texture_index = -1  # Índice de la última textura seleccionada
+# Índice de la última textura seleccionada
+var last_texture_index = -1  
 
 
 func _ready():
 	
 	# En caso de venir de la escena de registro se añaden los datos del  
-	# nuevo usuario al formulario de login
+	# nuevo usuario al formulario de login para faciliar su inicio de sesión
 	username_input.text = GlobalData.user
 	password_input.text = GlobalData.password
 	
-	randomize()  # Inicializa el generador de números aleatorios
+	# Inicializa el generador de números aleatorios
+	randomize()  
 	
 	# Carga el último índice de textura desde el archivo
 	load_last_texture_index()
@@ -56,10 +75,11 @@ func _ready():
 	# Guarda el nuevo índice de textura en el archivo
 	save_last_texture_index()
 	
-	# Configura el tamaño fijo
+	# Configura el tamaño fijo de la imagen.
 	texture_rect.size_flags_horizontal = Control.SIZE_SHRINK_END - 100
 	texture_rect.size_flags_vertical = Control.SIZE_SHRINK_CENTER - 100
 	
+	# Carga los usuarios en la variable users[]
 	load_users()
 	
 var users = []
@@ -101,9 +121,11 @@ func load_users():
 			var parse_result = json.parse(data)
 			
 			if parse_result == OK:
-				users = json.data  # Accedemos a los datos parseados con `json.data`
+				# Accedemos a los datos parseados con `json.data`
+				users = json.data 
 			else:
-				print("Error al parsear JSON:", parse_result)  # Mostramos el código de error
+				# Mostramos el código de error
+				print("Error al parsear JSON:", parse_result)  
 		else:
 			print("Archivo JSON vacío o sin datos.")
 		
@@ -119,7 +141,7 @@ func login():
 			print("Inicio de sesión exitoso!")
 			show_success("Inicio de sesión exitoso")
 
-			# Se utilizan la variable GlobalData como un singleton
+			# Se utilizan la variable GlobalData como un Singleton
 			# que se configura en Autoload de la configuración del Proyecto
 			# de esta manera podemos pasar la información del usuario cargado
 			# correctamente entre las escenas.
@@ -131,17 +153,18 @@ func login():
 			print(GlobalData.user)
 			print(GlobalData.id)
 			print(GlobalData.created_at.year)
+			#Espera 2.5 segundos a cargar la siguiente escena
 			await get_tree().create_timer(2.5).timeout
 			get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 			return
 			
 	show_error("Usuario o Contraseña incorrectos")
 
+#Función para mostrar mensaje de error
 func show_error(message: String):
 	info_label.text = message
 	info_label.modulate = Color(1, 0, 0)  # Cambia el color a rojo para indicar error
 	info_label.visible = true
-
 
 # Función para mostrar un mensaje de éxito
 func show_success(message: String):
@@ -151,8 +174,7 @@ func show_success(message: String):
 	info_label.visible = true
 	
 
-
-# Señal botón salir presionada
+# Señal de botón salir presionada
 func _on_quit_button_pressed():
 	get_tree().quit(0)
 
@@ -161,7 +183,7 @@ func _on_login_button_pressed():
 	audio_stream_player.playing = true
 	
 
-
+#Señal de boton registrar usuario presionada
 func _on_create_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/RegisterUser.tscn")
 
@@ -169,8 +191,6 @@ func _on_create_button_pressed():
 func _on_audio_stream_player_finished():
 	login()
 	
-
-
 #Señal enter en password presionado, ejecuta un sonido.
 func _on_password_input_text_submitted():
 	audio_stream_player.playing = true
