@@ -1,15 +1,30 @@
 # ===============================
-# Nombre del Script: RegisterUser.gd
+# Nombre del Script: register_user.gd
 # Desarrollador: Carlos Alcaraz Benítez
 # Fecha de Creación: 05 de Noviembre de 2024
 # Descripción: Este script maneja la lógica de la pantalla de registrar usuario del juego,
 # Comprueba que no exista el usuario o el email en la base de datos
 # También comprueba que los datos de usuario sean correctos
+# Devuelve el valor de los usuarios para la pantalla de login una vez registrado
+# ===============================
+# Listado de funciones
+# 
+#	_ready(): Cargar usuarios al iniciar
+#	load_users(): Función para cargar usuarios desde el archivo JSON
+#	register_user(): Función para registrar un nuevo usuario
+#	show_error(message: String): # Función para mostrar un mensaje de error
+#   show_success(message: String): Función para mostrar un mensaje de éxito
+#	is_valid_password(password: String) -> bool: Función para validar la contraseña
+#	func is_valid_email(email: String) -> bool: Función para validar el email
+#	is_email_registered(email: String) -> bool: Función para verificar si el correo ya está registrado
+#	is_username_registered(username: String) -> bool: Función para verificar si el correo ya está registrado
+#	get_next_id() -> int: Función para obtener el próximo ID incremental
+#	save_users(): Función para guardar los usuarios en el archivo JSON
+#	_on_back_button_pressed(): Señal de boton volver presionada
+#	_on_register_button_pressed(): Señal de boton registrar presionada
 # ===============================
 
 extends Control
-
-
 
 # Ruta del archivo JSON donde se almacenan los datos de usuario
 const USER_DATA_FILE := "user://users.json"
@@ -20,26 +35,26 @@ const USER_DATA_FILE := "user://users.json"
 @onready var email_input = $VBoxContainer/EmailInput
 @onready var info_label = $VBoxContainer/InfoLabel
 @onready var register_button = $RegisterButton
-# Importar el módulo Time para obtener la fecha y hora actuales
+
+# Importar el módulo Time para obtener la fecha y hora actuales para guardar el dia que se registró el usuario
 var time_now = Time.get_datetime_dict_from_system()
 
 # Variable para almacenar los datos de usuarios cargados
 var users = []
 
-# Declara las expresiones regulares de manera global o de clase para evitar compilarlas cada vez
+# Declara la expresió regular de manera global para evitar compilarlas cada vez
 var email_regex := RegEx.new()
-
-
 
 # Cargar usuarios al iniciar
 func _ready():
+	# Declaración de variables para las expresiones regulares del email del tipo nombre@dominio.com
 	var domain_name_regex_str := "[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?"
 	var domain_regex_str := domain_name_regex_str + "(?:\\." + domain_name_regex_str + ")*"
 	var email_pattern := "^[a-zA-Z0-9.!#$%&'*+/=?^_\u0060{|}~-]+@" + domain_regex_str + "\\.[a-zA-Z]{2,}$"
 
-# Compilamos la expresión regular solo una vez
+	# Compila la expresión regular solo una vez
 	email_regex.compile(email_pattern)
-
+	# Carga los usuarios
 	load_users()
 
 # Función para cargar usuarios desde el archivo JSON
@@ -49,21 +64,21 @@ func load_users():
 		var data = file.get_as_text()
 		
 		if data != "":
-			# Crear una instancia de JSON y parsear el contenido del archivo
+			# Crea una instancia de JSON y parsear el contenido del archivo
 			var json = JSON.new()
 			var parse_result = json.parse(data)
 			
 			if parse_result == OK:
-				users = json.data  # Guardamos los datos parseados en la variable `users`
+				users = json.data  # Guarda los datos parseados en la variable `users`
 			else:
-				print("Error al parsear JSON:", parse_result)  # Imprimimos el código de error si falla el parseo
+				print("Error al parsear JSON:", parse_result)  # Imprime el código de error si falla el parseo
 		else:
 			print("Archivo JSON vacío o sin datos.")
 		
 		file.close()
 	else:
-		# Si el archivo no existe, crearlo y guardar un arreglo vacío
-		save_users()  # Esto inicializa el archivo con un arreglo vacío
+		# Si el archivo no existe, crearlo y guardar un array vacío
+		save_users()  # Esto inicializa el archivo con un array vacío
 		print("No se encontró el archivo JSON, se creó uno nuevo.")
 
 # Función para registrar un nuevo usuario
@@ -88,17 +103,16 @@ func register_user():
 	if !is_valid_password(password):
 		show_error("El password debe tener mínimo 8 caracteres.")
 		return
-		# Comprobar que se cumplen los criterios del formato del email
+	# Comprobar que se cumplen los criterios del formato del email
 	if !is_valid_email(email):
 		show_error("Escribe un email correcto")
 		return
 		
-	
-	
 	# Generar un nuevo ID incremental para el usuario
 	var new_id = get_next_id()
 	
-	# Crear el nuevo usuario como un diccionario
+	# Crear el nuevo usuario como un diccionario. Sigue la pauta para crear
+	# la clase de usuario con los datos definidos en el diagrama de clases.
 	var new_user = {
 		"id": new_id,
 		"username": username,
@@ -119,11 +133,11 @@ func register_user():
 	GlobalData.password = password
 	GlobalData.created_at = time_now
 	
- # Mostrar mensaje de éxito
+	# Mostrar mensaje de éxito
 	show_success("Usuario registrado con éxito.")
 
 	
-	# Función para mostrar un mensaje de error
+# Función para mostrar un mensaje de error
 func show_error(message: String):
 	info_label.text = message
 	info_label.modulate = Color(1, 0, 0)  # Cambia el color a rojo para indicar error
@@ -184,10 +198,10 @@ func save_users():
 		print("No se pudo abrir el archivo JSON para escribir.")
 
 
-
+#Señal de boton volver presionada
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/LoginScreen.tscn")
 
-
+#Señal de boton registrar presionada
 func _on_register_button_pressed():
 	register_user()

@@ -1,0 +1,322 @@
+[
+	{
+		"idCarta": 1,
+		"Nombre": "Diálogo Abierto",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos."
+	},
+	{
+		"idCarta": 2,
+		"Nombre": "Apoyo Activo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Involucrarse de manera directa en ofrecer ayuda y soporte a quienes lo necesitan, mostrando preocupación genuina y disposición para actuar."
+	},
+	{
+		"idCarta": 3,
+		"Nombre": "Intervención Directa",
+		"Empatía": 1,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Tomar medidas inmediatas y claras para detener el comportamiento de bullying y proteger a la víctima. Esto puede incluir confrontar al acosador o buscar ayuda de una autoridad."
+	},
+	{
+		"idCarta": 4,
+		"Nombre": "Escucha Activa",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Prestar atención completa a la persona que habla, mostrando empatía y comprensión, validando sus emociones y preocupaciones."
+	},
+	{
+		"idCarta": 5,
+		"Nombre": "Empatía Reflejada",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 1,
+		"Descripción": "Demostrar que entiendes y compartes los sentimientos de otra persona, reflejando sus emociones de manera que se sientan validados."
+	},
+	{
+		"idCarta": 6,
+		"Nombre": "Cambio de Perspectiva",
+		"Empatía": 7,
+		"Apoyo Emocional": 1,
+		"Intervención": 4,
+		"Descripción": "Ayudar a las personas a ver una situación desde un ángulo diferente, promoviendo la comprensión mutua y reduciendo la tensión."
+	},
+	{
+		"idCarta": 7,
+		"Nombre": "Búsqueda de Ayuda",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Reconocer cuándo es necesario buscar ayuda adicional de autoridades, consejeros o adultos responsables."
+	},
+	{
+		"idCarta": 8,
+		"Nombre": "Red de Apoyo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Crear y mantener un grupo de personas que ofrezcan apoyo y recursos para aquellos que enfrentan bullying."
+	},
+	{
+		"idCarta": 9,
+		"Nombre": "Desarrollo de Resiliencia",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar la capacidad de recuperarse de las adversidades y seguir adelante con fuerza y determinación."
+	},
+	{
+		"idCarta": 10,
+		"Nombre": "Reconocimiento de Emociones",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Identificar y validar las emociones propias y ajenas, promoviendo una mayor comprensión emocional."
+	},
+	{
+		"idCarta": 11,
+		"Nombre": "Educación Sobre Bullying",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Informar y educar a las personas sobre qué es el bullying, sus efectos y cómo prevenirlo."
+	},
+	{
+		"idCarta": 12,
+		"Nombre": "Promoción de la Inclusión",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar la inclusión y el respeto por la diversidad en todos los entornos, reduciendo el aislamiento y la exclusión."
+	},
+	{
+		"idCarta": 13,
+		"Nombre": "Refuerzo Positivo",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Utilizar elogios y recompensas para fomentar comportamientos positivos y desalentar el bullying."
+	},
+	{
+		"idCarta": 14,
+		"Nombre": "Mediación de Conflictos",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Actuar como mediador neutral para resolver disputas y conflictos de manera pacífica y justa."
+	},
+	{
+		"idCarta": 15,
+		"Nombre": "Construcción de Autoestima",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Ayudar a las personas a desarrollar una imagen positiva de sí mismas, fortaleciendo su confianza y autoeficacia."
+	},
+	{
+		"idCarta": 16,
+		"Nombre": "Campaña de Concientización",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Organizar y promover campañas para aumentar la conciencia sobre el bullying y sus efectos, involucrando a toda la comunidad."
+	},
+	{
+		"idCarta": 17,
+		"Nombre": "Creación de Espacios Seguros",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Establecer entornos seguros y libres de bullying donde todos se sientan protegidos y respetados."
+	},
+	{
+		"idCarta": 18,
+		"Nombre": "Roles de Liderazgo",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Asumir y fomentar roles de liderazgo positivo que guíen a otros hacia comportamientos respetuosos y empáticos."
+	},
+	{
+		"idCarta": 19,
+		"Nombre": "Defensa Personal No Violenta",
+		"Empatía": 1,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Enseñar y aplicar técnicas de defensa personal que no recurran a la violencia, empoderando a las víctimas para protegerse."
+	},
+	{
+		"idCarta": 20,
+		"Nombre": "Uso Responsable de Redes Sociales",
+		"Empatía": 1,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Fomentar el uso ético y seguro de las redes sociales, evitando el ciberbullying y promoviendo interacciones positivas."
+	},
+	{
+		"idCarta": 21,
+		"Nombre": "Desarrollo de Habilidades Sociales",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Fomentar el desarrollo de habilidades interpersonales que promuevan relaciones saludables y respetuosas."
+	},
+	{
+		"idCarta": 22,
+		"Nombre": "Reforzamiento de Normas",
+		"Empatía": 4,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Establecer y mantener normas claras y consistentes que desincentiven el bullying y promuevan el respeto mutuo."
+	},
+	{
+		"idCarta": 23,
+		"Nombre": "Mentoría y Guía",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Proporcionar orientación y apoyo continuos a individuos que enfrentan bullying, ayudándoles a navegar sus desafíos."
+	},
+	{
+		"idCarta": 24,
+		"Nombre": "Promoción de Empatía",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 1,
+		"Descripción": "Fomentar la capacidad de comprender y compartir los sentimientos de los demás, construyendo una comunidad más compasiva."
+	},
+	{
+		"idCarta": 25,
+		"Nombre": "Creación de Alianzas",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Formar alianzas y coaliciones con otros individuos y organizaciones para combatir el bullying de manera más efectiva."
+	},
+	{
+		"idCarta": 26,
+		"Nombre": "Atención Psicológica",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Proporcionar acceso a servicios de salud mental para aquellos afectados por el bullying, ayudándoles a sanar y recuperarse."
+	},
+	{
+		"idCarta": 27,
+		"Nombre": "Talleres Educativos",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Organizar y participar en talleres que eduquen sobre el bullying, sus efectos y estrategias para combatirlo."
+	},
+	{
+		"idCarta": 28,
+		"Nombre": "Actividades Colaborativas",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Promover actividades que requieran cooperación y trabajo en equipo, fortaleciendo los lazos entre los participantes."
+	},
+	{
+		"idCarta": 29,
+		"Nombre": "Diálogo con Familias",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Involucrar a las familias en conversaciones sobre el bullying, buscando soluciones y apoyo en el hogar."
+	},
+	{
+		"idCarta": 30,
+		"Nombre": "Celebración de la Diversidad",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar el reconocimiento y la celebración de las diferencias culturales, étnicas y personales, promoviendo un entorno inclusivo."
+	},
+	{
+		"idCarta": 31,
+		"Nombre": "Apoyo a la Expresión Individual",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Alentar a las personas a expresarse de manera auténtica y respetuosa, sin temor al juicio o la discriminación."
+	},
+	{
+		"idCarta": 32,
+		"Nombre": "Estrategias de Afrontamiento",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Enseñar y aplicar técnicas efectivas para manejar el estrés y las emociones negativas, fortaleciendo la resiliencia."
+	},
+	{
+		"idCarta": 33,
+		"Nombre": "Intervención Grupal",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Implementar acciones conjuntas para abordar y prevenir el bullying, movilizando a grupos enteros para un mayor impacto."
+	},
+	{
+		"idCarta": 34,
+		"Nombre": "Reconocimiento de Patrones de Bullying",
+		"Empatía": 7,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Identificar y comprender los patrones y ciclos del bullying para intervenir de manera más efectiva y prevenir su recurrencia."
+	},
+	{
+		"idCarta": 35,
+		"Nombre": "Fomento de la Comunicación Asertiva",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Promover la capacidad de expresar pensamientos y sentimientos de manera clara y respetuosa, estableciendo límites saludables."
+	},
+	{
+		"idCarta": 36,
+		"Nombre": "Prevención Proactiva",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Implementar medidas preventivas antes de que ocurra el bullying, creando un entorno seguro y respetuoso desde el principio."
+	},
+	{
+		"idCarta": 37,
+		"Nombre": "Construcción de Comunidad",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar un sentido de comunidad y pertenencia, donde todos se sientan valorados y respetados."
+	},
+	{
+		"idCarta": 38,
+		"Nombre": "Reorientación de Energías",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Canalizar las energías negativas hacia actividades positivas y constructivas, reduciendo la probabilidad de comportamientos de bullying."
+	},
+	{
+		"idCarta": 39,
+		"Nombre": "Reflexión y Crecimiento Personal",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Fomentar la autoevaluación y el desarrollo personal, ayudando a las personas a aprender de sus experiencias y crecer a partir de ellas."
+	},
+	{
+		"idCarta": 40,
+		"Nombre": "Desarrollo de Liderazgo Positivo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Fomentar habilidades de liderazgo que inspiren y guíen a otros hacia comportamientos respetuosos y constructivos."
+	}
+]

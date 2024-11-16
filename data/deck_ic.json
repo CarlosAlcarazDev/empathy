@@ -1,0 +1,52 @@
+[
+    {
+        "idCarta": 1,
+        "Nombre": "Realidad Aumentada para la Empatía (RAE)",
+        "Descripción": "Utiliza tecnología de realidad aumentada para crear simulaciones interactivas que permitan a los estudiantes experimentar cómo se siente ser víctima de bullying. Esto fomenta la empatía y la comprensión."
+    },
+    {
+        "idCarta": 2,
+        "Nombre": "Plataforma de Storytelling Digital",
+        "Descripción": "Una plataforma en línea donde los estudiantes pueden compartir historias anónimas sobre sus experiencias con el bullying. Sirve para aumentar la conciencia y fomentar un sentido de comunidad y apoyo."
+    },
+    {
+        "idCarta": 3,
+        "Nombre": "Laboratorio de Soluciones Creativas",
+        "Descripción": "Un espacio de trabajo colaborativo donde los estudiantes pueden idear y desarrollar soluciones innovadoras al bullying, utilizando técnicas de pensamiento de diseño y brainstorming."
+    },
+    {
+        "idCarta": 4,
+        "Nombre": "Campañas de Impacto Social en Redes",
+        "Descripción": "Utiliza las redes sociales para lanzar campañas de concienciación y activismo contra el bullying, incentivando a los estudiantes a participar en la creación de contenido positivo y constructivo."
+    },
+    {
+        "idCarta": 5,
+        "Nombre": "Talleres de Arte Terapéutico",
+        "Descripción": "Sesiones donde los estudiantes expresan sus emociones y experiencias a través del arte, facilitando la curación y la comprensión emocional en un entorno seguro."
+    },
+    {
+        "idCarta": 6,
+        "Nombre": "Programa de Embajadores de la Bondad",
+        "Descripción": "Un programa que entrena a estudiantes para ser líderes positivos en sus comunidades, promoviendo la bondad, la inclusión y la lucha contra el acoso en la escuela."
+    },
+    {
+        "idCarta": 7,
+        "Nombre": "Intercambio Cultural Virtual",
+        "Descripción": "Permite a los estudiantes interactuar con pares de diferentes culturas y antecedentes a través de una plataforma virtual, fomentando la tolerancia y la comprensión intercultural."
+    },
+    {
+        "idCarta": 8,
+        "Nombre": "Escape Room Educativo",
+        "Descripción": "Un juego de escape room diseñado para enseñar sobre el bullying, donde los estudiantes deben resolver acertijos relacionados con la empatía, el respeto y la resolución de conflictos."
+    },
+    {
+        "idCarta": 9,
+        "Nombre": "Cine-Debate sobre Bullying",
+        "Descripción": "Proyecciones de películas o documentales sobre el tema del acoso, seguidas de debates guiados que fomentan la reflexión y el diálogo."
+    },
+    {
+        "idCarta": 10,
+        "Nombre": "Iniciativa de Juegos Cooperativos",
+        "Descripción": "Juegos y actividades que requieren trabajo en equipo y cooperación, destacando la importancia de la colaboración y el respeto mutuo para superar desafíos."
+    }
+]

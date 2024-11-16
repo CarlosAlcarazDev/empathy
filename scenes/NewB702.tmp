@@ -1,0 +1,898 @@
+[gd_scene load_steps=30 format=3 uid="uid://dq4v62olhary3"]
+
+[ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
+[ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="2_q5ib0"]
+[ext_resource type="Texture2D" uid="uid://cavqtbjc6wsby" path="res://assets/ui/icons/global_time.png" id="4_ov384"]
+[ext_resource type="Script" path="res://scripts/re_card_1.gd" id="5_goa0y"]
+[ext_resource type="Texture2D" uid="uid://dyyblqjpcax5f" path="res://assets/images/cards/reverses/reverse_ai.png" id="6_p02oi"]
+[ext_resource type="Texture2D" uid="uid://dyk8m7os7qjrp" path="res://assets/images/cards/bu/1_BU.webp" id="6_upfco"]
+[ext_resource type="Texture2D" uid="uid://dky62xh2pa87a" path="res://assets/images/cards/re/1_RE.webp" id="7_ajnv4"]
+[ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="7_tilu5"]
+[ext_resource type="Texture2D" uid="uid://7f83t5s3fqy0" path="res://assets/ui/icons/time_button_hoover.png" id="8_oxljk"]
+[ext_resource type="Script" path="res://scripts/re_card_2.gd" id="9_0kxbr"]
+[ext_resource type="AudioStream" uid="uid://c46waxfcvk3ku" path="res://assets/audio/sfx/107341__thompsonman__beeps.wav" id="9_b5lwr"]
+[ext_resource type="Script" path="res://scripts/re_card_3.gd" id="10_38pgf"]
+[ext_resource type="Texture2D" uid="uid://c2vq2cdq2jk8s" path="res://assets/images/cards/re/2_RE.webp" id="10_sekqc"]
+[ext_resource type="Script" path="res://scripts/hs_card_1.gd" id="11_l50vo"]
+[ext_resource type="Texture2D" uid="uid://yc8hhxfvl7s3" path="res://assets/images/cards/re/3_RE.webp" id="12_f4pui"]
+[ext_resource type="Script" path="res://scripts/hs_card_2.gd" id="12_yyw1s"]
+[ext_resource type="Script" path="res://scripts/hs_card_3.gd" id="13_1vdtq"]
+[ext_resource type="Texture2D" uid="uid://2lpri815ef21" path="res://assets/images/cards/hs/8_HS.webp" id="15_vnrjd"]
+[ext_resource type="Texture2D" uid="uid://b17msdx0loyam" path="res://assets/images/frames/white frame stat right.png" id="16_22v05"]
+[ext_resource type="Texture2D" uid="uid://djwiktfjhat8t" path="res://assets/images/cards/hs/11_HS.webp" id="17_aglkq"]
+[ext_resource type="Texture2D" uid="uid://04d8k2g7nynj" path="res://assets/images/frames/red frame stat right.png" id="17_kqvgd"]
+[ext_resource type="Texture2D" uid="uid://icaube7fsw4o" path="res://assets/ui/icons/time_button.png" id="23_kwiwh"]
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="25_ldt3k"]
+[ext_resource type="Script" path="res://scenes/deck_manager.gd" id="27_ybia5"]
+
+[sub_resource type="Theme" id="Theme_b1oja"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88fj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcovi"]
+bg_color = Color(0.6, 0.6, 0.6, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdknx"]
+bg_color = Color(0.6, 0.6, 0.6, 0.419608)
+
+[node name="NewGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eh8bj")
+
+[node name="BackgroundTextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_3wh4s")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("2_q5ib0")
+
+[node name="CountdownTextureRect" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 1697.0
+offset_top = 10.0
+offset_right = 2124.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ov384")
+
+[node name="Countdown20MinutesLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 1726.0
+offset_top = 14.0
+offset_right = 1888.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 35
+text = "28:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChosenCardsLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 420.0
+offset_right = 244.0
+offset_bottom = 469.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+
+[node name="ChosenCardsLabel2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 532.0
+offset_right = 244.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+
+[node name="ChosenCardsLabel3" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 652.0
+offset_right = 250.0
+offset_bottom = 736.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+
+[node name="ChosenCardsLabel4" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 678.0
+offset_right = 252.0
+offset_bottom = 762.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+
+[node name="DestinyRETextureRectPlayer" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 494.0
+offset_right = 2106.0
+offset_bottom = 2599.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_22v05")
+
+[node name="DestinyRETextureRectPlayer2" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 494.0
+offset_right = 2106.0
+offset_bottom = 2599.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_22v05")
+
+[node name="DestinyRETextureRectIA" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 601.0
+offset_top = 240.0
+offset_right = 2106.0
+offset_bottom = 2345.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_22v05")
+
+[node name="DestinyHSTextureRectPlayer" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 494.0
+offset_right = 2672.0
+offset_bottom = 2599.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("17_kqvgd")
+
+[node name="DestinyHSTextureRectIA" type="TextureRect" parent="UI"]
+layout_mode = 0
+offset_left = 1167.0
+offset_top = 240.0
+offset_right = 2672.0
+offset_bottom = 2345.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("17_kqvgd")
+
+[node name="ReadyTextureButton" type="TextureButton" parent="UI"]
+z_index = 3
+layout_mode = 0
+offset_left = 1750.0
+offset_top = 511.0
+offset_right = 1991.0
+offset_bottom = 607.0
+scale = Vector2(0.7, 0.7)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("23_kwiwh")
+texture_pressed = ExtResource("8_oxljk")
+texture_hover = ExtResource("8_oxljk")
+texture_focused = ExtResource("8_oxljk")
+
+[node name="Countdown30SecondsLabel" type="Label" parent="UI"]
+z_index = 3
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -136.0
+offset_top = -25.0
+offset_right = -20.0
+offset_bottom = 37.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 45
+text = "Listo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BeepCountdownAudioStreamPlayer" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource("9_b5lwr")
+
+[node name="OptionsTextureButton" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 223.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("23_kwiwh")
+texture_pressed = ExtResource("8_oxljk")
+texture_hover = ExtResource("8_oxljk")
+flip_h = true
+
+[node name="OptionsLabel" type="Label" parent="UI/OptionsTextureButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 6.0
+offset_right = 194.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 40
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeOutMessageLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 118.0
+offset_right = 340.0
+offset_bottom = 153.0
+theme_override_font_sizes/font_size = 25
+text = "Fin tirada"
+
+[node name="EndTurnPopup" type="Window" parent="UI"]
+transparent_bg = true
+position = Vector2i(34, 242)
+size = Vector2i(531, 462)
+visible = false
+transient = true
+exclusive = true
+unresizable = true
+borderless = true
+transparent = true
+theme = SubResource("Theme_b1oja")
+theme_override_styles/embedded_border = SubResource("StyleBoxFlat_x88fj")
+theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jcovi")
+
+[node name="ContinueButton" type="Button" parent="UI/EndTurnPopup"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -31.0
+offset_right = 43.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Continuar"
+
+[node name="Label" type="Label" parent="UI/EndTurnPopup"]
+offset_right = 500.0
+offset_bottom = 460.0
+text = "asdfasdfafasdfasfasdfasdfasfasdfasdfasdfasdfasdfadfafadfadfasdfasdfafasdfasf"
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="UI/EndTurnPopup"]
+anchors_preset = -1
+offset_right = 531.0
+offset_bottom = 462.0
+color = Color(1, 1, 0.556863, 0)
+
+[node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
+anchors_preset = -1
+offset_right = 531.0
+offset_bottom = 462.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdknx")
+
+[node name="DeckManager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("27_ybia5")
+
+[node name="DeckBullying" type="Control" parent="DeckManager"]
+anchors_preset = 0
+
+[node name="BullyingCard" type="Control" parent="DeckManager/DeckBullying"]
+anchors_preset = 0
+offset_left = 772.0
+offset_top = 210.0
+offset_right = 2272.0
+offset_bottom = 2310.0
+scale = Vector2(0.25, 0.25)
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("16_22v05")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("7_ajnv4")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckBullying/BullyingCard"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Diálogo Abierto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckBullying/BullyingCard"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckBullying/BullyingCard"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckBullying/BullyingCard"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DeckPlayer" type="Control" parent="DeckManager"]
+anchors_preset = 0
+
+[node name="RECard1" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("5_goa0y")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("16_22v05")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("7_ajnv4")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Diálogo Abierto"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RECard2" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("9_0kxbr")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("16_22v05")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("10_sekqc")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Apoyo Activo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "Involucrarse de manera directa en ofrecer ayuda y soporte a quienes lo necesitan, mostrando preocupación genuina y disposición para actuar."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="RECard3" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("10_38pgf")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("16_22v05")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("12_f4pui")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Intervención Directa"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "Tomar medidas inmediatas y claras para detener el comportamiento de bullying y proteger a la víctima. Esto puede incluir confrontar al acosador o buscar ayuda de una autoridad."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSCard1" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("11_l50vo")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("17_kqvgd")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("15_vnrjd")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Inteligencia Emocional"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "4/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "La inteligencia emocional es la capacidad de reconocer, comprender y gestionar nuestras propias emociones y las de los demás. Facilita relaciones interpersonales saludables y efectivas."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSCard2" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("12_yyw1s")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("17_kqvgd")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("17_aglkq")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Tolerancia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "11/2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "La tolerancia es el respeto y la aceptación de las diferencias entre las personas, ya sean de opiniones, creencias, o estilos de vida. Es crucial para la convivencia pacífica."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="HSCard3" type="Control" parent="DeckManager/DeckPlayer"]
+anchors_preset = 0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
+scale = Vector2(0.13, 0.13)
+script = ExtResource("13_1vdtq")
+
+[node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3"]
+z_index = 1
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+texture = ExtResource("17_kqvgd")
+
+[node name="CardImage" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3"]
+layout_mode = 0
+offset_left = 30.7692
+offset_top = 192.308
+offset_right = 1469.77
+offset_bottom = 1259.31
+texture = ExtResource("6_upfco")
+stretch_mode = 6
+
+[node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 1428.0
+offset_bottom = 189.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "Resiliencia"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 1217.0
+offset_top = 1875.0
+offset_right = 1385.0
+offset_bottom = 1966.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+text = "14/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TypeCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 114.0
+offset_top = 1886.0
+offset_right = 1387.0
+offset_bottom = 1981.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 72
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
+z_index = 2
+layout_mode = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 1375.0
+offset_bottom = 1839.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 70
+text = "La resiliencia es la capacidad de recuperarse rápidamente de las dificultades y adaptarse bien a la adversidad. Es crucial para superar experiencias negativas."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DeckIA" type="Control" parent="DeckManager"]
+anchors_preset = 0
+
+[node name="AICard1" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 631.75
+offset_top = 3.0
+offset_right = 1052.75
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="AICard2" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 3.0
+offset_right = 1163.0
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="AICard3" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 852.25
+offset_top = 3.0
+offset_right = 1273.25
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="AICard4" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 962.5
+offset_top = 3.0
+offset_right = 1383.5
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="AICard5" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 1072.75
+offset_top = 3.0
+offset_right = 1493.75
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="AICard6" type="TextureRect" parent="DeckManager/DeckIA"]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 3.0
+offset_right = 1604.0
+offset_bottom = 596.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_p02oi")
+
+[node name="GameManager" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("25_ldt3k")
+
+[connection signal="pressed" from="UI/ReadyTextureButton" to="GameManager" method="_on_ready_texture_button_pressed"]
+[connection signal="pressed" from="UI/OptionsTextureButton" to="UI" method="_on_options_texture_button_pressed"]
+[connection signal="pressed" from="UI/EndTurnPopup/ContinueButton" to="GameManager" method="_on_continue_button_pressed"]

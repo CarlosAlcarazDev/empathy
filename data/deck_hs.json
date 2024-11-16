@@ -1,0 +1,142 @@
+[
+    {
+        "idCarta": 1,
+        "Nombre": "Escucha Activa",
+        "Comunicación": 10,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La escucha activa implica prestar atención completa a la persona que habla, mostrando interés genuino y comprensión. Esta habilidad permite captar no solo las palabras, sino también el tono y las emociones detrás de ellas."
+    },
+    {
+        "idCarta": 2,
+        "Nombre": "Comunicación Asertiva",
+        "Comunicación": 10,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La comunicación asertiva es la capacidad de expresar pensamientos, sentimientos y necesidades de manera clara, directa y respetuosa. Es crucial para establecer límites y defender derechos sin agredir ni ser pasivo."
+    },
+    {
+        "idCarta": 3,
+        "Nombre": "Resolución de Conflictos",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 10,
+        "Descripción": "La resolución de conflictos implica identificar el problema, escuchar a todas las partes involucradas y encontrar una solución mutuamente aceptable. Es fundamental para manejar desacuerdos de manera constructiva."
+    },
+    {
+        "idCarta": 4,
+        "Nombre": "Empatía Profunda",
+        "Comunicación": 10,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La empatía profunda es la capacidad de comprender y compartir los sentimientos de otra persona. Involucra ver el mundo desde la perspectiva del otro y responder con compasión."
+    },
+    {
+        "idCarta": 5,
+        "Nombre": "Liderazgo Positivo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 10,
+        "Descripción": "El liderazgo positivo se centra en guiar y motivar a otros de manera ética y respetuosa. Los líderes positivos inspiran confianza y promueven el bienestar del grupo."
+    },
+    {
+        "idCarta": 6,
+        "Nombre": "Manejo del Estrés",
+        "Comunicación": 1,
+        "Resolución de Conflictos": 5,
+        "Descripción": "Manejar el estrés implica reconocer las señales de estrés y emplear técnicas para mantener la calma y la claridad mental. Es vital para tomar decisiones sensatas bajo presión."
+    },
+    {
+        "idCarta": 7,
+        "Nombre": "Negociación",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 10,
+        "Descripción": "La negociación es la habilidad de llegar a un acuerdo satisfactorio para todas las partes a través de la comunicación y el compromiso. Es esencial para resolver conflictos de manera justa."
+    },
+    {
+        "idCarta": 8,
+        "Nombre": "Inteligencia Emocional",
+        "Comunicación": 10,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La inteligencia emocional es la capacidad de reconocer, comprender y gestionar nuestras propias emociones y las de los demás. Facilita relaciones interpersonales saludables y efectivas."
+    },
+    {
+        "idCarta": 9,
+        "Nombre": "Pensamiento Creativo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "El pensamiento creativo implica abordar los problemas de manera novedosa y encontrar soluciones innovadoras. Fomenta la flexibilidad y la adaptabilidad."
+    },
+    {
+        "idCarta": 10,
+        "Nombre": "Trabajo en Equipo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "El trabajo en equipo es la capacidad de colaborar eficazmente con otros hacia un objetivo común. Involucra comunicación, cooperación y confianza."
+    },
+    {
+        "idCarta": 11,
+        "Nombre": "Tolerancia",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La tolerancia es el respeto y la aceptación de las diferencias entre las personas, ya sean de opiniones, creencias o estilos de vida. Es crucial para la convivencia pacífica."
+    },
+    {
+        "idCarta": 12,
+        "Nombre": "Autoconocimiento",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "El autoconocimiento es la comprensión profunda de uno mismo, incluyendo nuestras fortalezas, debilidades y emociones. Facilita el crecimiento personal y la autoconfianza."
+    },
+    {
+        "idCarta": 13,
+        "Nombre": "Influencia Positiva",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La influencia positiva es la capacidad de inspirar y motivar a otros hacia comportamientos constructivos y beneficiosos. Un influenciador positivo guía con el ejemplo."
+    },
+    {
+        "idCarta": 14,
+        "Nombre": "Resiliencia",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La resiliencia es la capacidad de recuperarse rápidamente de las dificultades y adaptarse bien a la adversidad. Es crucial para superar experiencias negativas."
+    },
+    {
+        "idCarta": 15,
+        "Nombre": "Paciencia",
+        "Comunicación": 1,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La paciencia es la capacidad de mantener la calma y esperar con tranquilidad frente a la frustración o la adversidad. Evita reacciones precipitadas."
+    },
+    {
+        "idCarta": 16,
+        "Nombre": "Persuasión",
+        "Comunicación": 10,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La persuasión es la habilidad de convencer a otros de manera ética y efectiva, utilizando argumentos lógicos y emocionales. Es clave para el liderazgo y la negociación."
+    },
+    {
+        "idCarta": 17,
+        "Nombre": "Conciencia Cultural",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La conciencia cultural es el entendimiento y el respeto por las diversas culturas y tradiciones. Fomenta la inclusión y la apreciación de la diversidad."
+    },
+    {
+        "idCarta": 18,
+        "Nombre": "Autocontrol",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "El autocontrol es la capacidad de regular nuestras emociones y comportamientos, especialmente en situaciones desafiantes. Es fundamental para mantener el equilibrio emocional."
+    },
+    {
+        "idCarta": 19,
+        "Nombre": "Optimismo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "El optimismo es la actitud de esperar y ver lo mejor en las situaciones y en las personas. Fomenta la esperanza y la motivación."
+    },
+    {
+        "idCarta": 20,
+        "Nombre": "Mente Abierta",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "Tener una mente abierta significa estar dispuesto a considerar nuevas ideas y perspectivas sin prejuicios. Facilita el aprendizaje y la innovación."
+    }
+]

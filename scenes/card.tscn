@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xq2nciq3kbl"]
 
 [ext_resource type="Texture2D" uid="uid://w2rfngcbggle" path="res://assets/images/frames/black frame stat right.png" id="1_25q4g"]
-[ext_resource type="Script" path="res://scenes/card.gd" id="1_xbamo"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_xbamo"]
 [ext_resource type="Texture2D" uid="uid://dyk8m7os7qjrp" path="res://assets/images/cards/bu/1_BU.webp" id="2_c1p4h"]
 [ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="3_ekob8"]
 

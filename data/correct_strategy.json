@@ -1,0 +1,1560 @@
+[
+    {
+        "idCarta": 1,
+        "nombre": "Intimidación en el recreo",
+        "Combinaciones": [
+            {
+                "RE": 3,
+                "HS": 2,
+                "por_que": "La intervención directa permite abordar el problema de manera no confrontativa, y al utilizar la comunicación asertiva, la persona puede expresar sus pensamientos y sentimientos de manera clara y respetuosa, promoviendo un ambiente de diálogo abierto sin escalar la situación."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Mostrar solidaridad con la víctima del bullying ayuda a fortalecer su autoestima y seguridad, sabiendo que no está sola. La escucha activa es crucial para entender completamente la situación desde la perspectiva de la víctima, lo cual es esencial para brindar el apoyo más efectivo."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Formar un grupo de apoyo para la víctima puede proporcionar un refugio seguro y una sensación de pertenencia, mitigando los efectos del bullying. El trabajo en equipo en este contexto fomenta la cooperación y el esfuerzo colaborativo entre pares para crear un entorno inclusivo y de apoyo."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar actividades que promuevan la inclusión y la diversidad puede ayudar a cambiar la cultura de un grupo, haciendo que la intimidación sea menos probable. La tolerancia es una habilidad clave para respetar y aceptar las diferencias individuales, lo que puede ayudar a reducir los prejuicios y estereotipos que a menudo están en la raíz del bullying."
+            },
+            {
+                "RE": 11,
+                "HS": 8,
+                "por_que": "Informar a todos sobre los efectos y peligros del bullying puede aumentar la conciencia y reducir la incidencia del mismo. La inteligencia emocional permite reconocer y gestionar las emociones propias y de los demás, lo que es crucial para entender el impacto del bullying y cómo abordarlo de manera efectiva."
+            }
+        ]
+    },
+    {
+        "idCarta": 2,
+        "nombre": "Rumores maliciosos en línea",
+        "Combinaciones": [
+            {
+                "RE": 20,
+                "HS": 8,
+                "por_que": "Educar sobre el uso responsable de las redes sociales puede prevenir la propagación de rumores maliciosos, mientras que la inteligencia emocional ayuda a gestionar las emociones provocadas por el ciberbullying."
+            },
+            {
+                "RE": 16,
+                "HS": 2,
+                "por_que": "Una campaña de concientización sobre las consecuencias del ciberbullying eleva la comprensión general, y la comunicación asertiva permite a la víctima expresarse claramente si decide responder o buscar ayuda."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Mostrar solidaridad con la víctima proporciona un sistema de soporte emocional necesario, y la escucha activa asegura que se comprendan plenamente sus sentimientos y experiencias."
+            },
+            {
+                "RE": 1,
+                "HS": 7,
+                "por_que": "Intervenir de manera no confrontativa puede detener la difusión de rumores, y la negociación puede ser útil para resolver conflictos subyacentes entre las partes involucradas de manera pacífica."
+            },
+            {
+                "RE": 10,
+                "HS": 6,
+                "por_que": "El acceso a apoyo psicológico ayuda a la víctima a procesar y superar el trauma del ciberbullying, y el manejo del estrés ofrece técnicas prácticas para lidiar con la ansiedad resultante."
+            }
+        ]
+    },
+    {
+        "idCarta": 3,
+        "nombre": "Exclusión de un grupo en la cafetería",
+        "Combinaciones": [
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Crear un grupo de apoyo proporciona a la víctima un sentido de pertenencia y seguridad. Fomentar el trabajo en equipo entre los estudiantes promueve la cooperación y puede ayudar a disolver las barreras de exclusión."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar actividades inclusivas puede reducir la exclusión social, y enseñar tolerancia ayuda a los estudiantes a respetar y valorar las diferencias individuales, contrarrestando la exclusión basada en prejuicios."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo activo a la persona excluida muestra solidaridad y comprensión. La escucha activa permite entender mejor las emociones de la víctima, facilitando una respuesta más empática y dirigida."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a los estudiantes sobre los efectos del bullying promueve una cultura escolar más empática. La comunicación asertiva equipa a la víctima y a sus compañeros con las habilidades para expresar sus necesidades y límites de manera respetuosa."
+            },
+            {
+                "RE": 15,
+                "HS": 5,
+                "por_que": "Trabajar en mejorar la autoestima de la víctima puede ayudarla a sobrellevar mejor la situación de exclusión. El autoconocimiento fomenta una mayor comprensión de uno mismo, lo cual es fundamental para desarrollar resiliencia ante el bullying social."
+            }
+        ]
+    },
+    {
+        "idCarta": 4,
+        "nombre": "Burlas por diferencias físicas",
+        "Combinaciones": [
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo explícito a la víctima muestra solidaridad y ayuda a restaurar su autoestima. La escucha activa asegura que la víctima se sienta oída y comprendida, lo cual es fundamental para su recuperación emocional."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a la víctima a construir su autoestima puede minimizar el impacto negativo de las burlas. Fomentar el autoconocimiento ayuda a la víctima a entender y valorar sus propias fortalezas y cualidades únicas."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a los estudiantes sobre los efectos negativos del bullying fomenta un ambiente más respetuoso. La comunicación asertiva empodera a la víctima y a los espectadores para que expresen su desaprobación frente a las burlas de manera efectiva."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Actividades que promuevan la inclusión y celebren la diversidad pueden reducir las burlas basadas en diferencias físicas. Enseñar tolerancia ayuda a crear un ambiente escolar donde todos se sientan aceptados."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo brinda a la víctima un grupo seguro de amigos y aliados. El trabajo en equipo promueve la colaboración y ayuda a disminuir la segregación y las burlas."
+            }
+        ]
+    },
+    {
+        "idCarta": 5,
+        "nombre": "Acoso en el camino a casa",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Animar al estudiante a buscar ayuda de un adulto o autoridad es crucial para su seguridad. La comunicación asertiva capacita al estudiante para expresar claramente la situación y sus necesidades a quienes pueden brindarle ayuda."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Mostrar solidaridad con la víctima proporciona un sentido de seguridad y pertenencia. La escucha activa asegura que la víctima se sienta comprendida y respaldada al compartir su experiencia."
+            },
+            {
+                "RE": 1,
+                "HS": 10,
+                "por_que": "Intervenir de manera no confrontativa puede detener el acoso y proteger a la víctima. La habilidad para resolver conflictos es esencial para manejar la situación de manera efectiva, buscando soluciones pacíficas y duraderas."
+            },
+            {
+                "RE": 17,
+                "HS": 7,
+                "por_que": "Establecer rutas seguras o acompañamiento para los estudiantes puede disminuir el riesgo de acoso. La negociación puede ser útil para establecer acuerdos de seguridad entre estudiantes, padres y la escuela."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Formar un grupo de apoyo entre compañeros puede ofrecer protección y disuadir el comportamiento de acoso. El trabajo en equipo fomenta la cooperación y crea un entorno más seguro para todos."
+            }
+        ]
+    },
+	{
+        "idCarta": 6,
+        "nombre": "Mensajes de texto amenazantes",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Incitar al estudiante a buscar ayuda de adultos confiables es clave para manejar el acoso. La comunicación asertiva permite a la víctima expresar claramente la situación y sus sentimientos a quienes pueden ayudar."
+            },
+            {
+                "RE": 20,
+                "HS": 8,
+                "por_que": "Educar sobre el uso seguro y responsable de las tecnologías digitales puede prevenir y mitigar el ciberacoso. La inteligencia emocional ayuda a la víctima a gestionar sus emociones y responder de manera más efectiva al acoso."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Mostrar apoyo activo proporciona un sentido de seguridad y pertenencia. La escucha activa asegura que la víctima se sienta comprendida y valorada, lo cual es crucial para su recuperación emocional."
+            },
+            {
+                "RE": 1,
+                "HS": 10,
+                "por_que": "Intervenir, ya sea por medio de autoridades escolares o plataformas digitales, puede ayudar a detener el acoso. La resolución de conflictos ofrece estrategias para manejar la situación de manera efectiva y pacífica."
+            },
+            {
+                "RE": 10,
+                "HS": 6,
+                "por_que": "El acceso a apoyo psicológico es vital para abordar el impacto emocional del acoso. Enseñar técnicas de manejo del estrés puede ayudar a la víctima a lidiar con la ansiedad y el miedo provocados por los mensajes amenazantes."
+            }
+        ]
+    },
+    {
+        "idCarta": 7,
+        "nombre": "Publicaciones humillantes en redes sociales",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Fomentar que la víctima busque ayuda de adultos o autoridades relevantes es vital para manejar la situación. La comunicación asertiva le permite expresar efectivamente el problema y buscar soluciones."
+            },
+            {
+                "RE": 20,
+                "HS": 8,
+                "por_que": "Educar sobre prácticas seguras en internet puede ayudar a prevenir futuros incidentes. La inteligencia emocional es crucial para gestionar las reacciones personales y emociones derivadas del acoso."
+            },
+            {
+                "RE": 1,
+                "HS": 10,
+                "por_que": "Tomar medidas concretas contra el acosador, como reportar el contenido a las plataformas sociales, es un paso necesario. La resolución de conflictos ayuda a encontrar una solución pacífica y restaurativa."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer un apoyo sólido a la víctima le asegura que no está sola. Escuchar activamente sus preocupaciones proporciona el soporte emocional necesario para superar el trauma."
+            },
+            {
+                "RE": 10,
+                "HS": 6,
+                "por_que": "El acceso a apoyo psicológico puede ser crucial para la recuperación emocional de la víctima. Aprender a manejar el estrés ayudará a la víctima a lidiar con la ansiedad resultante del acoso."
+            }
+        ]
+    },
+    {
+        "idCarta": 8,
+        "nombre": "Robo o daño a pertenencias personales",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Involucrar a un adulto o autoridad ayuda a manejar la situación de manera segura y efectiva. La comunicación asertiva permite expresar la situación y los sentimientos asociados de manera clara."
+            },
+            {
+                "RE": 15,
+                "HS": 12,
+                "por_que": "El apoyo activo ayuda a la víctima a no sentirse sola. Escuchar activamente permite entender sus sentimientos y la importancia de sus pertenencias, reforzando su confianza y seguridad."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Formar una red de apoyo entre compañeros genera un ambiente seguro y colaborativo. El trabajo en equipo ayuda a fomentar la solidaridad y evita futuros daños a las pertenencias."
+            },
+            {
+                "RE": 11,
+                "HS": 4,
+                "por_que": "La educación sobre el bullying aumenta la conciencia y ayuda a prevenir futuros incidentes. La inteligencia emocional permite a la víctima y a otros gestionar sus reacciones emocionales y fomenta un ambiente respetuoso."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover la inclusión y la tolerancia reduce la probabilidad de daño intencionado hacia las pertenencias de otros, fomentando el respeto y la aceptación de las diferencias."
+            }
+        ]
+    },
+    {
+        "idCarta": 9,
+        "nombre": "Insultos por rendimiento académico",
+        "Combinaciones": [
+            {
+                "RE": 10,
+                "HS": 1,
+                "por_que": "Reconocer las emociones del estudiante afectado es crucial para validar sus sentimientos y experiencias. La escucha activa permite comprender en profundidad cómo se siente el estudiante, creando un espacio de confianza y entendimiento."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "La construcción de autoestima es fundamental para ayudar al estudiante a superar el impacto negativo de los insultos. La empatía profunda permite conectar con sus experiencias y emociones, ofreciendo apoyo genuino y personalizado."
+            },
+            {
+                "RE": 16,
+                "HS": 13,
+                "por_que": "Una campaña de concientización puede educar a toda la comunidad escolar sobre el daño que causan los insultos y el bullying. La influencia positiva puede ser utilizada para cambiar actitudes y promover un ambiente más respetuoso y solidario."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar sobre el bullying ayuda a comprender mejor sus efectos y cómo prevenirlo. La tolerancia es una habilidad clave para fomentar la aceptación y el respeto por las diferencias en rendimiento académico."
+            },
+            {
+                "RE": 31,
+                "HS": 10,
+                "por_que": "Fomentar la expresión individual ayuda al estudiante a valorar sus propias fortalezas y habilidades, más allá del rendimiento académico. El trabajo en equipo puede enseñar la importancia de colaborar y valorar las contribuciones únicas de cada persona."
+            }
+        ]
+    },
+    {
+        "idCarta": 10,
+        "nombre": "Presión para realizar actos inseguros",
+        "Combinaciones": [
+            {
+                "RE": 1,
+                "HS": 7,
+                "por_que": "Intervenir de manera directa para detener la presión inmediata es crucial. Usar comunicación asertiva permite a la víctima expresar firmemente su negativa a participar en actos inseguros sin antagonizar a los demás."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a los estudiantes sobre las consecuencias del bullying y la presión de grupo ayuda a crear conciencia sobre el impacto de sus acciones. La inteligencia emocional permite a la víctima manejar sus emociones y a los agresores reconocer el daño que pueden causar."
+            },
+            {
+                "RE": 7,
+                "HS": 1,
+                "por_que": "Animar a la víctima y a los testigos a buscar ayuda de adultos responsables es vital para abordar el problema de manera segura. La resolución de conflictos ofrece un camino para solucionar la situación sin recurrir a la confrontación directa."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo activo demuestra a la víctima que no está sola y que su bienestar es importante. La escucha activa por parte de compañeros y adultos proporciona un espacio seguro para que la víctima comparta sus preocupaciones."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Construir una red de apoyo entre estudiantes fomenta un ambiente de cuidado mutuo. El trabajo en equipo enseña a los estudiantes a colaborar y apoyarse unos a otros, reduciendo la incidencia de comportamientos dañinos."
+            }
+        ]
+    },
+	{
+        "idCarta": 11,
+        "nombre": "Desprecio por elecciones de vestimenta",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente donde todas las formas de autoexpresión sean bienvenidas ayuda a construir una comunidad escolar más inclusiva. Enseñar tolerancia fomenta el respeto por las elecciones personales de cada uno, incluidas las de vestimenta."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo explícito a aquellos que son despreciados por su vestimenta asegura que se sientan valorados y respaldados. Escuchar activamente sus experiencias promueve la empatía y la comprensión."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a los estudiantes a construir su autoestima permite que se sientan seguros en sus elecciones, incluidas las de moda. El autoconocimiento conduce a una mayor confianza en sus decisiones personales y les ayuda a enfrentar el desprecio."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar sobre los efectos negativos del bullying, incluido el desprecio por las elecciones personales, crea una comunidad más consciente. La comunicación asertiva empodera a las víctimas y testigos para que se expresen contra el acoso."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo para aquellos que son juzgados ayuda a romper el ciclo de aislamiento. El trabajo en equipo en proyectos y actividades promueve la unidad y reduce las oportunidades para el desprecio basado en la apariencia."
+            }
+        ]
+    },
+    {
+        "idCarta": 12,
+        "nombre": "Burlas por expresión de género",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente escolar inclusivo donde se celebre la diversidad y se respeten las diferencias de género es esencial. La tolerancia permite a los estudiantes aceptar y valorar la diversidad en la expresión de género."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Proporcionar apoyo activo a la víctima demuestra solidaridad y comprensión. La escucha activa ofrece a la víctima un espacio seguro para expresar sus sentimientos y experiencias."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a toda la comunidad escolar sobre el daño que causa el bullying, incluidas las burlas por expresión de género, ayuda a crear conciencia. La comunicación asertiva empodera a las víctimas y testigos para hablar contra el acoso."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a los estudiantes a construir su autoestima les permite enfrentar mejor las burlas. El autoconocimiento fomenta una mayor aceptación de uno mismo y de los demás, independientemente de la expresión de género."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo para estudiantes que enfrentan burlas por su expresión de género crea un entorno de aceptación y ayuda. Promover el trabajo en equipo en actividades escolares fomenta la inclusión y reduce el aislamiento."
+            }
+        ]
+    },
+    {
+        "idCarta": 13,
+        "nombre": "Difusión de secretos personales",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Es crucial alentar a la víctima a buscar ayuda para manejar la situación y las emociones asociadas. La comunicación asertiva permite expresar los sentimientos y necesidades claramente, solicitando el cese de la difusión de información personal."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Proporcionar un apoyo firme y genuino ayuda a mitigar los efectos negativos del incidente. La escucha activa asegura que la víctima se sienta comprendida y validada en sus emociones."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a la comunidad escolar sobre los daños causados por difundir información privada fomenta un ambiente más respetuoso. La inteligencia emocional es vital para que todos manejen mejor sus reacciones y comprendan el impacto de sus acciones."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer un sistema de apoyo para la víctima crea un entorno de cuidado y seguridad. Fomentar el trabajo en equipo en proyectos y actividades puede reconstruir relaciones dañadas y promover la inclusión."
+            },
+            {
+                "RE": 10,
+                "HS": 6,
+                "por_que": "El acceso a servicios de consejería o terapia ayuda a la víctima a procesar y superar el trauma. Las técnicas de manejo del estrés son herramientas útiles para lidiar con la ansiedad y el estrés resultantes del incidente."
+            }
+        ]
+    },
+    {
+        "idCarta": 14,
+        "nombre": "Marginación en actividades deportivas",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 10,
+                "por_que": "Fomentar un ambiente inclusivo en actividades deportivas asegura que todos los estudiantes se sientan bienvenidos y valorados, independientemente de su habilidad. El trabajo en equipo fortalece la cohesión y el respeto mutuo entre los participantes."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Brindar apoyo directo a los estudiantes marginados les muestra que sus experiencias y sentimientos son importantes. La escucha activa por parte de entrenadores y compañeros facilita la comprensión de sus necesidades y preocupaciones."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Trabajar en la autoestima de los estudiantes afectados puede ayudarles a sentirse más seguros en su participación. La empatía profunda permite a los demás reconocer y valorar la contribución de cada estudiante, independientemente de su nivel de habilidad."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Crear una red de apoyo entre estudiantes fomenta un entorno de cuidado y ayuda mutua. La tolerancia promueve la aceptación de las diferencias individuales, lo que es esencial en el contexto deportivo."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a los estudiantes y al personal sobre los efectos negativos del bullying y la marginación en deportes puede conducir a un cambio de actitud. La comunicación asertiva permite a los afectados expresar sus inquietudes de manera efectiva y buscar soluciones."
+            }
+        ]
+    },
+    {
+        "idCarta": 15,
+        "nombre": "Comentarios despectivos sobre la familia",
+        "Combinaciones": [
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Mostrar apoyo directo y activo a la víctima ayuda a mitigar el daño emocional causado por los comentarios despectivos. La escucha activa asegura que el estudiante se sienta oído y comprendido, proporcionando un espacio seguro para expresar sus sentimientos."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a la comunidad escolar sobre los efectos dañinos del bullying y los comentarios despectivos crea una cultura de respeto y empatía. Fomentar la comunicación asertiva permite a la víctima y a los testigos expresarse contra el acoso de manera efectiva."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover actividades que fomenten la inclusión y la aceptación de la diversidad familiar ayuda a prevenir el acoso relacionado con la situación familiar. La tolerancia enseña a los estudiantes a valorar y respetar las diferencias entre sus compañeros."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a los estudiantes a desarrollar su autoestima puede fortalecerlos frente a los comentarios negativos. El autoconocimiento permite a la víctima reconocer su valor más allá de las circunstancias familiares."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo entre estudiantes promueve un ambiente de cuidado mutuo y comprensión. El trabajo en equipo en actividades escolares puede mejorar la cohesión grupal y reducir los incidentes de acoso."
+            }
+        ]
+    },
+    {
+        "idCarta": 16,
+        "nombre": "Amenazas por no unirse a un grupo",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Animar al estudiante a buscar ayuda de adultos confiables es fundamental para asegurar su seguridad y bienestar. La comunicación asertiva le permite expresar sus preocupaciones y límites de manera clara y efectiva, rechazando las presiones del grupo."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer un apoyo firme y activo a la víctima muestra solidaridad y comprensión, ayudando a mitigar el sentimiento de aislamiento. La escucha activa refuerza que las preocupaciones del estudiante son válidas y tomadas en serio."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Fortalecer la autoestima del estudiante le ayuda a resistir la presión de grupo y a valorar sus propias decisiones. El autoconocimiento fomenta una comprensión más profunda de sus valores y límites, empoderándolo para tomar decisiones autónomas."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a toda la comunidad escolar sobre los efectos negativos del bullying y la coerción puede crear un ambiente menos tolerante hacia estas conductas. La inteligencia emocional permite a todos manejar mejor sus emociones y empatizar con las experiencias de los demás."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Crear una red de apoyo para estudiantes que han sido amenazados o presionados ofrece un entorno de aceptación y pertenencia. El trabajo en equipo en actividades positivas y seguras promueve la inclusión y el respeto mutuo."
+            }
+        ]
+    },
+    {
+        "idCarta": 17,
+        "nombre": "Críticas por intereses o pasatiempos",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente escolar que valore y celebre la diversidad de intereses y pasatiempos ayuda a crear una cultura de aceptación y respeto. Enseñar tolerancia anima a los estudiantes a aceptar y valorar las diferencias individuales."
+            },
+            {
+                "RE": 4,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo activo a los estudiantes criticados por sus intereses les asegura que no están solos y que hay personas que valoran su individualidad. La escucha activa permite a la víctima expresarse y sentirse comprendida."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a los estudiantes a fortalecer su autoestima les permite enfrentar críticas con mayor confianza en sí mismos. El autoconocimiento fomenta una mayor apreciación de sus propios intereses y la confianza para compartirlos."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a la comunidad escolar sobre los efectos negativos del bullying, incluyendo las críticas a los intereses personales, promueve un entorno más empático. La comunicación asertiva capacita a los estudiantes para defender sus pasatiempos de manera efectiva."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo para estudiantes con intereses únicos crea un sentido de comunidad. El trabajo en equipo en proyectos relacionados con diversos pasatiempos puede fomentar la apreciación mutua y la colaboración."
+            }
+        ]
+    },
+    {
+        "idCarta": 18,
+        "nombre": "Falsas acusaciones a profesores",
+        "Combinaciones": [
+            {
+                "RE": 1,
+                "HS": 10,
+                "por_que": "Fomentar un diálogo abierto entre estudiantes, profesores y administración puede ayudar a esclarecer la situación y restaurar la confianza. La comunicación asertiva permite a todas las partes expresar sus puntos de vista de manera clara y respetuosa, facilitando la resolución del conflicto."
+            },
+            {
+                "RE": 14,
+                "HS": 7,
+                "por_que": "Actuar como mediador en el conflicto proporciona una plataforma neutral para discutir las acusaciones y trabajar hacia una solución. La habilidad en la resolución de conflictos es esencial para manejar las tensiones y encontrar un terreno común."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a los estudiantes sobre las consecuencias del bullying, incluidas las falsas acusaciones, promueve un ambiente escolar más empático. La inteligencia emocional ayuda a los estudiantes a comprender el impacto de sus acciones y fomenta la empatía hacia el profesorado."
+            },
+            {
+                "RE": 7,
+                "HS": 10,
+                "por_que": "Alentar a las partes involucradas a buscar ayuda de consejeros escolares o administradores puede asegurar que el problema se maneje de manera justa. La negociación puede ser necesaria para llegar a acuerdos que satisfagan a todas las partes, restaurando la armonía."
+            },
+            {
+                "RE": 17,
+                "HS": 1,
+                "por_que": "Establecer espacios seguros donde estudiantes y profesores puedan compartir sus preocupaciones ayuda a prevenir malentendidos futuros. La escucha activa en estos espacios asegura que todos se sientan oídos y valorados, lo cual es crucial para la recuperación de la confianza."
+            }
+        ]
+    },
+    {
+        "idCarta": 19,
+        "nombre": "Aislamiento en proyectos grupales",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 10,
+                "por_que": "Incentivar un ambiente donde se valora y promueve activamente la participación de todos los estudiantes en proyectos grupales asegura que nadie se sienta excluido. El trabajo en equipo enseña a los estudiantes la importancia de colaborar y respetar las contribuciones de cada uno."
+            },
+            {
+                "RE": 14,
+                "HS": 7,
+                "por_que": "Utilizar la mediación para abordar cualquier conflicto o malentendido que conduzca al aislamiento ayuda a resolver las diferencias de manera constructiva. La comunicación asertiva permite a todos los miembros del grupo expresar sus opiniones y necesidades claramente, promoviendo un entendimiento mutuo."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Fomentar la autoestima en los estudiantes afectados por el aislamiento les ayuda a valorarse a sí mismos y a sus contribuciones, aumentando su confianza para participar. El autoconocimiento permite a los estudiantes comprender sus fortalezas y cómo pueden aportar al equipo."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Crear una red de apoyo para estudiantes que se sienten aislados ofrece un entorno de comprensión y aceptación. La escucha activa asegura que las preocupaciones del estudiante sean oídas y tomadas en cuenta, lo que puede fomentar soluciones inclusivas."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar sobre los efectos negativos del aislamiento y cómo este comportamiento puede ser una forma de bullying ayuda a crear conciencia entre los estudiantes. La inteligencia emocional fomenta la empatía hacia aquellos que son excluidos, promoviendo un clima más inclusivo y respetuoso."
+            }
+        ]
+    },
+    {
+        "idCarta": 20,
+        "nombre": "Burlas por origen étnico o cultural",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo donde se celebre la diversidad cultural y étnica asegura que todos los estudiantes se sientan valorados y respetados. Enseñar tolerancia ayuda a desarrollar un respeto profundo por las diferencias individuales, reduciendo los incidentes de discriminación."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a los estudiantes y al personal sobre los efectos negativos del bullying basado en el origen étnico o cultural crea conciencia y fomenta un cambio de actitud. La inteligencia emocional permite a los estudiantes y educadores reconocer y gestionar sus propias emociones y las de otros, promoviendo empatía y comprensión."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Establecer alianzas entre estudiantes de diferentes orígenes culturales y étnicos puede fomentar la solidaridad y el apoyo mutuo. El trabajo en equipo en proyectos y actividades interculturales promueve la apreciación de la diversidad y mejora las relaciones entre estudiantes."
+            },
+            {
+                "RE": 7,
+                "HS": 10,
+                "por_que": "Incluir a las familias en las conversaciones sobre la diversidad y el respeto mutuo puede ampliar el impacto positivo más allá del entorno escolar. La comunicación asertiva es clave para discutir estos temas de manera efectiva, asegurando que todos los mensajes sean claros y respetuosos."
+            },
+            {
+                "RE": 30,
+                "HS": 4,
+                "por_que": "Organizar eventos que celebren la diversidad cultural y étnica de la comunidad escolar ayuda a construir un ambiente de aceptación y aprecio por todas las culturas. La empatía profunda fomentada por estas actividades ayuda a los estudiantes a comprender y valorar las experiencias de los demás."
+            }
+        ]
+    },
+    {
+        "idCarta": 21,
+        "nombre": "Manipulación para obtener favores",
+        "Combinaciones": [
+            {
+                "RE": 7,
+                "HS": 2,
+                "por_que": "Alentar a los estudiantes afectados a buscar ayuda es crucial para abordar la manipulación. La comunicación asertiva les permite expresar sus límites y negarse a ceder ante demandas injustas de manera clara y firme."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Fortalecer la autoestima y fomentar el autoconocimiento ayuda a los estudiantes a reconocer su valor y a resistir la manipulación. Estas habilidades les permiten entender mejor sus derechos y cómo protegerlos."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar sobre las diferentes formas de bullying, incluida la manipulación para obtener favores, aumenta la conciencia sobre su impacto. La inteligencia emocional es esencial para gestionar las emociones involucradas y para empatizar con los afectados."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Establecer una red de apoyo brinda a los estudiantes un espacio seguro donde pueden compartir sus experiencias y sentirse respaldados. La escucha activa por parte de pares y adultos asegura que se tomen en serio sus preocupaciones."
+            },
+            {
+                "RE": 14,
+                "HS": 7,
+                "por_que": "La mediación puede ayudar a resolver situaciones de manipulación de manera efectiva, abordando tanto las necesidades de la víctima como las del manipulador. La negociación fomenta la búsqueda de soluciones justas y respetuosas para ambas partes."
+            }
+        ]
+    },
+    {
+        "idCarta": 22,
+        "nombre": "Desprecio por orientación sexual",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Crear un ambiente escolar que celebre activamente la diversidad y promueva la inclusión ayuda a contrarrestar el desprecio por la orientación sexual. La tolerancia fomenta el respeto por las diferencias individuales, contribuyendo a un entorno más seguro y acogedor para todos los estudiantes."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a la comunidad escolar sobre los efectos dañinos del bullying, incluido el basado en la orientación sexual, aumenta la conciencia y fomenta un cambio de actitud. La inteligencia emocional es clave para desarrollar la empatía y comprender el impacto de nuestras palabras y acciones en los demás."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Establecer alianzas entre estudiantes de diversas orientaciones sexuales y aliados puede fortalecer el apoyo mutuo y promover la igualdad. El trabajo en equipo en proyectos educativos y actividades inclusivas mejora la cohesión y el entendimiento entre los estudiantes."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Fomentar un diálogo abierto sobre temas de diversidad sexual y orientación permite abordar prejuicios y malentendidos. La comunicación asertiva ayuda a los estudiantes a expresar sus pensamientos y sentimientos de manera respetuosa y constructiva, facilitando la comprensión y el respeto mutuo."
+            },
+            {
+                "RE": 30,
+                "HS": 4,
+                "por_que": "Organizar eventos y actividades que celebren la diversidad sexual y de orientación sexual contribuye a crear una cultura escolar más inclusiva. La empatía profunda promovida por estas iniciativas ayuda a los estudiantes a valorar y respetar las experiencias de vida de los demás."
+            }
+        ]
+    },
+    {
+        "idCarta": 23,
+        "nombre": "Intimidación por estatus socioeconómico",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Crear un ambiente escolar que valore y promueva la inclusión de todos los estudiantes, sin importar su estatus socioeconómico, ayuda a combatir la discriminación y el acoso. Enseñar tolerancia fomenta la aceptación y el respeto por las diferencias individuales."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a la comunidad escolar sobre los efectos negativos del acoso, incluido el basado en diferencias socioeconómicas, aumenta la conciencia y promueve un cambio en las actitudes. La inteligencia emocional es clave para entender y gestionar las emociones relacionadas con estas situaciones, tanto para víctimas como para agresores."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Establecer una red de apoyo para los estudiantes afectados por la intimidación relacionada con su estatus socioeconómico ofrece un espacio seguro para compartir experiencias y sentirse respaldados. La escucha activa asegura que se tomen en serio sus preocupaciones y se busquen soluciones inclusivas."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Fomentar un diálogo abierto sobre la diversidad socioeconómica y cómo afecta a las relaciones entre los estudiantes puede ayudar a disipar prejuicios y malentendidos. La comunicación asertiva permite expresar pensamientos y sentimientos de manera clara, promoviendo un entendimiento mutuo."
+            },
+            {
+                "RE": 17,
+                "HS": 10,
+                "por_que": "Proporcionar espacios donde todos los estudiantes se sientan seguros y valorados, independientemente de su situación económica, fomenta un sentido de comunidad. El trabajo en equipo en actividades que no enfaticen las diferencias económicas puede mejorar la cohesión y el respeto mutuo."
+            }
+        ]
+    },
+    {
+        "idCarta": 24,
+        "nombre": "Humillación por discapacidades",
+        "Combinaciones": [
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a la comunidad escolar sobre los efectos del bullying, especialmente en relación con las discapacidades, aumenta la conciencia y promueve la empatía. La inteligencia emocional es crucial para entender y gestionar las emociones, tanto para quienes enfrentan el acoso como para quienes pueden intervenir de manera constructiva."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo que valore la diversidad y promueva la igualdad de oportunidades para todos los estudiantes, incluidos aquellos con discapacidades, ayuda a minimizar los incidentes de humillación. La tolerancia fomenta el respeto y la aceptación de las diferencias individuales."
+            },
+            {
+                "RE": 17,
+                "HS": 1,
+                "por_que": "Establecer espacios seguros donde los estudiantes con discapacidades puedan expresarse libremente y sentirse apoyados es esencial para su bienestar. La escucha activa asegura que sus voces sean oídas y valoradas, promoviendo un ambiente de respeto y comprensión."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Construir alianzas entre estudiantes con y sin discapacidades puede fomentar un sentido de comunidad y apoyo mutuo. El trabajo en equipo en actividades inclusivas promueve la colaboración y ayuda a desmontar prejuicios y estereotipos."
+            },
+            {
+                "RE": 30,
+                "HS": 2,
+                "por_que": "Ofrecer capacitaciones en sensibilidad y conciencia sobre discapacidades a estudiantes y personal educa sobre la variedad de discapacidades y cómo apoyar adecuadamente a quienes las tienen. La comunicación asertiva empodera a los estudiantes con discapacidades para expresar sus necesidades y límites de manera efectiva."
+            }
+        ]
+    },
+    {
+        "idCarta": 25,
+        "nombre": "Presión para cambiar de aspecto físico",
+        "Combinaciones": [
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Ayudar a los estudiantes a construir su autoestima y fomentar el autoconocimiento puede empoderarlos para valorar su propia apariencia y resistir la presión para cambiar. El autoconocimiento permite a los estudiantes comprender y apreciar su valor más allá de las apariencias físicas."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo que celebre la diversidad de apariencias ayuda a minimizar la presión para conformarse a estándares específicos. La tolerancia fomenta el respeto por las diferencias individuales, incluidas las relacionadas con el aspecto físico."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Educar a la comunidad escolar sobre los efectos negativos del bullying relacionado con la apariencia física aumenta la conciencia sobre el daño que puede causar la presión para cambiar. La inteligencia emocional ayuda a los estudiantes a manejar sus propias emociones y a empatizar con los demás, reduciendo la incidencia de comentarios y actitudes dañinas."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Crear una red de apoyo para estudiantes que se sienten presionados a cambiar su apariencia ofrece un espacio seguro donde pueden compartir sus experiencias y sentirse entendidos. La escucha activa asegura que se tomen en serio sus preocupaciones y promueve el entendimiento y el apoyo mutuo."
+            },
+            {
+                "RE": 30,
+                "HS": 2,
+                "por_que": "Organizar eventos que celebren la diversidad de cuerpos y apariencias puede ayudar a cambiar las percepciones sobre la belleza y fomentar la aceptación de todos los tipos de cuerpos. La comunicación asertiva empodera a los estudiantes para expresar sus opiniones sobre la autoaceptación y desafiar las normas dañinas."
+            }
+        ]
+    },
+    {
+        "idCarta": 26,
+        "nombre": "Ridiculización por creencias religiosas",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un entorno escolar que valore y celebre la diversidad de creencias religiosas ayuda a combatir la ridiculización y promueve un ambiente de respeto y tolerancia. Enseñar tolerancia es clave para desarrollar el respeto y la aceptación de las diferencias individuales."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a la comunidad escolar sobre los efectos negativos del acoso, incluido el basado en creencias religiosas, aumenta la conciencia y fomenta un cambio en las actitudes. La inteligencia emocional es crucial para entender y gestionar las emociones implicadas, tanto para las víctimas como para quienes pueden intervenir de manera constructiva."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Construir alianzas entre estudiantes de diferentes creencias religiosas puede fomentar un sentido de comunidad y apoyo mutuo. El trabajo en equipo en proyectos educativos interreligiosos mejora la cohesión y el entendimiento entre los estudiantes."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Fomentar un diálogo abierto sobre la diversidad religiosa y cómo afecta a las relaciones entre los estudiantes puede ayudar a disipar prejuicios y malentendidos. La comunicación asertiva permite a todos expresar sus pensamientos y sentimientos de manera respetuosa y constructiva."
+            },
+            {
+                "RE": 30,
+                "HS": 4,
+                "por_que": "Organizar eventos que celebren la diversidad religiosa puede ayudar a cambiar las percepciones y fomentar la aceptación de todas las creencias. La empatía profunda promovida por estas iniciativas ayuda a los estudiantes a valorar y respetar las experiencias de vida de los demás."
+            }
+        ]
+    },
+    {
+        "idCarta": 27,
+        "nombre": "Exclusión de fiestas o reuniones",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente escolar que valore la inclusión y celebre la diversidad de relaciones puede ayudar a minimizar la exclusión social. La tolerancia enseña a los estudiantes a respetar y aceptar las diferencias, promoviendo un entorno más acogedor."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Construir alianzas entre estudiantes fomenta un sentido de comunidad y apoyo mutuo. El trabajo en equipo en actividades escolares puede ofrecer oportunidades para la interacción social que no dependen de invitaciones a fiestas privadas."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Establecer una red de apoyo para aquellos que se sienten excluidos les ofrece un espacio donde pueden compartir sus experiencias y sentirse valorados. La escucha activa por parte de compañeros y profesores asegura que se tomen en serio sus sentimientos."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Promover el diálogo abierto sobre la exclusión y cómo afecta a los estudiantes puede ayudar a abordar los problemas subyacentes. La comunicación asertiva permite expresar sentimientos y necesidades de manera clara, facilitando la resolución de conflictos."
+            },
+            {
+                "RE": 30,
+                "HS": 4,
+                "por_que": "Organizar eventos que celebren la diversidad y fomenten la inclusión de todos los estudiantes puede contrarrestar la sensación de exclusión. La empatía profunda ayuda a comprender y valorar las experiencias y sentimientos de los demás, promoviendo un entorno más inclusivo."
+            }
+        ]
+    },
+    {
+        "idCarta": 28,
+        "nombre": "Hostigamiento en redes sociales",
+        "Combinaciones": [
+            {
+                "RE": 21,
+                "HS": 10,
+                "por_que": "Educar sobre el uso responsable de las redes sociales es esencial para prevenir y abordar el hostigamiento en línea. La inteligencia emocional ayuda a los estudiantes a manejar las emociones que surgen debido al acoso y a responder de manera constructiva."
+            },
+            {
+                "RE": 17,
+                "HS": 2,
+                "por_que": "Proporcionar espacios seguros, tanto en línea como fuera de línea, donde los estudiantes puedan expresar sus preocupaciones y buscar apoyo es crucial. La comunicación asertiva permite a las víctimas expresar claramente el impacto del hostigamiento y buscar ayuda de manera efectiva."
+            },
+            {
+                "RE": 11,
+                "HS": 4,
+                "por_que": "Informar a toda la comunidad escolar sobre el acoso cibernético y sus efectos negativos aumenta la conciencia y fomenta una cultura de apoyo. La empatía profunda motiva a los compañeros a entender el daño causado por el hostigamiento y a actuar en defensa de los afectados."
+            },
+            {
+                "RE": 7,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo activo a las víctimas de hostigamiento en redes sociales muestra solidaridad y comprensión. La escucha activa asegura que las víctimas se sientan oídas y comprendidas, lo cual es fundamental para su recuperación emocional."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Animar a las víctimas y testigos del acoso a buscar ayuda de adultos confiables, como profesores o consejeros, es vital. El trabajo en equipo en la promoción de entornos digitales seguros y el apoyo entre compañeros puede fortalecer la resiliencia comunitaria contra el acoso cibernético."
+            }
+        ]
+    },
+    {
+        "idCarta": 29,
+        "nombre": "Menosprecio por no seguir modas",
+        "Combinaciones": [
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Fortalecer la autoestima de los estudiantes y fomentar el autoconocimiento puede ayudarles a valorar su individualidad y a sentirse seguros de sus elecciones personales, incluida su forma de vestir. El autoconocimiento permite a los estudiantes comprender y apreciar su propio valor más allá de las apariencias externas."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Crear un ambiente escolar inclusivo que celebre la diversidad y fomente la tolerancia hacia diferentes estilos y expresiones personales reduce el impacto negativo del menosprecio por no seguir modas. La tolerancia ayuda a desarrollar una comunidad escolar respetuosa y acogedora para todos."
+            },
+            {
+                "RE": 11,
+                "HS": 10,
+                "por_que": "Informar a los estudiantes sobre los efectos dañinos del bullying, incluido el menosprecio por las elecciones de moda, aumenta la conciencia y promueve la empatía. La inteligencia emocional es crucial para gestionar las emociones relacionadas con sentirse menospreciado y para responder de manera constructiva."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Establecer una red de apoyo para aquellos que se sienten juzgados por su apariencia ofrece un espacio donde pueden compartir sus experiencias y sentirse comprendidos y valorados. La escucha activa asegura que sus voces sean oídas y sus sentimientos validados."
+            },
+            {
+                "RE": 30,
+                "HS": 2,
+                "por_que": "Organizar eventos que celebren la diversidad de expresiones y estilos personales puede fomentar un cambio de percepción sobre la moda y la individualidad. La comunicación asertiva empodera a los estudiantes para expresar su identidad única y desafiar las normas restrictivas."
+            }
+        ]
+    },
+    {
+        "idCarta": 30,
+        "nombre": "Ciberacoso por identidad digital",
+        "Combinaciones": [
+            {
+                "RE": 21,
+                "HS": 10,
+                "por_que": "Educar sobre el uso responsable de las redes sociales y el internet es crucial para prevenir y abordar el ciberacoso. La inteligencia emocional ayuda a los estudiantes a manejar las emociones provocadas por el acoso y a responder de manera constructiva."
+            },
+            {
+                "RE": 17,
+                "HS": 2,
+                "por_que": "Establecer espacios seguros, tanto en línea como fuera de línea, donde los estudiantes puedan expresar sus preocupaciones y buscar apoyo es vital. La comunicación asertiva permite a las víctimas del ciberacoso expresar claramente el impacto del acoso y buscar ayuda efectivamente."
+            },
+            {
+                "RE": 11,
+                "HS": 4,
+                "por_que": "Informar a la comunidad escolar sobre el ciberacoso y sus efectos negativos aumenta la conciencia y fomenta una cultura de apoyo. La empatía profunda motiva a los compañeros a entender el daño causado por el acoso y a actuar en defensa de los afectados."
+            },
+            {
+                "RE": 7,
+                "HS": 1,
+                "por_que": "Ofrecer apoyo activo a las víctimas de ciberacoso muestra solidaridad y comprensión. La escucha activa asegura que las víctimas se sientan oídas y comprendidas, lo cual es fundamental para su recuperación emocional."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Animar a las víctimas y testigos del acoso a buscar ayuda de adultos confiables, como profesores o consejeros, es crucial. El trabajo en equipo en la promoción de entornos digitales seguros y el apoyo entre compañeros puede fortalecer la resiliencia comunitaria contra el ciberacoso."
+            }
+        ]
+    },
+    {
+        "idCarta": 31,
+        "nombre": "Amenazas por resistirse a un desafío",
+        "Combinaciones": [
+            {
+                "RE": 8,
+                "HS": 2,
+                "por_que": "Alentar al estudiante a buscar ayuda de adultos confiables es crucial para garantizar su seguridad y bienestar. La comunicación asertiva permite al estudiante expresar las amenazas recibidas y sus preocupaciones de manera clara y efectiva."
+            },
+            {
+                "RE": 15,
+                "HS": 12,
+                "por_que": "Fortalecer la autoestima del estudiante y fomentar el autoconocimiento puede ayudarle a valorar su integridad personal por encima de la presión para conformarse. Esto le empodera para tomar decisiones basadas en sus propios valores y límites."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo con compañeros que comparten valores similares puede ofrecer al estudiante un sentido de comunidad y fortaleza para resistir la presión grupal. El trabajo en equipo en actividades positivas refuerza la cohesión entre los estudiantes que se apoyan mutuamente en decisiones saludables."
+            },
+            {
+                "RE": 11,
+                "HS": 4,
+                "por_que": "Informar a la comunidad escolar sobre el impacto negativo del bullying, incluidas las amenazas para forzar la participación en desafíos peligrosos, aumenta la conciencia general y fomenta un ambiente de apoyo. La empatía profunda ayuda a los estudiantes a entender y valorar los sentimientos y decisiones de los demás."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover un ambiente escolar inclusivo y tolerante reduce la incidencia de comportamientos coercitivos y de presión grupal. La tolerancia hacia las diferencias individuales, incluyendo la disposición a abstenerse de ciertos desafíos, fomenta un clima de respeto mutuo."
+            }
+        ]
+    },
+    {
+        "idCarta": 32,
+        "nombre": "Ridiculización por decisiones personales",
+        "Combinaciones": [
+            {
+                "RE": 15,
+                "HS": 12,
+                "por_que": "Ayudar a los estudiantes a fortalecer su autoestima y fomentar el autoconocimiento puede empoderarlos para estar orgullosos de sus decisiones personales y resistir la ridiculización. El autoconocimiento permite a los estudiantes comprender y apreciar sus propias razones para sus elecciones, reforzando su confianza para mantenerse firmes ante la presión de grupo."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Crear un ambiente escolar inclusivo que celebre la diversidad de opiniones y estilos de vida ayuda a minimizar la ridiculización basada en decisiones personales. La tolerancia enseña a los estudiantes a respetar y aceptar las diferencias individuales, promoviendo un entorno más acogedor y respetuoso."
+            },
+            {
+                "RE": 11,
+                "HS": 4,
+                "por_que": "Informar a la comunidad escolar sobre los efectos negativos del bullying, incluida la ridiculización por decisiones personales, aumenta la conciencia y promueve un cambio en las actitudes. La empatía profunda motiva a los compañeros a considerar el impacto de sus palabras y acciones en los demás y a actuar con mayor comprensión y respeto."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Fomentar el diálogo abierto sobre la importancia de respetar las decisiones personales y cómo la ridiculización puede afectar a los individuos puede ayudar a abordar los problemas subyacentes. La comunicación asertiva permite a los estudiantes expresar sus sentimientos y necesidades de manera clara, promoviendo la resolución de conflictos y el entendimiento mutuo."
+            },
+            {
+                "RE": 8,
+                "HS": 1,
+                "por_que": "Establecer una red de apoyo para estudiantes que han sido ridiculizados por sus decisiones personales ofrece un espacio donde pueden compartir experiencias y sentirse comprendidos y valorados. La escucha activa asegura que se tomen en serio sus preocupaciones, reforzando la idea de que no están solos."
+            }
+        ]
+    },
+    {
+        "idCarta": 33,
+        "nombre": "Marginación en viajes escolares",
+        "Combinaciones": [
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Fomentar una red de apoyo anima a los estudiantes a unirse y apoyarse mutuamente, lo cual es crucial en viajes escolares. Combinarlo con la habilidad de trabajar en equipo puede ayudar a integrar al estudiante marginado en actividades grupales."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover la inclusión es vital para abordar la marginación. La tolerancia es una habilidad social clave para aceptar y valorar las diferencias, ayudando a crear un ambiente más inclusivo en el viaje escolar."
+            },
+            {
+                "RE": 15,
+                "HS": 8,
+                "por_que": "Reforzar la autoestima del estudiante marginado es esencial. La inteligencia emocional ayuda a reconocer y manejar las emociones propias y de los demás, lo cual es crucial para mejorar la dinámica grupal."
+            },
+            {
+                "RE": 28,
+                "HS": 4,
+                "por_que": "Las actividades colaborativas pueden unir al grupo y reducir la marginación. Combinadas con la empatía profunda, estos esfuerzos pueden fomentar una comprensión y un respeto más profundos entre los estudiantes."
+            },
+            {
+                "RE": 23,
+                "HS": 13,
+                "por_que": "Un mentor o guía puede proporcionar apoyo directo al estudiante marginado, y fomentar la influencia positiva entre los compañeros puede cambiar las actitudes y comportamientos negativos."
+            }
+        ]
+    },
+    {
+        "idCarta": 34,
+        "nombre": "Insultos por habilidades artísticas",
+        "Combinaciones": [
+            {
+                "RE": 10,
+                "HS": 4,
+                "por_que": "Reconocer y validar las emociones del estudiante afectado es fundamental. Combinado con la empatía profunda, ayuda a comprender y conectar mejor con los sentimientos del estudiante, promoviendo un ambiente más comprensivo."
+            },
+            {
+                "RE": 13,
+                "HS": 13,
+                "por_que": "El refuerzo positivo puede ayudar a aumentar la autoestima del estudiante insultado, mientras que fomentar una influencia positiva en el grupo puede cambiar actitudes negativas y promover el aprecio por la diversidad de habilidades."
+            },
+            {
+                "RE": 15,
+                "HS": 5,
+                "por_que": "Fortalecer la autoestima del estudiante ayuda a manejar mejor el bullying. El liderazgo positivo puede ser clave para modelar comportamientos de respeto y apreciación de las diferencias en habilidades y talentos."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo ayuda a reducir la marginación por habilidades artísticas. La tolerancia es una habilidad social esencial para aceptar y valorar las diferencias entre los estudiantes."
+            },
+            {
+                "RE": 17,
+                "HS": 2,
+                "por_que": "Crear espacios seguros permite que los estudiantes expresen sus habilidades artísticas sin miedo al juicio o al bullying. La comunicación asertiva es vital para que los estudiantes expresen sus necesidades y límites de manera efectiva."
+            }
+        ]
+    },
+    {
+        "idCarta": 35,
+        "nombre": "Intimidación en el transporte escolar",
+        "Combinaciones": [
+            {
+                "RE": 3,
+                "HS": 3,
+                "por_que": "La intervención directa puede ser crucial en situaciones de intimidación inmediata. La habilidad de resolver conflictos es esencial para abordar y mitigar la situación de manera efectiva y pacífica."
+            },
+            {
+                "RE": 8,
+                "HS": 5,
+                "por_que": "Crear una red de apoyo proporciona una base sólida para que la víctima del bullying no se sienta sola. El liderazgo positivo puede influir en los demás para cambiar la dinámica en el transporte escolar y fomentar un ambiente más seguro."
+            },
+            {
+                "RE": 16,
+                "HS": 13,
+                "por_que": "Las campañas de concientización sobre el bullying pueden educar a los estudiantes sobre las consecuencias y cómo actuar. La influencia positiva ayuda a cambiar la percepción y el comportamiento del grupo hacia actitudes más positivas."
+            },
+            {
+                "RE": 17,
+                "HS": 8,
+                "por_que": "Establecer espacios seguros en el transporte escolar puede ofrecer un refugio para las víctimas del bullying. La inteligencia emocional es fundamental para comprender y manejar las emociones propias y de los demás en estas situaciones."
+            },
+            {
+                "RE": 19,
+                "HS": 18,
+                "por_que": "La defensa personal no violenta proporciona estrategias para protegerse sin recurrir a la agresión. El autocontrol es crucial para manejar situaciones de alta tensión sin escalar el conflicto."
+            }
+        ]
+    },
+    {
+        "idCarta": 36,
+        "nombre": "Mofa por dificultades de aprendizaje",
+        "Combinaciones": [
+            {
+                "RE": 9,
+                "HS": 4,
+                "por_que": "Ayudar al estudiante a desarrollar resiliencia ante las burlas puede fortalecer su capacidad para manejar situaciones adversas. La empatía profunda de sus compañeros puede fomentar un ambiente de comprensión y apoyo."
+            },
+            {
+                "RE": 11,
+                "HS": 8,
+                "por_que": "La educación sobre el bullying ayuda a entender el impacto negativo de la mofa por dificultades de aprendizaje. La inteligencia emocional permite a los estudiantes reconocer y manejar sus emociones, lo que mejora la empatía y comprensión hacia compañeros con dificultades de aprendizaje."
+            },
+            {
+                "RE": 13,
+                "HS": 2,
+                "por_que": "El refuerzo positivo puede aumentar la autoestima del estudiante afectado. La comunicación asertiva les permite expresar sus sentimientos y necesidades, estableciendo límites y solicitando respeto."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Fomentar alianzas entre estudiantes puede proporcionar un sistema de apoyo para aquellos con dificultades de aprendizaje. El trabajo en equipo promueve la colaboración e integración en actividades grupales."
+            },
+            {
+                "RE": 23,
+                "HS": 5,
+                "por_que": "La mentoría puede ofrecer orientación y apoyo adicional al estudiante, mientras que fomentar el liderazgo positivo entre los compañeros puede transformar la cultura del aula hacia una más inclusiva y respetuosa."
+            }
+        ]
+    },
+    {
+        "idCarta": 37,
+        "nombre": "Chismes malintencionados",
+        "Combinaciones": [
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Fomentar un diálogo abierto permite abordar los chismes directamente y de manera constructiva. La comunicación asertiva es clave para que la víctima pueda expresar cómo le afectan los chismes y pedir respeto."
+            },
+            {
+                "RE": 11,
+                "HS": 8,
+                "por_que": "La educación sobre el bullying y sus efectos ayuda a comprender el impacto negativo de los chismes. La inteligencia emocional mejora la empatía y reduce la propagación de chismes al ayudar a gestionar emociones de forma saludable."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover la inclusión ayuda a crear un ambiente de respeto, minimizando los chismes. La tolerancia fomenta la aceptación de diferencias, reduciendo prejuicios que alimentan los rumores."
+            },
+            {
+                "RE": 13,
+                "HS": 5,
+                "por_que": "El refuerzo positivo puede ayudar a construir la autoestima de la persona afectada por los chismes. Un liderazgo positivo puede influir en el grupo para desalentar los chismes y fomentar un trato respetuoso."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Establecer alianzas proporciona apoyo social y emocional a la víctima de chismes. El trabajo en equipo fomenta la cooperación y comprensión, mejorando las relaciones interpersonales y reduciendo los chismes."
+            }
+        ]
+    },
+    {
+        "idCarta": 38,
+        "nombre": "Burlas por pronunciación o acento",
+        "Combinaciones": [
+            {
+                "RE": 5,
+                "HS": 4,
+                "por_que": "La empatía reflejada permite entender y compartir los sentimientos de la persona afectada por las burlas, mientras que la empatía profunda facilita una comprensión más íntima de sus experiencias, promoviendo un ambiente de aceptación."
+            },
+            {
+                "RE": 11,
+                "HS": 13,
+                "por_que": "Educar sobre el bullying ayuda a comprender por qué las burlas por pronunciación o acento son dañinas. La influencia positiva puede ser utilizada para fomentar un cambio de actitud en el entorno social."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "La promoción de la inclusión y la tolerancia fomenta el respeto por las diferencias individuales, incluyendo las diferencias en el habla, creando un ambiente donde todos se sientan valorados."
+            },
+            {
+                "RE": 17,
+                "HS": 2,
+                "por_que": "Crear espacios seguros donde todos se sientan bienvenidos y protegidos es fundamental para reducir las burlas. La comunicación asertiva permite abordar el comportamiento inadecuado de manera respetuosa."
+            },
+            {
+                "RE": 30,
+                "HS": 17,
+                "por_que": "Celebrar la diversidad ayuda a apreciar las diferencias, incluyendo los acentos. La conciencia cultural fomenta un mayor respeto por las distintas formas de expresión y antecedentes culturales."
+            }
+        ]
+    },
+    {
+        "idCarta": 39,
+        "nombre": "Hostigamiento en vestuarios",
+        "Combinaciones": [
+            {
+                "RE": 17,
+                "HS": 2,
+                "por_que": "Crear espacios seguros en vestuarios es crucial para garantizar que todos los estudiantes se sientan protegidos. La comunicación asertiva permite abordar el comportamiento inadecuado y fomentar un ambiente de respeto."
+            },
+            {
+                "RE": 3,
+                "HS": 3,
+                "por_que": "La intervención directa y la resolución de conflictos son esenciales en situaciones de hostigamiento para desescalar y resolver el problema en el momento, promoviendo una cultura de respeto."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo y tolerante puede prevenir el hostigamiento. Estas habilidades promueven un clima de respeto y aceptación en el entorno escolar."
+            },
+            {
+                "RE": 16,
+                "HS": 13,
+                "por_que": "Una campaña de concientización puede educar sobre el hostigamiento en vestuarios y sus efectos. La influencia positiva puede promover un cambio de actitud en la comunidad escolar."
+            },
+            {
+                "RE": 11,
+                "HS": 8,
+                "por_que": "Educar sobre bullying y sus efectos negativos es fundamental en estos casos. La inteligencia emocional ayuda a entender y gestionar las emociones en estas situaciones, promoviendo empatía y apoyo."
+            }
+        ]
+    },
+    {
+        "idCarta": 40,
+        "nombre": "Presión para consumir sustancias",
+        "Combinaciones": [
+            {
+                "RE": 11,
+                "HS": 13,
+                "por_que": "La educación sobre bullying y presión de grupo ayuda a los estudiantes a reconocer estas dinámicas. La influencia positiva modela decisiones saludables, fomentando la resiliencia ante la presión."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "Un diálogo abierto permite abordar la presión para consumir sustancias en un entorno seguro, mientras que la comunicación asertiva facilita que los estudiantes expresen sus límites y resistan la presión de grupo."
+            },
+            {
+                "RE": 2,
+                "HS": 5,
+                "por_que": "Ofrecer apoyo activo a quienes enfrentan esta presión es esencial. El liderazgo positivo puede modelar comportamientos saludables, brindando alternativas a las actividades de riesgo."
+            },
+            {
+                "RE": 16,
+                "HS": 8,
+                "por_que": "Una campaña de concientización sobre los peligros del consumo de sustancias, combinada con inteligencia emocional, fomenta la autonomía personal y el manejo de emociones en situaciones de presión."
+            },
+            {
+                "RE": 15,
+                "HS": 12,
+                "por_que": "Fortalecer la autoestima puede ayudar a los estudiantes a resistir la presión para consumir sustancias. El autoconocimiento permite comprender los propios valores y límites, reforzando la capacidad para decir no."
+            }
+        ]
+    },
+    {
+        "idCarta": 41,
+        "nombre": "Intrigas para afectar amistades",
+        "Combinaciones": [
+            {
+                "RE": 14,
+                "HS": 3,
+                "por_que": "La mediación de conflictos, junto con la resolución de conflictos, es ideal para abordar intrigas que dañan amistades. Facilita que las partes involucradas comprendan las perspectivas de cada uno y encuentren soluciones que reduzcan la manipulación y los malentendidos."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "El diálogo abierto promueve la honestidad y transparencia, mientras que la comunicación asertiva permite expresar pensamientos y sentimientos de manera clara. Esta combinación puede ayudar a resolver las intrigas y restablecer la confianza."
+            },
+            {
+                "RE": 34,
+                "HS": 8,
+                "por_que": "Reconocer patrones de bullying es crucial en intrigas que afectan amistades. La inteligencia emocional permite entender y gestionar las emociones, ayudando a resolver situaciones manipulativas de manera efectiva."
+            },
+            {
+                "RE": 25,
+                "HS": 13,
+                "por_que": "Crear alianzas promueve la unión y el apoyo, contrarrestando el efecto negativo de las intrigas. La influencia positiva puede modelar comportamientos saludables dentro del grupo y disminuir el impacto de la manipulación."
+            },
+            {
+                "RE": 2,
+                "HS": 4,
+                "por_que": "El apoyo activo brinda asistencia concreta a quienes sufren por las intrigas, mientras que la empatía profunda permite comprender y atender las necesidades emocionales, fortaleciendo así las relaciones afectadas."
+            }
+        ]
+    },
+    {
+        "idCarta": 42,
+        "nombre": "Ridiculización por hobbies no populares",
+        "Combinaciones": [
+            {
+                "RE": 13,
+                "HS": 12,
+                "por_que": "El refuerzo positivo ayuda a valorar los hobbies, mientras que el autoconocimiento permite que la persona afectada comprenda y aprecie sus propias pasiones, fortaleciendo su resistencia ante la ridiculización."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Un ambiente inclusivo donde se respeten todos los intereses crea un entorno acogedor. La tolerancia es clave para aceptar y valorar la diversidad de hobbies e intereses personales."
+            },
+            {
+                "RE": 25,
+                "HS": 10,
+                "por_que": "Establecer alianzas entre personas con intereses similares ofrece un sentido de pertenencia, mientras que el trabajo en equipo fomenta la colaboración y el respeto mutuo."
+            },
+            {
+                "RE": 30,
+                "HS": 17,
+                "por_que": "Celebrar la diversidad, incluyendo los hobbies, promueve un ambiente de aceptación. La conciencia cultural enriquece esta comprensión, promoviendo un respeto más profundo por las diferencias individuales."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "El diálogo abierto permite abordar las preocupaciones sobre hobbies no populares, mientras que la comunicación asertiva ayuda a expresar opiniones y sentimientos de manera respetuosa."
+            }
+        ]
+    },
+    {
+        "idCarta": 43,
+        "nombre": "Desprecio por falta de habilidades deportivas",
+        "Combinaciones": [
+            {
+                "RE": 13,
+                "HS": 5,
+                "por_que": "El refuerzo positivo ayuda a valorar habilidades individuales, mientras que el liderazgo positivo fomenta un ambiente de respeto y aprecio por las diversas capacidades de cada estudiante."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Promover un ambiente inclusivo en deportes y otras actividades escolares es crucial. La tolerancia permite aceptar y valorar las diferencias en habilidades y capacidades."
+            },
+            {
+                "RE": 15,
+                "HS": 14,
+                "por_que": "Fortalecer la autoestima ayuda a los estudiantes menos hábiles en deportes a afrontar mejor el desprecio, mientras que la resiliencia permite mantener una actitud positiva frente a los desafíos."
+            },
+            {
+                "RE": 17,
+                "HS": 4,
+                "por_que": "Establecer espacios seguros asegura que todos se sientan respetados independientemente de sus habilidades deportivas. La empatía profunda permite a los compañeros y profesores brindar mejor apoyo a quienes enfrentan estos desafíos."
+            },
+            {
+                "RE": 11,
+                "HS": 8,
+                "por_que": "Educar sobre las formas de bullying, incluyendo el desprecio por habilidades deportivas, es crucial. La inteligencia emocional ayuda a todos a reconocer y gestionar mejor sus emociones, promoviendo un ambiente de respeto."
+            }
+        ]
+    },
+    {
+        "idCarta": 44,
+        "nombre": "Campañas de desprestigio en línea",
+        "Combinaciones": [
+            {
+                "RE": 20,
+                "HS": 8,
+                "por_que": "El uso responsable de redes sociales es clave para prevenir campañas de desprestigio en línea. La inteligencia emocional ayuda a manejar las emociones que surgen en situaciones de bullying digital."
+            },
+            {
+                "RE": 11,
+                "HS": 2,
+                "por_que": "Educar sobre el bullying digital es fundamental. La comunicación asertiva permite a las víctimas y testigos expresar sus preocupaciones y establecer límites de manera efectiva."
+            },
+            {
+                "RE": 16,
+                "HS": 13,
+                "por_que": "Las campañas de concientización aumentan el conocimiento sobre los efectos negativos de las campañas de desprestigio en línea, y la influencia positiva puede ayudar a crear un ambiente donde estos actos sean inaceptables."
+            },
+            {
+                "RE": 1,
+                "HS": 1,
+                "por_que": "Un diálogo abierto sobre experiencias de desprestigio en línea permite validar las preocupaciones, mientras que la escucha activa asegura que las personas afectadas se sientan comprendidas y respaldadas."
+            },
+            {
+                "RE": 26,
+                "HS": 14,
+                "por_que": "La atención psicológica ayuda a las víctimas de desprestigio en línea a recuperarse emocionalmente, y la resiliencia les permite superar los efectos negativos del bullying digital."
+            }
+        ]
+    },
+    {
+        "idCarta": 45,
+        "nombre": "Críticas por no tener tecnología de moda",
+        "Combinaciones": [
+            {
+                "RE": 11,
+                "HS": 2,
+                "por_que": "La educación sobre el bullying ayuda a sensibilizar a los agresores sobre el daño de sus críticas, mientras que la comunicación asertiva permite a la víctima expresar sus sentimientos de manera efectiva y firme."
+            },
+            {
+                "RE": 15,
+                "HS": 12,
+                "por_que": "Fortalecer la autoestima es clave para quienes enfrentan críticas materiales. El autoconocimiento permite a la persona valorar sus fortalezas más allá de las posesiones."
+            },
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Un ambiente inclusivo reduce el estigma de no tener ciertos objetos de moda, mientras que la tolerancia fomenta el respeto por las diferencias en las situaciones económicas."
+            },
+            {
+                "RE": 16,
+                "HS": 13,
+                "por_que": "Las campañas de concientización pueden educar sobre el daño de las críticas materiales. La influencia positiva promueve un entorno menos materialista y más respetuoso."
+            },
+            {
+                "RE": 30,
+                "HS": 17,
+                "por_que": "Celebrar la diversidad incluye respetar los diferentes contextos económicos. La conciencia cultural ayuda a entender y aceptar las distintas realidades económicas de las personas."
+            }
+        ]
+    },
+    {
+        "idCarta": 46,
+        "nombre": "Acoso por estudiar en academias después de clase",
+        "Combinaciones": [
+            {
+                "RE": 2,
+                "HS": 2,
+                "por_que": "El apoyo activo es crucial en situaciones de acoso, ofreciendo recursos y respaldo. La comunicación asertiva permite que la persona afectada exprese sus límites y necesidades claramente."
+            },
+            {
+                "RE": 7,
+                "HS": 3,
+                "por_que": "Buscar ayuda de autoridades o profesionales es vital en casos de acoso. La resolución de conflictos permite abordar situaciones tensas de manera constructiva."
+            },
+            {
+                "RE": 11,
+                "HS": 11,
+                "por_que": "Educar sobre el bullying y fomentar la tolerancia puede prevenir el acoso, además de promover un ambiente donde todos se respeten y valoren."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Establecer una red de apoyo brinda seguridad a la persona acosada. El trabajo en equipo fortalece el sistema de ayuda entre compañeros y grupos de apoyo."
+            },
+            {
+                "RE": 26,
+                "HS": 8,
+                "por_que": "La atención psicológica ayuda a la persona a manejar las emociones causadas por el acoso. La inteligencia emocional es clave para gestionar y entender las emociones de todos los involucrados."
+            }
+        ]
+    },
+    {
+        "idCarta": 47,
+        "nombre": "Insultos por no tener pareja",
+        "Combinaciones": [
+            {
+                "RE": 11,
+                "HS": 11,
+                "por_que": "La educación sobre el bullying sensibiliza sobre el impacto de los insultos, mientras que la tolerancia ayuda a fomentar un ambiente de respeto por las elecciones individuales."
+            },
+            {
+                "RE": 13,
+                "HS": 12,
+                "por_que": "El refuerzo positivo ayuda a la persona a sentirse valorada, y el autoconocimiento le permite comprender su valía personal, fortaleciendo su autoestima ante los insultos."
+            },
+            {
+                "RE": 15,
+                "HS": 4,
+                "por_que": "Construir la autoestima ayuda a la persona afectada a manejar mejor las críticas, mientras que la empatía profunda fomenta una comprensión y apoyo genuino en su entorno."
+            },
+            {
+                "RE": 12,
+                "HS": 13,
+                "por_que": "Promover la inclusión ayuda a cambiar el ambiente hacia uno más respetuoso, y la influencia positiva modela comportamientos de aceptación y respeto."
+            },
+            {
+                "RE": 29,
+                "HS": 2,
+                "por_que": "El diálogo con las familias brinda un respaldo importante, mientras que la comunicación asertiva ayuda a expresar y resolver las preocupaciones de manera efectiva."
+            }
+        ]
+    },
+    {
+        "idCarta": 48,
+        "nombre": "Amenazas por no participar en bromas",
+        "Combinaciones": [
+            {
+                "RE": 3,
+                "HS": 3,
+                "por_que": "La intervención directa es clave en casos de amenazas, mientras que la resolución de conflictos permite abordar el problema de fondo y buscar una solución pacífica."
+            },
+            {
+                "RE": 11,
+                "HS": 13,
+                "por_que": "Educar sobre el bullying ayuda a entender el impacto de las amenazas. La influencia positiva fomenta un ambiente grupal más saludable y respetuoso."
+            },
+            {
+                "RE": 12,
+                "HS": 4,
+                "por_que": "Promover la inclusión crea un espacio seguro para todos, mientras que la empatía profunda ayuda a los compañeros a comprender los sentimientos de aquellos que son amenazados."
+            },
+            {
+                "RE": 2,
+                "HS": 2,
+                "por_que": "El apoyo activo brinda seguridad a la persona afectada, y la comunicación asertiva permite que establezca límites claros respecto a las bromas."
+            },
+            {
+                "RE": 16,
+                "HS": 5,
+                "por_que": "Las campañas de concientización educan sobre los efectos negativos de las amenazas, y el liderazgo positivo ofrece un ejemplo a seguir para mantener un ambiente de respeto."
+            }
+        ]
+    },
+    {
+        "idCarta": 49,
+        "nombre": "Exclusión de grupos de estudio",
+        "Combinaciones": [
+            {
+                "RE": 12,
+                "HS": 11,
+                "por_que": "Fomentar un ambiente inclusivo y la tolerancia hacia las diferencias es crucial para reducir la exclusión en los grupos de estudio."
+            },
+            {
+                "RE": 17,
+                "HS": 3,
+                "por_que": "Crear espacios seguros asegura que los estudiantes se sientan bienvenidos, y la resolución de conflictos permite abordar problemas interpersonales dentro del grupo."
+            },
+            {
+                "RE": 1,
+                "HS": 2,
+                "por_que": "El diálogo abierto facilita que los estudiantes expresen sus sentimientos y preocupaciones, mientras que la comunicación asertiva garantiza un intercambio respetuoso."
+            },
+            {
+                "RE": 15,
+                "HS": 5,
+                "por_que": "Fortalecer la autoestima minimiza el impacto de la exclusión, mientras que el liderazgo positivo fomenta un entorno donde todos se sientan parte del grupo."
+            },
+            {
+                "RE": 28,
+                "HS": 10,
+                "por_que": "Organizar actividades colaborativas ayuda a reducir barreras de exclusión, y el trabajo en equipo enseña a valorar las contribuciones de cada persona en el grupo."
+            }
+        ]
+    },
+    {
+        "idCarta": 50,
+        "nombre": "Hostigamiento por enfermedades crónicas",
+        "Combinaciones": [
+            {
+                "RE": 2,
+                "HS": 4,
+                "por_que": "El apoyo activo es crucial en situaciones de hostigamiento, mientras que la empatía profunda permite comprender y compartir los sentimientos de la persona afectada."
+            },
+            {
+                "RE": 11,
+                "HS": 17,
+                "por_que": "La educación sobre el bullying y la conciencia cultural promueven la comprensión y el respeto por las diferencias, ayudando a prevenir el hostigamiento."
+            },
+            {
+                "RE": 8,
+                "HS": 10,
+                "por_que": "Crear una red de apoyo ofrece respaldo a la víctima, y el trabajo en equipo fomenta un ambiente de colaboración y respeto mutuo."
+            },
+            {
+                "RE": 17,
+                "HS": 6,
+                "por_que": "Crear espacios seguros asegura que las personas con enfermedades crónicas se sientan protegidas, y el manejo del estrés ayuda a la víctima a afrontar la ansiedad generada por el hostigamiento."
+            },
+            {
+                "RE": 26,
+                "HS": 8,
+                "por_que": "La atención psicológica proporciona ayuda profesional para manejar el impacto emocional del acoso, mientras que la inteligencia emocional ayuda a todos a manejar y entender las emociones involucradas."
+            }
+        ]
+    }
+]
+
+	
+
+
+	
+
+
+

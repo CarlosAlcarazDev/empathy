@@ -1,3 +1,8 @@
-res://scenes/LoginScreen.tscn::2b5a59ddb6ddf204852af2b6a34c5c81::1730889467::res://.godot/exported/133200997/export-8b70ab87375f5e03b0cabbed8eb15de9-LoginScreen.scn
-res://scenes/MainMenu.tscn::798010880dafb61d618586fca5f47f7e::1730889467::res://.godot/exported/133200997/export-23c8b2a48d59a0cd018bd8ad5ce7794c-MainMenu.scn
-res://scenes/RegisterUser.tscn::44228d5efaf0622a0be0e7a582a0ce36::1730889467::res://.godot/exported/133200997/export-e28441d47fa8234b986ddd61fecab6ef-RegisterUser.scn
+res://scenes/LoginScreen.tscn::0b7023e45be4b9f72dbe36741a1ed407::1731799610::res://.godot/exported/133200997/export-8b70ab87375f5e03b0cabbed8eb15de9-LoginScreen.scn
+res://scenes/MainMenu.tscn::34e2892be99f0a4fc751ae2efcd7d404::1731799577::res://.godot/exported/133200997/export-23c8b2a48d59a0cd018bd8ad5ce7794c-MainMenu.scn
+res://scenes/RegisterUser.tscn::625cdea45247ee579ae023a692ce56d8::1731799624::res://.godot/exported/133200997/export-e28441d47fa8234b986ddd61fecab6ef-RegisterUser.scn
+res://scenes/card.tscn::5f2f06b48d896551451ae567371cfe36::1731799578::res://.godot/exported/133200997/export-ad0d4f738e88f33240c2dfb94b42c7e3-card.scn
+res://scenes/CreditsScreen.tscn::bdac5ce6275c782a2db40ee83183e617::1731799577::res://.godot/exported/133200997/export-8be0eaa18297fa693e72208b4389bc33-CreditsScreen.scn
+res://scenes/NewGame.tscn::1e02138f2d3a4a88dfa28085eda21d4f::1731799578::res://.godot/exported/133200997/export-72a77c98019198d834ce10d50cc2336e-NewGame.scn
+res://scenes/StatisticsScreen.tscn::57e67df43e02c10ff9fb9bab3cb89812::1731799578::res://.godot/exported/133200997/export-e1905a979ae462c386eaa173a190f17e-StatisticsScreen.scn
+res://popup_theme.tres::b33a29e2bf138b7dc5bd75d784018d5a::1731452843::res://.godot/exported/133200997/export-50afda85f78c0aa4bb110599a240144c-popup_theme.res
