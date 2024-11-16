@@ -1,21 +1,43 @@
+# ===============================
+# Nombre del Script: hs_card_1.gd
+# Desarrollador: Carlos Alcaraz Benítez
+# Fecha de Creación: 14 de Noviembre de 2024
+# Descripción: Este script maneja la lógica de la carta hs posicion 1
+# Ampliar la carta al pasar por encima de ella
+# Si doble click sobre la carta, carta seleccionada y colocada en posicion seleccionada (minimizada).
+# Emite señal con la id de la carta seleccionada
+# ===============================
+# Listado de funciones
+#	_ready(): Función para conectar las señales de entrar y salir el mouse y doble click, define escala, posicion e indice
+#	_on_mouse_entered(): Señal mouse ha entrado. Escala la imagen y la coloca encima de la actual
+#	_on_mouse_exited(): Señal mouse ha salido. Restaura la escala y posición originales solo si la carta no ha sido movida
+#	on_gui_input(event): Señal doble click izquierdo raton 
+#	move_to_original_position(): Función para mover la carta de vuelta a su posición original
+# ===============================
+
 extends Control
-# Señal que se emitirá cuando la carta sea seleccionada
+# Señal que se emitirá cuando la carta sea seleccionada. Enviará el id de la carta
 signal card_chosen_hs(card_id)
 
-
+# Referencias a los nodos de la escena
 @onready var re_card_1 = $"."
 @onready var number_card_label = $NumberCardLabel
 
+# Define las constantes escalas de la carta
 const NORMAL_SCALE = Vector2(0.13, 0.13)
 const HOVER_SCALE = Vector2(0.22, 0.22)
 const TARGET_SCALE = Vector2(0.1, 0.1)
+# Variables para guardar la posicion original de la carta
 var _position = position
-var original_z_index = 0  # Variable para almacenar el z_index original
+# Variable para almacenar el z_index original
+var original_z_index = 0  
 # Define la posición a la que se moverá la carta
 const TARGET_POSITION = Vector2(1167, 494)  
 const ORIGINAL_POSITION = Vector2(962.5, 804)
-var is_moved = false  # Bandera para verificar si la carta ha sido movida
+# Bandera para verificar si la carta ha sido movida
+var is_moved = false  
 
+# Función para conectar las señales de entrar y salir el mouse y doble click, define escala, posicion e indice
 func _ready():
 	connect("mouse_entered", Callable(self, "_on_mouse_entered"))
 	connect("mouse_exited", Callable(self, "_on_mouse_exited"))
@@ -26,19 +48,21 @@ func _ready():
 	# Almacena el z_index original para restaurarlo después del arrastre
 	original_z_index = z_index
 
+# Señal mouse ha entrado. Escala la imagen y la coloca encima de la actual
 func _on_mouse_entered():
 	if not is_moved:
 		position.y = _position.y - 190
 		scale = HOVER_SCALE
 		z_index = 10
 
+# Señal mouse ha salido. Restaura la escala y posición originales solo si la carta no ha sido movida
 func _on_mouse_exited():
-	# Restaura la escala y posición originales solo si la carta no ha sido movida
 	if not is_moved:
 		scale = NORMAL_SCALE
 		position = ORIGINAL_POSITION
 		z_index = original_z_index
 
+# Señal doble click izquierdo raton
 func on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.double_click:
 		# Si hay una carta en TARGET_POSITION, restáurala a su posición original
@@ -52,13 +76,11 @@ func on_gui_input(event):
 		z_index = 4
 		GlobalData.current_card_in_target_positionHS = self  # Actualiza la carta actual como la que está en TARGET_POSITION
 		print("Carta movida a TARGET_POSITION: ", self)
-				
-				# Emitir la señal indicando que la carta fue seleccionada
+		# Emitir la señal indicando que la carta ha sido seleccionada y envia id de la carta
 		emit_signal("card_chosen_hs", number_card_label.text)
 
-
+# Función para mover la carta de vuelta a su posición original
 func move_to_original_position():
-	# Método para mover esta carta de vuelta a su posición original
 	position = ORIGINAL_POSITION
 	scale = NORMAL_SCALE
 	z_index = original_z_index

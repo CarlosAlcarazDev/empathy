@@ -1,7 +1,14 @@
-# CardsRE.gd
+# ===============================
+# Nombre del Script: CardsRE.gd
+# Desarrollador: Carlos Alcaraz Benítez
+# Fecha de Creación: 09 de Noviembre de 2024
+# Descripción: Este script define la clase llamada CardsRE que representa las cartas de RESPUESTA EMPÁTICA
+# ===============================
+# 
 extends Resource
+# Define el nombre de la clase 
 class_name CardsRE
-
+#Propiedades exportadas
 @export var id_carta: int
 @export var nombre: String
 @export var descripcion: String
@@ -9,7 +16,7 @@ class_name CardsRE
 @export var apoyo_emocional: int
 @export var intervencion: int
 
-# Constructor para inicializar más fácilmente
+# Constructor para inicializar la clase con valores específicos
 func _init(_id_carta: int, _nombre: String, _descripcion: String, _empatia: int, _apoyo_emocional: int, _intervencion: int):
 	self.id_carta = _id_carta
 	self.nombre = _nombre

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
-[ext_resource type="Script" path="res://scenes/ui.gd" id="2_q5ib0"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="2_q5ib0"]
 [ext_resource type="Texture2D" uid="uid://cavqtbjc6wsby" path="res://assets/ui/icons/global_time.png" id="4_ov384"]
 [ext_resource type="Script" path="res://scripts/re_card_1.gd" id="5_goa0y"]
 [ext_resource type="Texture2D" uid="uid://dyyblqjpcax5f" path="res://assets/images/cards/reverses/reverse_ai.png" id="6_p02oi"]
@@ -23,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://djwiktfjhat8t" path="res://assets/images/cards/hs/11_HS.webp" id="17_aglkq"]
 [ext_resource type="Texture2D" uid="uid://04d8k2g7nynj" path="res://assets/images/frames/red frame stat right.png" id="17_kqvgd"]
 [ext_resource type="Texture2D" uid="uid://icaube7fsw4o" path="res://assets/ui/icons/time_button.png" id="23_kwiwh"]
-[ext_resource type="Script" path="res://scenes/game_manager.gd" id="25_ldt3k"]
-[ext_resource type="Script" path="res://scenes/deck_manager.gd" id="27_ybia5"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="25_ldt3k"]
+[ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
 
 [sub_resource type="Theme" id="Theme_b1oja"]
 
@@ -279,7 +279,7 @@ autowrap_mode = 3
 offset_top = 250.0
 offset_right = 500.0
 offset_bottom = 710.0
-text = "Faltaría calcular la puntuación de la IA y del Jugador y mostrarla a la derecha de la pantalla encuma y debajo del botón listo."
+text = "Faltaría calcular la puntuación de la IA y del Jugador y mostrarla a la derecha de la pantalla encima y debajo del botón de listo (cuenta atrás)."
 autowrap_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="UI/EndTurnPopup"]

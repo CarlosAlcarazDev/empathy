@@ -1,47 +1,73 @@
-# empathy
-14/11/24
-* Se muestra todas las cartas, se pueden elegir.
-* Se generan los flujos de trabajo para poder jugar, turnos, reparto de cartas, etc.
-* Boton fin tirada listo
-* Tiempo tirada listo
-* Falta elaborar puntuaciones
-* Falta arreglar puntuación bloqueada mientras se visualiza WindowsPopup para las puntuaciones y explicaciones.
-* Hay que valorar utilizar los mismos botones que en el menú para el ingame (Azul)
-* Primera aproximación lista para la PEC 2
+# **Caminos de Empatía**
+# 17/11/2024
+## **Descripción**
+Este es un juego de cartas estratégico en desarrollo. En esta versión inicial, se han implementado funcionalidades esenciales como el inicio de sesión, el registro de usuarios, la gestión de opciones, y una primera aproximación al flujo de juego.
 
+---
 
-13/11/24
-Se presentan las cartas y se crean dinamicamente accediendo a los json correspondientes
-se generan todas las cartas bu, re, hs
-Se modifica el layout para la tirada de la IA.
-cuenta atras y boton de listo para acabar la ronda-
+## **Características Actuales**
 
-12/11/24
-Inicio de las partidas. Da igual intuicion o estrategia por falta de los json.
-Se presentan las cartas en pantalla
-Creación NO dinamica. Falta acabar de crear los JSON
-Si se pasa por encima se amplia la carta
-si doble click se selecciona la carta
-Se eligen las 2 cartas y pasados n segundos muestra las cartas seleccionadas
-Cuenta atras de n segundos para las tiradas y 20 minutos para la partida final
-Se descarta drag drop para las cartas
-Version 0.1.1.0
+### **1. Sistema de Usuario**
+- **Inicio de Sesión:** Los usuarios registrados pueden acceder a sus cuentas.
+- **Registro de Nuevos Usuarios:** Los nuevos usuarios pueden crear una cuenta para jugar.
 
+### **2. Menú Principal**
+- **Nueva Partida:** Inicia una nueva partida seleccionando entre dos modos de juego.
+- **Opciones:**
+  - Ajusta el volumen de música y efectos de sonido (SFX).
+  - Activa o desactiva el antialiasing.
+- **Créditos:** Muestrará información sobre el desarrollo.
+- **Estadísticas (Prototipo):** Vista inicial de estadísticas del juego, mostrando detalles del jugador.
+- **Salir:** Cierra el juego.
 
-09/11/24
-Main menu listo a falta de cargar partida
-Primera aproximación de Créditos (Falta redactarlo entero)
-Falta persistencia datos jugadores individuales
-version 0.1.0.0
-* Próxima develop --> Inicio de las partidas. Presentar las cartas en la pantalla.
-* Creación dinamica de las cartas
-* Colocación de las cartas en el layout
-* Lógica de las cartas: Al pasar encima se amplian, si clicas sobre la carta se muestra el reverso
-* si se vuelve a clicar sobre la carta se muestra en anverso. Arrastrar la carta al lugar
-* designado para la seleccion de las cartas.
-* Elegir 2 cartas y clicar sobre "realizar tirada"
-* en definitiva, empezar con la lógica de las partidas.
+### **3. Selección de Modo de Juego**
+Al seleccionar "Nueva Partida", se presentan dos modos de juego mediante imágenes representativas. Al elegir uno, se accede a una versión inicial del juego.
 
-*PD. 09/11/24 01:26 AM sigo siendo incapaz de realizar correctamente el layout de las pantallas
-* y que al pasar la resolucion a 1280x720 no se descoloque todo. Tendrá que ser tan solo a una
-* resolución 1920x1080 (igualmente es una buena resolución para poder leer las cartas).
+### **4. Funcionalidades del Juego**
+- **Gestión de Cartas:**
+  - **Mostrar cartas:** Visualiza las cartas disponibles.
+  - **Barajar cartas:** Mezcla las cartas en el mazo.
+  - **Agrandar cartas:** Visualiza una carta seleccionada en mayor detalle.
+  - **Seleccionar cartas:** Elige cartas para el turno actual.
+- **Proto IA:** Una inteligencia artificial inicial que elige sus cartas automáticamente.
+- **Turno de Tirada:**
+  - Muestra las cartas elegidas por el jugador y la IA.
+  - Incluye botones para "Listo" y "Salir".
+- **Cuenta Atrás del Turno:**
+  - Cada turno tiene un límite de tiempo.
+  - Cuando quedan 10 segundos, aparece una cuenta atrás en pantalla acompañada de un sonido de advertencia.
+
+---
+
+## **Cómo Jugar**
+1. **Inicio:** Regístrate o inicia sesión en el juego.
+2. **Menú Principal:** Explora las opciones y selecciona "Nueva Partida" para empezar.
+3. **Modo de Juego:** Elige un modo y accede al tablero de juego.
+4. **Turnos:**
+   - Visualiza las cartas disponibles y elige las que usarás en el turno.
+   - Presiona "Listo" para confirmar tu selección.
+   - Si no seleccionas cartas antes de que acabe el tiempo, se seleccionarán automáticamente. Por ahora se seleccionará la carta -1.   
+
+---
+
+## **Desarrollador**
+- **Carlos Alcaraz Benítez** - Desarrollo principal y diseño del juego.
+
+---
+
+## **Progreso del Desarrollo**
+Este proyecto está en una etapa inicial de desarrollo. Las próximas versiones incluirán:
+- Mejoras en la IA del oponente.
+- Sistema avanzado de estadísticas, métricas para cumplir uno de los objetivos del proyecto.
+- Flujo completo del juego con reglas detalladas y condiciones de victoria.
+
+---
+
+## **Instalación**
+1. Descarga el juego desde el repositorio oficial.
+2. Extrae los archivos y ejecuta el archivo principal.
+3. ¡Regístrate o inicia sesión y comienza a jugar!
+
+---
+
+¡Gracias por jugar! 🚀

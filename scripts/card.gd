@@ -1,3 +1,9 @@
+# ===============================
+# Nombre del Script: card.gd
+# Desarrollador: Carlos Alcaraz Benítez
+# Fecha de Creación: 09 de Noviembre de 2024
+# Descripción: Este script maneja la lógica de las cartas
+# Desechado por no poder posicionar las imagenes donde quiero cuando se amplian
 extends Control
 
 @export var card_frame: TextureRect

@@ -1,18 +1,28 @@
-#Nodo responsable de manejar la baraja de cartas.
-#Implementamos la logica para
-#cargar las cartas desde el archivo deck_RE.json
-#crear instancias de CardsRE con la información de cada carta
-#Barajar el mazo de cartas y almacenarla en una ista
+# ===============================
+##****** LÓGICA TRASLADADA A deck_manager.gd PARA GESTIONAR INTEGRALMENTE TODOS LOS MAZOS******##
+# Nombre del Script: deck_player.gd
+# Desarrollador: Carlos Alcaraz Benítez
+# Fecha de Creación: 15 de Noviembre de 2024
+# Descripción: Este script maneja la lógica responsable de manejar el mazo de cartas re y hs
+# Implementa la logica para:
+# Cargar las cartas desde el archivo deck_re.json
+# Cargar las cartas desde el archivo deck_hs.json
+# Crear instancias de CardsRE con la información de cada carta
+# Crear instancias de CardsHS con la información de cada carta
+# Barajar el mazo de cartas re y almacenarla en una lista
+# Barajar el mazo de cartas hs y almacenarla en una lista
 
 extends Control
-
+# Ruta del archivo JSON donde se almacenan los datos del mazo de re
+# Ruta del archivo JSON donde se almacenan los datos del mazo de hs
 const DECK_RE_DATA_FILE := "res://data/deck_re.json"
 const DECK_HS_DATA_FILE := "res://data/deck_hs.json"
 
-var deck_re := []  # Aquí se almacenar las cartas instanciadas
-var deck_hs := []  # Aquí se almacenar las cartas instanciadas
+# Arrays para almacenar las cartas instanciadas
+var deck_re := []  
+var deck_hs := []  
 
-# Función para cargar el JSON y crear las cartas
+# Función para cargar el JSON y crear las cartas de re
 func load_cards_re_from_json():
 	var file = FileAccess.open(DECK_RE_DATA_FILE, FileAccess.READ)
 	if file:
@@ -44,11 +54,8 @@ func load_cards_re_from_json():
 func create_cards_re(cards_data: Array):
 	
 	for card_data in cards_data:
-		# Creamos la instancia de la carta usando el constructor de CardsRE
-		#print("typeofdata card_Data")
-		#print(typeof(card_data))
+		# Crea la instancia de la carta usando el constructor de CardsRE
 		if typeof(card_data) == TYPE_DICTIONARY:
-			
 			var card_instance = CardsRE.new(
 				card_data.get("idCarta", 0),
 				card_data.get("Nombre", ""),
@@ -67,7 +74,7 @@ func shuffle_deck_re():
 	deck_re.shuffle()
 	
 	
-# Función para cargar el JSON y crear las cartas
+# Función para cargar el JSON y crear las cartas de hs
 func load_cards_hs_from_json():
 	var file = FileAccess.open(DECK_HS_DATA_FILE, FileAccess.READ)
 	if file:
@@ -95,15 +102,12 @@ func load_cards_hs_from_json():
 		file.close()
 
 
-# Función para crear instancias de cartas y agregarlas al deck_re
+# Función para crear instancias de cartas y agregarlas al deck_hs
 func create_cards_hs(cards_data: Array):
 	
 	for card_data in cards_data:
 		# Creamos la instancia de la carta usando el constructor de CardsRE
-		#print("typeofdata card_Data")
-		#print(typeof(card_data))
 		if typeof(card_data) == TYPE_DICTIONARY:
-			
 			var card_instance = CardsHS.new(
 				card_data.get("idCarta", 0),
 				card_data.get("Nombre", ""),
