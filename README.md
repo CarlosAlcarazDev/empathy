@@ -1,5 +1,14 @@
 # **Caminos de Empatía**
 # 17/11/2024
+
+## **Instalación**
+1. Descarga el juego desde el repositorio oficial.
+2. Extrae los archivos winrar autoextraible.
+3. Ejecuta empathy.rar.part01 y extrae los archivos. Se montará un empathy.exe
+4. Ejecuta empathy.exe
+5. ¡Regístrate o inicia sesión y comienza a jugar!
+
+
 ## **Descripción**
 Este es un juego de cartas estratégico en desarrollo. En esta versión inicial, se han implementado funcionalidades esenciales como el inicio de sesión, el registro de usuarios, la gestión de opciones, y una primera aproximación al flujo de juego.
 
@@ -62,11 +71,6 @@ Este proyecto está en una etapa inicial de desarrollo. Las próximas versiones 
 - Flujo completo del juego con reglas detalladas y condiciones de victoria.
 
 ---
-
-## **Instalación**
-1. Descarga el juego desde el repositorio oficial.
-2. Extrae los archivos y ejecuta el archivo principal.
-3. ¡Regístrate o inicia sesión y comienza a jugar!
 
 ---
 
