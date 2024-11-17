@@ -1,4 +1,5 @@
 res://scenes/LoginScreen.tscn
+<<<<<<< HEAD
 res://scripts/MainMenu.gdshader
 res://scenes/RegisterUser.tscn
 res://scenes/MainMenu.tscn
@@ -6,3 +7,6 @@ res://scenes/CreditsScreen.tscn
 res://scenes/StatisticsScreen.tscn
 res://scenes/NewGame.tscn
 res://scenes/card.tscn
+=======
+res://scenes/NewGame.tscn
+>>>>>>> 0.2.1.0
