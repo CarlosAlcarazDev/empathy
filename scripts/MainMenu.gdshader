@@ -14,7 +14,7 @@ void fragment() {
     for (float x = -blur_size; x <= blur_size; x++) {
         for (float y = -blur_size; y <= blur_size; y++) {
             // Offset ajustado para cada fragmento alrededor del punto actual
-            vec2 offset = vec2(x, y) * 0.0003;  // Ajustar el valor para un desenfoque adecuado
+            vec2 offset = vec2(x, y) * 0.00028;  // Ajustar el valor para un desenfoque adecuado
             color += texture(screen_texture, SCREEN_UV + offset);
             total += 1.0;
         }

@@ -26,7 +26,8 @@
 #	replenish_cards(): Función para reabastecer cartas al jugador y a la IA	
 #	remove_selected_cards(): Función para eliminar las cartas seleccionadas del turno actual
 #	update_bullying_card(): Función para actualizar la carta de bullying en cada turno
-#	_on_ready_texture_button_pressed(): Función para manejar el evento del botón "Listo"
+#	_on_ready_texture_button_pressed(): Función para manejar el evento del botón "Listo" DEPRECATED
+#	_on_ready_button_pressed(): Función para manejar el evento del botón "Listo"
 #	_on_continue_button_pressed(): Señal que se activa al presionar botón "Continuar"
 #	_on_card_chosen_re(card_id): Función para manejar la selección de cartas tipo RE por el jugador
 #	_on_card_chosen_hs(card_id): Función para manejar la selección de cartas tipo HS por el jugador
@@ -74,8 +75,8 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 15  # En segundos
-const COUNTDOWN_20_MINUTES = 20 * 60  # En segundos (20 minutos)
+const COUNTDOWN_30_SECONDS = 5 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_20_MINUTES = 25 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
 var countdown_30_seconds = COUNTDOWN_30_SECONDS # Temporizador de turno
@@ -88,14 +89,36 @@ var countdown_sound_playing = false
 @onready var beep_countdown_audio_stream_player = $"../UI/BeepCountdownAudioStreamPlayer"
 @onready var countdown_20_minutes_label = $"../UI/Countdown20MinutesLabel"
 @onready var end_turn_popup = $"../UI/EndTurnPopup"
+
 @onready var continue_button = $"../UI/EndTurnPopup/ContinueButton"
-@onready var label = $"../UI/EndTurnPopup/Label"
-@onready var label_2 = $"../UI/EndTurnPopup/Label2"
-@onready var label_3 = $"../UI/EndTurnPopup/Label3"
-@onready var label_4 = $"../UI/EndTurnPopup/Label4"
-@onready var label_5 = $"../UI/EndTurnPopup/Label5"
+
+
+
+#@onready var label = $"../UI/EndTurnPopup/Label"
+#@onready var label_2 = $"../UI/EndTurnPopup/Label2"
+#@onready var label_3 = $"../UI/EndTurnPopup/Label3"
+#@onready var label_4 = $"../UI/EndTurnPopup/Label4"
+#@onready var label_5 = $"../UI/EndTurnPopup/Label5"
+@onready var name_type_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NameTypeBullyingLabel"
+@onready var needs_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NeedsBullyingLabel"
+@onready var player_label = $"../UI/EndTurnPopup/VBoxContainer/PlayerLabel"
+@onready var name_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/NameRELabel"
+@onready var points_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/PointsRELabel"
+@onready var name_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/NameHSLabel"
+@onready var points_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/PointsHSLabel"
+@onready var ia_label = $"../UI/EndTurnPopup/VBoxContainer/IALabel"
+@onready var ia_name_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer3/IANameRELabel"
+@onready var ia_points_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer3/IAPointsRELabel"
+@onready var ia_name_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer4/IANameHSLabel"
+@onready var ia_points_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer4/IAPointsHSLabel"
+@onready var total_points_player_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer5/TotalPointsPlayerLabel"
+@onready var total_points_ia_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer6/TotalPointsIALabel"
+
 @onready var ui = $"../UI"
 @onready var blur_overlay = $"../UI/Overlay/BlurOverlay"
+@onready var ready_button = $"../ReadyButton"
+
+
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -177,10 +200,12 @@ func handle_countdown(delta):
 		countdown_30_seconds -= delta
 		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Listo" cuando queden más de 10 segundos
 		if countdown_30_seconds > 10:
+			ready_button.text = "Listo"
 			countdown_30_seconds_label.text = "Listo"
 		else:
-			# Mostrar la cuenta atrás uando queden 10 segundos o menos
+			# Mostrar la cuenta atrás cuando queden 10 segundos o menos
 			countdown_30_seconds_label.text = "%d" % max(int(countdown_30_seconds), 0)
+			ready_button.text = "%d" % max(int(countdown_30_seconds), 0)
 			# Empezar el sonido de cuenta regresiva cuando quedan 10 segundos
 			if countdown_30_seconds <= 10 and not countdown_sound_playing:
 				beep_countdown_audio_stream_player.play()  # Reproduce el sonido
@@ -236,6 +261,7 @@ func prepare_game():
 	deck_manager.shuffle_deck_bu()
 	deck_manager.shuffle_deck_re()
 	deck_manager.shuffle_deck_hs()
+	print("tamaño del_manager_cartas_re", deck_manager.deck_re.size())
 
 	# Inicializar las listas de cartas del jugador (3 de cada tipo)
 	player_cards_re = [
@@ -288,18 +314,81 @@ func start_turn():
 	
 # Función para verificar el resultado del turno
 func check_game_result():
-	# Asignar cartas para mostrar en el modal las cartas seleccionadas por jugador e IA
-	label.text = ("Carta seleccionada por el jugador RE: " + str(player_selected_card_re))
-	label_2.text = ("Carta seleccionada por el jugador HS: " + str(player_selected_card_hs))
-	label_3.text = ("Carta seleccionada por la IA RE: " + str(ia_selected_card_re))
-	label_4.text = ("Carta seleccionada por la IA HS: " + str(ia_selected_card_hs))
-	label_5.text = ("Carta Situación de Bullying: "+ str(card_bullying.id_carta))
+	# Obtener cartas para mostrar en el modal las cartas seleccionadas por jugador e IA
+	print("int(player_selected_card_re")
+	print(int(player_selected_card_re))
+	var player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
+	var player_hs_card = deck_manager.get_card_hs_by_id(int(player_selected_card_hs))
+	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
+	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
+	
+	var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
+	
+	#Calcular puntuaciones
+	var player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card )
+	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card )
+	
+	
+	player_label.text = GlobalData.user
+	#Muestra valores player
+	name_re_label.text = player_re_card.nombre
+	name_hs_label.text = player_hs_card.nombre
+	points_hs_label.text = str(player_score) + " puntos"
+	#Muestra valores IA
+	ia_name_re_label.text = ia_re_card.nombre
+	ia_name_hs_label.text = ia_hs_card.nombre
+	ia_points_hs_label.text = str(ia_score) + " puntos"
+	
 
+	# Sumar puntuaciones al total acumulativo
+	GlobalData.total_player_score += player_score
+	GlobalData.total_ia_score += ia_score
+	
+	total_points_player_label.text = str(GlobalData.total_player_score) + " puntos"
+	total_points_ia_label.text = str(GlobalData.total_ia_score) + " puntos"
+	
+	#Deshabilitar el boton de listo/cuenta atrás
+	ready_button.disabled = true
 	# Deshabilitar interacción en las cartas y mostrar el modal
 	disable_card_interaction()
 	blur_overlay.visible = true
 	end_turn_popup.show()
 	
+	
+#Función para calcular la puntuación total de un jugador o la IA
+func calculate_score(bullying_card, re_card, hs_card) -> float:
+	#Inicializamos las puntuaciones individuales
+	var total_score = 0.0
+	
+	
+	var attributes_count = 0
+
+	# Cálculo para los atributos de RE
+	if bullying_card.empatia > 0:
+		total_score += (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 100
+		attributes_count += 1
+	if bullying_card.apoyo_emocional > 0:
+		total_score += (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 100
+		attributes_count += 1
+	if bullying_card.intervencion > 0:
+		total_score += (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 100
+		attributes_count += 1
+
+	# Cálculo para los atributos de HS
+	if bullying_card.comunicacion > 0:
+		total_score += (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 100
+		attributes_count += 1
+	if bullying_card.resolucion_de_conflictos > 0:
+		total_score += (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 100
+		attributes_count += 1
+
+	# Calculamos el promedio si hay atributos evaluados
+	if attributes_count > 0:
+		return total_score / attributes_count
+	return 0
+	
+	
+
 # Función cuando el juego termine
 func game_over():
 	print("Juego Terminado.")
@@ -332,10 +421,11 @@ func choose_ia_cards():
 # Función para reiniciar el estado del turno
 func reset_turn_state():
 	# Habilitar el botón "Listo" y restablecer el contador de tiempo
-	ready_texture_button.disabled = false
-	ready_texture_button.visible = true
+	ready_button.disabled = false
+	ready_button.visible = true
 	countdown_30_seconds_label.text = "Listo" 
 	countdown_30_seconds = COUNTDOWN_30_SECONDS
+	ready_button.text = "Listo"
 	countdown_sound_playing = false
 	
 	# Restablecer flags y cartas seleccionadas
@@ -477,7 +567,7 @@ func update_bullying_card():
 ###############################################################################
 ###############################################################################
 
-# Función para manejar el evento del botón "Listo"
+# Función para manejar el evento del botón "Listo" DEPRECATED
 func _on_ready_texture_button_pressed():
 	if (player_selected_card_re == null or player_selected_card_hs == null):
 		# Si el jugador no seleccionó cartas, asignarlas automáticamente
@@ -491,8 +581,37 @@ func _on_ready_texture_button_pressed():
 	#Finalizar la cuenta regresiva y desactivar el botón "Listo"
 	countdown_30_seconds = 0
 	countdown_30_seconds_label.text = "OK"
+	ready_button.text = "OK"
 	ready_texture_button.disabled = true
 	ready_texture_button.set_pressed(false)
+	
+	# Marcar que el jugador ha terminado su turno
+	player_chosen = true
+	#ia_chosen = false  # Simula que la IA también ha validado automáticamente
+	
+	# Desahabilitar la interacción en las cartas
+	disable_card_interaction()
+	
+	# Emitir señal para que el juego continúe 
+	emit_signal("ready_to_check_result")
+	change_state(GameState.CHECK_RESULT)
+
+# Función para manejar el evento del botón "Listo"
+func _on_ready_button_pressed():
+	if (player_selected_card_re == null or player_selected_card_hs == null):
+		# Si el jugador no seleccionó cartas, asignarlas automáticamente
+		auto_select_player_cards()
+	
+	# Detener el sonido de cuenta regresiva si está reproduciéndose
+	if countdown_sound_playing:
+		beep_countdown_audio_stream_player.stop()
+		countdown_sound_playing = false  # Restablece flag
+	
+	#Finalizar la cuenta regresiva y desactivar el botón "Listo"
+	countdown_30_seconds = 0
+	countdown_30_seconds_label.text = "OK"
+	ready_button.disabled = true
+	#ready_button.set_pressed(false)
 	
 	# Marcar que el jugador ha terminado su turno
 	player_chosen = true

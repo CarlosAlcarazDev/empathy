@@ -40,3 +40,7 @@ var showing_reverses = false  # False por defecto (mostrando anverso)
 # Alterna entre reverso y anverso
 func toggle_reverses():
 	showing_reverses = !showing_reverses
+	
+# Score Total 
+var total_player_score: float = 0.0
+var total_ia_score: float = 0.0

@@ -1,4 +1,16 @@
 # **Caminos de Empatía**
+#19/11/2024
+*	Implementado puntuación. totales en globaldata
+*	falta mostrar en pantalla principal, ahora se muestra en el modal de fin de turno
+*	falta guardar información para guardar partida y seguir más adelante
+*	falta guardar información para las métricas. Puntuaciones, cartas utilizadas, tiempo utilizado para elegir las cartas 
+	antes de pulsar en Listo
+*	Tiempo de tirada largo (5 minutos para dar tiempo a elegir las cartas pensando y no hacerlo al tuntun)
+*	Siguiente: mostrar puntuaciones, fin partida (por tiempo, por mostrar todas las cartas de bullying, por abandono)
+*	Implementar modo estrategia, mostrando puntuaciones de los atributos de las cartas
+*	Implementar diversas IAs
+
+
 # 17/11/2024
 ## **Descripción**
 Este es un juego de cartas estratégico en desarrollo. En esta versión inicial, se han implementado funcionalidades esenciales como el inicio de sesión, el registro de usuarios, la gestión de opciones, y una primera aproximación al flujo de juego.

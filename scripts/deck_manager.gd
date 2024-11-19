@@ -28,6 +28,9 @@ const DECK_HS_DATA_FILE := "res://data/deck_hs_updated.json"
 var deck_re := []  
 var deck_hs := []  
 var deck_bu := []  
+var raw_deck_re := []
+var raw_deck_hs := []
+var raw_deck_bu := []
 
 # Función para cargar el JSON y crear las cartas de BU
 func load_cards_bu_from_json():
@@ -129,6 +132,7 @@ func create_cards_bu(cards_data: Array, stats_bu_data: Dictionary):
 			print("Necesidades clave: ", card_instance.necesidades_clave)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_bu.append(card_instance)
+			raw_deck_bu.append(card_instance)
 		else:
 			print("Advertencia: Un elemento de `cards_data` no es un Dictionary.")
 
@@ -181,9 +185,10 @@ func create_cards_re(cards_data: Array):
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_re.append(card_instance)
+			raw_deck_re.append(card_instance)
 		else:
 			print("Advertencia: Un elemento de `cards_data` no es un Dictionary.")
-
+	
 # Función para barajar el deck de RE
 func shuffle_deck_re():
 	deck_re.shuffle()
@@ -233,6 +238,7 @@ func create_cards_hs(cards_data: Array):
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_hs.append(card_instance)
+			raw_deck_hs.append(card_instance)
 		else:
 			print("Advertencia: Un elemento de `cards_data` no es un Dictionary.")
 
@@ -240,4 +246,56 @@ func create_cards_hs(cards_data: Array):
 func shuffle_deck_hs():
 	deck_hs.shuffle()
 	
-	
+# Función para buscar una carta por ID del mazo RE
+func get_card_re_by_id(card_id: int) -> CardsRE:
+	print("Contenido de deck_re:")
+	var i = 1
+	for card in raw_deck_re:
+		
+		if card is CardsRE:
+			print(i)
+			print("Carta - ID:", card.id_carta, "Nombre:", card.nombre)
+			i = i+1
+		else:
+			print("Elemento en deck_re no es una instancia de CardsRE:", card)
+	for card in raw_deck_re:
+		if int(card.id_carta) == int(card_id):  # Comparar el ID de la carta
+			print("get_carta_dentro del for", card.nombre)
+			return card
+	return  # Retorna un Dictionary vacío si no se encuentra la carta
+
+# Función para buscar una carta por ID del mazo HS
+func get_card_hs_by_id(card_id: int) -> CardsHS:
+	print("Contenido de deck_re:")
+	var i = 1
+	for card in raw_deck_hs:
+		
+		if card is CardsHS:
+			print(i)
+			print("Carta - ID:", card.id_carta, "Nombre:", card.nombre)
+			i = i+1
+		else:
+			print("Elemento en deck_re no es una instancia de CardsRE:", card)
+	for card in raw_deck_hs:
+		if int(card.id_carta) == int(card_id):  # Comparar el ID de la carta
+			print("get_carta_dentro del for", card.nombre)
+			return card
+	return  # Retorna un Dictionary vacío si no se encuentra la carta
+
+# Función para buscar una carta por ID del mazo BU
+func get_card_bu_by_id(card_id: int) -> CardsBU:
+	print("Contenido de deck_BU:")
+	var i = 1
+	for card in raw_deck_bu:
+		
+		if card is CardsBU:
+			print(i)
+			print("Carta - ID:", card.id_carta, "Nombre:", card.nombre)
+			i = i+1
+		else:
+			print("Elemento en deck_re no es una instancia de CardsRE:", card)
+	for card in raw_deck_bu:
+		if int(card.id_carta) == int(card_id):  # Comparar el ID de la carta
+			print("get_carta_dentro del for", card.nombre)
+			return card
+	return  # Retorna un Dictionary vacío si no se encuentra la carta

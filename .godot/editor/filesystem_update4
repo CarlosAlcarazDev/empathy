@@ -1,5 +1,10 @@
 res://scenes/LoginScreen.tscn
-res://scenes/NewGame.tscn
 res://scripts/MainMenu.gdshader
+res://scenes/NewGame.tscn
 res://scenes/MainMenu.tscn
 res://scripts/game_manager.gd
+res://data/deck_hs.json
+res://scripts/deck_manager.gd
+res://scripts/CardsBU.gd
+res://scripts/global_data.gd
+res://README.md
