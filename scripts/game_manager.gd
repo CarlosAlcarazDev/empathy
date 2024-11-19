@@ -95,6 +95,7 @@ var countdown_sound_playing = false
 @onready var label_4 = $"../UI/EndTurnPopup/Label4"
 @onready var label_5 = $"../UI/EndTurnPopup/Label5"
 @onready var ui = $"../UI"
+@onready var blur_overlay = $"../UI/Overlay/BlurOverlay"
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -296,6 +297,7 @@ func check_game_result():
 
 	# Deshabilitar interacción en las cartas y mostrar el modal
 	disable_card_interaction()
+	blur_overlay.visible = true
 	end_turn_popup.show()
 	
 # Función cuando el juego termine
@@ -509,6 +511,7 @@ func _on_continue_button_pressed():
 	#Ocultar el modal y permitir interacción nuevamente
 	ready_texture_button.disabled = false
 	ready_texture_button.release_focus()  
+	blur_overlay.visible = false
 	end_turn_popup.hide()
 	enable_card_interaction()
 	

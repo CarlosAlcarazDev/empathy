@@ -1,20 +1,5 @@
 res://scenes/LoginScreen.tscn
 res://scenes/NewGame.tscn
-<<<<<<< Updated upstream
-=======
-res://data/stats_tipos_bullying.json
 res://scripts/MainMenu.gdshader
-res://scripts/new_game.gd
 res://scenes/MainMenu.tscn
-res://scripts/ui.gd
-res://scripts/global_data.gd
 res://scripts/game_manager.gd
-res://scripts/CardsRE.gd
-res://scripts/deck_manager.gd
-res://scripts/CardsHS.gd
-res://scripts/CardsBU.gd
-res://data/deck_bu.json
-res://scripts/login_screen.gd
-res://scripts/main_menu.gd
-res://README.md
->>>>>>> Stashed changes

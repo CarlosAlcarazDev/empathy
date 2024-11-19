@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=38 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c2vq2cdq2jk8s" path="res://assets/images/cards/re/2_RE.webp" id="10_sekqc"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="11_d1wdg"]
 [ext_resource type="Script" path="res://scripts/hs_card_1.gd" id="11_l50vo"]
+[ext_resource type="Shader" path="res://scripts/MainMenu.gdshader" id="12_2qn3g"]
 [ext_resource type="Texture2D" uid="uid://yc8hhxfvl7s3" path="res://assets/images/cards/re/3_RE.webp" id="12_f4pui"]
 [ext_resource type="Script" path="res://scripts/hs_card_2.gd" id="12_yyw1s"]
 [ext_resource type="Script" path="res://scripts/hs_card_3.gd" id="13_1vdtq"]
@@ -67,6 +68,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0.431373)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdknx"]
 bg_color = Color(0.6, 0.6, 0.6, 0.419608)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mftij"]
+shader = ExtResource("12_2qn3g")
+shader_parameter/blur_size = 5.0
 
 [node name="NewGame" type="Control"]
 layout_mode = 3
@@ -284,7 +289,7 @@ vertical_alignment = 1
 
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
-position = Vector2i(34, 132)
+initial_position = 1
 size = Vector2i(531, 462)
 visible = false
 transient = true
@@ -359,6 +364,19 @@ offset_right = 43.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Continuar"
+
+[node name="Overlay" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlurOverlay" type="ColorRect" parent="UI/Overlay"]
+visible = false
+z_index = 15
+material = SubResource("ShaderMaterial_mftij")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="DeckManager" type="Control" parent="."]
 anchors_preset = 0
