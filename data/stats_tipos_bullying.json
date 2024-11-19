@@ -5,10 +5,8 @@
         "Intervención": 10,
         "Comunicación": 5,
         "Resolución de Conflictos": 5,
-        "Descripción": {
-            "Enfoque principal": "Máxima intervención, apoyo emocional y empatía.",
-            "Necesidades clave": "Respuesta rápida y eficaz, apoyo constante y comprensión profunda de las emociones de la víctima para ayudar en su recuperación y protección."
-        }
+        "Enfoque principal": "Máxima intervención, apoyo emocional y empatía.",
+        "Necesidades clave": "Respuesta rápida y eficaz, apoyo constante y comprensión profunda de las emociones de la víctima para ayudar en su recuperación y protección."
     },
     "Verbal": {
         "Empatía": 1,
@@ -16,10 +14,8 @@
         "Intervención": 1,
         "Comunicación": 10,
         "Resolución de Conflictos": 5,
-        "Descripción": {
-            "Enfoque principal": "Comunicación efectiva y apoyo emocional.",
-            "Necesidades clave": "Enseñar habilidades de comunicación y resolución de conflictos para evitar la escalada de las agresiones verbales y proteger la autoestima de la víctima."
-        }
+        "Enfoque principal": "Comunicación efectiva y apoyo emocional.",
+        "Necesidades clave": "Enseñar habilidades de comunicación y resolución de conflictos para evitar la escalada de las agresiones verbales y proteger la autoestima de la víctima."
     },
     "Físico": {
         "Empatía": 5,
@@ -27,10 +23,8 @@
         "Intervención": 10,
         "Comunicación": 1,
         "Resolución de Conflictos": 10,
-        "Descripción": {
-            "Enfoque principal": "Intervención directa y resolución de conflictos.",
-            "Necesidades clave": "Actuar rápidamente para detener la violencia, proteger a la víctima y enseñar métodos de resolución de conflictos para prevenir futuras agresiones."
-        }
+        "Enfoque principal": "Intervención directa y resolución de conflictos.",
+        "Necesidades clave": "Actuar rápidamente para detener la violencia, proteger a la víctima y enseñar métodos de resolución de conflictos para prevenir futuras agresiones."
     },
     "Ciberbullying": {
         "Empatía": 1,
@@ -38,10 +32,8 @@
         "Intervención": 10,
         "Comunicación": 10,
         "Resolución de Conflictos": 1,
-        "Descripción": {
-            "Enfoque principal": "Comunicación y apoyo emocional.",
-            "Necesidades clave": "Promover el uso responsable de la tecnología, proporcionar apoyo emocional constante y educar sobre cómo actuar frente a la presión en línea."
-        }
+        "Enfoque principal": "Comunicación y apoyo emocional.",
+        "Necesidades clave": "Promover el uso responsable de la tecnología, proporcionar apoyo emocional constante y educar sobre cómo actuar frente a la presión en línea."
     },
     "Psicológico": {
         "Empatía": 5,
@@ -49,10 +41,8 @@
         "Intervención": 5,
         "Comunicación": 5,
         "Resolución de Conflictos": 10,
-        "Descripción": {
-            "Enfoque principal": "Empatía y resolución de conflictos.",
-            "Necesidades clave": "Identificar y abordar manipulaciones sutiles, ofrecer un apoyo emocional sólido y resolver las dinámicas de poder que pueden perpetuar el abuso psicológico."
-        }
+        "Enfoque principal": "Empatía y resolución de conflictos.",
+        "Necesidades clave": "Identificar y abordar manipulaciones sutiles, ofrecer un apoyo emocional sólido y resolver las dinámicas de poder que pueden perpetuar el abuso psicológico."
     },
     "Exclusión Social": {
         "Empatía": 1,
@@ -60,9 +50,7 @@
         "Intervención": 5,
         "Comunicación": 5,
         "Resolución de Conflictos": 5,
-        "Descripción": {
-            "Enfoque principal": "Apoyo emocional y comunicación.",
-            "Necesidades clave": "Integrar a las víctimas en actividades grupales, educar sobre la importancia de la inclusión y promover estrategias de intervención que fomenten la convivencia y el entendimiento grupal."
-        }
+        "Enfoque principal": "Apoyo emocional y comunicación.",
+        "Necesidades clave": "Integrar a las víctimas en actividades grupales, educar sobre la importancia de la inclusión y promover estrategias de intervención que fomenten la convivencia y el entendimiento grupal."
     }
 }

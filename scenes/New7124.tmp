@@ -258,33 +258,9 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_0l5c2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_6tfdl")
 text = "Reverso"
 
-[node name="OptionsTextureButton" type="TextureButton" parent="UI"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 251.0
-offset_bottom = 106.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("23_kwiwh")
-texture_pressed = ExtResource("8_oxljk")
-texture_hover = ExtResource("8_oxljk")
-flip_h = true
-
-[node name="OptionsLabel" type="Label" parent="UI/OptionsTextureButton"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 6.0
-offset_right = 194.0
-offset_bottom = 94.0
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 40
-text = "Opciones"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
-position = Vector2i(34, 132)
+position = Vector2i(34, 242)
 size = Vector2i(531, 462)
 visible = false
 transient = true
@@ -359,6 +335,30 @@ offset_right = 43.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Continuar"
+
+[node name="OptionsTextureButton" type="TextureButton" parent="UI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 251.0
+offset_bottom = 106.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("23_kwiwh")
+texture_pressed = ExtResource("8_oxljk")
+texture_hover = ExtResource("8_oxljk")
+flip_h = true
+
+[node name="OptionsLabel" type="Label" parent="UI/OptionsTextureButton"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 6.0
+offset_right = 194.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 40
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DeckManager" type="Control" parent="."]
 anchors_preset = 0
@@ -975,5 +975,5 @@ script = ExtResource("25_ldt3k")
 
 [connection signal="pressed" from="UI/ReadyTextureButton" to="GameManager" method="_on_ready_texture_button_pressed"]
 [connection signal="pressed" from="UI/ReverseAnverseToggleButton" to="UI" method="_on_reverse_anverse_toggle_button_pressed"]
-[connection signal="pressed" from="UI/OptionsTextureButton" to="UI" method="_on_options_texture_button_pressed"]
 [connection signal="pressed" from="UI/EndTurnPopup/ContinueButton" to="GameManager" method="_on_continue_button_pressed"]
+[connection signal="pressed" from="UI/OptionsTextureButton" to="UI" method="_on_options_texture_button_pressed"]

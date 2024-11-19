@@ -30,14 +30,15 @@
 #	_on_continue_button_pressed(): Señal que se activa al presionar botón "Continuar"
 #	_on_card_chosen_re(card_id): Función para manejar la selección de cartas tipo RE por el jugador
 #	_on_card_chosen_hs(card_id): Función para manejar la selección de cartas tipo HS por el jugador
-#	display_card_re(card: CardsRE, card_node: Control): Función para actualizar la interfaz con los datos de la carta de tipo RE
-#	display_card_hs(card: CardsHS, card_node: Control): Función para actualizar la interfaz con los datos de la carta de tipo HS
-#	display_card_bu(card: CardsBU, card_node: Control): Función para actualizar la interfaz con los datos de la carta de bullying
+#	display_card_re(card: CardsRE, card_node: Control, is_reverse: bool): Función para actualizar la interfaz con los datos de la carta de tipo RE
+#	display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool): Función para actualizar la interfaz con los datos de la carta de tipo HS
+#	display_card_bu(card: CardsBU, card_node: Control, is_reverse: bool): Función para actualizar la interfaz con los datos de la carta de bullying
 #	disable_card_interaction(): Función para deshabilitar la interacción con las cartas del jugador
 #	enable_card_interaction(): Función para habilitar la interacción con las cartas del jugador		
 #	get_current_state() -> GameState: Función de consulta del estado del juego
 #	has_player_chosen() -> bool: Función para saber si el jugador ha elegido cartas
 #	has_ia_chosen() -> bool: Función para saber si la IA ha elegido cartas
+#	_on_reverse_anverse_toggled(showing_reverses: bool): Maneja la señal y actualiza la visualización de las cartas
 # ===============================
 
 extends Control
@@ -93,6 +94,8 @@ var countdown_sound_playing = false
 @onready var label_3 = $"../UI/EndTurnPopup/Label3"
 @onready var label_4 = $"../UI/EndTurnPopup/Label4"
 @onready var label_5 = $"../UI/EndTurnPopup/Label5"
+@onready var ui = $"../UI"
+
 
 # Flag para controlar si jugador/IA han elegido cartas
 var player_chosen = false
@@ -119,6 +122,8 @@ signal countdown_finished()
 signal ready_to_check_result()
 signal card_chosen_re(card_id)
 signal card_chosen_hs(card_id)
+
+		
 
 
 ###############################################################################
@@ -151,6 +156,9 @@ func _ready():
 	hs_card_1.connect("card_chosen_hs", Callable(self, "_on_card_chosen_hs"))
 	hs_card_2.connect("card_chosen_hs", Callable(self, "_on_card_chosen_hs"))
 	hs_card_3.connect("card_chosen_hs", Callable(self, "_on_card_chosen_hs"))
+	
+	#Conecta la señal para manejar el reverso o anverso de las cartas
+	ui.connect("reverse_anverse_toggled", Callable(self, "_on_reverse_anverse_toggled"))
 	
 # Función que se ejecuta continuamente para manejar la lógica en cada frame
 func _process(delta):
@@ -240,17 +248,17 @@ func prepare_game():
 		deck_manager.deck_hs.pop_back()
 	]
 	
-	# Mostrar las cartas del jugador en la interfaz
-	display_card_re(player_cards_re[0], re_card_1)
-	display_card_re(player_cards_re[1], re_card_2)
-	display_card_re(player_cards_re[2], re_card_3)
-	display_card_hs(player_cards_hs[0], hs_card_1)
-	display_card_hs(player_cards_hs[1], hs_card_2)
-	display_card_hs(player_cards_hs[2], hs_card_3)
+	# Mostrar las cartas del jugador en la interfaz con tres parámetros, 
+	display_card_re(player_cards_re[0], re_card_1, GlobalData.showing_reverses)
+	display_card_re(player_cards_re[1], re_card_2, GlobalData.showing_reverses)
+	display_card_re(player_cards_re[2], re_card_3, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[0], hs_card_1, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[1], hs_card_2, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[2], hs_card_3, GlobalData.showing_reverses)
 
 	# Actualizar la carta de bullying inicial
 	update_bullying_card()
-	display_card_bu(card_bullying, bullying_card)
+	display_card_bu(card_bullying, bullying_card, GlobalData.showing_reverses)
 		
 	# Inicializar las cartas de la IA
 	ai_cards_re = [
@@ -339,7 +347,7 @@ func reset_turn_state():
 
 ###############################################################################
 ###############################################################################
-#                           TURNO DEL JUGADOR E IA                            #
+#                           GESTIONAR MAZOS                                   #
 ###############################################################################
 ###############################################################################
 
@@ -390,12 +398,12 @@ func replenish_cards():
 	hs_card_1.move_to_original_position()
 	hs_card_2.move_to_original_position()
 	hs_card_3.move_to_original_position()
-	display_card_re(player_cards_re[0], re_card_1)
-	display_card_re(player_cards_re[1], re_card_2)
-	display_card_re(player_cards_re[2], re_card_3)
-	display_card_hs(player_cards_hs[0], hs_card_1)
-	display_card_hs(player_cards_hs[1], hs_card_2)
-	display_card_hs(player_cards_hs[2], hs_card_3)
+	display_card_re(player_cards_re[0], re_card_1, GlobalData.showing_reverses)
+	display_card_re(player_cards_re[1], re_card_2, GlobalData.showing_reverses)
+	display_card_re(player_cards_re[2], re_card_3, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[0], hs_card_1, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[1], hs_card_2, GlobalData.showing_reverses)
+	display_card_hs(player_cards_hs[2], hs_card_3, GlobalData.showing_reverses)
 	print("Cartas reabastecidas para el jugador y la IA.")
 
 # Función para eliminar las cartas seleccionadas del turno actual
@@ -453,7 +461,7 @@ func update_bullying_card():
 		# Extraer la última carta del mazo y asignarla como la carta actual de bullying
 		card_bullying = deck_manager.deck_bu.pop_back()
 		# Actualizar la interfaz para mostrar la nueva carta de bullying
-		display_card_bu(card_bullying, bullying_card)
+		display_card_bu(card_bullying, bullying_card, GlobalData.showing_reverses)
 		print("Carta de bullying actualizada:", card_bullying.id_carta)
 	else:
 		# Si no hay cartas de bullying, finalizar el juego
@@ -530,7 +538,7 @@ func _on_card_chosen_hs(card_id):
 ###############################################################################
 
 # Función para actualizar la interfaz con los datos de la carta de tipo RE
-func display_card_re(card: CardsRE, card_node: Control):
+func display_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
@@ -545,14 +553,21 @@ func display_card_re(card: CardsRE, card_node: Control):
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
 
-	# Actualiza los elementos de la UI en el nodo de la carta especificada	
+	
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
-	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
-	card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
 
 # Función para actualizar la interfaz con los datos de la carta de tipo HS
-func display_card_hs(card: CardsHS, card_node: Control):
+func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
@@ -567,14 +582,21 @@ func display_card_hs(card: CardsHS, card_node: Control):
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
 
-	# Actualiza los elementos de la UI en el nodo de la carta especificada
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
-	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
-	card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
 
 # Función para actualizar la interfaz con los datos de la carta de bullying
-func display_card_bu(card: CardsBU, card_node: Control):
+func display_card_bu(card: CardsBU, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
@@ -591,9 +613,30 @@ func display_card_bu(card: CardsBU, card_node: Control):
 
 	# Actualiza los elementos de la UI en el nodo de la carta especificada
 	card_node.get_node("TitleCardLabel").text = card.nombre
-	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
-	card_node.get_node("TypeCardLabel").text = card.tipo
-	card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta) 
+	#card_node.get_node("TypeCardLabel").text = card.tipo
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		print("updatebu_necesidadclave", card.necesidades_clave)
+		card_node.get_node("TypeCardLabel").text = card.tipo
+		card_node.get_node("DescriptionCardLabel").text = "Necesidades: \n" + card.necesidades_clave
+		
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+		card_node.get_node("TypeCardLabel").text = card.tipo
+	#card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	## Construir el texto para mostrar los stats en DescriptionCardLabel
+	#var description_text = "Descripción:\n" + card.descripcion + "\n\n"
+	#description_text += "Estadísticas:\n"
+	#description_text += "- Empatía: " + str(card.empatia) + "\n"
+	#description_text += "- Apoyo Emocional: " + str(card.apoyo_emocional) + "\n"
+	#description_text += "- Intervención: " + str(card.intervencion) + "\n"
+	#description_text += "- Comunicación: " + str(card.comunicacion) + "\n"
+	#description_text += "- Resolución de Conflictos: " + str(card.resolucion_de_conflictos) + "\n\n"
+## Asignar el texto formateado al nodo DescriptionCardLabel
+	#card_node.get_node("DescriptionCardLabel").text = description_text
+
 	# Cambiar el marco de la carta según su tipo
 	var card_frame_node = card_node.get_node("CardFrame")  # Nodo `CardFrame` que cambia dependiendo del tipo
 	var frame_path = "res://assets/images/frames/"
@@ -652,3 +695,17 @@ func has_player_chosen() -> bool:
 # Función para saber si la IA ha elegido cartas
 func has_ia_chosen() -> bool:
 	return ia_chosen
+
+# Maneja la señal y actualiza la visualización de las cartas
+func _on_reverse_anverse_toggled(showing_reverses: bool):
+	# Actualizar las cartas RE
+	display_card_re(player_cards_re[0], re_card_1, showing_reverses)
+	display_card_re(player_cards_re[1], re_card_2, showing_reverses)
+	display_card_re(player_cards_re[2], re_card_3, showing_reverses)
+	
+	# Actualizar las cartas HS
+	display_card_hs(player_cards_hs[0], hs_card_1, showing_reverses)
+	display_card_hs(player_cards_hs[1], hs_card_2, showing_reverses)
+	display_card_hs(player_cards_hs[2], hs_card_3, showing_reverses)
+	#Actualiza la carta de bullyin
+	display_card_bu(card_bullying, bullying_card, showing_reverses)

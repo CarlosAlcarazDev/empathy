@@ -33,3 +33,10 @@ var current_card_in_target_positionHS = null
 # Variable global para rastrear la id que está en TARGET_POSITION (deprecated)
 var id_current_card_in_target_positionRE = 0
 var id_current_card_in_target_positionHS = 0
+
+# Variable global que controla si las cartas muestran el reverso o el anverso
+var showing_reverses = false  # False por defecto (mostrando anverso)
+
+# Alterna entre reverso y anverso
+func toggle_reverses():
+	showing_reverses = !showing_reverses

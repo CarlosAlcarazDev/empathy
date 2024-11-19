@@ -20,8 +20,9 @@ extends Control
 # Ruta del archivo JSON donde se almacenan los datos del mazo de hs
 # Ruta del archivo JSON donde se almacenan los datos del mazo de BU
 const DECK_BU_DATA_FILE := "res://data/deck_bu.json"
-const DECK_RE_DATA_FILE := "res://data/deck_re.json"
-const DECK_HS_DATA_FILE := "res://data/deck_hs.json"
+const STATS_BU_DATA_FILE := "res://data/stats_tipos_bullying.json"
+const DECK_RE_DATA_FILE := "res://data/deck_re_updated.json"
+const DECK_HS_DATA_FILE := "res://data/deck_hs_updated.json"
 
 # Array para almacenar las cartas instanciadas
 var deck_re := []  
@@ -41,9 +42,11 @@ func load_cards_bu_from_json():
 			if parse_result == OK:
 			
 				var cards_data = json.data  # Accedemos al resultado del parseo
+				
+				var stats_bu_data = load_stats_bu_data()
 				if typeof(cards_data) == TYPE_ARRAY:
 					#print("Los datos del JSON son de tipo array")
-					create_cards_bu(cards_data) # Creamos las instancias a partir de los datos 
+					create_cards_bu(cards_data, stats_bu_data) # Creamos las instancias a partir de los datos y los estadísticas  
 				else:
 					print("Error: los datos del JSON no tienen el formato esperado")
 				
@@ -55,23 +58,75 @@ func load_cards_bu_from_json():
 		
 		file.close()
 
+# Función para cargar las estadísticas desde el archivo JSON
+func load_stats_bu_data() -> Dictionary:
+	var file = FileAccess.open(STATS_BU_DATA_FILE, FileAccess.READ)
+	if file:
+		var data = file.get_as_text()
+		if data != "":
+			# Crear una instancia de JSON
+			var json = JSON.new()
+			var parse_result = json.parse(data)
+							
+			if parse_result == OK:
+				return json.data
+			else:
+				print("Error al parsear el archivo JSON de estadísticas: ", parse_result)
+		else:
+			print("Archivo de estadísticas vacío o sin datos: ", STATS_BU_DATA_FILE)
+	else:
+		print("No se pudo abrir el archivo de estadísticas: ", STATS_BU_DATA_FILE)
+	
+	# Devolver un diccionario vacío como valor predeterminado
+	return {}
+
 
 # Función para crear instancias de cartas y agregarlas al deck_BU
-func create_cards_bu(cards_data: Array):
-	for card_data in cards_data:
-		# Creamos la instancia de la carta usando el constructor de CardsRE
+func create_cards_bu(cards_data: Array, stats_bu_data: Dictionary):
+	for card_data in cards_data:        # Verificar si la entrada es un diccionario
 		if typeof(card_data) == TYPE_DICTIONARY:
+			# Obtener el tipo de bullying de la carta y capitalizar
+			var tipo = card_data.get("tipo", "").capitalize()
+			
+			# Obtener las estadísticas asociadas al tipo de bullying
+			var tipo_stats = stats_bu_data.get(tipo, {
+				"Empatía": 0,
+				"Apoyo Emocional": 0,
+				"Intervención": 0,
+				"Comunicación": 0,
+				"Resolución de Conflictos": 0,
+				"Enfoque principal": "Sin datos",
+				"Necesidades clave": "Sin datos"
+			})
+			
+			# Extraer los valores específicos
+			var empatia = tipo_stats.get("Empatía", 0)
+			var apoyo_emocional = tipo_stats.get("Apoyo Emocional", 0)
+			var intervencion = tipo_stats.get("Intervención", 0)
+			var comunicacion = tipo_stats.get("Comunicación", 0)
+			var resolucion_de_conflictos = tipo_stats.get("Resolución de Conflictos", 0)
+			var enfoque_principal = tipo_stats.get("Enfoque principal", "Sin datos")
+			var necesidades_clave = tipo_stats.get("Necesidades clave", "Sin datos")
+
+			# Crear la instancia de la carta
 			var card_instance = CardsBU.new(
 				card_data.get("id", 0),
 				card_data.get("nombre", ""),
 				card_data.get("descripcion", ""),
+				enfoque_principal,
+				necesidades_clave,
 				card_data.get("tipo", ""),
-				card_data.get("Empatía", 0),
-				card_data.get("Apoyo Emocional", 0),
-				card_data.get("Intervención", 0),
-				card_data.get("Comuncación", 0),
-				card_data.get("Resolución de Conflictos", 0),
+				empatia,
+				apoyo_emocional,
+				intervencion,
+				comunicacion,
+				resolucion_de_conflictos
 			)
+
+			# Verificar que los datos se están pasando correctamente
+			print("Creando carta: ", card_instance.nombre)
+			print("Enfoque principal: ", card_instance.enfoque_principal)
+			print("Necesidades clave: ", card_instance.necesidades_clave)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_bu.append(card_instance)
 		else:
@@ -121,7 +176,8 @@ func create_cards_re(cards_data: Array):
 				card_data.get("Descripción", ""),
 				card_data.get("Empatía", 0),
 				card_data.get("Apoyo Emocional", 0),
-				card_data.get("Intervención", 0)
+				card_data.get("Intervención", 0),
+				card_data.get("Contexto en el Juego", "")
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_re.append(card_instance)
@@ -173,6 +229,7 @@ func create_cards_hs(cards_data: Array):
 				card_data.get("Comunicación", 0),
 				card_data.get("Resolución de Conflictos", 0),
 				card_data.get("Descripción", ""),
+				card_data.get("Contexto en el Juego", "")
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_hs.append(card_instance)

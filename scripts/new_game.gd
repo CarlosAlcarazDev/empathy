@@ -4,5 +4,6 @@
 # Fecha de Creación: 06 de Noviembre de 2024
 # Descripción: 
 # ===============================
-
 extends Control
+
+@onready var reverse_anverse_toggle_button = $UI/ReverseAnverseToggleButton
