@@ -1,14 +1,14 @@
+Control
+TextureRect
+Panel
 Button
 HSeparator
 HBoxContainer
 VBoxContainer
 ColorRect
-Control
-Panel
 Timer
 Label
 Window
-TextureRect
 AudioStreamPlayer
 TextureButton
 Node2D

@@ -13,7 +13,7 @@ extends Control
 
 # Referencias a los nodos de la escena
 @onready var ready_texture_button = $ReadyTextureButton
-@onready var countdown_30_seconds_label = $Countdown30SecondsLabel
+
 @onready var reverse_anverse_toggle_button = $ReverseAnverseToggleButton
 
 # Definimos la señal personalizada
@@ -25,8 +25,9 @@ var showing_reverses = false  # Indica si las cartas están mostrando el reverso
 func _ready():
 	update_button_text()
 
-# Señal boton presionado en opciones
-func _on_options_texture_button_pressed():
+
+
+func _on_options_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 

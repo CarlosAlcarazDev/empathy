@@ -75,7 +75,7 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 5 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_30_SECONDS = 1 * 60  # En segundos (5 minutos) 
 const COUNTDOWN_20_MINUTES = 25 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
@@ -85,7 +85,9 @@ var countdown_20_minutes = COUNTDOWN_20_MINUTES # Temporizador de partida global
 var countdown_sound_playing = false  
 
 # Referencias adicionales de la interfaz
-@onready var countdown_30_seconds_label = $"../UI/Countdown30SecondsLabel"
+
+@onready var countdown_30_seconds_label = $"../UI/CountdownTurn/Panel/Countdown30SecondsLabel"
+
 @onready var beep_countdown_audio_stream_player = $"../UI/BeepCountdownAudioStreamPlayer"
 @onready var countdown_20_minutes_label = $"../UI/Countdown20MinutesLabel"
 @onready var end_turn_popup = $"../UI/EndTurnPopup"
@@ -118,12 +120,16 @@ var countdown_sound_playing = false
 @onready var blur_overlay = $"../UI/Overlay/BlurOverlay"
 @onready var ready_button = $"../ReadyButton"
 
+@onready var iare_card = $"../DeckManager/DeckIA/IARECard"
+@onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
 
 
 
 # Flag para controlar si jugador/IA han elegido cartas
 var player_chosen = false
 var ia_chosen = false
+var ia_chosen_re = false
+var ia_chosen_hs = false
 
 # Almacenar las cartas elegidas por el jugador y la IA
 var player_selected_card_re = null
@@ -158,6 +164,8 @@ signal card_chosen_hs(card_id)
 
 # Función que se ejecuta al inicializar el nodo game_manager
 func _ready():
+	
+	randomize() #Asegura que se inicie el generados de numeros aleatorios
 	# Configurar el volumen del sonido
 	var volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_countdown_audio_stream_player.volume_db = volume_db
@@ -201,10 +209,11 @@ func handle_countdown(delta):
 		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Listo" cuando queden más de 10 segundos
 		if countdown_30_seconds > 10:
 			ready_button.text = "Listo"
-			countdown_30_seconds_label.text = "Listo"
+			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
+
 		else:
 			# Mostrar la cuenta atrás cuando queden 10 segundos o menos
-			countdown_30_seconds_label.text = "%d" % max(int(countdown_30_seconds), 0)
+			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
 			ready_button.text = "%d" % max(int(countdown_30_seconds), 0)
 			# Empezar el sonido de cuenta regresiva cuando quedan 10 segundos
 			if countdown_30_seconds <= 10 and not countdown_sound_playing:
@@ -317,23 +326,42 @@ func check_game_result():
 	# Obtener cartas para mostrar en el modal las cartas seleccionadas por jugador e IA
 	print("int(player_selected_card_re")
 	print(int(player_selected_card_re))
-	var player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
-	var player_hs_card = deck_manager.get_card_hs_by_id(int(player_selected_card_hs))
+	# Manejar el caso donde no se seleccionaron cartas (-1)
+	var player_re_card = null
+	var player_hs_card = null
+	
+	if int(player_selected_card_re) != -1:
+		player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
+	if int(player_selected_card_hs) != -1:
+		player_hs_card = deck_manager.get_card_hs_by_id(int(player_selected_card_hs))
+	
 	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
 	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
 	
 	var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
 	
-	#Calcular puntuaciones
-	var player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card )
-	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card )
+	# Calcular puntuaciones
+	var player_score = 0
+	if player_re_card != null and player_hs_card != null:
+		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
+	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
 	
-	
-	player_label.text = GlobalData.user
 	#Muestra valores player
-	name_re_label.text = player_re_card.nombre
-	name_hs_label.text = player_hs_card.nombre
-	points_hs_label.text = str(player_score) + " puntos"
+	player_label.text = GlobalData.user
+	if player_re_card != null:
+		name_re_label.text = player_re_card.nombre
+		points_hs_label.text = str(player_score) + " puntos"
+	else:
+		name_re_label.text = "NO HAS ELEGIDO CARTA DE RESPUESTA EMPÁTICA"
+	if player_hs_card != null:
+		name_hs_label.text = player_hs_card.nombre
+		
+	else:
+		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
+		points_hs_label.text = ""
+	
+	
+	
 	#Muestra valores IA
 	ia_name_re_label.text = ia_re_card.nombre
 	ia_name_hs_label.text = ia_hs_card.nombre
@@ -411,12 +439,82 @@ func choose_ia_cards():
 	ia_selected_card_re = ai_cards_re[random_index_re].id_carta
 	ia_selected_card_hs = ai_cards_hs[random_index_hs].id_carta
 	
-	# Marcar que la IA ha terminado de elegir sus cartas
-	ia_chosen = true
+
 	
 	# Mostrar las cartas elegidas en la consola para verificar
 	print("Carta RE seleccionada por la IA: ", ia_selected_card_re)
 	print("Carta HS seleccionada por la IA: ", ia_selected_card_hs)
+	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
+	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
+	
+	#Llamada para generar proceso aleatorio en la visualización de seleccion de cartas
+	show_card_with_delay_re(iare_card, ia_re_card, GlobalData.showing_reverses)
+	show_card_with_delay_hs(iahs_card, ia_hs_card, GlobalData.showing_reverses)
+	
+	# Marcar que la IA ha terminado de elegir sus cartas
+	ia_chosen = true
+	
+	## Espera n segundos a mostrar la carta (simula pensamiento)
+	#var random_delay_re = randf_range(1, 5)
+	#await get_tree().create_timer(random_delay_re).timeout
+	#iare_card.visible = true
+	#display_ia_card_re(ia_re_card, iare_card, GlobalData.showing_reverses)
+	#var random_delay_hs = randf_range(1, 5)
+	#await get_tree().create_timer(random_delay_hs).timeout
+	#iahs_card.visible = true
+	#display_ia_card_hs(ia_hs_card, iahs_card, GlobalData.showing_reverses)
+	
+# Función para mostrar iare_card con un delay aleatorio
+func show_card_with_delay_re(card_to_show, card_data, reverse_flag):
+	async_show_card_re(card_to_show, card_data, reverse_flag)
+
+# Función para mostrar iahs_card con un delay aleatorio
+func show_card_with_delay_hs(card_to_show, card_data, reverse_flag):
+	async_show_card_hs(card_to_show, card_data, reverse_flag)
+
+# Corutina asíncrona para manejar el delay y mostrar iare_card
+func async_show_card_re(card_to_show, card_data, reverse_flag):
+	var random_delay_re = randf_range(1, 5)
+	await get_tree().create_timer(random_delay_re).timeout
+	card_to_show.visible = true
+	hide_random_cards(1)
+	display_ia_card_re(card_data, card_to_show, reverse_flag)
+	ia_chosen_re = true
+
+# Corutina asíncrona para manejar el delay y mostrar iahs_card
+func async_show_card_hs(card_to_show, card_data, reverse_flag):
+	var random_delay_hs = randf_range(1, 5)
+	await get_tree().create_timer(random_delay_hs).timeout
+	card_to_show.visible = true
+	hide_random_cards(1)
+	display_ia_card_hs(card_data, card_to_show, reverse_flag)
+	ia_chosen_hs = true
+# Función para seleccionar y ocultar aleatoriamente cartas
+func hide_random_cards(num_to_hide):
+	var all_cards = [
+		deck_ia.get_node("AICard1"),
+		deck_ia.get_node("AICard2"),
+		deck_ia.get_node("AICard3"),
+		deck_ia.get_node("AICard4"),
+		deck_ia.get_node("AICard5"),
+		deck_ia.get_node("AICard6")
+	]
+	var hidden_cards = []  # Lista para almacenar las cartas ocultas
+	
+# Seleccionar una carta aleatoria
+	var selected_card = null
+	while selected_card == null:
+		var random_index = randi() % all_cards.size()
+		var candidate_card = all_cards[random_index]
+		if candidate_card.visible:
+			selected_card = candidate_card
+			all_cards.erase(candidate_card)  # Eliminar la carta seleccionada de la lista
+		else:
+			print(candidate_card.name, "ya está oculta, seleccionando otra.")
+
+	# Ocultar la carta
+	if selected_card:
+		selected_card.visible = false
 	
 # Función para reiniciar el estado del turno
 func reset_turn_state():
@@ -427,6 +525,13 @@ func reset_turn_state():
 	countdown_30_seconds = COUNTDOWN_30_SECONDS
 	ready_button.text = "Listo"
 	countdown_sound_playing = false
+	# No muestra la carta elegida
+	iare_card.visible = false
+	iahs_card.visible = false
+	
+	#Restablece cartas IA
+	for i in range(1, 7):  # Itera del 1 al 6
+		deck_ia.get_node("AICard" + str(i)).visible = true
 	
 	# Restablecer flags y cartas seleccionadas
 	player_chosen = false
@@ -688,6 +793,64 @@ func display_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 		card_node.get_node("TypeCardLabel").text = "Descripción"
 		card_node.get_node("DescriptionCardLabel").text = card.descripcion
 
+# Función para actualizar la interfaz con los datos de la carta de tipo RE de la IA
+func display_ia_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
+	# Obtener la referencia al nodo de la imagen de la carta
+	var card_image_node = card_node.get_node("CardImage")
+	# Construir la ruta a la imagen basándonos en el id de la carta
+	var image_path = "res://assets/images/cards/re/" + str(card.id_carta) + "_RE.webp"
+	# Cargar la imagen
+	var texture = load(image_path)
+	# Verificar si la textura fue cargada correctamente
+	if texture:
+		# Establecer la textura en el nodo `CardImage`
+		card_image_node.texture = texture
+	else:
+		# Mostrar un mensaje de error si la imagen no se encuentra
+		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
+
+	
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	card_node.get_node("TitleCardLabel").text = card.nombre
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
+# Función para actualizar la interfaz con los datos de la carta de tipo HS de la IA
+func display_ia_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
+	# Obtener la referencia al nodo de la imagen de la carta
+	var card_image_node = card_node.get_node("CardImage")
+	# Construir la ruta a la imagen basándonos en el id de la carta
+	var image_path = "res://assets/images/cards/hs/" + str(card.id_carta) + "_HS.webp"
+	# Cargar la imagen
+	var texture = load(image_path)
+	# Verificar si la textura fue cargada correctamente
+	if texture:
+		# Establecer la textura en el nodo `CardImage`
+		card_image_node.texture = texture
+	else:
+		# Mostrar un mensaje de error si la imagen no se encuentra
+		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
+
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	card_node.get_node("TitleCardLabel").text = card.nombre
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
+
 # Función para actualizar la interfaz con los datos de la carta de tipo HS
 func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
@@ -831,3 +994,7 @@ func _on_reverse_anverse_toggled(showing_reverses: bool):
 	display_card_hs(player_cards_hs[2], hs_card_3, showing_reverses)
 	#Actualiza la carta de bullyin
 	display_card_bu(card_bullying, bullying_card, showing_reverses)
+
+
+func _on_options_button_pressed():
+	get_tree().change_scene_to_file("res://scripts/main_menu.gd")

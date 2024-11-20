@@ -1,364 +1,362 @@
 [
-    {
-        "idCarta": 1,
-        "Nombre": "Diálogo Abierto",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 4,
-        "Descripción": "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores iniciar conversaciones honestas sobre el bullying, explorando sus causas y consecuencias."
-    },
-    {
-        "idCarta": 2,
-        "Nombre": "Apoyo Activo",
-        "Empatía": 4,
-        "Apoyo Emocional": 10,
-        "Intervención": 7,
-        "Descripción": "Involucrarse de manera directa en ofrecer ayuda y soporte a quienes lo necesitan, mostrando preocupación genuina y disposición para actuar.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para brindar apoyo concreto a una víctima de bullying, ya sea a través de actos de amistad o intervención directa."
-    },
-    {
-        "idCarta": 3,
-        "Nombre": "Intervención Directa",
-        "Empatía": 1,
-        "Apoyo Emocional": 1,
-        "Intervención": 10,
-        "Descripción": "Tomar medidas inmediatas y claras para detener el comportamiento de bullying y proteger a la víctima. Esto puede incluir confrontar al acosador o buscar ayuda de una autoridad.",
-        "Contexto en el Juego": "Esta carta da a los jugadores el poder de intervenir en una situación de bullying de manera efectiva y segura."
-    },
-    {
-        "idCarta": 4,
-        "Nombre": "Escucha Activa",
-        "Empatía": 10,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Prestar atención completa a la persona que habla, mostrando empatía y comprensión, validando sus emociones y preocupaciones.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para escuchar a una víctima de bullying, ayudándola a sentirse comprendida y menos sola."
-    },
-    {
-        "idCarta": 5,
-        "Nombre": "Empatía Reflejada",
-        "Empatía": 10,
-        "Apoyo Emocional": 5,
-        "Intervención": 1,
-        "Descripción": "Demostrar que entiendes y compartes los sentimientos de otra persona, reflejando sus emociones de manera que se sientan validados.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores mostrar empatía a una víctima, haciendo eco de sus emociones y proporcionando consuelo."
-    },
-    {
-        "idCarta": 6,
-        "Nombre": "Cambio de Perspectiva",
-        "Empatía": 7,
-        "Apoyo Emocional": 1,
-        "Intervención": 4,
-        "Descripción": "Ayudar a las personas a ver una situación desde un ángulo diferente, promoviendo la comprensión mutua y reduciendo la tensión.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar tanto a víctimas como a acosadores a entender mejor las consecuencias de sus acciones y sentimientos de los demás."
-    },
-    {
-        "idCarta": 7,
-        "Nombre": "Búsqueda de Ayuda",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Reconocer cuándo es necesario buscar ayuda adicional de autoridades, consejeros o adultos responsables.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores solicitar apoyo externo en situaciones de bullying que no pueden manejar solos."
-    },
-    {
-        "idCarta": 8,
-        "Nombre": "Red de Apoyo",
-        "Empatía": 4,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Crear y mantener un grupo de personas que ofrezcan apoyo y recursos para aquellos que enfrentan bullying.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para construir una red de apoyo, facilitando el acceso a ayuda para las víctimas de bullying."
-    },
-    {
-        "idCarta": 9,
-        "Nombre": "Desarrollo de Resiliencia",
-        "Empatía": 4,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Fomentar la capacidad de recuperarse de las adversidades y seguir adelante con fuerza y determinación.",
-        "Contexto en el Juego": "Esta carta ayuda a los jugadores a fortalecer la resiliencia de una víctima de bullying, proporcionándole herramientas para superar la adversidad."
-    },
-    {
-        "idCarta": 10,
-        "Nombre": "Reconocimiento de Emociones",
-        "Empatía": 10,
-        "Apoyo Emocional": 5,
-        "Intervención": 4,
-        "Descripción": "Identificar y validar las emociones propias y ajenas, promoviendo una mayor comprensión emocional.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar a las víctimas de bullying a reconocer y expresar sus emociones de manera saludable."
-    },
-    {
-        "idCarta": 11,
-        "Nombre": "Educación Sobre Bullying",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Informar y educar a las personas sobre qué es el bullying, sus efectos y cómo prevenirlo.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores educar a otros sobre el bullying, aumentando la conciencia y promoviendo un cambio de comportamiento."
-    },
-    {
-        "idCarta": 12,
-        "Nombre": "Promoción de la Inclusión",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Fomentar la inclusión y el respeto por la diversidad en todos los entornos, reduciendo el aislamiento y la exclusión.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para promover actividades y actitudes inclusivas, asegurando que nadie sea marginado."
-    },
-    {
-        "idCarta": 13,
-        "Nombre": "Refuerzo Positivo",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Utilizar elogios y recompensas para fomentar comportamientos positivos y desalentar el bullying.",
-        "Contexto en el Juego": "Esta carta ayuda a los jugadores a reconocer y reforzar comportamientos positivos en su entorno, creando una cultura de respeto."
-    },
-    {
-        "idCarta": 14,
-        "Nombre": "Mediación de Conflictos",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 10,
-        "Descripción": "Actuar como mediador neutral para resolver disputas y conflictos de manera pacífica y justa.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para mediar en situaciones de bullying, ayudando a encontrar soluciones aceptables para todas las partes involucradas."
-    },
-    {
-        "idCarta": 15,
-        "Nombre": "Construcción de Autoestima",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Ayudar a las personas a desarrollar una imagen positiva de sí mismas, fortaleciendo su confianza y autoeficacia.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores trabajar en la autoestima de una víctima de bullying, ayudándola a sentirse más segura y valorada."
-    },
-    {
-        "idCarta": 16,
-        "Nombre": "Campaña de Concientización",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Organizar y promover campañas para aumentar la conciencia sobre el bullying y sus efectos, involucrando a toda la comunidad.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para lanzar campañas que eduquen y movilicen a otros contra el bullying."
-    },
-    {
-        "idCarta": 17,
-        "Nombre": "Creación de Espacios Seguros",
-        "Empatía": 4,
-        "Apoyo Emocional": 10,
-        "Intervención": 7,
-        "Descripción": "Establecer entornos seguros y libres de bullying donde todos se sientan protegidos y respetados.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores crear y mantener espacios donde las víctimas de bullying se sientan seguras y apoyadas."
-    },
-    {
-        "idCarta": 18,
-        "Nombre": "Roles de Liderazgo",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 10,
-        "Descripción": "Asumir y fomentar roles de liderazgo positivo que guíen a otros hacia comportamientos respetuosos y empáticos.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para inspirar y guiar a sus compañeros hacia una cultura escolar sin bullying."
-    },
-    {
-        "idCarta": 19,
-        "Nombre": "Defensa Personal No Violenta",
-        "Empatía": 1,
-        "Apoyo Emocional": 1,
-        "Intervención": 10,
-        "Descripción": "Enseñar y aplicar técnicas de defensa personal que no recurran a la violencia, empoderando a las víctimas para protegerse.",
-        "Contexto en el Juego": "Esta carta da a los jugadores las herramientas para defenderse de manera segura y efectiva sin escalar la violencia."
-    },
-    {
-        "idCarta": 20,
-        "Nombre": "Uso Responsable de Redes Sociales",
-        "Empatía": 1,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Fomentar el uso ético y seguro de las redes sociales, evitando el ciberbullying y promoviendo interacciones positivas.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para educar sobre el uso responsable de las redes sociales y prevenir el ciberbullying."
-    },
-    {
-        "idCarta": 21,
-        "Nombre": "Desarrollo de Habilidades Sociales",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 4,
-        "Descripción": "Fomentar el desarrollo de habilidades interpersonales que promuevan relaciones saludables y respetuosas.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores ayudar a otros a mejorar sus habilidades sociales, facilitando interacciones positivas."
-    },
-    {
-        "idCarta": 22,
-        "Nombre": "Reforzamiento de Normas",
-        "Empatía": 4,
-        "Apoyo Emocional": 1,
-        "Intervención": 10,
-        "Descripción": "Establecer y mantener normas claras y consistentes que desincentiven el bullying y promuevan el respeto mutuo.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para implementar y reforzar reglas que prevengan el bullying en su comunidad."
-    },
-    {
-        "idCarta": 23,
-        "Nombre": "Mentoría y Guía",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Proporcionar orientación y apoyo continuos a individuos que enfrentan bullying, ayudándoles a navegar sus desafíos.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores actuar como mentores para víctimas de bullying, ofreciendo consejo y apoyo constante."
-    },
-    {
-        "idCarta": 24,
-        "Nombre": "Promoción de Empatía",
-        "Empatía": 10,
-        "Apoyo Emocional": 5,
-        "Intervención": 1,
-        "Descripción": "Fomentar la capacidad de comprender y compartir los sentimientos de los demás, construyendo una comunidad más compasiva.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para enseñar y promover la empatía entre sus compañeros, reduciendo la incidencia de bullying."
-    },
-    {
-        "idCarta": 25,
-        "Nombre": "Creación de Alianzas",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Formar alianzas y coaliciones con otros individuos y organizaciones para combatir el bullying de manera más efectiva.",
-        "Contexto en el Juego": "Esta carta ayuda a los jugadores a unirse con otros para fortalecer su impacto contra el bullying."
-    },
-    {
-        "idCarta": 26,
-        "Nombre": "Atención Psicológica",
-        "Empatía": 10,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Proporcionar acceso a servicios de salud mental para aquellos afectados por el bullying, ayudándoles a sanar y recuperarse.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para asegurar que las víctimas de bullying reciban la atención psicológica que necesitan."
-    },
-    {
-        "idCarta": 27,
-        "Nombre": "Talleres Educativos",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Organizar y participar en talleres que eduquen sobre el bullying, sus efectos y estrategias para combatirlo.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores participar en o organizar talleres que informen y empoderen a la comunidad escolar contra el bullying."
-    },
-    {
-        "idCarta": 28,
-        "Nombre": "Actividades Colaborativas",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Promover actividades que requieran cooperación y trabajo en equipo, fortaleciendo los lazos entre los participantes.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para fomentar actividades que construyan relaciones positivas y colaborativas."
-    },
-    {
-        "idCarta": 29,
-        "Nombre": "Diálogo con Familias",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Involucrar a las familias en conversaciones sobre el bullying, buscando soluciones y apoyo en el hogar.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores incluir a las familias en la lucha contra el bullying, creando un frente unido."
-    },
-    {
-        "idCarta": 30,
-        "Nombre": "Celebración de la Diversidad",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Fomentar el reconocimiento y la celebración de las diferencias culturales, étnicas y personales, promoviendo un entorno inclusivo.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para organizar eventos y actividades que celebren la diversidad y fomenten el respeto mutuo."
-    },
-    {
-        "idCarta": 31,
-        "Nombre": "Apoyo a la Expresión Individual",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 4,
-        "Descripción": "Alentar a las personas a expresarse de manera auténtica y respetuosa, sin temor al juicio o la discriminación.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores apoyar y validar las formas únicas de expresión de sus compañeros, reduciendo el bullying basado en diferencias individuales."
-    },
-    {
-        "idCarta": 32,
-        "Nombre": "Estrategias de Afrontamiento",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Enseñar y aplicar técnicas efectivas para manejar el estrés y las emociones negativas, fortaleciendo la resiliencia.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar a las víctimas de bullying a desarrollar estrategias saludables para afrontar su situación."
-    },
-    {
-        "idCarta": 33,
-        "Nombre": "Intervención Grupal",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 10,
-        "Descripción": "Implementar acciones conjuntas para abordar y prevenir el bullying, movilizando a grupos enteros para un mayor impacto.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores coordinar esfuerzos grupales para intervenir en casos de bullying, mostrando unidad y determinación."
-    },
-    {
-        "idCarta": 34,
-        "Nombre": "Reconocimiento de Patrones de Bullying",
-        "Empatía": 7,
-        "Apoyo Emocional": 1,
-        "Intervención": 10,
-        "Descripción": "Identificar y comprender los patrones y ciclos del bullying para intervenir de manera más efectiva y prevenir su recurrencia.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para analizar situaciones de bullying y diseñar estrategias específicas para romper los ciclos de abuso."
-    },
-    {
-        "idCarta": 35,
-        "Nombre": "Fomento de la Comunicación Asertiva",
-        "Empatía": 7,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Promover la capacidad de expresar pensamientos y sentimientos de manera clara y respetuosa, estableciendo límites saludables.",
-        "Contexto en el Juego": "Esta carta ayuda a los jugadores a enseñar y practicar la comunicación asertiva, reduciendo los malentendidos y conflictos."
-    },
-    {
-        "idCarta": 36,
-        "Nombre": "Prevención Proactiva",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 10,
-        "Descripción": "Implementar medidas preventivas antes de que ocurra el bullying, creando un entorno seguro y respetuoso desde el principio.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para establecer programas y políticas que prevengan el bullying antes de que comience."
-    },
-    {
-        "idCarta": 37,
-        "Nombre": "Construcción de Comunidad",
-        "Empatía": 7,
-        "Apoyo Emocional": 10,
-        "Intervención": 4,
-        "Descripción": "Fomentar un sentido de comunidad y pertenencia, donde todos se sientan valorados y respetados.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores crear un ambiente de apoyo mutuo y camaradería, donde el bullying no tiene lugar."
-    },
-    {
-        "idCarta": 38,
-        "Nombre": "Reorientación de Energías",
-        "Empatía": 4,
-        "Apoyo Emocional": 5,
-        "Intervención": 7,
-        "Descripción": "Canalizar las energías negativas hacia actividades positivas y constructivas, reduciendo la probabilidad de comportamientos de bullying.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para involucrar a los posibles acosadores en actividades que les permitan expresarse de manera positiva."
-    },
-    {
-        "idCarta": 39,
-        "Nombre": "Reflexión y Crecimiento Personal",
-        "Empatía": 10,
-        "Apoyo Emocional": 10,
-        "Intervención": 1,
-        "Descripción": "Fomentar la autoevaluación y el desarrollo personal, ayudando a las personas a aprender de sus experiencias y crecer a partir de ellas.",
-        "Contexto en el Juego": "Esta carta permite a los jugadores guiar a otros en procesos de reflexión que promuevan el crecimiento personal y la empatía."
-    },
-    {
-        "idCarta": 40,
-        "Nombre": "Desarrollo de Liderazgo Positivo",
-        "Empatía": 4,
-        "Apoyo Emocional": 10,
-        "Intervención": 7,
-        "Descripción": "Fomentar habilidades de liderazgo que inspiren y guíen a otros hacia comportamientos respetuosos y constructivos.",
-        "Contexto en el Juego": "Los jugadores pueden usar esta carta para desarrollar líderes que promuevan una cultura de respeto y solidaridad contra el bullying."
-    }
+	{
+		"idCarta": 1,
+		"Nombre": "Diálogo Abierto",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores iniciar conversaciones honestas sobre el bullying, explorando sus causas y consecuencias."
+	},
+	{
+		"idCarta": 2,
+		"Nombre": "Apoyo Activo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Involucrarse de manera directa en ofrecer ayuda y soporte a quienes lo necesitan, mostrando preocupación genuina y disposición para actuar.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para brindar apoyo concreto a una víctima de bullying, ya sea a través de actos de amistad o intervención directa."
+	},
+	{
+		"idCarta": 3,
+		"Nombre": "Intervención Directa",
+		"Empatía": 1,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Tomar medidas inmediatas y claras para detener el comportamiento de bullying y proteger a la víctima. Esto puede incluir confrontar al acosador o buscar ayuda de una autoridad.",
+		"Contexto en el Juego": "Esta carta da a los jugadores el poder de intervenir en una situación de bullying de manera efectiva y segura."
+	},
+	{
+		"idCarta": 4,
+		"Nombre": "Escucha Activa",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Prestar atención completa a la persona que habla, mostrando empatía y comprensión, validando sus emociones y preocupaciones.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para escuchar a una víctima de bullying, ayudándola a sentirse comprendida y menos sola."
+	},
+	{
+		"idCarta": 5,
+		"Nombre": "Empatía Reflejada",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 1,
+		"Descripción": "Demostrar que entiendes y compartes los sentimientos de otra persona, reflejando sus emociones de manera que se sientan validados.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores mostrar empatía a una víctima, haciendo eco de sus emociones y proporcionando consuelo."
+	},
+	{
+		"idCarta": 6,
+		"Nombre": "Cambio de Perspectiva",
+		"Empatía": 7,
+		"Apoyo Emocional": 1,
+		"Intervención": 4,
+		"Descripción": "Ayudar a las personas a ver una situación desde un ángulo diferente, promoviendo la comprensión mutua y reduciendo la tensión.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar tanto a víctimas como a acosadores a entender mejor las consecuencias de sus acciones y sentimientos de los demás."
+	},
+	{
+		"idCarta": 7,
+		"Nombre": "Búsqueda de Ayuda",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Reconocer cuándo es necesario buscar ayuda adicional de autoridades, consejeros o adultos responsables.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores solicitar apoyo externo en situaciones de bullying que no pueden manejar solos."
+	},
+	{
+		"idCarta": 8,
+		"Nombre": "Red de Apoyo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Crear y mantener un grupo de personas que ofrezcan apoyo y recursos para aquellos que enfrentan bullying.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para construir una red de apoyo, facilitando el acceso a ayuda para las víctimas de bullying."
+	},
+	{
+		"idCarta": 9,
+		"Nombre": "Desarrollo de Resiliencia",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar la capacidad de recuperarse de las adversidades y seguir adelante con fuerza y determinación.",
+		"Contexto en el Juego": "Esta carta ayuda a los jugadores a fortalecer la resiliencia de una víctima de bullying, proporcionándole herramientas para superar la adversidad."
+	},
+	{
+		"idCarta": 10,
+		"Nombre": "Reconocimiento de Emociones",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Identificar y validar las emociones propias y ajenas, promoviendo una mayor comprensión emocional.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar a las víctimas de bullying a reconocer y expresar sus emociones de manera saludable."
+	},
+	{
+		"idCarta": 11,
+		"Nombre": "Educación Sobre Bullying",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Informar y educar a las personas sobre qué es el bullying, sus efectos y cómo prevenirlo.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores educar a otros sobre el bullying, aumentando la conciencia y promoviendo un cambio de comportamiento."
+	},
+	{
+		"idCarta": 12,
+		"Nombre": "Promoción de la Inclusión",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar la inclusión y el respeto por la diversidad en todos los entornos, reduciendo el aislamiento y la exclusión.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para promover actividades y actitudes inclusivas, asegurando que nadie sea marginado."
+	},
+	{
+		"idCarta": 13,
+		"Nombre": "Refuerzo Positivo",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Utilizar elogios y recompensas para fomentar comportamientos positivos y desalentar el bullying.",
+		"Contexto en el Juego": "Esta carta ayuda a los jugadores a reconocer y reforzar comportamientos positivos en su entorno, creando una cultura de respeto."
+	},
+	{
+		"idCarta": 14,
+		"Nombre": "Mediación de Conflictos",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Actuar como mediador neutral para resolver disputas y conflictos de manera pacífica y justa.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para mediar en situaciones de bullying, ayudando a encontrar soluciones aceptables para todas las partes involucradas."
+	},
+	{
+		"idCarta": 15,
+		"Nombre": "Construcción de Autoestima",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Ayudar a las personas a desarrollar una imagen positiva de sí mismas, fortaleciendo su confianza y autoeficacia.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores trabajar en la autoestima de una víctima de bullying, ayudándola a sentirse más segura y valorada."
+	},
+	{
+		"idCarta": 16,
+		"Nombre": "Campaña de Concientización",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Organizar y promover campañas para aumentar la conciencia sobre el bullying y sus efectos, involucrando a toda la comunidad.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para lanzar campañas que eduquen y movilicen a otros contra el bullying."
+	},
+	{
+		"idCarta": 17,
+		"Nombre": "Creación de Espacios Seguros",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Establecer entornos seguros y libres de bullying donde todos se sientan protegidos y respetados.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores crear y mantener espacios donde las víctimas de bullying se sientan seguras y apoyadas."
+	},
+	{
+		"idCarta": 18,
+		"Nombre": "Roles de Liderazgo",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Asumir y fomentar roles de liderazgo positivo que guíen a otros hacia comportamientos respetuosos y empáticos.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para inspirar y guiar a sus compañeros hacia una cultura escolar sin bullying."
+	},
+	{
+		"idCarta": 19,
+		"Nombre": "Defensa Personal No Violenta",
+		"Empatía": 1,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Enseñar y aplicar técnicas de defensa personal que no recurran a la violencia, empoderando a las víctimas para protegerse.",
+		"Contexto en el Juego": "Esta carta da a los jugadores las herramientas para defenderse de manera segura y efectiva sin escalar la violencia."
+	},
+	{
+		"idCarta": 20,
+		"Nombre": "Uso Responsable de Redes Sociales",
+		"Empatía": 1,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Fomentar el uso ético y seguro de las redes sociales, evitando el ciberbullying y promoviendo interacciones positivas.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para educar sobre el uso responsable de las redes sociales y prevenir el ciberbullying."
+	},
+	{
+		"idCarta": 21,
+		"Nombre": "Desarrollo de Habilidades Sociales",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Fomentar el desarrollo de habilidades interpersonales que promuevan relaciones saludables y respetuosas.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores ayudar a otros a mejorar sus habilidades sociales, facilitando interacciones positivas."
+	},
+	{
+		"idCarta": 22,
+		"Nombre": "Reforzamiento de Normas",
+		"Empatía": 4,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Establecer y mantener normas claras y consistentes que desincentiven el bullying y promuevan el respeto mutuo.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para implementar y reforzar reglas que prevengan el bullying en su comunidad."
+	},
+	{
+		"idCarta": 23,
+		"Nombre": "Mentoría y Guía",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Proporcionar orientación y apoyo continuos a individuos que enfrentan bullying, ayudándoles a navegar sus desafíos.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores actuar como mentores para víctimas de bullying, ofreciendo consejo y apoyo constante."
+	},
+	{
+		"idCarta": 24,
+		"Nombre": "Promoción de Empatía",
+		"Empatía": 10,
+		"Apoyo Emocional": 5,
+		"Intervención": 1,
+		"Descripción": "Fomentar la capacidad de comprender y compartir los sentimientos de los demás, construyendo una comunidad más compasiva.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para enseñar y promover la empatía entre sus compañeros, reduciendo la incidencia de bullying."
+	},
+	{
+		"idCarta": 25,
+		"Nombre": "Creación de Alianzas",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Formar alianzas y coaliciones con otros individuos y organizaciones para combatir el bullying de manera más efectiva.",
+		"Contexto en el Juego": "Esta carta ayuda a los jugadores a unirse con otros para fortalecer su impacto contra el bullying."
+	},
+	{
+		"idCarta": 26,
+		"Nombre": "Atención Psicológica",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Proporcionar acceso a servicios de salud mental para aquellos afectados por el bullying, ayudándoles a sanar y recuperarse.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para asegurar que las víctimas de bullying reciban la atención psicológica que necesitan."
+	},
+	{
+		"idCarta": 27,
+		"Nombre": "Talleres Educativos",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Organizar y participar en talleres que eduquen sobre el bullying, sus efectos y estrategias para combatirlo.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores participar en o organizar talleres que informen y empoderen a la comunidad escolar contra el bullying."
+	},
+	{
+		"idCarta": 28,
+		"Nombre": "Actividades Colaborativas",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Promover actividades que requieran cooperación y trabajo en equipo, fortaleciendo los lazos entre los participantes.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para fomentar actividades que construyan relaciones positivas y colaborativas."
+	},
+	{
+		"idCarta": 29,
+		"Nombre": "Diálogo con Familias",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Involucrar a las familias en conversaciones sobre el bullying, buscando soluciones y apoyo en el hogar.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores incluir a las familias en la lucha contra el bullying, creando un frente unido."
+	},
+	{
+		"idCarta": 30,
+		"Nombre": "Celebración de la Diversidad",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar el reconocimiento y la celebración de las diferencias culturales, étnicas y personales, promoviendo un entorno inclusivo.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para organizar eventos y actividades que celebren la diversidad y fomenten el respeto mutuo."
+	},
+	{
+		"idCarta": 31,
+		"Nombre": "Apoyo a la Expresión Individual",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 4,
+		"Descripción": "Alentar a las personas a expresarse de manera auténtica y respetuosa, sin temor al juicio o la discriminación.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores apoyar y validar las formas únicas de expresión de sus compañeros, reduciendo el bullying basado en diferencias individuales."
+	},
+	{
+		"idCarta": 32,
+		"Nombre": "Estrategias de Afrontamiento",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Enseñar y aplicar técnicas efectivas para manejar el estrés y las emociones negativas, fortaleciendo la resiliencia.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para ayudar a las víctimas de bullying a desarrollar estrategias saludables para afrontar su situación."
+	},
+	{
+		"idCarta": 33,
+		"Nombre": "Intervención Grupal",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Implementar acciones conjuntas para abordar y prevenir el bullying, movilizando a grupos enteros para un mayor impacto.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores coordinar esfuerzos grupales para intervenir en casos de bullying, mostrando unidad y determinación."
+	},
+	{
+		"idCarta": 34,
+		"Nombre": "Reconocimiento de Patrones de Bullying",
+		"Empatía": 7,
+		"Apoyo Emocional": 1,
+		"Intervención": 10,
+		"Descripción": "Identificar y comprender los patrones y ciclos del bullying para intervenir de manera más efectiva y prevenir su recurrencia.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para analizar situaciones de bullying y diseñar estrategias específicas para romper los ciclos de abuso."
+	},
+	{
+		"idCarta": 35,
+		"Nombre": "Fomento de la Comunicación Asertiva",
+		"Empatía": 7,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Promover la capacidad de expresar pensamientos y sentimientos de manera clara y respetuosa, estableciendo límites saludables.",
+		"Contexto en el Juego": "Esta carta ayuda a los jugadores a enseñar y practicar la comunicación asertiva, reduciendo los malentendidos y conflictos."
+	},
+	{
+		"idCarta": 36,
+		"Nombre": "Prevención Proactiva",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 10,
+		"Descripción": "Implementar medidas preventivas antes de que ocurra el bullying, creando un entorno seguro y respetuoso desde el principio.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para establecer programas y políticas que prevengan el bullying antes de que comience."
+	},
+	{
+		"idCarta": 37,
+		"Nombre": "Construcción de Comunidad",
+		"Empatía": 7,
+		"Apoyo Emocional": 10,
+		"Intervención": 4,
+		"Descripción": "Fomentar un sentido de comunidad y pertenencia, donde todos se sientan valorados y respetados.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores crear un ambiente de apoyo mutuo y camaradería, donde el bullying no tiene lugar."
+	},
+	{
+		"idCarta": 38,
+		"Nombre": "Reorientación de Energías",
+		"Empatía": 4,
+		"Apoyo Emocional": 5,
+		"Intervención": 7,
+		"Descripción": "Canalizar las energías negativas hacia actividades positivas y constructivas, reduciendo la probabilidad de comportamientos de bullying.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para involucrar a los posibles acosadores en actividades que les permitan expresarse de manera positiva."
+	},
+	{
+		"idCarta": 39,
+		"Nombre": "Reflexión y Crecimiento Personal",
+		"Empatía": 10,
+		"Apoyo Emocional": 10,
+		"Intervención": 1,
+		"Descripción": "Fomentar la autoevaluación y el desarrollo personal, ayudando a las personas a aprender de sus experiencias y crecer a partir de ellas.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores guiar a otros en procesos de reflexión que promuevan el crecimiento personal y la empatía."
+	},
+	{
+		"idCarta": 40,
+		"Nombre": "Desarrollo de Liderazgo Positivo",
+		"Empatía": 4,
+		"Apoyo Emocional": 10,
+		"Intervención": 7,
+		"Descripción": "Fomentar habilidades de liderazgo que inspiren y guíen a otros hacia comportamientos respetuosos y constructivos.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para desarrollar líderes que promuevan una cultura de respeto y solidaridad contra el bullying."
+	}
 ]
-
-

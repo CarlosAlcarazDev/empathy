@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=49 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
@@ -20,25 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://yc8hhxfvl7s3" path="res://assets/images/cards/re/3_RE.webp" id="12_f4pui"]
 [ext_resource type="Script" path="res://scripts/hs_card_2.gd" id="12_yyw1s"]
 [ext_resource type="Script" path="res://scripts/hs_card_3.gd" id="13_1vdtq"]
-[ext_resource type="Script" path="res://scenes/empty_frame_1.gd" id="14_u6fqg"]
+[ext_resource type="Script" path="res://scenes/empty_frames.gd" id="13_i11ii"]
 [ext_resource type="Texture2D" uid="uid://2lpri815ef21" path="res://assets/images/cards/hs/8_HS.webp" id="15_vnrjd"]
-[ext_resource type="Script" path="res://scenes/empty_frame_2.gd" id="15_vs50k"]
-[ext_resource type="Script" path="res://scenes/empty_frame_3.gd" id="16_06ydx"]
 [ext_resource type="Texture2D" uid="uid://b17msdx0loyam" path="res://assets/images/frames/white frame stat right.png" id="16_22v05"]
-[ext_resource type="Script" path="res://scenes/empty_frame_4.gd" id="17_7205s"]
 [ext_resource type="Texture2D" uid="uid://djwiktfjhat8t" path="res://assets/images/cards/hs/11_HS.webp" id="17_aglkq"]
 [ext_resource type="Texture2D" uid="uid://04d8k2g7nynj" path="res://assets/images/frames/red frame stat right.png" id="17_kqvgd"]
-[ext_resource type="Script" path="res://scenes/empty_frame_5.gd" id="18_0x8sj"]
-[ext_resource type="Script" path="res://scenes/empty_frame_6.gd" id="19_b5ihm"]
-[ext_resource type="Script" path="res://scenes/empty_frame_7.gd" id="20_br5t4"]
-[ext_resource type="Texture2D" uid="uid://df2oulaqso2q4" path="res://assets/images/frames/empty_frame_IA.png" id="21_7m3oo"]
-[ext_resource type="Script" path="res://scenes/empty_frame_8.gd" id="22_hexuh"]
 [ext_resource type="Texture2D" uid="uid://icaube7fsw4o" path="res://assets/ui/icons/time_button.png" id="23_kwiwh"]
-[ext_resource type="Script" path="res://scenes/empty_frame_9.gd" id="23_lcvd4"]
-[ext_resource type="Script" path="res://scenes/empty_frame_10.gd" id="24_hnmll"]
-[ext_resource type="Script" path="res://scenes/empty_frame_11.gd" id="25_echva"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="25_ldt3k"]
-[ext_resource type="Script" path="res://scenes/empty_frame_12.gd" id="26_hgev6"]
 [ext_resource type="Texture2D" uid="uid://1vf0dlpehlid" path="res://assets/images/frames/empty_frame.png" id="26_xmiw3"]
 [ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
 
@@ -675,186 +663,61 @@ text = "Opciones"
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("13_i11ii")
 
-[node name="EmptyFrame1" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("14_u6fqg")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame1"]
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
 
-[node name="EmptyFrame2" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("15_vs50k")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame2"]
+[node name="EmptyFrameTextureRect2" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
 
-[node name="EmptyFrame3" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("16_06ydx")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame3"]
+[node name="EmptyFrameTextureRect3" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
 
-[node name="EmptyFrame4" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("17_7205s")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame4"]
+[node name="EmptyFrameTextureRect4" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
 
-[node name="EmptyFrame5" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("18_0x8sj")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame5"]
+[node name="EmptyFrameTextureRect5" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
 
-[node name="EmptyFrame6" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("19_b5ihm")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame6"]
+[node name="EmptyFrameTextureRect6" type="TextureRect" parent="UI/EmptyFrames"]
 layout_mode = 0
-offset_right = 1500.0
-offset_bottom = 2100.0
+offset_left = 354.7
+offset_top = 804.0
+offset_right = 1854.7
+offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 texture = ExtResource("26_xmiw3")
-
-[node name="EmptyFrame7" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("20_br5t4")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame7"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
-
-[node name="EmptyFrame8" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("22_hexuh")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame8"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
-
-[node name="EmptyFrame9" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("23_lcvd4")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame9"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
-
-[node name="EmptyFrame10" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("24_hnmll")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame10"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
-
-[node name="EmptyFrame11" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("25_echva")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame11"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
-
-[node name="EmptyFrame12" type="Control" parent="UI/EmptyFrames"]
-anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
-script = ExtResource("26_hgev6")
-
-[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame12"]
-layout_mode = 0
-offset_right = 421.0
-offset_bottom = 593.0
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("21_7m3oo")
 
 [node name="ReadyButton" type="Button" parent="."]
 layout_mode = 2
@@ -977,7 +840,7 @@ script = ExtResource("5_goa0y")
 
 [node name="CardFrame" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
 z_index = 1
-layout_mode = 1
+layout_mode = 0
 offset_right = 1500.0
 offset_bottom = 2100.0
 texture = ExtResource("16_22v05")
