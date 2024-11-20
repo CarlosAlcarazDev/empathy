@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1732090810
+::res://::1732113296
 export_presets.cfg::TextFile::-1::1731852986::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1731452843::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
@@ -162,7 +162,7 @@ bg_card_strategy_stats.png::CompressedTexture2D::6694982652393729824::1731452841
 40_RE.webp::CompressedTexture2D::7345510083092539567::1731452842::1731453198::1::::<><>::
 ::res://assets/images/cards/reverses/::1731453198
 reverse_ai.png::CompressedTexture2D::8893420580176309021::1731452842::1731453198::1::::<><>::
-::res://assets/images/frames/::1732105380
+::res://assets/images/frames/::1732105382
 black frame stat right.png::CompressedTexture2D::1600934569407709458::1731452842::1731453199::1::::<><>::
 blue frame stat right.png::CompressedTexture2D::5202404440025477436::1731452842::1731453199::1::::<><>::
 empty_frame.png::CompressedTexture2D::1868610272485615831::1732101995::1732102000::1::::<><>::
@@ -173,7 +173,7 @@ purple frame stat right.png::CompressedTexture2D::5474761466926145435::173145284
 red frame stat right.png::CompressedTexture2D::1814829695254839179::1731452842::1731453198::1::::<><>::
 white frame stat right.png::CompressedTexture2D::4278151648867056876::1731452842::1731453198::1::::<><>::
 yellow frame stat right.png::CompressedTexture2D::6160351586769735051::1731452842::1731453198::1::::<><>::
-::res://assets/ui/::1730889615
+::res://assets/ui/::1732114642
 ::res://assets/ui/backgrounds/::1730905712
 intro_bg.png::CompressedTexture2D::3419680884151209951::1730889615::1730905712::1::::<><>::
 login_bg_1.png::CompressedTexture2D::5542695267353233247::1730889615::1730905712::1::::<><>::
@@ -190,6 +190,15 @@ options_button.png::CompressedTexture2D::2945203321415976283::1731800419::173197
 options_button_hover.png::CompressedTexture2D::2348569939820718441::1731800419::1731974870::1::::<><>::
 time_button.png::CompressedTexture2D::565675280654393504::1731800419::1731974870::1::::<><>::
 time_button_hoover.png::CompressedTexture2D::2258419593321221681::1731800419::1731974870::1::::<><>::
+::res://assets/ui/score/::1732115381
+professor_ia-removebg.png::CompressedTexture2D::5295382186634984666::1732115289::1732115500::1::::<><>::
+professor_ia.png::CompressedTexture2D::424139434521033555::1732115029::1732115500::1::::<><>::
+psychologist_ia-removebg.png::CompressedTexture2D::6535028561562941008::1732115306::1732115500::1::::<><>::
+psychologist_ia.png::CompressedTexture2D::8806618719089562889::1732115101::1732115500::1::::<><>::
+student_female_ia-removebg.png::CompressedTexture2D::5503400789608312507::1732115318::1732115500::1::::<><>::
+student_female_ia.png::CompressedTexture2D::457470289792009827::1732114986::1732115500::1::::<><>::
+student_player-removebg.png::CompressedTexture2D::7509882397069095470::1732115327::1732115500::1::::<><>::
+student_player.png::CompressedTexture2D::339574619092619058::1732114892::1732115500::1::::<><>::
 ::res://data/::1732096438
 correct_strategy.json::JSON::-1::1731800419::0::1::::<><>::
 deck_bu.json::JSON::-1::1731972184::0::1::::<><>::
@@ -199,22 +208,27 @@ deck_ic.json::JSON::-1::1731800420::0::1::::<><>::
 deck_re.json::JSON::-1::1731800420::0::1::::<><>::
 deck_re_updated.json::JSON::-1::1732096438::0::1::::<><>::
 stats_tipos_bullying.json::JSON::-1::1731974693::0::1::::<><>::
-::res://scenes/::1732105286
+::res://scenes/::1732114075
 card.tscn::PackedScene::48501062942208053::1731801714::0::1::::<><>::uid://w2rfngcbggle::::res://assets/images/frames/black frame stat right.png<>res://scripts/card.gd<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf
 CreditsScreen.tscn::PackedScene::1759830202223811529::1731801713::0::1::::<><>::res://scripts/credits_screen.gd<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://0ei5ks106f0x::::res://assets/images/backgrounds/bg_2.png<>uid://d221dmqsad5h3::::res://assets/audio/music/Sakura Beats at Midnight (1).mp3<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
-LoginScreen.tscn::PackedScene::1313656412464842337::1732105285::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1732105286::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
-NewGame.tscn::PackedScene::8343482360881582560::1732105286::0::1::::<><>::res://scripts/new_game.gd<>uid://hxs1qpyu2mp7::::res://assets/images/backgrounds/bg_1.webp<>res://scripts/ui.gd<>uid://cavqtbjc6wsby::::res://assets/ui/icons/global_time.png<>res://scripts/re_card_1.gd<>uid://dyyblqjpcax5f::::res://assets/images/cards/reverses/reverse_ai.png<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dky62xh2pa87a::::res://assets/images/cards/re/1_RE.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://7f83t5s3fqy0::::res://assets/ui/icons/time_button_hoover.png<>res://scripts/re_card_2.gd<>uid://c46waxfcvk3ku::::res://assets/audio/sfx/107341__thompsonman__beeps.wav<>res://scripts/re_card_3.gd<>uid://c2vq2cdq2jk8s::::res://assets/images/cards/re/2_RE.webp<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/hs_card_1.gd<>res://scripts/MainMenu.gdshader<>uid://yc8hhxfvl7s3::::res://assets/images/cards/re/3_RE.webp<>res://scripts/hs_card_2.gd<>res://scripts/hs_card_3.gd<>res://scenes/empty_frame_1.gd<>uid://2lpri815ef21::::res://assets/images/cards/hs/8_HS.webp<>res://scenes/empty_frame_2.gd<>res://scenes/empty_frame_3.gd<>uid://b17msdx0loyam::::res://assets/images/frames/white frame stat right.png<>res://scenes/empty_frame_4.gd<>uid://djwiktfjhat8t::::res://assets/images/cards/hs/11_HS.webp<>uid://04d8k2g7nynj::::res://assets/images/frames/red frame stat right.png<>res://scenes/empty_frame_5.gd<>res://scenes/empty_frame_6.gd<>res://scenes/empty_frame_7.gd<>uid://icaube7fsw4o::::res://assets/ui/icons/time_button.png<>res://scripts/game_manager.gd<>uid://1vf0dlpehlid::::res://assets/images/frames/empty_frame.png<>res://scripts/deck_manager.gd
-RegisterUser.tscn::PackedScene::6858974625120363631::1731805476::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
 empty_frame_1.gd::GDScript::-1::1732105080::0::1::::<>Control<>::
-empty_frame_2.gd::GDScript::-1::1732104645::0::1::::<>Control<>::
-empty_frame_3.gd::GDScript::-1::1732104645::0::1::::<>Control<>::
-empty_frame_4.gd::GDScript::-1::1732104645::0::1::::<>Control<>::
-empty_frame_5.gd::GDScript::-1::1732104604::0::1::::<>Control<>::
-empty_frame_6.gd::GDScript::-1::1732104645::0::1::::<>Control<>::
-empty_frame_7.gd::GDScript::-1::1732105284::0::1::::<>Control<>::
+empty_frame_2.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_3.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_4.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_5.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_6.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_7.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
+empty_frame_8.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
+empty_frame_9.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
+empty_frame_10.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
+empty_frame_11.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
+empty_frame_12.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
+LoginScreen.tscn::PackedScene::1313656412464842337::1732114075::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1732114075::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
+NewGame.tscn::PackedScene::8343482360881582560::1732114075::0::1::::<><>::res://scripts/new_game.gd<>uid://hxs1qpyu2mp7::::res://assets/images/backgrounds/bg_1.webp<>res://scripts/ui.gd<>uid://cavqtbjc6wsby::::res://assets/ui/icons/global_time.png<>res://scripts/re_card_1.gd<>uid://dyyblqjpcax5f::::res://assets/images/cards/reverses/reverse_ai.png<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dky62xh2pa87a::::res://assets/images/cards/re/1_RE.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://7f83t5s3fqy0::::res://assets/ui/icons/time_button_hoover.png<>res://scripts/re_card_2.gd<>uid://c46waxfcvk3ku::::res://assets/audio/sfx/107341__thompsonman__beeps.wav<>res://scripts/re_card_3.gd<>uid://c2vq2cdq2jk8s::::res://assets/images/cards/re/2_RE.webp<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/hs_card_1.gd<>res://scripts/MainMenu.gdshader<>uid://yc8hhxfvl7s3::::res://assets/images/cards/re/3_RE.webp<>res://scripts/hs_card_2.gd<>res://scripts/hs_card_3.gd<>res://scenes/empty_frame_1.gd<>uid://2lpri815ef21::::res://assets/images/cards/hs/8_HS.webp<>res://scenes/empty_frame_2.gd<>res://scenes/empty_frame_3.gd<>uid://b17msdx0loyam::::res://assets/images/frames/white frame stat right.png<>res://scenes/empty_frame_4.gd<>uid://djwiktfjhat8t::::res://assets/images/cards/hs/11_HS.webp<>uid://04d8k2g7nynj::::res://assets/images/frames/red frame stat right.png<>res://scenes/empty_frame_5.gd<>res://scenes/empty_frame_6.gd<>res://scenes/empty_frame_7.gd<>uid://df2oulaqso2q4::::res://assets/images/frames/empty_frame_IA.png<>res://scenes/empty_frame_8.gd<>uid://icaube7fsw4o::::res://assets/ui/icons/time_button.png<>res://scenes/empty_frame_9.gd<>res://scenes/empty_frame_10.gd<>res://scenes/empty_frame_11.gd<>res://scripts/game_manager.gd<>res://scenes/empty_frame_12.gd<>uid://1vf0dlpehlid::::res://assets/images/frames/empty_frame.png<>res://scripts/deck_manager.gd
+RegisterUser.tscn::PackedScene::6858974625120363631::1731805476::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
 StatisticsScreen.tscn::PackedScene::5665065429576043442::1731801714::0::1::::<><>::res://scripts/statistics_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
-::res://scripts/::1732105286
+::res://scripts/::1732114075
 bg_card_1_texture_button.gd::GDScript::-1::1731799875::0::1::::<>TextureButton<>::
 bg_card_2_texture_button.gd::GDScript::-1::1731799875::0::1::::<>TextureButton<>::
 card.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
@@ -226,13 +240,13 @@ deck_bullying.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 deck_manager.gd::GDScript::-1::1732042268::0::1::::<>Control<>::
 deck_player.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 game_config.gd::GDScript::-1::1731805476::0::1::::<>Node<>::
-game_manager.gd::GDScript::-1::1732102649::0::1::::<>Control<>::
+game_manager.gd::GDScript::-1::1732114075::0::1::::<>Control<>::
 global_data.gd::GDScript::-1::1732048680::0::1::::<>Node<>::
 hs_card_1.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 hs_card_2.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 hs_card_3.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 login_screen.gd::GDScript::-1::1731972185::0::1::::<>Control<>::
-MainMenu.gdshader::Shader::-1::1732105286::0::1::::<><>::
+MainMenu.gdshader::Shader::-1::1732114075::0::1::::<><>::
 main_menu.gd::GDScript::-1::1731972185::0::1::::<>Control<>::
 new_game.gd::GDScript::-1::1731974693::0::1::::<>Control<>::
 option_window.gd::GDScript::-1::1731805476::0::1::::<>Window<>::
@@ -242,4 +256,4 @@ re_card_2.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 re_card_3.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 statistics_screen.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 strategy_button.gd::GDScript::-1::1731452843::0::1::::<>Button<>::
-ui.gd::GDScript::-1::1732092406::0::1::::<>Control<>::
+ui.gd::GDScript::-1::1732106543::0::1::::<>Control<>::

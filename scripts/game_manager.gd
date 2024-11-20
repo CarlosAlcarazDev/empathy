@@ -26,8 +26,8 @@
 #	replenish_cards(): Función para reabastecer cartas al jugador y a la IA	
 #	remove_selected_cards(): Función para eliminar las cartas seleccionadas del turno actual
 #	update_bullying_card(): Función para actualizar la carta de bullying en cada turno
-#	_on_ready_texture_button_pressed(): Función para manejar el evento del botón "Listo" DEPRECATED
-#	_on_ready_button_pressed(): Función para manejar el evento del botón "Listo"
+#	_on_ready_texture_button_pressed(): Función para manejar el evento del botón "aceptar" DEPRECATED
+#	_on_ready_button_pressed(): Función para manejar el evento del botón "aceptar"
 #	_on_continue_button_pressed(): Señal que se activa al presionar botón "Continuar"
 #	_on_card_chosen_re(card_id): Función para manejar la selección de cartas tipo RE por el jugador
 #	_on_card_chosen_hs(card_id): Función para manejar la selección de cartas tipo HS por el jugador
@@ -89,18 +89,16 @@ var countdown_sound_playing = false
 @onready var countdown_30_seconds_label = $"../UI/CountdownTurn/Panel/Countdown30SecondsLabel"
 
 @onready var beep_countdown_audio_stream_player = $"../UI/BeepCountdownAudioStreamPlayer"
-@onready var countdown_20_minutes_label = $"../UI/Countdown20MinutesLabel"
+
+@onready var countdown_20_minutes_label = $"../UI/CountdownTotal/Panel/Countdown20MinutesLabel"
+
 @onready var end_turn_popup = $"../UI/EndTurnPopup"
 
 @onready var continue_button = $"../UI/EndTurnPopup/ContinueButton"
 
 
 
-#@onready var label = $"../UI/EndTurnPopup/Label"
-#@onready var label_2 = $"../UI/EndTurnPopup/Label2"
-#@onready var label_3 = $"../UI/EndTurnPopup/Label3"
-#@onready var label_4 = $"../UI/EndTurnPopup/Label4"
-#@onready var label_5 = $"../UI/EndTurnPopup/Label5"
+
 @onready var name_type_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NameTypeBullyingLabel"
 @onready var needs_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NeedsBullyingLabel"
 @onready var player_label = $"../UI/EndTurnPopup/VBoxContainer/PlayerLabel"
@@ -123,6 +121,8 @@ var countdown_sound_playing = false
 @onready var iare_card = $"../DeckManager/DeckIA/IARECard"
 @onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
 
+@onready var ia_score_label = $"../UI/ShowScore/ShowScorePlayer/IAScoreLabel"
+@onready var player_score_label = $"../UI/ShowScore/ShowScoreIA/PlayerScorelabel"
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -206,9 +206,9 @@ func _process(delta):
 func handle_countdown(delta):
 	if countdown_30_seconds > 0:
 		countdown_30_seconds -= delta
-		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Listo" cuando queden más de 10 segundos
+		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Aceptar" cuando queden más de 10 segundos
 		if countdown_30_seconds > 10:
-			ready_button.text = "Listo"
+			ready_button.text = "Aceptar"
 			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
 
 		else:
@@ -329,7 +329,7 @@ func check_game_result():
 	# Manejar el caso donde no se seleccionaron cartas (-1)
 	var player_re_card = null
 	var player_hs_card = null
-	
+	name_type_bullying_label.text = card_bullying.nombre + " tipo " + card_bullying.tipo
 	if int(player_selected_card_re) != -1:
 		player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
 	if int(player_selected_card_hs) != -1:
@@ -346,21 +346,30 @@ func check_game_result():
 		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
 	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
 	
-	#Muestra valores player
+# Calcular puntuación basada en cartas seleccionadas
+	if player_re_card != null and player_hs_card != null:
+		# Si se seleccionaron ambas cartas, calcular usando ambas
+		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
+	elif player_re_card != null:
+		# Si solo se seleccionó la carta de respuesta empática
+		player_score = calculate_score(player_bullying_card, player_re_card, null)
+	elif player_hs_card != null:
+		# Si solo se seleccionó la carta de habilidad social
+		player_score = calculate_score(player_bullying_card, null, player_hs_card)
+	
+	# Mostrar valores del jugador
 	player_label.text = GlobalData.user
 	if player_re_card != null:
 		name_re_label.text = player_re_card.nombre
-		points_hs_label.text = str(player_score) + " puntos"
 	else:
 		name_re_label.text = "NO HAS ELEGIDO CARTA DE RESPUESTA EMPÁTICA"
+	
 	if player_hs_card != null:
 		name_hs_label.text = player_hs_card.nombre
-		
 	else:
 		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
-		points_hs_label.text = ""
 	
-	
+	points_hs_label.text = str(player_score) + " puntos"	
 	
 	#Muestra valores IA
 	ia_name_re_label.text = ia_re_card.nombre
@@ -374,8 +383,9 @@ func check_game_result():
 	
 	total_points_player_label.text = str(GlobalData.total_player_score) + " puntos"
 	total_points_ia_label.text = str(GlobalData.total_ia_score) + " puntos"
-	
-	#Deshabilitar el boton de listo/cuenta atrás
+	ia_score_label.text = str(GlobalData.total_ia_score)
+	player_score_label.text = str(GlobalData.total_player_score)
+	#Deshabilitar el boton de aceptar/cuenta atrás
 	ready_button.disabled = true
 	# Deshabilitar interacción en las cartas y mostrar el modal
 	disable_card_interaction()
@@ -392,27 +402,29 @@ func calculate_score(bullying_card, re_card, hs_card) -> float:
 	var attributes_count = 0
 
 	# Cálculo para los atributos de RE
-	if bullying_card.empatia > 0:
-		total_score += (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 100
-		attributes_count += 1
-	if bullying_card.apoyo_emocional > 0:
-		total_score += (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 100
-		attributes_count += 1
-	if bullying_card.intervencion > 0:
-		total_score += (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 100
-		attributes_count += 1
+	if re_card != null:
+		if bullying_card.empatia > 0:
+			total_score += (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 100
+			attributes_count += 1
+		if bullying_card.apoyo_emocional > 0:
+			total_score += (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 100
+			attributes_count += 1
+		if bullying_card.intervencion > 0:
+			total_score += (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 100
+			attributes_count += 1
 
 	# Cálculo para los atributos de HS
-	if bullying_card.comunicacion > 0:
-		total_score += (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 100
-		attributes_count += 1
-	if bullying_card.resolucion_de_conflictos > 0:
-		total_score += (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 100
-		attributes_count += 1
+	if hs_card != null:
+		if bullying_card.comunicacion > 0:
+			total_score += (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 100
+			attributes_count += 1
+		if bullying_card.resolucion_de_conflictos > 0:
+			total_score += (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 100
+			attributes_count += 1
 
 	# Calculamos el promedio si hay atributos evaluados
 	if attributes_count > 0:
-		return total_score / attributes_count
+		return total_score / 5
 	return 0
 	
 	
@@ -518,12 +530,12 @@ func hide_random_cards(num_to_hide):
 	
 # Función para reiniciar el estado del turno
 func reset_turn_state():
-	# Habilitar el botón "Listo" y restablecer el contador de tiempo
+	# Habilitar el botón "Aceptar" y restablecer el contador de tiempo
 	ready_button.disabled = false
 	ready_button.visible = true
-	countdown_30_seconds_label.text = "Listo" 
+	countdown_30_seconds_label.text = "Aceptar" 
 	countdown_30_seconds = COUNTDOWN_30_SECONDS
-	ready_button.text = "Listo"
+	ready_button.text = "Aceptar"
 	countdown_sound_playing = false
 	# No muestra la carta elegida
 	iare_card.visible = false
@@ -672,7 +684,7 @@ func update_bullying_card():
 ###############################################################################
 ###############################################################################
 
-# Función para manejar el evento del botón "Listo" DEPRECATED
+# Función para manejar el evento del botón "aceptar" DEPRECATED
 func _on_ready_texture_button_pressed():
 	if (player_selected_card_re == null or player_selected_card_hs == null):
 		# Si el jugador no seleccionó cartas, asignarlas automáticamente
@@ -683,7 +695,7 @@ func _on_ready_texture_button_pressed():
 		beep_countdown_audio_stream_player.stop()
 		countdown_sound_playing = false  # Restablece flag
 	
-	#Finalizar la cuenta regresiva y desactivar el botón "Listo"
+	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
 	countdown_30_seconds = 0
 	countdown_30_seconds_label.text = "OK"
 	ready_button.text = "OK"
@@ -701,7 +713,7 @@ func _on_ready_texture_button_pressed():
 	emit_signal("ready_to_check_result")
 	change_state(GameState.CHECK_RESULT)
 
-# Función para manejar el evento del botón "Listo"
+# Función para manejar el evento del botón "aceptar"
 func _on_ready_button_pressed():
 	if (player_selected_card_re == null or player_selected_card_hs == null):
 		# Si el jugador no seleccionó cartas, asignarlas automáticamente
@@ -712,7 +724,7 @@ func _on_ready_button_pressed():
 		beep_countdown_audio_stream_player.stop()
 		countdown_sound_playing = false  # Restablece flag
 	
-	#Finalizar la cuenta regresiva y desactivar el botón "Listo"
+	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
 	countdown_30_seconds = 0
 	countdown_30_seconds_label.text = "OK"
 	ready_button.disabled = true

@@ -1,13 +1,13 @@
+Label
+Panel
 Control
 TextureRect
-Panel
 Button
 HSeparator
 HBoxContainer
 VBoxContainer
 ColorRect
 Timer
-Label
 Window
 AudioStreamPlayer
 TextureButton

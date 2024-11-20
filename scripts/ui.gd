@@ -13,8 +13,11 @@ extends Control
 
 # Referencias a los nodos de la escena
 @onready var ready_texture_button = $ReadyTextureButton
-
 @onready var reverse_anverse_toggle_button = $ReverseAnverseToggleButton
+@onready var ia_name_label = $ShowScore/ShowScorePlayer/IANameLabel
+@onready var player_name_label = $ShowScore/ShowScoreIA/PlayerNameLabel
+
+
 
 # Definimos la señal personalizada
 signal reverse_anverse_toggled(showing_reverses: bool)
@@ -23,9 +26,21 @@ var showing_reverses = false  # Indica si las cartas están mostrando el reverso
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ia_name_label.text = get_difficulty_text(GameConfig.ia_difficulty)
+	player_name_label.text = GlobalData.user
 	update_button_text()
-
-
+	
+# Método para convertir dificultad en texto
+func get_difficulty_text(difficulty: int) -> String:
+	match difficulty:
+		GameConfig.Difficulty.ESTUDIANTE:
+			return "Estudiante"
+		GameConfig.Difficulty.PROFESOR:
+			return "Profesor"
+		GameConfig.Difficulty.PSICOLOGO:
+			return "Psicólogo"
+		_:
+			return "Desconocido"
 
 func _on_options_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

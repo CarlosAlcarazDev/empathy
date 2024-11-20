@@ -1,9 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=63 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_q5ib0"]
-[ext_resource type="Texture2D" uid="uid://cavqtbjc6wsby" path="res://assets/ui/icons/global_time.png" id="4_ov384"]
 [ext_resource type="Script" path="res://scripts/re_card_1.gd" id="5_goa0y"]
 [ext_resource type="Texture2D" uid="uid://dyyblqjpcax5f" path="res://assets/images/cards/reverses/reverse_ai.png" id="6_p02oi"]
 [ext_resource type="Texture2D" uid="uid://dyk8m7os7qjrp" path="res://assets/images/cards/bu/1_BU.webp" id="6_upfco"]
@@ -38,9 +37,18 @@
 [ext_resource type="Script" path="res://scenes/empty_frame_10.gd" id="24_hnmll"]
 [ext_resource type="Script" path="res://scenes/empty_frame_11.gd" id="25_echva"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="25_ldt3k"]
+[ext_resource type="Texture2D" uid="uid://c0du73jdhtldw" path="res://assets/ui/score/psychologist_ia-removebg.png" id="26_44bqo"]
 [ext_resource type="Script" path="res://scenes/empty_frame_12.gd" id="26_hgev6"]
 [ext_resource type="Texture2D" uid="uid://1vf0dlpehlid" path="res://assets/images/frames/empty_frame.png" id="26_xmiw3"]
+[ext_resource type="Texture2D" uid="uid://ckn5hbh478lmp" path="res://assets/ui/score/student_female_ia-removebg.png" id="27_ekcql"]
 [ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
+bg_color = Color(0.6, 0.6, 0.6, 0.694118)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6q4h"]
 bg_color = Color(0.6, 0.6, 0.6, 0.694118)
@@ -88,7 +96,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0.431373)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdknx"]
-bg_color = Color(0.0431373, 0.270588, 0.415686, 0.611765)
+bg_color = Color(0, 0, 0, 0.709804)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -168,28 +176,6 @@ anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("2_q5ib0")
-
-[node name="CountdownTextureRect" type="TextureRect" parent="UI"]
-layout_mode = 0
-offset_left = 1697.0
-offset_top = 10.0
-offset_right = 2124.0
-offset_bottom = 106.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_ov384")
-
-[node name="Countdown20MinutesLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 1726.0
-offset_top = 14.0
-offset_right = 1888.0
-offset_bottom = 56.0
-theme_override_colors/font_color = Color(0.74902, 0.74902, 0.74902, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 35
-text = "28:00"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ChosenCardsLabel" type="Label" parent="UI"]
 layout_mode = 0
@@ -288,6 +274,41 @@ texture_hover = ExtResource("8_oxljk")
 texture_disabled = ExtResource("8_oxljk")
 texture_focused = ExtResource("8_oxljk")
 
+[node name="CountdownTotal" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 1421.0
+offset_top = 18.0
+offset_right = 1461.0
+offset_bottom = 58.0
+
+[node name="Panel" type="Panel" parent="UI/CountdownTotal"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1.0
+offset_right = 180.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ax13")
+
+[node name="Countdown20MinutesLabel" type="Label" parent="UI/CountdownTotal/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = -30.5
+offset_right = 87.5
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 35
+text = "28:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CountdownTurn" type="Control" parent="UI"]
 anchors_preset = 0
 offset_left = 19.0
@@ -383,8 +404,6 @@ size_flags_horizontal = 3
 
 [node name="ResultadoLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 25
 text = "Resultados del desafío"
@@ -408,7 +427,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
-text = "Intimidación en el recreo tipo Físico"
 
 [node name="NeedsBullyingLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
 custom_minimum_size = Vector2(511, 15)
@@ -655,10 +673,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -1904.0
-offset_top = -527.0
-offset_right = -1729.0
-offset_bottom = -466.0
+offset_left = -185.0
+offset_top = -522.0
+offset_right = -10.0
+offset_bottom = -461.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_hover_color = Color(0.74902, 0.74902, 0.74902, 1)
@@ -669,7 +687,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_27bwm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8eyt8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_2vcrx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_gerkl")
-text = "Opciones"
+text = "Salir"
 
 [node name="EmptyFrames" type="Control" parent="UI"]
 anchors_preset = 0
@@ -678,10 +696,10 @@ offset_bottom = 40.0
 
 [node name="EmptyFrame1" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("14_u6fqg")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame1"]
@@ -693,10 +711,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame2" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("15_vs50k")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame2"]
@@ -708,10 +726,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame3" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("16_06ydx")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame3"]
@@ -723,10 +741,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame4" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("17_7205s")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame4"]
@@ -738,10 +756,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame5" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("18_0x8sj")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame5"]
@@ -753,10 +771,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame6" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("19_b5ihm")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame6"]
@@ -768,10 +786,10 @@ texture = ExtResource("26_xmiw3")
 
 [node name="EmptyFrame7" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("20_br5t4")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame7"]
@@ -783,10 +801,10 @@ texture = ExtResource("21_7m3oo")
 
 [node name="EmptyFrame8" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("22_hexuh")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame8"]
@@ -798,10 +816,10 @@ texture = ExtResource("21_7m3oo")
 
 [node name="EmptyFrame9" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("23_lcvd4")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame9"]
@@ -813,10 +831,10 @@ texture = ExtResource("21_7m3oo")
 
 [node name="EmptyFrame10" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("24_hnmll")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame10"]
@@ -828,10 +846,10 @@ texture = ExtResource("21_7m3oo")
 
 [node name="EmptyFrame11" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("25_echva")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame11"]
@@ -843,10 +861,10 @@ texture = ExtResource("21_7m3oo")
 
 [node name="EmptyFrame12" type="Control" parent="UI/EmptyFrames"]
 anchors_preset = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 205.0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
 script = ExtResource("26_hgev6")
 
 [node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame12"]
@@ -855,6 +873,81 @@ offset_right = 421.0
 offset_bottom = 593.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("21_7m3oo")
+
+[node name="ShowScore" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShowScorePlayer" type="TextureRect" parent="UI/ShowScore"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 302.0
+offset_bottom = 477.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("26_44bqo")
+
+[node name="IANameLabel" type="Label" parent="UI/ShowScore/ShowScorePlayer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 276.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+text = "Profesor Lupin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IAScoreLabel" type="Label" parent="UI/ShowScore/ShowScorePlayer"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 373.0
+offset_right = 268.0
+offset_bottom = 443.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 35
+text = "Puntuación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowScoreIA" type="TextureRect" parent="UI/ShowScore"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 748.0
+offset_right = 303.0
+offset_bottom = 1226.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("27_ekcql")
+
+[node name="PlayerNameLabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = 25.7143
+offset_top = 21.4285
+offset_right = 278.714
+offset_bottom = 71.4285
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+text = "Jugador"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScorelabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = 29.7143
+offset_top = 374.286
+offset_right = 270.714
+offset_bottom = 444.286
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 35
+text = "Puntuación"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ReadyButton" type="Button" parent="."]
 layout_mode = 2
@@ -1045,9 +1138,9 @@ autowrap_mode = 3
 
 [node name="RECard2" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
-offset_left = 354.7
+offset_left = 557.3
 offset_top = 804.0
-offset_right = 1854.7
+offset_right = 2057.3
 offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 script = ExtResource("9_0kxbr")
@@ -1122,9 +1215,9 @@ autowrap_mode = 3
 
 [node name="RECard3" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
-offset_left = 354.7
+offset_left = 759.9
 offset_top = 804.0
-offset_right = 1854.7
+offset_right = 2259.9
 offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 script = ExtResource("10_38pgf")
@@ -1199,9 +1292,9 @@ autowrap_mode = 3
 
 [node name="HSCard1" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
-offset_left = 354.7
+offset_left = 962.5
 offset_top = 804.0
-offset_right = 1854.7
+offset_right = 2462.5
 offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 script = ExtResource("11_l50vo")
@@ -1276,9 +1369,9 @@ autowrap_mode = 3
 
 [node name="HSCard2" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
-offset_left = 354.7
+offset_left = 1165.1
 offset_top = 804.0
-offset_right = 1854.7
+offset_right = 2665.1
 offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 script = ExtResource("12_yyw1s")
@@ -1353,9 +1446,9 @@ autowrap_mode = 3
 
 [node name="HSCard3" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
-offset_left = 354.7
+offset_left = 1367.7
 offset_top = 804.0
-offset_right = 1854.7
+offset_right = 2867.7
 offset_bottom = 2904.0
 scale = Vector2(0.13, 0.13)
 script = ExtResource("13_1vdtq")

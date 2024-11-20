@@ -15,7 +15,7 @@ var game_mode: String = ""
 
 
 # Dificultad de la IA: "Estudiante", "Profesor", "Psicólogo"
-var ia_difficulty: Difficulty = Difficulty.ESTUDIANTE  # Valor por defecto
+var ia_difficulty: Difficulty = Difficulty.PROFESOR  # Valor por defecto
 
 # Opciones
 var music_volume: int
