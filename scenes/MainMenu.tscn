@@ -439,7 +439,7 @@ script = ExtResource("10_aj7d5")
 [node name="VBoxContainer" type="VBoxContainer" parent="Overlay/OptionWindow"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 245.0
+offset_bottom = 280.0
 grow_horizontal = 2
 alignment = 1
 
@@ -500,6 +500,24 @@ theme_override_font_sizes/font_size = 18
 text = "Antialiasing"
 
 [node name="AntialiasingOption" type="OptionButton" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/focus = SubResource("StyleBoxFlat_nyjw5")
+flat = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Overlay/OptionWindow/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_dav8f")
+theme_override_font_sizes/font_size = 18
+text = "Dificultad de la IA"
+
+[node name="IADifficultyOption" type="OptionButton" parent="Overlay/OptionWindow/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -573,7 +591,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_daadh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kj1oc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_f4eia")
 theme_override_styles/normal = SubResource("StyleBoxFlat_li4e7")
-text = "Cancelar"
+text = "Restaurar"
 
 [node name="BeepAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_1oieo")

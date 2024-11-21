@@ -123,6 +123,7 @@ var countdown_sound_playing = false
 
 @onready var ia_score_label = $"../UI/ShowScore/ShowScorePlayer/IAScoreLabel"
 @onready var player_score_label = $"../UI/ShowScore/ShowScoreIA/PlayerScorelabel"
+@onready var ia_name_label = $"../UI/ShowScore/ShowScorePlayer/IANameLabel"
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -153,6 +154,7 @@ signal ready_to_check_result()
 signal card_chosen_re(card_id)
 signal card_chosen_hs(card_id)
 
+const JSON_CORRECT_STRATEGY_PATH = "res://data/correct_strategy.json"
 		
 
 
@@ -191,6 +193,8 @@ func _ready():
 	
 	#Conecta la señal para manejar el reverso o anverso de las cartas
 	ui.connect("reverse_anverse_toggled", Callable(self, "_on_reverse_anverse_toggled"))
+	
+	
 	
 # Función que se ejecuta continuamente para manejar la lógica en cada frame
 func _process(delta):
@@ -337,26 +341,44 @@ func check_game_result():
 	
 	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
 	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
-	
 	var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
 	
+	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
+	var valid_combination = false # falg para sabir si la combinación es válida
+	var raw_match
+	if json_correct != null and player_re_card != null and player_hs_card != null:
+		var match = find_combination(json_correct, card_bullying.id_carta, int(player_selected_card_re), int(player_selected_card_hs))
+		if match.size() > 0:  # Verificar si el Dictionary no está vacío
+			if match.has("por_que"):  # Comprobar que tenga la clave "por_que"
+				print("¡La combinación de cartas está en las combinaciones correctas!")
+				print("Razón: ", match["por_que"])
+				valid_combination = true  # Establecer combinación válida
+				raw_match = match
+			else:
+				print("¡Combinación encontrada, pero falta la clave 'por_que'!")
+		else:
+			print("No se encontró ninguna combinación.")
+
+		
 	# Calcular puntuaciones
 	var player_score = 0
 	if player_re_card != null and player_hs_card != null:
 		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
 	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
 	
-# Calcular puntuación basada en cartas seleccionadas
-	if player_re_card != null and player_hs_card != null:
-		# Si se seleccionaron ambas cartas, calcular usando ambas
-		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
-	elif player_re_card != null:
-		# Si solo se seleccionó la carta de respuesta empática
-		player_score = calculate_score(player_bullying_card, player_re_card, null)
-	elif player_hs_card != null:
-		# Si solo se seleccionó la carta de habilidad social
-		player_score = calculate_score(player_bullying_card, null, player_hs_card)
 	
+# Calcular puntuación basada en cartas seleccionadas
+	if !valid_combination:
+		if player_re_card != null and player_hs_card != null:
+			# Si se seleccionaron ambas cartas, calcular usando ambas
+			player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
+		elif player_re_card != null:
+			# Si solo se seleccionó la carta de respuesta empática
+			player_score = calculate_score(player_bullying_card, player_re_card, null)
+		elif player_hs_card != null:
+			# Si solo se seleccionó la carta de habilidad social
+			player_score = calculate_score(player_bullying_card, null, player_hs_card)
+			
 	# Mostrar valores del jugador
 	player_label.text = GlobalData.user
 	if player_re_card != null:
@@ -369,7 +391,12 @@ func check_game_result():
 	else:
 		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
 	
-	points_hs_label.text = str(player_score) + " puntos"	
+	if !valid_combination:
+		points_hs_label.text = str(player_score) + " puntos"	
+	else:
+		player_score = 150
+		points_hs_label.text = str(player_score) + " puntos"	
+		
 	
 	#Muestra valores IA
 	ia_name_re_label.text = ia_re_card.nombre
@@ -1010,3 +1037,41 @@ func _on_reverse_anverse_toggled(showing_reverses: bool):
 
 func _on_options_button_pressed():
 	get_tree().change_scene_to_file("res://scripts/main_menu.gd")
+
+# Función para cargar el JSON de estrategias correctas
+func load_strategy(file_path: String) -> Variant:
+	var json_correct_strategy = null
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	
+	if file:
+		var data = file.get_as_text()
+		if data != "":
+			# Crear una instancia de JSON
+			var json = JSON.new()
+			var parse_result = json.parse(data)
+			if parse_result == OK:
+				json_correct_strategy = json.data  # Accedemos al resultado del parseo
+			else:
+				print("Error al parsear JSON:", parse_result)  # Mostramos el código de error
+		else:
+			print("Archivo JSON vacío o sin datos.")
+		file.close()
+	else:
+		print("Error: No se pudo abrir el archivo JSON:", file_path)
+	
+	return json_correct_strategy  # Siempre retorna, aunque sea null
+
+# Función para buscar combinaciones en el JSON
+func find_combination(json_data: Array, card_id: int, selected_re: int, selected_hs: int) -> Dictionary:
+	# Buscar la carta por su idCarta
+	for carta in json_data:
+		if carta["idCarta"] == card_id:  # Acceso a idCarta usando corchetes
+			print("Carta encontrada: ", carta["nombre"])
+			# Buscar combinaciones que coincidan con RE y HS
+			for combinacion in carta["Combinaciones"]:  # Acceso a Combinaciones con corchetes
+				if combinacion["RE"] == selected_re and combinacion["HS"] == selected_hs:  # Acceso a RE y HS con corchetes
+					print("Combinación encontrada:")
+					print("  RE: ", combinacion["RE"], ", HS: ", combinacion["HS"])
+					return combinacion  # Retornar la combinación coincidente
+			break  # Terminar la búsqueda si se encontró la carta
+	return {} # Retornar un Dictionary vacío si no se encontró ninguna combinación

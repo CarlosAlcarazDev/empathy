@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=64 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://hxs1qpyu2mp7" path="res://assets/images/backgrounds/bg_1.webp" id="2_3wh4s"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://1vf0dlpehlid" path="res://assets/images/frames/empty_frame.png" id="26_xmiw3"]
 [ext_resource type="Texture2D" uid="uid://ckn5hbh478lmp" path="res://assets/ui/score/student_female_ia-removebg.png" id="27_ekcql"]
 [ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
+[ext_resource type="Texture2D" uid="uid://cei51d04hknyf" path="res://assets/ui/score/talking-removebg.png" id="28_njitj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
 bg_color = Color(0.6, 0.6, 0.6, 0.694118)
@@ -372,8 +373,7 @@ text = "Reverso"
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
 initial_position = 1
-size = Vector2i(531, 462)
-visible = false
+size = Vector2i(630, 480)
 transient = true
 exclusive = true
 unresizable = true
@@ -386,18 +386,18 @@ theme_override_styles/embedded_border = SubResource("StyleBoxFlat_x88fj")
 theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jcovi")
 
 [node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
-offset_right = 531.0
-offset_bottom = 462.0
+offset_right = 630.0
+offset_bottom = 480.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdknx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/EndTurnPopup"]
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = -10.0
-offset_bottom = 10.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -447,6 +447,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 20
+text = "Nombre Player ¡¡COMBINACIÓN PERFECTA!!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
 layout_mode = 2
@@ -508,10 +509,22 @@ theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
 horizontal_alignment = 2
 
+[node name="CorrectStrategyWhyLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 3
+
 [node name="HSeparator4" type="HSeparator" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="IALabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
@@ -520,6 +533,7 @@ theme_override_font_sizes/font_size = 20
 text = "IA"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="RELabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer3"]
@@ -551,6 +565,7 @@ text = "5 puntos      "
 horizontal_alignment = 2
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HSLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer4"]
@@ -581,9 +596,11 @@ text = "6 puntos      "
 horizontal_alignment = 2
 
 [node name="HSeparator3" type="HSeparator" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TotalPlayerLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer5"]
@@ -605,6 +622,7 @@ text = "6 puntos      "
 horizontal_alignment = 2
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TotalIALabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer6"]
@@ -653,6 +671,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_aty38")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q8k8q")
 theme_override_styles/normal = SubResource("StyleBoxFlat_at6sf")
 text = "Continuar"
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+z_index = 4
+offset_left = -535.0
+offset_top = 329.0
+offset_right = -35.0
+offset_bottom = 829.0
+texture = ExtResource("28_njitj")
 
 [node name="Overlay" type="Control" parent="UI"]
 anchors_preset = 0

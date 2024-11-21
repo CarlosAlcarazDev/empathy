@@ -1,7 +1,7 @@
-res://scenes/LoginScreen.tscn
-res://scripts/MainMenu.gdshader
-res://scenes/NewGame.tscn
 res://scenes/MainMenu.tscn
+res://scripts/MainMenu.gdshader
+res://scripts/option_window.gd
+res://scenes/LoginScreen.tscn
+res://scenes/NewGame.tscn
 res://scripts/game_manager.gd
-res://scripts/ui.gd
-res://scripts/game_config.gd
+res://README.md

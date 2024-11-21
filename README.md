@@ -1,4 +1,18 @@
 # **Caminos de Empatía**
+21/11/2024
+*	Implementado puntuacion con estrategias correctas
+*	Se ha modificado el modal de endturnpopup para mostrar solo info del jugador y
+*	nuevo layout para mostrar información de porqué es una combinación correcta.
+*	Se otorgan 150 puntos por conseguir combinación
+*	Se replantea sistema de combos. No serán seguidos
+*	Falta implementar los combos (contador de combos) seran necesarios para cartas i+c y tokens
+*	Se ha añadido select de IA en opciones. 
+*	Se ha cambiado boton cancelar en popup opciones por restablecer que restablece a los valores predeterminados.
+*	Se han añadido los marcos a las cartas
+*	Se han añadido los dos avatares (IA, Player) para mostrar la puntuación global.
+
+
+
 #19/11/2024
 *	Implementado puntuación. totales en globaldata
 *	falta mostrar en pantalla principal, ahora se muestra en el modal de fin de turno
