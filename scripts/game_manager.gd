@@ -98,7 +98,7 @@ var countdown_sound_playing = false
 
 
 
-
+@onready var bullying_label = $"../UI/EndTurnPopup/VBoxContainer/BullyingLabel"
 @onready var name_type_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NameTypeBullyingLabel"
 @onready var needs_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NeedsBullyingLabel"
 @onready var player_label = $"../UI/EndTurnPopup/VBoxContainer/PlayerLabel"
@@ -121,9 +121,11 @@ var countdown_sound_playing = false
 @onready var iare_card = $"../DeckManager/DeckIA/IARECard"
 @onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
 
-@onready var ia_score_label = $"../UI/ShowScore/ShowScorePlayer/IAScoreLabel"
-@onready var player_score_label = $"../UI/ShowScore/ShowScoreIA/PlayerScorelabel"
-@onready var ia_name_label = $"../UI/ShowScore/ShowScorePlayer/IANameLabel"
+@onready var ia_score_label = $"../UI/ShowScore/ShowScoreIA/IAScoreLabel"
+@onready var player_score_label = $"../UI/ShowScore/ShowScorePlayer/PlayerScorelabel"
+@onready var ia_name_label = $"../UI/ShowScore/ShowScoreIA/IANameLabel"
+@onready var combo_label = $"../UI/ShowScore/ShowScorePlayer/ComboTextureRect/ComboLabel"
+@onready var correct_strategy_why_label = $"../UI/EndTurnPopup/VBoxContainer/CorrectStrategyWhyLabel"
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -153,6 +155,10 @@ signal countdown_finished()
 signal ready_to_check_result()
 signal card_chosen_re(card_id)
 signal card_chosen_hs(card_id)
+
+#Variable guardar combos
+var combo_player = 0
+var combo_ia = 0
 
 const JSON_CORRECT_STRATEGY_PATH = "res://data/correct_strategy.json"
 		
@@ -333,7 +339,9 @@ func check_game_result():
 	# Manejar el caso donde no se seleccionaron cartas (-1)
 	var player_re_card = null
 	var player_hs_card = null
-	name_type_bullying_label.text = card_bullying.nombre + " tipo " + card_bullying.tipo
+	bullying_label.text = "Situación de acoso de tipo " + card_bullying.tipo
+	name_type_bullying_label.text = card_bullying.nombre
+	
 	if int(player_selected_card_re) != -1:
 		player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
 	if int(player_selected_card_hs) != -1:
@@ -342,9 +350,9 @@ func check_game_result():
 	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
 	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
 	var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
-	
+	needs_bullying_label.text = "Necesidades: " + player_bullying_card.necesidades_clave
 	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
-	var valid_combination = false # falg para sabir si la combinación es válida
+	var valid_combination = false # flag para saber si la combinación es válida
 	var raw_match
 	if json_correct != null and player_re_card != null and player_hs_card != null:
 		var match = find_combination(json_correct, card_bullying.id_carta, int(player_selected_card_re), int(player_selected_card_hs))
@@ -354,6 +362,7 @@ func check_game_result():
 				print("Razón: ", match["por_que"])
 				valid_combination = true  # Establecer combinación válida
 				raw_match = match
+				combo_player += 1
 			else:
 				print("¡Combinación encontrada, pero falta la clave 'por_que'!")
 		else:
@@ -394,9 +403,12 @@ func check_game_result():
 	if !valid_combination:
 		points_hs_label.text = str(player_score) + " puntos"	
 	else:
+		player_label.text = GlobalData.user + " ¡COMBINACIÓN PERFECTA!"
+		correct_strategy_why_label.text = raw_match["por_que"]
 		player_score = 150
 		points_hs_label.text = str(player_score) + " puntos"	
-		
+	
+	combo_label.text = str(combo_player)
 	
 	#Muestra valores IA
 	ia_name_re_label.text = ia_re_card.nombre
@@ -567,6 +579,7 @@ func reset_turn_state():
 	# No muestra la carta elegida
 	iare_card.visible = false
 	iahs_card.visible = false
+	correct_strategy_why_label.text = ""
 	
 	#Restablece cartas IA
 	for i in range(1, 7):  # Itera del 1 al 6
@@ -943,7 +956,7 @@ func display_card_bu(card: CardsBU, card_node: Control, is_reverse: bool):
 		print("is_reverse ", is_reverse)
 		print("updatebu_necesidadclave", card.necesidades_clave)
 		card_node.get_node("TypeCardLabel").text = card.tipo
-		card_node.get_node("DescriptionCardLabel").text = "Necesidades: \n" + card.necesidades_clave
+		card_node.get_node("DescriptionCardLabel").text = "Enfoque principal: \n" + card.enfoque_principal
 		
 	else:
 		print("is_reverse ", is_reverse)

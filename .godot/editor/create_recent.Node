@@ -1,6 +1,7 @@
+Panel
 TextureRect
 Label
-Panel
+TextEdit
 Control
 Button
 HSeparator
@@ -11,4 +12,3 @@ Timer
 Window
 AudioStreamPlayer
 TextureButton
-Node2D

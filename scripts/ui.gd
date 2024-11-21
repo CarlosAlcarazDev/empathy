@@ -14,8 +14,8 @@ extends Control
 # Referencias a los nodos de la escena
 @onready var ready_texture_button = $ReadyTextureButton
 @onready var reverse_anverse_toggle_button = $ReverseAnverseToggleButton
-@onready var ia_name_label = $ShowScore/ShowScorePlayer/IANameLabel
-@onready var player_name_label = $ShowScore/ShowScoreIA/PlayerNameLabel
+@onready var ia_name_label = $ShowScore/ShowScoreIA/IANameLabel
+@onready var player_name_label = $ShowScore/ShowScorePlayer/PlayerNameLabel
 
 
 

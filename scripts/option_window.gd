@@ -79,8 +79,10 @@ func _ready():
 	ia_difficulty_option.add_item("Principiante - Estudiante", GameConfig.Difficulty.ESTUDIANTE) #Índice 0
 	ia_difficulty_option.add_item("Intermedio - Profesor", GameConfig.Difficulty.PROFESOR) #Índice 1
 	ia_difficulty_option.add_item("Experto - Psicólogo", GameConfig.Difficulty.PSICOLOGO) #Índice 2
-	GameConfig.ia_difficulty = ia_difficulty_option.selected
-	
+		# Refleja el valor cargado de dificultad
+	print("Valor cargado de dificultad IA antes de asignar:", GameConfig.ia_difficulty)
+	ia_difficulty_option.selected = GameConfig.ia_difficulty
+	print("Valor seleccionado del OptionButton:", ia_difficulty_option.selected)
 
 	# Refleja el valor cargado de antialiasing
 	antialiasing_option.selected = antialiasing_selected  # Debe aplicarse después de cargar la configuración
@@ -175,7 +177,7 @@ func load_config():
 				
 			if iadifficulty_line.is_valid_int():
 				iadifficulty_selected = iadifficulty_line.to_int()
-
+				GameConfig.ia_difficulty = iadifficulty_selected  # Asegura persistencia
 			file.close()
 			print("Configuración cargada desde user://game_config.cfg")
 		else:
