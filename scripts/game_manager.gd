@@ -41,6 +41,10 @@
 #	has_ia_chosen() -> bool: Función para saber si la IA ha elegido cartas
 #	_on_reverse_anverse_toggled(showing_reverses: bool): Maneja la señal y actualiza la visualización de las cartas
 # ===============================
+# 22/11/2024 Refactorizar check_game_result()
+
+
+
 
 extends Control
 
@@ -57,10 +61,7 @@ enum GameState {
 var current_state = GameState.PREPARE
 
 # Referencias a nodos de la interfaz y del juego
-@onready var chosen_cards_label = $"../UI/ChosenCardsLabel"
-@onready var chosen_cards_label_2 = $"../UI/ChosenCardsLabel2"
-@onready var chosen_cards_label_3 = $"../UI/ChosenCardsLabel3"
-@onready var chosen_cards_label_4 = $"../UI/ChosenCardsLabel4"
+
 @onready var deck_manager = $"../DeckManager"
 @onready var deck_player = $"../DeckManager/DeckPlayer"
 @onready var deck_ia = $"../DeckManager/DeckIA"
@@ -122,9 +123,17 @@ var countdown_sound_playing = false
 @onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
 
 @onready var ia_score_label = $"../UI/ShowScore/ShowScoreIA/IAScoreLabel"
-@onready var player_score_label = $"../UI/ShowScore/ShowScorePlayer/PlayerScorelabel"
+
 @onready var ia_name_label = $"../UI/ShowScore/ShowScoreIA/IANameLabel"
-@onready var combo_label = $"../UI/ShowScore/ShowScorePlayer/ComboTextureRect/ComboLabel"
+
+
+
+@onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboTextureRect2/ComboLabel"
+
+@onready var player_score_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
+
+
+
 @onready var correct_strategy_why_label = $"../UI/EndTurnPopup/VBoxContainer/CorrectStrategyWhyLabel"
 
 
@@ -332,104 +341,134 @@ func start_turn():
 	choose_ia_cards()
 	
 # Función para verificar el resultado del turno
+# Refactorización de la función `check_game_result` 22/11/2024
+# Refactorización de la función `check_game_result`
+# Función principal que verifica el resultado del turno
 func check_game_result():
-	# Obtener cartas para mostrar en el modal las cartas seleccionadas por jugador e IA
-	print("int(player_selected_card_re")
-	print(int(player_selected_card_re))
-	# Manejar el caso donde no se seleccionaron cartas (-1)
-	var player_re_card = null
-	var player_hs_card = null
-	bullying_label.text = "Situación de acoso de tipo " + card_bullying.tipo
-	name_type_bullying_label.text = card_bullying.nombre
+	# Actualiza la información del bullying en las etiquetas
+	update_bullying_info()
 	
-	if int(player_selected_card_re) != -1:
-		player_re_card = deck_manager.get_card_re_by_id(int(player_selected_card_re))
-	if int(player_selected_card_hs) != -1:
-		player_hs_card = deck_manager.get_card_hs_by_id(int(player_selected_card_hs))
-	
+	# Obtiene las cartas seleccionadas
+	var player_re_card = get_player_card_re()
+	var player_hs_card = get_player_card_hs()
 	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
 	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
 	var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
-	needs_bullying_label.text = "Necesidades: " + player_bullying_card.necesidades_clave
-	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
-	var valid_combination = false # flag para saber si la combinación es válida
-	var raw_match
-	if json_correct != null and player_re_card != null and player_hs_card != null:
-		var match = find_combination(json_correct, card_bullying.id_carta, int(player_selected_card_re), int(player_selected_card_hs))
-		if match.size() > 0:  # Verificar si el Dictionary no está vacío
-			if match.has("por_que"):  # Comprobar que tenga la clave "por_que"
-				print("¡La combinación de cartas está en las combinaciones correctas!")
-				print("Razón: ", match["por_que"])
-				valid_combination = true  # Establecer combinación válida
-				raw_match = match
-				combo_player += 1
-			else:
-				print("¡Combinación encontrada, pero falta la clave 'por_que'!")
-		else:
-			print("No se encontró ninguna combinación.")
-
-		
-	# Calcular puntuaciones
-	var player_score = 0
-	if player_re_card != null and player_hs_card != null:
-		player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
+	
+	# Verifica combinación válida
+	var combination_result = check_valid_combination(player_bullying_card, player_re_card, player_hs_card)
+	var valid_combination = combination_result[0]
+	var raw_match = combination_result[1]
+	
+	# Calcula puntuaciones
+	var player_score = calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination)
 	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
 	
+	# Actualiza las etiquetas del jugador y la IA
+	update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card)
+	update_ia_labels(ia_score, ia_re_card, ia_hs_card)
 	
-# Calcular puntuación basada en cartas seleccionadas
-	if !valid_combination:
-		if player_re_card != null and player_hs_card != null:
-			# Si se seleccionaron ambas cartas, calcular usando ambas
-			player_score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
-		elif player_re_card != null:
-			# Si solo se seleccionó la carta de respuesta empática
-			player_score = calculate_score(player_bullying_card, player_re_card, null)
-		elif player_hs_card != null:
-			# Si solo se seleccionó la carta de habilidad social
-			player_score = calculate_score(player_bullying_card, null, player_hs_card)
-			
-	# Mostrar valores del jugador
+	# Actualizar las puntuaciones totales y el combo
+	update_total_scores(player_score, ia_score)
+	update_combo(player_score, valid_combination)
+	
+	# Finalizar el turno
+	end_turn_actions()
+
+
+# Actualiza información sobre el bullying
+func update_bullying_info():
+	bullying_label.text = "Situación de acoso de tipo " + card_bullying.tipo
+	name_type_bullying_label.text = card_bullying.nombre
+
+# Obtiene la carta de respuesta empática seleccionada por el jugador
+func get_player_card_re():
+	if int(player_selected_card_re) != -1:
+		return deck_manager.get_card_re_by_id(int(player_selected_card_re))
+	return null
+
+# Obtiene la carta de habilidad social seleccionada por el jugador
+func get_player_card_hs():
+	if int(player_selected_card_hs) != -1:
+		return deck_manager.get_card_hs_by_id(int(player_selected_card_hs))
+	return null
+
+func check_valid_combination(player_bullying_card, player_re_card, player_hs_card):
+	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
+	if json_correct and player_re_card and player_hs_card:
+		var match = find_combination(json_correct, player_bullying_card.id_carta, int(player_selected_card_re), int(player_selected_card_hs))
+		if match.size() > 0 and match.has("por_que"):
+			print("¡La combinación de cartas está en las combinaciones correctas!")
+			print("Razón: ", match["por_que"])
+			return [true, match]  # Devolver un Array con los resultados
+		elif match.size() > 0:
+			print("¡Combinación encontrada, pero falta la clave 'por_que'!")
+	print("No se encontró ninguna combinación.")
+	return [false, null]  # Devolver un Array con valores predeterminados
+
+# Calcula la puntuación del jugador
+func calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination):
+	if valid_combination:
+		return 150
+	if player_re_card and player_hs_card:
+		return calculate_score(player_bullying_card, player_re_card, player_hs_card)
+	if player_re_card:
+		return calculate_score(player_bullying_card, player_re_card, null)
+	if player_hs_card:
+		return calculate_score(player_bullying_card, null, player_hs_card)
+	return 0
+
+# Actualiza las etiquetas del jugador
+func update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card):
+	
 	player_label.text = GlobalData.user
-	if player_re_card != null:
+	if player_re_card:
 		name_re_label.text = player_re_card.nombre
 	else:
 		name_re_label.text = "NO HAS ELEGIDO CARTA DE RESPUESTA EMPÁTICA"
-	
-	if player_hs_card != null:
+	if player_hs_card:
 		name_hs_label.text = player_hs_card.nombre
 	else:
 		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
-	
-	if !valid_combination:
-		points_hs_label.text = str(player_score) + " puntos"	
-	else:
+	if valid_combination:
 		player_label.text = GlobalData.user + " ¡COMBINACIÓN PERFECTA!"
 		correct_strategy_why_label.text = raw_match["por_que"]
-		player_score = 150
-		points_hs_label.text = str(player_score) + " puntos"	
-	
-	combo_label.text = str(combo_player)
-	
-	#Muestra valores IA
+		points_hs_label.text = str(150) + " puntos"
+	elif player_score == 100:
+		player_label.text = GlobalData.user + " ¡PUNTUACIÓN MÁXIMA +1 COMBO!"
+		points_hs_label.text = str(player_score) + " puntos"
+		combo_label.text = "¡Has conseguido un combo más!"
+	else:
+		points_hs_label.text = str(player_score) + " puntos"
+
+# Actualiza las etiquetas de la IA
+func update_ia_labels(ia_score, ia_re_card, ia_hs_card):
 	ia_name_re_label.text = ia_re_card.nombre
 	ia_name_hs_label.text = ia_hs_card.nombre
 	ia_points_hs_label.text = str(ia_score) + " puntos"
-	
 
-	# Sumar puntuaciones al total acumulativo
+# Actualiza las puntuaciones totales
+func update_total_scores(player_score, ia_score):
 	GlobalData.total_player_score += player_score
 	GlobalData.total_ia_score += ia_score
-	
 	total_points_player_label.text = str(GlobalData.total_player_score) + " puntos"
 	total_points_ia_label.text = str(GlobalData.total_ia_score) + " puntos"
 	ia_score_label.text = str(GlobalData.total_ia_score)
 	player_score_label.text = str(GlobalData.total_player_score)
-	#Deshabilitar el boton de aceptar/cuenta atrás
+
+# Actualiza el combo según las reglas
+func update_combo(player_score, valid_combination):
+	if valid_combination or player_score == 100:
+		GlobalData.combo_player += 1
+	combo_label.text = str(GlobalData.combo_player)
+
+# Acciones al final del turno
+func end_turn_actions():
 	ready_button.disabled = true
-	# Deshabilitar interacción en las cartas y mostrar el modal
 	disable_card_interaction()
 	blur_overlay.visible = true
 	end_turn_popup.show()
+
 	
 	
 #Función para calcular la puntuación total de un jugador o la IA

@@ -15,7 +15,9 @@ extends Control
 @onready var ready_texture_button = $ReadyTextureButton
 @onready var reverse_anverse_toggle_button = $ReverseAnverseToggleButton
 @onready var ia_name_label = $ShowScore/ShowScoreIA/IANameLabel
-@onready var player_name_label = $ShowScore/ShowScorePlayer/PlayerNameLabel
+
+
+@onready var player_name_label = $ScoreTokenPlayer/PlayerNameLabel
 
 
 

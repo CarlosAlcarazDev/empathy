@@ -12,7 +12,7 @@
 extends Node
 
 # Variables del usuario
-var user = ""
+var user = "Carlos"
 var id = ""
 var password = ""
 var created_at = {
@@ -44,3 +44,6 @@ func toggle_reverses():
 # Score Total 
 var total_player_score: float = 0.0
 var total_ia_score: float = 0.0
+
+#Combos
+var combo_player: int = 0
