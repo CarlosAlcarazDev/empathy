@@ -128,7 +128,8 @@ var countdown_sound_playing = false
 
 
 
-@onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboTextureRect2/ComboLabel"
+
+@onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboLabel"
 
 @onready var player_score_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
 
@@ -359,11 +360,11 @@ func check_game_result():
 	var raw_match = combination_result[1]
 	
 	# Calcula puntuaciones
-	var player_score = calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination)
-	var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
-	
 	# Actualiza las etiquetas del jugador y la IA
+	var player_score = calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination)
 	update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card)
+	#var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
+	var ia_score =100
 	update_ia_labels(ia_score, ia_re_card, ia_hs_card)
 	
 	# Actualizar las puntuaciones totales y el combo
@@ -407,37 +408,49 @@ func check_valid_combination(player_bullying_card, player_re_card, player_hs_car
 # Calcula la puntuación del jugador
 func calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination):
 	if valid_combination:
-		return 150
-	if player_re_card and player_hs_card:
-		return calculate_score(player_bullying_card, player_re_card, player_hs_card)
-	if player_re_card:
-		return calculate_score(player_bullying_card, player_re_card, null)
-	if player_hs_card:
-		return calculate_score(player_bullying_card, null, player_hs_card)
-	return 0
+		return 200
+	#if player_re_card and player_hs_card:
+		#return calculate_score(player_bullying_card, player_re_card, player_hs_card)
+	#if player_re_card:
+		#return calculate_score(player_bullying_card, player_re_card, null)
+	#if player_hs_card:
+		#return calculate_score(player_bullying_card, null, player_hs_card)
+	#return 0
+	
+	# Inicializa una variable para almacenar la puntuación
+	var score = 0
+
+	# Calcula la puntuación según las cartas seleccionadas
+	if player_re_card or player_hs_card:
+		score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
+
+	return score
 
 # Actualiza las etiquetas del jugador
 func update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card):
 	
 	player_label.text = GlobalData.user
 	if player_re_card:
-		name_re_label.text = player_re_card.nombre
+		var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
+		#name_re_label.text = player_re_card.nombre #+ " Multiplicador " + str(get_affinity_multiplier(player_re_card.afinidad, player_bullying_card.tipo))
+		
 	else:
 		name_re_label.text = "NO HAS ELEGIDO CARTA DE RESPUESTA EMPÁTICA"
 	if player_hs_card:
-		name_hs_label.text = player_hs_card.nombre
+		var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
+		#name_hs_label.text = player_hs_card.nombre # + " Multiplicador " + str(get_affinity_multiplier(player_hs_card.afinidad, player_bullying_card.tipo))
 	else:
 		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
 	if valid_combination:
 		player_label.text = GlobalData.user + " ¡COMBINACIÓN PERFECTA!"
 		correct_strategy_why_label.text = raw_match["por_que"]
-		points_hs_label.text = str(150) + " puntos"
-	elif player_score == 100:
-		player_label.text = GlobalData.user + " ¡PUNTUACIÓN MÁXIMA +1 COMBO!"
-		points_hs_label.text = str(player_score) + " puntos"
-		combo_label.text = "¡Has conseguido un combo más!"
-	else:
-		points_hs_label.text = str(player_score) + " puntos"
+		#points_hs_label.text = str(200) + " puntos"
+	elif player_score >= 150:
+		player_label.text = GlobalData.user + " ¡PUNTUACIÓN SUPERIOR +1 COMBO!"
+		#points_hs_label.text = str(player_score) + " puntos"
+		
+	#else:
+		#points_hs_label.text = str(GlobalData.total_player_score) + " puntos"
 
 # Actualiza las etiquetas de la IA
 func update_ia_labels(ia_score, ia_re_card, ia_hs_card):
@@ -456,7 +469,7 @@ func update_total_scores(player_score, ia_score):
 
 # Actualiza el combo según las reglas
 func update_combo(player_score, valid_combination):
-	if valid_combination or player_score == 100:
+	if valid_combination or player_score >= 150:
 		GlobalData.combo_player += 1
 	combo_label.text = str(GlobalData.combo_player)
 
@@ -473,37 +486,79 @@ func end_turn_actions():
 func calculate_score(bullying_card, re_card, hs_card) -> float:
 	#Inicializamos las puntuaciones individuales
 	var total_score = 0.0
-	
-	
 	var attributes_count = 0
+	
+	# Variables para acumular puntuaciones específicas de RE y HS
+	var re_total_score = 0.0
+	var hs_total_score = 0.0
 
 	# Cálculo para los atributos de RE
 	if re_card != null:
+		var re_multiplier = get_affinity_multiplier(re_card.afinidad, bullying_card.tipo)
+		var partial_score = 0
+		print ("re_multiplier", re_multiplier)
+		print ("bulling_card afinidad re ", re_card.afinidad, bullying_card.tipo)
 		if bullying_card.empatia > 0:
-			total_score += (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 100
+			var empathy_score = (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 10 * re_multiplier
+			re_total_score += empathy_score
 			attributes_count += 1
+
 		if bullying_card.apoyo_emocional > 0:
-			total_score += (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 100
+			var emotional_support_score = (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 10 * re_multiplier
+			re_total_score += emotional_support_score
 			attributes_count += 1
 		if bullying_card.intervencion > 0:
-			total_score += (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 100
-			attributes_count += 1
+			var intervention_score = (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 10 * re_multiplier
+			re_total_score += intervention_score
+			partial_score += partial_score
+	
+		# Mostrar en la etiqueta el nombre de la carta RE junto con su puntuación total
+		name_re_label.text = re_card.nombre + " - Factor Afinidad x" + str(re_multiplier) + " - Puntuación: " + str(re_total_score)
+		print("name_re_label.text = re_card.nombre +  - Puntuación:  + strre_total_score" + str(re_total_score))
 
 	# Cálculo para los atributos de HS
 	if hs_card != null:
+		var hs_multiplier = get_affinity_multiplier(hs_card.afinidad, bullying_card.tipo)
+		print ("bulling_card afinidad hs ", hs_card.afinidad, bullying_card.tipo)
+		print ("hs_multiplier", hs_multiplier)
 		if bullying_card.comunicacion > 0:
-			total_score += (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 100
+			var communication_score = (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 10 * hs_multiplier
+			hs_total_score += communication_score
 			attributes_count += 1
 		if bullying_card.resolucion_de_conflictos > 0:
-			total_score += (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 100
+			var conflict_resolution_score = (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 10 * hs_multiplier
+			hs_total_score += conflict_resolution_score
 			attributes_count += 1
+	   # Mostrar en la etiqueta el nombre de la carta HS junto con su puntuación total
+			name_hs_label.text = hs_card.nombre + " - Factor Afinidad x" + str(hs_multiplier) + " - Puntuación: " + str(hs_total_score)
+			print("name_hs_label.text = hs_card.nombre +  - Puntuación:  + str(hs_total_score)" + str(hs_total_score))
 
+	# Agregar las puntuaciones de RE y HS al total general
+	
+	total_score += re_total_score
+	total_score += hs_total_score
+	print("total_score: "+  str(total_score))
 	# Calculamos el promedio si hay atributos evaluados
 	if attributes_count > 0:
-		return total_score / 5
+		return total_score 
 	return 0
 	
-	
+# Función auxiliar para calcular el multiplicador de afinidad
+func get_affinity_multiplier(card_affinity: Dictionary, bullying_type: String) -> float:
+
+	if card_affinity.has(bullying_type):
+		match card_affinity[bullying_type]:
+			"Alta":
+				print("La carta utilizada tiene alta afinidad con el bullying de tipo ", bullying_type, ". Se multiplica por 1.5.")
+				return 2
+			"Media":
+				print("La carta utilizada tiene afinidad media con el bullying de tipo ", bullying_type, ". Se multiplica por 1.")
+				return 1.0
+			"Baja":
+				print("La carta utilizada tiene baja afinidad con el bullying de tipo ", bullying_type, ". Se multiplica por 0.5.")
+				return 0.5
+	print("La carta utilizada no tiene afinidad específica con el bullying de tipo ", bullying_type, ". Se multiplica por 1.")
+	return 1.0  # Por defecto si no se encuentra la afinidad	
 
 # Función cuando el juego termine
 func game_over():
@@ -869,10 +924,11 @@ func display_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
 
-	
-	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	# Actualiza los elementos de la UI en el nodo de la carta especificada	
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
+	card_node.get_node("DescriptionCardLabel").text = card.descripcion
 	if is_reverse:
 		print("is_reverse ", is_reverse)
 		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
@@ -881,7 +937,60 @@ func display_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 		print("is_reverse ", is_reverse)
 		card_node.get_node("TypeCardLabel").text = "Descripción"
 		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+   
+	# Mapeo de nombres de afinidades a nombres de archivos de imagen
+	var affinity_image_map = {
+		"Sexual": "token_sexual.png",
+		"Verbal": "token_verbal.png",
+		"Físico": "token_físico.png",
+		"Ciberbullying": "token_ciberbullying.png",
+		"Psicológico": "token_psicologico.png",
+		"Exclusión Social": "token_exclusión_social.png"
+	}
+	# Lista de afinidades altas y los nodos Token
+	var high_affinity_keys = []  # Lista para guardar los aspectos con alta afinidad
+	for key in card.afinidad.keys():
+		if card.afinidad[key] == "Alta":
+			print("AFINIDAD                                : " + key + " " + card.afinidad[key])
+			high_affinity_keys.append(key)
 
+
+	# Nodos Token
+	var tokens = [
+		card_image_node.get_node("Token1"),
+		card_image_node.get_node("Token2"),
+		card_image_node.get_node("Token3"),
+		card_image_node.get_node("Token4")
+	]
+
+	# Si no hay afinidades altas, ocultar todos los tokens
+	if high_affinity_keys.size() == 0:
+		for token in tokens:
+			if token != null:  # Validar que el token no sea null
+				token.visible = false
+		return
+
+	# Mostrar los tokens correspondientes a las afinidades altas
+	for i in range(4):  # Hasta 4 tokens máximo
+		if i < high_affinity_keys.size():
+			tokens[i].visible = true
+			# Cambiar el tooltip del token para reflejar la afinidad
+			tokens[i].tooltip_text = "Afinidad: " + high_affinity_keys[i]
+
+			# Obtener el nombre de la imagen correspondiente a la afinidad
+			var affinity_key = high_affinity_keys[i]
+			if affinity_key in affinity_image_map:
+				var affinity_image_path = "res://assets/ui/tokens/" + affinity_image_map[affinity_key]
+				var affinity_texture = load(affinity_image_path)
+				if affinity_texture:
+					tokens[i].texture = affinity_texture
+				else:
+					print("Error: No se pudo cargar la imagen de afinidad en la ruta: ", affinity_image_path)
+		elif tokens[i] != null:
+			tokens[i].visible = false
+			tokens[i].tooltip_text = ""  # Limpiar el tooltip
+
+		
 # Función para actualizar la interfaz con los datos de la carta de tipo RE de la IA
 func display_ia_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
@@ -945,7 +1054,7 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
-	var image_path = "res://assets/images/cards/hs/" + str(card.id_carta) + "_HS.webp"
+	var image_path = "res://assets/images/cards/re/" + str(card.id_carta) + "_RE.webp"
 	# Cargar la imagen
 	var texture = load(image_path)
 	# Verificar si la textura fue cargada correctamente
@@ -956,9 +1065,11 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
 
-	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	# Actualiza los elementos de la UI en el nodo de la carta especificada	
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
+	card_node.get_node("DescriptionCardLabel").text = card.descripcion
 	if is_reverse:
 		print("is_reverse ", is_reverse)
 		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
@@ -967,6 +1078,58 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 		print("is_reverse ", is_reverse)
 		card_node.get_node("TypeCardLabel").text = "Descripción"
 		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+   
+	# Mapeo de nombres de afinidades a nombres de archivos de imagen
+	var affinity_image_map = {
+		"Sexual": "token_sexual.png",
+		"Verbal": "token_verbal.png",
+		"Físico": "token_físico.png",
+		"Ciberbullying": "token_ciberbullying.png",
+		"Psicológico": "token_psicologico.png",
+		"Exclusión Social": "token_exclusión_social.png"
+	}
+	# Lista de afinidades altas y los nodos Token
+	var high_affinity_keys = []  # Lista para guardar los aspectos con alta afinidad
+	for key in card.afinidad.keys():
+		if card.afinidad[key] == "Alta":
+			print("AFINIDAD                                : " + key + " " + card.afinidad[key])
+			high_affinity_keys.append(key)
+
+
+	# Nodos Token
+	var tokens = [
+		card_image_node.get_node("Token1"),
+		card_image_node.get_node("Token2"),
+		card_image_node.get_node("Token3"),
+		card_image_node.get_node("Token4")
+	]
+
+	# Si no hay afinidades altas, ocultar todos los tokens
+	if high_affinity_keys.size() == 0:
+		for token in tokens:
+			if token != null:  # Validar que el token no sea null
+				token.visible = false
+		return
+
+	# Mostrar los tokens correspondientes a las afinidades altas
+	for i in range(4):  # Hasta 4 tokens máximo
+		if i < high_affinity_keys.size():
+			tokens[i].visible = true
+			# Cambiar el tooltip del token para reflejar la afinidad
+			tokens[i].tooltip_text = "Afinidad: " + high_affinity_keys[i]
+
+			# Obtener el nombre de la imagen correspondiente a la afinidad
+			var affinity_key = high_affinity_keys[i]
+			if affinity_key in affinity_image_map:
+				var affinity_image_path = "res://assets/ui/tokens/" + affinity_image_map[affinity_key]
+				var affinity_texture = load(affinity_image_path)
+				if affinity_texture:
+					tokens[i].texture = affinity_texture
+				else:
+					print("Error: No se pudo cargar la imagen de afinidad en la ruta: ", affinity_image_path)
+		elif tokens[i] != null:
+			tokens[i].visible = false
+			tokens[i].tooltip_text = ""  # Limpiar el tooltip
 
 
 # Función para actualizar la interfaz con los datos de la carta de bullying

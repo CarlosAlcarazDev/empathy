@@ -181,7 +181,15 @@ func create_cards_re(cards_data: Array):
 				card_data.get("Empatía", 0),
 				card_data.get("Apoyo Emocional", 0),
 				card_data.get("Intervención", 0),
-				card_data.get("Contexto en el Juego", "")
+				card_data.get("Contexto en el Juego", ""),
+				card_data.get("Afinidad", {
+					"Sexual": "Baja",
+					"Verbal": "Baja",
+					"Físico": "Baja",
+					"Ciberbullying": "Baja",
+					"Psicológico": "Baja",
+					"Exclusión Social": "Baja"
+				})  # Valor por defecto en caso de que no exista el campo "Afinidad"
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_re.append(card_instance)
@@ -234,7 +242,15 @@ func create_cards_hs(cards_data: Array):
 				card_data.get("Comunicación", 0),
 				card_data.get("Resolución de Conflictos", 0),
 				card_data.get("Descripción", ""),
-				card_data.get("Contexto en el Juego", "")
+				card_data.get("Contexto en el Juego", ""),
+				card_data.get("Afinidad", {
+					"Sexual": "Baja",
+					"Verbal": "Baja",
+					"Físico": "Baja",
+					"Ciberbullying": "Baja",
+					"Psicólogico": "Baja",
+					"Exclusión Social": "Baja"
+				})   # Valor por defecto en caso de que no exista el campo "Afinidad"
 			)
 			#AGREGA LA CARA INSTANCIADA AL DECK
 			deck_hs.append(card_instance)

@@ -2,3 +2,12 @@ res://scenes/LoginScreen.tscn
 res://scripts/MainMenu.gdshader
 res://scenes/NewGame.tscn
 res://scenes/MainMenu.tscn
+res://scripts/CardsRE.gd
+res://scripts/CardsHS.gd
+res://scripts/deck_manager.gd
+res://scripts/game_manager.gd
+res://scripts/re_card_1.gd
+res://scripts/hs_card_1.gd
+res://scripts/hs_card_3.gd
+res://scripts/re_card_2.gd
+res://scripts/re_card_3.gd

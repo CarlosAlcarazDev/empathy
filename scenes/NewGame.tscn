@@ -377,6 +377,7 @@ text = "Reverso"
 transparent_bg = true
 initial_position = 1
 size = Vector2i(630, 480)
+visible = false
 transient = true
 exclusive = true
 unresizable = true
@@ -1338,23 +1339,21 @@ stretch_mode = 6
 z_index = 4
 layout_mode = 0
 offset_left = -136.154
-offset_top = 276.922
+offset_top = 38.4609
 offset_right = 363.846
-offset_bottom = 776.922
+offset_bottom = 538.461
 scale = Vector2(0.5, 0.5)
-tooltip_text = "Afinidad Tipo Sexual"
-texture = ExtResource("31_v30i8")
+texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
 z_index = 4
 layout_mode = 0
 offset_left = -136.154
-offset_top = 38.4609
+offset_top = 276.922
 offset_right = 363.846
-offset_bottom = 538.461
+offset_bottom = 776.922
 scale = Vector2(0.5, 0.5)
-tooltip_text = "Afinidad Tipo Exclusión Social"
-texture = ExtResource("32_wr4bk")
+texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
 z_index = 4
@@ -1364,7 +1363,6 @@ offset_top = 523.647
 offset_right = 371.834
 offset_bottom = 1023.65
 scale = Vector2(0.5, 0.5)
-tooltip_text = "Afinidad Tipo Exclusión Social"
 texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
@@ -1375,7 +1373,6 @@ offset_top = 769.801
 offset_right = 364.142
 offset_bottom = 1269.8
 scale = Vector2(0.5, 0.5)
-tooltip_text = "Afinidad Tipo Exclusión Social"
 texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
@@ -1455,6 +1452,42 @@ offset_bottom = 1259.31
 texture = ExtResource("10_sekqc")
 stretch_mode = 6
 
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
 z_index = 2
 layout_mode = 0
@@ -1531,6 +1564,42 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("12_f4pui")
 stretch_mode = 6
+
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
 z_index = 2
@@ -1609,6 +1678,42 @@ offset_bottom = 1259.31
 texture = ExtResource("15_vnrjd")
 stretch_mode = 6
 
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
 z_index = 2
 layout_mode = 0
@@ -1686,6 +1791,42 @@ offset_bottom = 1259.31
 texture = ExtResource("17_aglkq")
 stretch_mode = 6
 
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
 z_index = 2
 layout_mode = 0
@@ -1762,6 +1903,42 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("6_upfco")
 stretch_mode = 6
+
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
 z_index = 2

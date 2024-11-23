@@ -9,7 +9,7 @@
 		"id": 2,
 		"nombre": "Rumores maliciosos en línea",
 		"tipo": "Cyberbullying",
-		"descripcion": "Se inventan y comparten rumores sobre una estudiante en redes sociales, arruinando su reputación y haciéndola sentir fatal."
+		"descripcion": "Se inventan y comparten rumores sobre una estudiante en redes Sociales, arruinando su reputación y haciéndola sentir fatal."
 	},
 	{
 		"id": 3,
@@ -37,9 +37,9 @@
 	},
 	{
 		"id": 7,
-		"nombre": "Publicaciones humillantes en redes sociales",
+		"nombre": "Publicaciones humillantes en redes Sociales",
 		"tipo": "Ciberbullying",
-		"descripcion": "Se suben fotos o videos embarazosos de una estudiante a redes sociales sin su permiso, dejándola súper avergonzada."
+		"descripcion": "Se suben fotos o videos embarazosos de una estudiante a redes Sociales sin su permiso, dejándola súper avergonzada."
 	},
 	{
 		"id": 8,
@@ -62,7 +62,7 @@
 	{
 		"id": 11,
 		"nombre": "Desprecio por elección de vestimenta",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "Una estudiante es criticada por su forma de vestir, recibiendo comentarios negativos y miradas raras sobre su estilo."
 	},
 	{
@@ -80,7 +80,7 @@
 	{
 		"id": 14,
 		"nombre": "Marginación en actividades deportivas",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "Un estudiante es excluido o ridiculizado por su desempeño en deportes, haciéndolo sentir menos capaz y con ganas de desaparecer."
 	},
 	{
@@ -110,7 +110,7 @@
 	{
 		"id": 19,
 		"nombre": "Aislamiento en proyectos grupales",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "A propósito, dejan fuera a una estudiante de los grupos de trabajo, impidiéndole participar y aprender junto a los demás."
 	},
 	{
@@ -158,14 +158,14 @@
 	{
 		"id": 27,
 		"nombre": "Exclusión de fiestas o reuniones",
-		"tipo": "Exclusión social",
-		"descripcion": "A un estudiante lo dejan intencionalmente fuera de eventos sociales y actividades extracurriculares, haciéndolo sentir aislado."
+		"tipo": "Exclusión Social",
+		"descripcion": "A un estudiante lo dejan intencionalmente fuera de eventos Sociales y actividades extracurriculares, haciéndolo sentir aislado."
 	},
 	{
 		"id": 28,
-		"nombre": "Hostigamiento en redes sociales",
+		"nombre": "Hostigamiento en redes Sociales",
 		"tipo": "Ciberbullying",
-		"descripcion": "Un estudiante sufre acoso y comentarios negativos constantes en sus perfiles de redes sociales, que no lo dejan en paz."
+		"descripcion": "Un estudiante sufre acoso y comentarios negativos constantes en sus perfiles de redes Sociales, que no lo dejan en paz."
 	},
 	{
 		"id": 29,
@@ -194,7 +194,7 @@
 	{
 		"id": 33,
 		"nombre": "Marginación en viajes escolares",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "Excluyen a un estudiante de actividades y grupos durante los viajes escolares, dejándolo solo y fuera de la diversión."
 	},
 	{
@@ -242,7 +242,7 @@
 	{
 		"id": 41,
 		"nombre": "Intrigas para afectar amistades",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "Se manipula y miente para romper o dañar las amistades de una estudiante, generando conflictos innecesarios."
 	},
 	{
@@ -261,7 +261,7 @@
 		"id": 44,
 		"nombre": "Campañas de desprestigio en línea",
 		"tipo": "Ciberbullying",
-		"descripcion": "Se organizan campañas en redes sociales para dañar la imagen y el bienestar emocional de un estudiante, generando mucho estrés."
+		"descripcion": "Se organizan campañas en redes Sociales para dañar la imagen y el bienestar emocional de un estudiante, generando mucho estrés."
 	},
 	{
 		"id": 45,
@@ -290,7 +290,7 @@
 	{
 		"id": 49,
 		"nombre": "Exclusión de grupos de estudio",
-		"tipo": "Exclusión social",
+		"tipo": "Exclusión Social",
 		"descripcion": "A un estudiante se le niega la participación en grupos de estudio o colaboración académica, dejándolo fuera."
 	},
 	{

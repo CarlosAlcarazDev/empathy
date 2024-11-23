@@ -16,9 +16,11 @@ class_name CardsRE
 @export var apoyo_emocional: int
 @export var intervencion: int
 @export var contexto_en_el_juego: String
+@export var afinidad: Dictionary
+
 
 # Constructor para inicializar la clase con valores específicos
-func _init(_id_carta: int, _nombre: String, _descripcion: String, _empatia: int, _apoyo_emocional: int, _intervencion: int, _contexto_en_el_juego: String):
+func _init(_id_carta: int, _nombre: String, _descripcion: String, _empatia: int, _apoyo_emocional: int, _intervencion: int, _contexto_en_el_juego: String, _afinidad: Dictionary):
 	self.id_carta = _id_carta
 	self.nombre = _nombre
 	self.descripcion = _descripcion
@@ -26,3 +28,4 @@ func _init(_id_carta: int, _nombre: String, _descripcion: String, _empatia: int,
 	self.apoyo_emocional = _apoyo_emocional
 	self.intervencion = _intervencion
 	self.contexto_en_el_juego = _contexto_en_el_juego
+	self.afinidad = _afinidad
