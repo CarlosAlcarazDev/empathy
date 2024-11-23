@@ -88,11 +88,56 @@ var countdown_sound_playing = false
 @onready var countdown_20_minutes_label = $"../UI/Countdown20MinutesLabel"
 @onready var end_turn_popup = $"../UI/EndTurnPopup"
 @onready var continue_button = $"../UI/EndTurnPopup/ContinueButton"
+<<<<<<< Updated upstream
 @onready var label = $"../UI/EndTurnPopup/Label"
 @onready var label_2 = $"../UI/EndTurnPopup/Label2"
 @onready var label_3 = $"../UI/EndTurnPopup/Label3"
 @onready var label_4 = $"../UI/EndTurnPopup/Label4"
 @onready var label_5 = $"../UI/EndTurnPopup/Label5"
+=======
+
+
+
+@onready var bullying_label = $"../UI/EndTurnPopup/VBoxContainer/BullyingLabel"
+@onready var name_type_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NameTypeBullyingLabel"
+@onready var needs_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NeedsBullyingLabel"
+@onready var player_label = $"../UI/EndTurnPopup/VBoxContainer/PlayerLabel"
+@onready var name_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/NameRELabel"
+@onready var points_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/PointsRELabel"
+@onready var name_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/NameHSLabel"
+@onready var points_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/PointsHSLabel"
+@onready var ia_label = $"../UI/EndTurnPopup/VBoxContainer/IALabel"
+@onready var ia_name_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer3/IANameRELabel"
+@onready var ia_points_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer3/IAPointsRELabel"
+@onready var ia_name_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer4/IANameHSLabel"
+@onready var ia_points_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer4/IAPointsHSLabel"
+@onready var total_points_player_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer5/TotalPointsPlayerLabel"
+@onready var total_points_ia_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer6/TotalPointsIALabel"
+
+@onready var ui = $"../UI"
+@onready var blur_overlay = $"../UI/Overlay/BlurOverlay"
+@onready var ready_button = $"../ReadyButton"
+
+@onready var iare_card = $"../DeckManager/DeckIA/IARECard"
+@onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
+
+@onready var ia_score_label = $"../UI/ShowScore/ShowScoreIA/IAScoreLabel"
+
+@onready var ia_name_label = $"../UI/ShowScore/ShowScoreIA/IANameLabel"
+
+
+
+@onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboTextureRect2/ComboLabel"
+@onready var player_score_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
+@onready var correct_strategy_why_label = $"../UI/EndTurnPopup/VBoxContainer/CorrectStrategyWhyLabel"
+
+@onready var token_1 = $"../DeckManager/DeckPlayer/RECard1/CardImage/Token1"
+@onready var token_2 = $"../DeckManager/DeckPlayer/RECard1/CardImage/Token2"
+@onready var token_3 = $"../DeckManager/DeckPlayer/RECard1/CardImage/Token3"
+@onready var token_4 = $"../DeckManager/DeckPlayer/RECard1/CardImage/Token4"
+
+
+>>>>>>> Stashed changes
 
 # Flag para controlar si jugador/IA han elegido cartas
 var player_chosen = false
@@ -548,11 +593,106 @@ func display_card_re(card: CardsRE, card_node: Control):
 	# Actualiza los elementos de la UI en el nodo de la carta especificada	
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+<<<<<<< Updated upstream
 	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
 	card_node.get_node("DescriptionCardLabel").text = card.descripcion
+=======
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+   
+	# Mapeo de nombres de afinidades a nombres de archivos de imagen
+	var affinity_image_map = {
+		"Sexual": "token_sexual.png",
+		"Verbal": "token_verbal.png",
+		"Fisico": "token_físico.png",
+		"Ciberbullying": "token_ciberbullying.png",
+		"Psicologico": "token_psicologico.png",
+		"Exclusion social": "token_exclusión_social.png"
+	}
+	# Lista de afinidades altas y los nodos Token
+	var high_affinity_keys = []  # Lista para guardar los aspectos con alta afinidad
+	for key in card.afinidad.keys():
+		if card.afinidad[key] == "Alta":
+			print("AFINIDAD                                : " + card.afinidad[key])
+			high_affinity_keys.append(key)
 
-# Función para actualizar la interfaz con los datos de la carta de tipo HS
-func display_card_hs(card: CardsHS, card_node: Control):
+
+	# Nodos Token
+	var tokens = [
+		card_image_node.get_node("Token1"),
+		card_image_node.get_node("Token2"),
+		card_image_node.get_node("Token3"),
+		card_image_node.get_node("Token4")
+	]
+
+	# Si no hay afinidades altas, ocultar todos los tokens
+	if high_affinity_keys.size() == 0:
+		for token in tokens:
+			token.visible = false
+		return
+
+	# Mostrar los tokens correspondientes a las afinidades altas
+	for i in range(4):  # Hasta 4 tokens máximo
+		if i < high_affinity_keys.size():
+			tokens[i].visible = true
+			# Cambiar el tooltip del token para reflejar la afinidad
+			tokens[i].tooltip_text = "Afinidad: " + high_affinity_keys[i]
+
+			# Obtener el nombre de la imagen correspondiente a la afinidad
+			var affinity_key = high_affinity_keys[i]
+			if affinity_key in affinity_image_map:
+				var affinity_image_path = "res://assets/ui/tokens/" + affinity_image_map[affinity_key]
+				var affinity_texture = load(affinity_image_path)
+				if affinity_texture:
+					tokens[i].texture = affinity_texture
+				else:
+					print("Error: No se pudo cargar la imagen de afinidad en la ruta: ", affinity_image_path)
+		elif tokens[i] != null:
+			tokens[i].visible = false
+			tokens[i].tooltip_text = ""  # Limpiar el tooltip
+			
+			
+			
+			
+			
+			
+# Función para actualizar la interfaz con los datos de la carta de tipo RE de la IA
+func display_ia_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
+	# Obtener la referencia al nodo de la imagen de la carta
+	var card_image_node = card_node.get_node("CardImage")
+	# Construir la ruta a la imagen basándonos en el id de la carta
+	var image_path = "res://assets/images/cards/re/" + str(card.id_carta) + "_RE.webp"
+	# Cargar la imagen
+	var texture = load(image_path)
+	# Verificar si la textura fue cargada correctamente
+	if texture:
+		# Establecer la textura en el nodo `CardImage`
+		card_image_node.texture = texture
+	else:
+		# Mostrar un mensaje de error si la imagen no se encuentra
+		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
+
+	
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	card_node.get_node("TitleCardLabel").text = card.nombre
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
+# Función para actualizar la interfaz con los datos de la carta de tipo HS de la IA
+func display_ia_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
@@ -567,11 +707,133 @@ func display_card_hs(card: CardsHS, card_node: Control):
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
 
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	card_node.get_node("TitleCardLabel").text = card.nombre
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
+>>>>>>> Stashed changes
+
+# Función para actualizar la interfaz con los datos de la carta de tipo HS
+func display_card_hs(card: CardsHS, card_node: Control):
+	# Obtener la referencia al nodo de la imagen de la carta
+	var card_image_node = card_node.get_node("CardImage")
+	# Construir la ruta a la imagen basándonos en el id de la carta
+	var image_path = "res://assets/images/cards/re/" + str(card.id_carta) + "_RE.webp"
+	# Cargar la imagen
+	var texture = load(image_path)
+	# Verificar si la textura fue cargada correctamente
+	if texture:
+		# Establecer la textura en el nodo `CardImage`
+		card_image_node.texture = texture
+	else:
+		# Mostrar un mensaje de error si la imagen no se encuentra
+		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
+
+<<<<<<< Updated upstream
 	# Actualiza los elementos de la UI en el nodo de la carta especificada
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
 	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
 	card_node.get_node("DescriptionCardLabel").text = card.descripcion
+=======
+	
+	# Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	card_node.get_node("TitleCardLabel").text = card.nombre
+	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	if is_reverse:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	else:
+		print("is_reverse ", is_reverse)
+		card_node.get_node("TypeCardLabel").text = "Descripción"
+		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+   
+	# Mapeo de nombres de afinidades a nombres de archivos de imagen
+	var affinity_image_map = {
+		"Sexual": "token_sexual.png",
+		"Verbal": "token_verbal.png",
+		"Fisico": "token_físico.png",
+		"Ciberbullying": "token_ciberbullying.png",
+		"Psicologico": "token_psicologico.png",
+		"Exclusion social": "token_exclusión_social.png"
+	}
+	# Lista de afinidades altas y los nodos Token
+	var high_affinity_keys = []  # Lista para guardar los aspectos con alta afinidad
+	for key in card.afinidad.keys():
+		if card.afinidad[key] == "Alta":
+			print("AFINIDAD                                : " + card.afinidad[key])
+			high_affinity_keys.append(key)
+
+
+	# Nodos Token
+	var tokens = [
+		card_image_node.get_node("Token1"),
+		card_image_node.get_node("Token2"),
+		card_image_node.get_node("Token3"),
+		card_image_node.get_node("Token4")
+	]
+
+	# Si no hay afinidades altas, ocultar todos los tokens
+	if high_affinity_keys.size() == 0:
+		for token in tokens:
+			token.visible = false
+		return
+
+	# Mostrar los tokens correspondientes a las afinidades altas
+	for i in range(4):  # Hasta 4 tokens máximo
+		if i < high_affinity_keys.size():
+			tokens[i].visible = true
+			# Cambiar el tooltip del token para reflejar la afinidad
+			tokens[i].tooltip_text = "Afinidad: " + high_affinity_keys[i]
+
+			# Obtener el nombre de la imagen correspondiente a la afinidad
+			var affinity_key = high_affinity_keys[i]
+			if affinity_key in affinity_image_map:
+				var affinity_image_path = "res://assets/ui/tokens/" + affinity_image_map[affinity_key]
+				var affinity_texture = load(affinity_image_path)
+				if affinity_texture:
+					tokens[i].texture = affinity_texture
+				else:
+					print("Error: No se pudo cargar la imagen de afinidad en la ruta: ", affinity_image_path)
+		elif tokens[i] != null:
+			tokens[i].visible = false
+			tokens[i].tooltip_text = ""  # Limpiar el tooltip
+	## Obtener la referencia al nodo de la imagen de la carta
+	#var card_image_node = card_node.get_node("CardImage")
+	## Construir la ruta a la imagen basándonos en el id de la carta
+	#var image_path = "res://assets/images/cards/hs/" + str(card.id_carta) + "_HS.webp"
+	## Cargar la imagen
+	#var texture = load(image_path)
+	## Verificar si la textura fue cargada correctamente
+	#if texture:
+		## Establecer la textura en el nodo `CardImage`
+		#card_image_node.texture = texture
+	#else:
+		## Mostrar un mensaje de error si la imagen no se encuentra
+		#print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
+#
+	## Actualiza los elementos de la UI en el nodo de la carta especificada y muestra si es reverso o anverso
+	#card_node.get_node("TitleCardLabel").text = card.nombre
+	#card_node.get_node("NumberCardLabel").text = str(card.id_carta)
+	#if is_reverse:
+		#print("is_reverse ", is_reverse)
+		#card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+		#card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+	#else:
+		#print("is_reverse ", is_reverse)
+		#card_node.get_node("TypeCardLabel").text = "Descripción"
+		#card_node.get_node("DescriptionCardLabel").text = card.descripcion
+
+>>>>>>> Stashed changes
 
 # Función para actualizar la interfaz con los datos de la carta de bullying
 func display_card_bu(card: CardsBU, card_node: Control):

@@ -24,7 +24,7 @@ signal card_chosen_hs(card_id)
 @onready var number_card_label = $NumberCardLabel
 # Define las constantes escalas de la carta
 const NORMAL_SCALE = Vector2(0.13, 0.13)
-const HOVER_SCALE = Vector2(0.22, 0.22)
+const HOVER_SCALE = Vector2(0.27, 0.27)
 const TARGET_SCALE = Vector2(0.1, 0.1)
 # Variables para guardar la posicion original de la carta
 var _position = position
@@ -50,7 +50,7 @@ func _ready():
 # Señal mouse ha entrado. Escala la imagen y la coloca encima de la actual
 func _on_mouse_entered():
 	if not is_moved:
-		position.y = _position.y - 190
+		position.y = _position.y - 294
 		scale = HOVER_SCALE
 		z_index = 10
 

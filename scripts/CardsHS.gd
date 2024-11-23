@@ -14,12 +14,25 @@ class_name CardsHS
 @export var descripcion: String
 @export var comunicacion: int
 @export var resolucion_de_conflictos: int
+<<<<<<< Updated upstream
 
 
 # Constructor para inicializar la clase con valores específicos
 func _init(_id_carta: int, _nombre: String, _comunicacion: int, _resolucion_de_conflictos: int, _descripcion: String):
+=======
+@export var contexto_en_el_juego: String
+@export var afinidad: Dictionary
+
+# Constructor para inicializar la clase con valores específicos
+func _init(_id_carta: int, _nombre: String, _comunicacion: int, _resolucion_de_conflictos: int, _descripcion: String, _contexto_en_el_juego: String, _afinidad: Dictionary):
+>>>>>>> Stashed changes
 	self.id_carta = _id_carta
 	self.nombre = _nombre
 	self.comunicacion = _comunicacion
 	self.resolucion_de_conflictos = _resolucion_de_conflictos
 	self.descripcion = _descripcion
+<<<<<<< Updated upstream
+=======
+	self.contexto_en_el_juego = _contexto_en_el_juego
+	self.afinidad = _afinidad
+>>>>>>> Stashed changes

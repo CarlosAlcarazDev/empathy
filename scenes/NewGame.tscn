@@ -25,6 +25,65 @@
 [ext_resource type="Texture2D" uid="uid://icaube7fsw4o" path="res://assets/ui/icons/time_button.png" id="23_kwiwh"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="25_ldt3k"]
 [ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://cei51d04hknyf" path="res://assets/ui/score/talking-removebg.png" id="28_njitj"]
+[ext_resource type="Texture2D" uid="uid://bmreek6wff1et" path="res://assets/ui/score/token_frame_2.png" id="28_t11wd"]
+[ext_resource type="Texture2D" uid="uid://c03ueobtq7tfh" path="res://assets/ui/tokens/token_ciberbullying.png" id="31_v30i8"]
+[ext_resource type="Texture2D" uid="uid://7qe3of5u2ij1" path="res://assets/ui/tokens/token_exclusión_social.png" id="32_wr4bk"]
+[ext_resource type="Texture2D" uid="uid://dla8767vymhyx" path="res://assets/ui/tokens/token_físico.png" id="33_pjo0i"]
+[ext_resource type="Texture2D" uid="uid://lgvchbwtyqv6" path="res://assets/ui/tokens/token_psicologico.png" id="34_ih81s"]
+[ext_resource type="Texture2D" uid="uid://db8qp3kuo3bl5" path="res://assets/ui/tokens/token_sexual.png" id="35_4vy8p"]
+[ext_resource type="Texture2D" uid="uid://d0bhyauxi414w" path="res://assets/ui/score/score_frame.png" id="35_iq1e5"]
+[ext_resource type="Script" path="res://scenes/control_token.gd" id="36_1rugo"]
+[ext_resource type="Texture2D" uid="uid://chxua1x0n4lx3" path="res://assets/ui/tokens/token_verbal.png" id="36_cv20o"]
+[ext_resource type="Texture2D" uid="uid://b8ja3f41s1bx" path="res://assets/ui/score/mujer_2.png" id="37_fl8yd"]
+[ext_resource type="Script" path="res://scenes/ic_card.gd" id="50_qhjjh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
+bg_color = Color(0.6, 0.6, 0.6, 0.694118)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6q4h"]
+bg_color = Color(0.6, 0.6, 0.6, 0.694118)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="Theme" id="Theme_7gn82"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3dvg"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3l5xk"]
+bg_color = Color(0.0802329, 0.388847, 0.580558, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0l5c2"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tfdl"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+>>>>>>> Stashed changes
 
 [sub_resource type="Theme" id="Theme_b1oja"]
 
@@ -229,8 +288,13 @@ vertical_alignment = 1
 
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
+<<<<<<< Updated upstream
 position = Vector2i(34, 242)
 size = Vector2i(531, 462)
+=======
+initial_position = 1
+size = Vector2i(630, 480)
+>>>>>>> Stashed changes
 visible = false
 transient = true
 exclusive = true
@@ -305,6 +369,555 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Continuar"
 
+<<<<<<< Updated upstream
+=======
+[node name="TextureRect" type="TextureRect" parent="UI"]
+z_index = 4
+layout_mode = 0
+offset_left = -535.0
+offset_top = 329.0
+offset_right = -35.0
+offset_bottom = 829.0
+texture = ExtResource("28_njitj")
+
+[node name="Overlay" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BlurOverlay" type="ColorRect" parent="UI/Overlay"]
+visible = false
+z_index = 15
+material = SubResource("ShaderMaterial_mftij")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="OptionsButton" type="Button" parent="UI"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -522.0
+offset_right = -10.0
+offset_bottom = -461.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_d1wdg")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_27bwm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8eyt8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2vcrx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gerkl")
+text = "Salir"
+
+[node name="EmptyFrames" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EmptyFrame1" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("14_u6fqg")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame1"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame2" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("15_vs50k")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame2"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame3" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("16_06ydx")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame3"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame4" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("17_7205s")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame4"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame5" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("18_0x8sj")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame5"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame6" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("19_b5ihm")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame6"]
+layout_mode = 0
+offset_right = 1500.0
+offset_bottom = 2100.0
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("26_xmiw3")
+
+[node name="EmptyFrame7" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("20_br5t4")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame7"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="EmptyFrame8" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("22_hexuh")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame8"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="EmptyFrame9" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("23_lcvd4")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame9"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="EmptyFrame10" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("24_hnmll")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame10"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="EmptyFrame11" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("25_echva")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame11"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="EmptyFrame12" type="Control" parent="UI/EmptyFrames"]
+anchors_preset = 0
+offset_left = -213.0
+offset_top = 13.0
+offset_right = -13.0
+offset_bottom = 213.0
+script = ExtResource("26_hgev6")
+
+[node name="EmptyFrameTextureRect" type="TextureRect" parent="UI/EmptyFrames/EmptyFrame12"]
+layout_mode = 0
+offset_right = 421.0
+offset_bottom = 593.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("21_7m3oo")
+
+[node name="ShowScore" type="Control" parent="UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShowScoreIA" type="TextureRect" parent="UI/ShowScore"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 3.0
+offset_right = 411.0
+offset_bottom = 477.0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("26_44bqo")
+
+[node name="IANameLabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 276.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+text = "Profesor Lupin"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IAScoreLabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 373.0
+offset_right = 268.0
+offset_bottom = 443.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 35
+text = "Puntuación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboTextureRect" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 411.428
+offset_right = 471.0
+offset_bottom = 525.428
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Combinaciones perfectas"
+texture = ExtResource("28_t11wd")
+
+[node name="ComboLabel" type="Label" parent="UI/ShowScore/ShowScoreIA/ComboTextureRect"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 9.0
+offset_right = 206.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 52
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -144.286
+offset_top = 620.0
+offset_right = 355.714
+offset_bottom = 1120.0
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("32_wr4bk")
+
+[node name="TextureRect4" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -144.286
+offset_top = 255.715
+offset_right = 355.714
+offset_bottom = 755.715
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("33_pjo0i")
+
+[node name="TextureRect5" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -142.857
+offset_top = 380.0
+offset_right = 357.143
+offset_bottom = 880.0
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("34_ih81s")
+
+[node name="TextureRect6" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -144.286
+offset_top = 498.571
+offset_right = 355.714
+offset_bottom = 998.571
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("35_4vy8p")
+
+[node name="TextureRect7" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -144.286
+offset_top = 5.71498
+offset_right = 355.714
+offset_bottom = 505.715
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("36_cv20o")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
+offset_left = -144.286
+offset_top = 128.571
+offset_right = 355.714
+offset_bottom = 628.571
+scale = Vector2(0.25, 0.25)
+tooltip_text = "Tokens"
+texture = ExtResource("31_v30i8")
+
+[node name="ScoreTokenPlayer" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 740.0
+offset_right = 152.0
+offset_bottom = 780.0
+
+[node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -34.0
+offset_right = 216.0
+offset_bottom = 269.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqste")
+
+[node name="PlayerNameLabel" type="Label" parent="UI/ScoreTokenPlayer"]
+z_index = 10
+layout_mode = 0
+offset_left = 30.0
+offset_top = -44.0
+offset_right = 192.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jj4db")
+text = "Jugador"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowScorePlayer" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -49.0
+offset_right = 1481.0
+offset_bottom = 2030.0
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("35_iq1e5")
+
+[node name="PlayerScorelabel" type="Label" parent="UI/ScoreTokenPlayer/ShowScorePlayer"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 1663.0
+offset_right = 1406.0
+offset_bottom = 1981.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 180
+text = "Puntuación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboTextureRect2" type="TextureRect" parent="UI/ScoreTokenPlayer/ShowScorePlayer"]
+visible = false
+layout_mode = 0
+offset_left = 1043.75
+offset_top = 1881.25
+offset_right = 2068.75
+offset_bottom = 2381.25
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Combinaciones perfectas"
+texture = ExtResource("28_t11wd")
+flip_h = true
+
+[node name="ComboLabel" type="Label" parent="UI/ScoreTokenPlayer/ShowScorePlayer/ComboTextureRect2"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 38.0
+offset_right = 888.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 350
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="UI/ScoreTokenPlayer/ShowScorePlayer"]
+position = Vector2(-400.8, 0)
+scale = Vector2(5.30806, 1)
+points = PackedVector2Array(338.08, 1668.75, 93.1696, 1668.75)
+width = 8.0
+
+[node name="ComboLabel" type="Button" parent="UI/ScoreTokenPlayer/ShowScorePlayer"]
+layout_mode = 0
+offset_left = 1031.25
+offset_top = 1887.5
+offset_right = 1518.25
+offset_bottom = 2113.5
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a0lhs")
+disabled = true
+toggle_mode = true
+button_pressed = true
+text = "0"
+
+[node name="ExclusionSocialToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -83.0002
+offset_top = 257.0
+offset_right = 417.0
+offset_bottom = 757.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Exclusión Social"
+texture = ExtResource("32_wr4bk")
+script = ExtResource("36_1rugo")
+
+[node name="FisicoToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 52.0005
+offset_right = 416.0
+offset_bottom = 552.001
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Físico"
+texture = ExtResource("33_pjo0i")
+script = ExtResource("36_1rugo")
+
+[node name="PsicologicoToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 122.0
+offset_right = 416.0
+offset_bottom = 622.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Psicológico"
+texture = ExtResource("34_ih81s")
+script = ExtResource("36_1rugo")
+
+[node name="SexualToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 190.0
+offset_right = 416.0
+offset_bottom = 690.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Sexual"
+texture = ExtResource("35_4vy8p")
+script = ExtResource("36_1rugo")
+
+[node name="VerbalToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -89.0
+offset_right = 416.0
+offset_bottom = 411.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Verbal"
+texture = ExtResource("36_cv20o")
+script = ExtResource("36_1rugo")
+
+[node name="CiberbullyingToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -20.0
+offset_right = 416.0
+offset_bottom = 480.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Ciberbullying"
+texture = ExtResource("31_v30i8")
+script = ExtResource("36_1rugo")
+
+[node name="PlayerTextureRect" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -18.0
+offset_right = 215.0
+offset_bottom = 217.0
+texture = ExtResource("37_fl8yd")
+
+[node name="ReadyButton" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -30.5
+offset_right = -10.0
+offset_bottom = 30.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_d1wdg")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_27bwm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8eyt8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2vcrx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gerkl")
+text = "Listo"
+
+>>>>>>> Stashed changes
 [node name="DeckManager" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -418,6 +1031,49 @@ offset_bottom = 1259.31
 texture = ExtResource("7_ajnv4")
 stretch_mode = 6
 
+<<<<<<< Updated upstream
+=======
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
+>>>>>>> Stashed changes
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
 z_index = 2
 layout_mode = 0
@@ -494,6 +1150,42 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("10_sekqc")
 stretch_mode = 6
+
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard2"]
 z_index = 2
@@ -572,6 +1264,42 @@ offset_bottom = 1259.31
 texture = ExtResource("12_f4pui")
 stretch_mode = 6
 
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard3"]
 z_index = 2
 layout_mode = 0
@@ -648,6 +1376,42 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("15_vnrjd")
 stretch_mode = 6
+
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard1"]
 z_index = 2
@@ -726,6 +1490,42 @@ offset_bottom = 1259.31
 texture = ExtResource("17_aglkq")
 stretch_mode = 6
 
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
+
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard2"]
 z_index = 2
 layout_mode = 0
@@ -802,6 +1602,42 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("6_upfco")
 stretch_mode = 6
+
+[node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 276.922
+offset_right = 363.846
+offset_bottom = 776.922
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("31_v30i8")
+
+[node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -136.154
+offset_top = 38.4609
+offset_right = 363.846
+offset_bottom = 538.461
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("32_wr4bk")
+
+[node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -128.166
+offset_top = 523.647
+offset_right = 371.834
+offset_bottom = 1023.65
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("33_pjo0i")
+
+[node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
+z_index = 4
+offset_left = -135.858
+offset_top = 769.801
+offset_right = 364.142
+offset_bottom = 1269.8
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_ih81s")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/HSCard3"]
 z_index = 2

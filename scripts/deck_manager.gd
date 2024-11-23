@@ -121,9 +121,22 @@ func create_cards_re(cards_data: Array):
 				card_data.get("Descripción", ""),
 				card_data.get("Empatía", 0),
 				card_data.get("Apoyo Emocional", 0),
+<<<<<<< Updated upstream
 				card_data.get("Intervención", 0)
+=======
+				card_data.get("Intervención", 0),
+				card_data.get("Contexto en el Juego", ""),
+				card_data.get("Afinidad", {
+					"Sexual": "Baja",
+					"Verbal": "Baja",
+					"Fisico": "Baja",
+					"Ciberbullying": "Baja",
+					"Psicologico": "Baja",
+					"Exclusion social": "Baja"
+				})  # Valor por defecto en caso de que no exista el campo "Afinidad"
+>>>>>>> Stashed changes
 			)
-			#AGREGA LA CARA INSTANCIADA AL DECK
+			#AGREGA LA CARTA INSTANCIADA AL DECK
 			deck_re.append(card_instance)
 		else:
 			print("Advertencia: Un elemento de `cards_data` no es un Dictionary.")
@@ -173,8 +186,20 @@ func create_cards_hs(cards_data: Array):
 				card_data.get("Comunicación", 0),
 				card_data.get("Resolución de Conflictos", 0),
 				card_data.get("Descripción", ""),
+<<<<<<< Updated upstream
+=======
+				card_data.get("Contexto en el Juego", ""),
+				card_data.get("Afinidad", {
+					"Sexual": "Baja",
+					"Verbal": "Baja",
+					"Fisico": "Baja",
+					"Ciberbullying": "Baja",
+					"Psicologico": "Baja",
+					"Exclusion social": "Baja"
+				})   # Valor por defecto en caso de que no exista el campo "Afinidad"
+>>>>>>> Stashed changes
 			)
-			#AGREGA LA CARA INSTANCIADA AL DECK
+			#AGREGA LA CARTA INSTANCIADA AL DECK
 			deck_hs.append(card_instance)
 		else:
 			print("Advertencia: Un elemento de `cards_data` no es un Dictionary.")

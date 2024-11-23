@@ -1,0 +1,323 @@
+[
+    {
+        "idCarta": 1,
+        "Nombre": "Escucha Activa",
+        "Comunicación": 9,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La escucha activa implica prestar atención completa a la persona que habla, mostrando interés genuino y comprensión. Esta habilidad permite captar no solo las palabras, sino también el tono y las emociones detrás de ellas.",
+        "Contexto en el Juego": "Usar esta carta ayuda a desactivar situaciones tensas, mostrando a los acosadores y víctimas que sus sentimientos son importantes y comprendidos.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Alta",
+            "Fisico": "Media",
+            "Ciberbullying": "Alta",
+            "Psicologico": "Media",
+            "Exclusion social": "Alta"
+        }
+    },
+    {
+        "idCarta": 2,
+        "Nombre": "Comunicación Asertiva",
+        "Comunicación": 9,
+        "Resolución de Conflictos": 5,
+        "Descripción": "La comunicación asertiva es la capacidad de expresar pensamientos, sentimientos y necesidades de manera clara, directa y respetuosa. Es crucial para establecer límites y defender derechos sin agredir ni ser pasivo.",
+        "Contexto en el Juego": "Esta carta ayuda a los jugadores a enfrentar situaciones de bullying, diciendo 'no' a comportamientos inaceptables y defendiendo a otros sin provocar conflictos.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Alta",
+            "Fisico": "Media",
+            "Ciberbullying": "Alta",
+            "Psicologico": "Media",
+            "Exclusion social": "Alta"
+        }
+    },
+    {
+        "idCarta": 3,
+        "Nombre": "Resolución de Conflictos",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 9,
+        "Descripción": "La resolución de conflictos implica identificar el problema, escuchar a todas las partes involucradas y encontrar una solución mutuamente aceptable. Es fundamental para manejar desacuerdos de manera constructiva.",
+        "Contexto en el Juego": "Los jugadores pueden usar esta carta para mediar entre compañeros en conflicto, ayudando a transformar una situación de bullying en una oportunidad de aprendizaje y reconciliación.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Media",
+            "Fisico": "Alta",
+            "Ciberbullying": "Media",
+            "Psicologico": "Alta",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 4,
+        "Nombre": "Empatía Profunda",
+        "Comunicación": 9,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La empatía profunda es la capacidad de comprender y compartir los sentimientos de otra persona. Involucra ver el mundo desde la perspectiva del otro y responder con compasión.",
+        "Contexto en el Juego": "Esta carta permite a los jugadores conectar emocionalmente con víctimas de bullying, ofreciendo apoyo genuino y construyendo un ambiente de solidaridad.",
+        "Afinidad": {
+            "Sexual": "Media",
+            "Verbal": "Media",
+            "Fisico": "Media",
+            "Ciberbullying": "Media",
+            "Psicologico": "Media",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 5,
+        "Nombre": "Liderazgo Positivo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 9,
+        "Descripción": "El liderazgo positivo se centra en guiar y motivar a otros de manera ética y respetuosa. Los líderes positivos inspiran confianza y promueven el bienestar del grupo.",
+        "Contexto en el Juego": "Usar esta carta permite a los jugadores tomar la iniciativa en la creación de un entorno escolar seguro y acogedor, donde el bullying no tiene cabida.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Media",
+            "Fisico": "Alta",
+            "Ciberbullying": "Media",
+            "Psicologico": "Alta",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 6,
+        "Nombre": "Manejo del Estrés",
+        "Comunicación": 1,
+        "Resolución de Conflictos": 5,
+        "Descripción": "Manejar el estrés implica reconocer las señales de estrés y emplear técnicas para mantener la calma y la claridad mental. Es vital para tomar decisiones sensatas bajo presión.",
+        "Contexto en el Juego": "Esta carta ayuda a los jugadores a permanecer tranquilos y centrados cuando se enfrentan a situaciones de bullying, evitando reacciones impulsivas que podrían agravar la situación.",
+        "Afinidad": {
+            "Sexual": "Media",
+            "Verbal": "Media",
+            "Fisico": "Media",
+            "Ciberbullying": "Media",
+            "Psicologico": "Baja",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 7,
+        "Nombre": "Negociación",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 9,
+        "Descripción": "La negociación es la habilidad de llegar a un acuerdo satisfactorio para todas las partes a través de la comunicación y el compromiso. Es esencial para resolver conflictos de manera justa.",
+        "Contexto en el Juego": "Los jugadores pueden usar esta carta para encontrar soluciones equitativas en conflictos relacionados con el bullying, asegurando que todas las voces sean escuchadas.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Media",
+            "Fisico": "Alta",
+            "Ciberbullying": "Media",
+            "Psicologico": "Alta",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 8,
+        "Nombre": "Inteligencia Emocional",
+        "Comunicación": 9,
+        "Resolución de Conflictos": 1,
+        "Descripción": "La inteligencia emocional es la capacidad de reconocer, comprender y gestionar nuestras propias emociones y las de los demás. Facilita relaciones interpersonales saludables y efectivas.",
+        "Contexto en el Juego": "Esta carta permite a los jugadores comprender mejor las dinámicas emocionales en situaciones de bullying y responder de manera que desactive la agresión y fomente la empatía.",
+        "Afinidad": {
+            "Sexual": "Media",
+            "Verbal": "Media",
+            "Fisico": "Media",
+            "Ciberbullying": "Media",
+            "Psicologico": "Media",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 9,
+        "Nombre": "Pensamiento Creativo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 1,
+        "Descripción": "El pensamiento creativo implica abordar los problemas de manera novedosa y encontrar soluciones innovadoras. Fomenta la flexibilidad y la adaptabilidad.",
+        "Contexto en el Juego": "Los jugadores pueden usar esta carta para idear estrategias originales para prevenir el bullying y promover un ambiente escolar positivo.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Media",
+            "Fisico": "Media",
+            "Ciberbullying": "Media",
+            "Psicologico": "Media",
+            "Exclusion social": "Media"
+        }
+    },
+    {
+        "idCarta": 10,
+        "Nombre": "Trabajo en Equipo",
+        "Comunicación": 5,
+        "Resolución de Conflictos": 5,
+        "Descripción": "El trabajo en equipo es la capacidad de colaborar eficazmente con otros hacia un objetivo común. Involucra comunicación, cooperación y confianza.",
+        "Contexto en el Juego": "Usar esta carta fomenta la unión de los jugadores para enfrentar el bullying juntos, creando una red de apoyo y responsabilidad compartida.",
+        "Afinidad": {
+            "Sexual": "Alta",
+            "Verbal": "Media",
+            "Fisico": "Alta",
+            "Ciberbullying": "Media",
+            "Psicologico": "Alta",
+            "Exclusion social": "Media"
+        }
+    },
+	{
+		"idCarta": 11,
+		"Nombre": "Resolución Pacífica",
+		"Comunicación": 5,
+		"Resolución de Conflictos": 9,
+		"Descripción": "Resolver los conflictos de manera pacífica implica priorizar el diálogo y la mediación sobre la confrontación. Promueve un ambiente de respeto y entendimiento.",
+		"Contexto en el Juego": "Esta carta ayuda a los jugadores a evitar que las tensiones escalen, proporcionando soluciones calmadas y efectivas en situaciones de bullying.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Media",
+			"Psicologico": "Baja",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 12,
+		"Nombre": "Toma de Decisiones",
+		"Comunicación": 1,
+		"Resolución de Conflictos": 5,
+		"Descripción": "La toma de decisiones implica evaluar las opciones disponibles y seleccionar la mejor alternativa basada en la lógica y los valores éticos.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para elegir estrategias acertadas que minimicen el impacto del bullying y promuevan el bienestar colectivo.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Media",
+			"Psicologico": "Media",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 13,
+		"Nombre": "Gestión del Tiempo",
+		"Comunicación": 5,
+		"Resolución de Conflictos": 5,
+		"Descripción": "Gestionar el tiempo eficientemente permite priorizar tareas y cumplir con responsabilidades sin estrés innecesario.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores organizar sus acciones para intervenir en casos de bullying de manera oportuna y efectiva.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Media",
+			"Psicologico": "Baja",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 14,
+		"Nombre": "Feedback Constructivo",
+		"Comunicación": 9,
+		"Resolución de Conflictos": 1,
+		"Descripción": "El feedback constructivo es la habilidad de proporcionar críticas útiles y respetuosas que promuevan el aprendizaje y el crecimiento.",
+		"Contexto en el Juego": "Usar esta carta permite a los jugadores corregir comportamientos negativos de manera positiva, ayudando a los acosadores a reflexionar sobre sus acciones.",
+		"Afinidad": {
+			"Sexual": "Alta",
+			"Verbal": "Media",
+			"Fisico": "Alta",
+			"Ciberbullying": "Media",
+			"Psicologico": "Alta",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 15,
+		"Nombre": "Autocontrol",
+		"Comunicación": 1,
+		"Resolución de Conflictos": 5,
+		"Descripción": "El autocontrol es la capacidad de regular las emociones y comportamientos propios, especialmente en situaciones desafiantes.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para mantener la calma en escenarios de alta tensión, asegurando que sus acciones sean razonadas y no impulsivas.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Alta",
+			"Ciberbullying": "Media",
+			"Psicologico": "Media",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 16,
+		"Nombre": "Empoderamiento Colectivo",
+		"Comunicación": 5,
+		"Resolución de Conflictos": 9,
+		"Descripción": "El empoderamiento colectivo implica unir a las personas para que trabajen juntas hacia un objetivo común, fortaleciendo la confianza y la solidaridad.",
+		"Contexto en el Juego": "Esta carta permite a los jugadores movilizar a sus compañeros para enfrentar el bullying de manera unida y efectiva.",
+		"Afinidad": {
+			"Sexual": "Alta",
+			"Verbal": "Media",
+			"Fisico": "Alta",
+			"Ciberbullying": "Media",
+			"Psicologico": "Alta",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 17,
+		"Nombre": "Manejo de Situaciones Difíciles",
+		"Comunicación": 1,
+		"Resolución de Conflictos": 9,
+		"Descripción": "El manejo de situaciones difíciles requiere habilidades para abordar problemas complejos con paciencia y creatividad.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para intervenir en casos extremos de bullying, mostrando resiliencia y determinación.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Alta",
+			"Ciberbullying": "Media",
+			"Psicologico": "Media",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 18,
+		"Nombre": "Colaboración Activa",
+		"Comunicación": 9,
+		"Resolución de Conflictos": 5,
+		"Descripción": "La colaboración activa implica participar de manera comprometida y respetuosa en actividades grupales, asegurando el éxito colectivo.",
+		"Contexto en el Juego": "Esta carta fomenta la cooperación entre los jugadores para abordar el bullying desde una perspectiva comunitaria.",
+		"Afinidad": {
+			"Sexual": "Alta",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Alta",
+			"Psicologico": "Media",
+			"Exclusion social": "Alta"
+		}
+	},
+	{
+		"idCarta": 19,
+		"Nombre": "Reconocimiento de Emociones",
+		"Comunicación": 9,
+		"Resolución de Conflictos": 1,
+		"Descripción": "Reconocer las emociones propias y ajenas es clave para desarrollar empatía y manejar relaciones interpersonales de manera efectiva.",
+		"Contexto en el Juego": "Usar esta carta permite a los jugadores identificar los sentimientos involucrados en situaciones de bullying, promoviendo una respuesta adecuada.",
+		"Afinidad": {
+			"Sexual": "Media",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Media",
+			"Psicologico": "Media",
+			"Exclusion social": "Media"
+		}
+	},
+	{
+		"idCarta": 20,
+		"Nombre": "Adaptabilidad",
+		"Comunicación": 5,
+		"Resolución de Conflictos": 5,
+		"Descripción": "La adaptabilidad es la capacidad de ajustarse a nuevas circunstancias y encontrar soluciones ante cambios inesperados.",
+		"Contexto en el Juego": "Los jugadores pueden usar esta carta para responder con flexibilidad a los desafíos que surjan al enfrentar el bullying.",
+		"Afinidad": {
+			"Sexual": "Alta",
+			"Verbal": "Media",
+			"Fisico": "Media",
+			"Ciberbullying": "Media",
+			"Psicologico": "Media",
+			"Exclusion social": "Media"
+		}
+	}
+]
+	
