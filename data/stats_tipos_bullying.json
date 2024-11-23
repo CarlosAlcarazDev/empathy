@@ -1,7 +1,7 @@
 {
     "Sexual": {
         "Empatía": 10,
-        "Apoyo Emocional": 10,
+        "Apoyo Emocional": 8,
         "Intervención": 10,
         "Comunicación": 5,
         "Resolución de Conflictos": 5,
@@ -9,8 +9,8 @@
         "Necesidades clave": "Respuesta rápida y eficaz, apoyo constante y comprensión profunda de las emociones de la víctima para ayudar en su recuperación y protección."
     },
     "Verbal": {
-        "Empatía": 1,
-        "Apoyo Emocional": 5,
+        "Empatía": 4,
+        "Apoyo Emocional": 7,
         "Intervención": 1,
         "Comunicación": 10,
         "Resolución de Conflictos": 5,
@@ -19,7 +19,7 @@
     },
     "Físico": {
         "Empatía": 5,
-        "Apoyo Emocional": 1,
+        "Apoyo Emocional": 4,
         "Intervención": 10,
         "Comunicación": 1,
         "Resolución de Conflictos": 10,
@@ -29,14 +29,14 @@
     "Ciberbullying": {
         "Empatía": 1,
         "Apoyo Emocional": 10,
-        "Intervención": 10,
+        "Intervención": 7,
         "Comunicación": 10,
-        "Resolución de Conflictos": 1,
+        "Resolución de Conflictos": 3,
         "Enfoque principal": "Comunicación y apoyo emocional.",
         "Necesidades clave": "Promover el uso responsable de la tecnología, proporcionar apoyo emocional constante y educar sobre cómo actuar frente a la presión en línea."
     },
     "Psicológico": {
-        "Empatía": 5,
+        "Empatía": 7,
         "Apoyo Emocional": 5,
         "Intervención": 5,
         "Comunicación": 5,
@@ -48,7 +48,7 @@
         "Empatía": 1,
         "Apoyo Emocional": 10,
         "Intervención": 5,
-        "Comunicación": 5,
+        "Comunicación": 7,
         "Resolución de Conflictos": 5,
         "Enfoque principal": "Apoyo emocional y comunicación.",
         "Necesidades clave": "Integrar a las víctimas en actividades grupales, educar sobre la importancia de la inclusión y promover estrategias de intervención que fomenten la convivencia y el entendimiento grupal."
