@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcx5byd5wo121"
-path="res://.godot/imported/icono_hamburguesa.png-c3deb5c3dd2be5b7630598f7b16e6040.ctex"
+uid="uid://dh56g4pjx8qii"
+path="res://.godot/imported/green_icon.png-62da13ac183b45c004539319e46b8eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/icons/icono_hamburguesa.png"
-dest_files=["res://.godot/imported/icono_hamburguesa.png-c3deb5c3dd2be5b7630598f7b16e6040.ctex"]
+source_file="res://assets/ui/icons/green_icon.png"
+dest_files=["res://.godot/imported/green_icon.png-62da13ac183b45c004539319e46b8eeb.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

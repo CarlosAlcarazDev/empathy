@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1732268476
+::res://::1732297060
 export_presets.cfg::TextFile::-1::1731852986::0::1::::<><>::
 icon.svg::CompressedTexture2D::904424829989718102::1730889615::1730905712::1::::<><>::
 popup_theme.tres::Theme::1217635940121008487::1731452843::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
@@ -40,7 +40,7 @@ AmaticSC-Regular.ttf::FontFile::4055412093295606319::1730889615::1730905712::1::
 Roboto-Bold.ttf::FontFile::2535961915004807042::1730889615::1730905712::1::::<><>::
 Roboto-Medium.ttf::FontFile::8681813818561923959::1730889615::1731453194::1::::<><>::
 ::res://assets/images/::1731452842
-::res://assets/images/backgrounds/::1732293543
+::res://assets/images/backgrounds/::1732293576
 bg_1.webp::CompressedTexture2D::539942794984846246::1731452841::1731453202::1::::<><>::
 bg_2.png::CompressedTexture2D::1763518465982262725::1731452841::1731453203::1::::<><>::
 bg_3.webp::CompressedTexture2D::4991674720880365449::1732287250::1732293575::1::::<><>::
@@ -190,16 +190,22 @@ login_bg_1.png::CompressedTexture2D::5542695267353233247::1730889615::1730905712
 login_bg_2.png::CompressedTexture2D::9041327281493064568::1730889615::1730905712::1::::<><>::
 login_bg_3.png::CompressedTexture2D::7875481151979007552::1730889615::1730905712::1::::<><>::
 login_bg_4.png::CompressedTexture2D::3182301854997895449::1730889615::1730905712::1::::<><>::
-::res://assets/ui/icons/::1732091067
-burger_options.png::CompressedTexture2D::2467556456322180632::1731452843::1731531488::1::::<><>::
-burger_options_0b456a.png::CompressedTexture2D::4253647766173377473::1731452843::1731974871::1::::<><>::
-burger_options_white.png::CompressedTexture2D::3743376843681251017::1731452843::1731974871::1::::<><>::
-global_time.png::CompressedTexture2D::4817198768749686562::1731800419::1731974870::1::::<><>::
-icono_hamburguesa.png::CompressedTexture2D::7348944988863501672::1732091060::1732091067::1::::<><>::
-options_button.png::CompressedTexture2D::2945203321415976283::1731800419::1731974870::1::::<><>::
-options_button_hover.png::CompressedTexture2D::2348569939820718441::1731800419::1731974870::1::::<><>::
-time_button.png::CompressedTexture2D::565675280654393504::1731800419::1731974870::1::::<><>::
-time_button_hoover.png::CompressedTexture2D::2258419593321221681::1731800419::1731974870::1::::<><>::
+::res://assets/ui/icons/::1732325896
+black_ico.png::CompressedTexture2D::3720908850006514353::1732322681::1732324306::1::::<><>::
+black_icon-removebg-preview.png::CompressedTexture2D::365808230259796789::1732325773::1732325790::1::::<><>::
+blue_icon-removebg-preview.png::CompressedTexture2D::4406835218011818800::1732324008::1732324306::1::::<><>::
+burger_options.png::CompressedTexture2D::2467556456322180632::1731452843::1732324306::1::::<><>::
+burger_options_0b456a.png::CompressedTexture2D::4253647766173377473::1731452843::1732324306::1::::<><>::
+burger_options_white.png::CompressedTexture2D::3743376843681251017::1731452843::1732324306::1::::<><>::
+global_time.png::CompressedTexture2D::4817198768749686562::1731800419::1732324306::1::::<><>::
+green_icon-removebg-preview.png::CompressedTexture2D::8763229544563287075::1732324118::1732324306::1::::<><>::
+green_icon.png::CompressedTexture2D::7714409777496703664::1732325856::1732325903::1::::<><>::
+green_icon_base-removebg-preview.png::CompressedTexture2D::7421860309413340182::1732324970::1732325000::1::::<><>::
+icono_hamburguesa.png::CompressedTexture2D::7348944988863501672::1732091060::1732324306::1::::<><>::
+options_button.png::CompressedTexture2D::2945203321415976283::1731800419::1732324306::1::::<><>::
+options_button_hover.png::CompressedTexture2D::2348569939820718441::1731800419::1732324306::1::::<><>::
+time_button.png::CompressedTexture2D::565675280654393504::1731800419::1732324306::1::::<><>::
+time_button_hoover.png::CompressedTexture2D::2258419593321221681::1731800419::1732324306::1::::<><>::
 ::res://assets/ui/score/::1732292011
 boy_1.png::CompressedTexture2D::1436715952935247470::1732276127::1732277159::1::::<><>::
 boy_2.png::CompressedTexture2D::3574409003837951361::1732277695::1732278334::1::::<><>::
@@ -244,8 +250,10 @@ deck_ic.json::JSON::-1::1731800420::0::1::::<><>::
 deck_re.json::JSON::-1::1731800420::0::1::::<><>::
 deck_re_updated.json::JSON::-1::1732096438::0::1::::<><>::
 stats_tipos_bullying.json::JSON::-1::1731974693::0::1::::<><>::
-::res://scenes/::1732292974
+::res://scenes/::1732325552
 card.tscn::PackedScene::48501062942208053::1731801714::0::1::::<><>::uid://w2rfngcbggle::::res://assets/images/frames/black frame stat right.png<>res://scripts/card.gd<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf
+ciberbullying_token.gd::GDScript::-1::1732273147::0::1::::<>Control<>::
+control_token.gd::GDScript::-1::1732274086::0::1::::<>Control<>::
 CreditsScreen.tscn::PackedScene::1759830202223811529::1731801713::0::1::::<><>::res://scripts/credits_screen.gd<>uid://dwdqdas5epdkl::::res://assets/animations/credits_scroll.res<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://0ei5ks106f0x::::res://assets/images/backgrounds/bg_2.png<>uid://d221dmqsad5h3::::res://assets/audio/music/Sakura Beats at Midnight (1).mp3<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
 empty_frame_1.gd::GDScript::-1::1732105080::0::1::::<>Control<>::
 empty_frame_2.gd::GDScript::-1::1732106543::0::1::::<>Control<>::
@@ -259,22 +267,20 @@ empty_frame_9.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
 empty_frame_10.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
 empty_frame_11.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
 empty_frame_12.gd::GDScript::-1::1732105817::0::1::::<>Control<>::
-LoginScreen.tscn::PackedScene::1313656412464842337::1732292974::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
-MainMenu.tscn::PackedScene::375375461929223059::1732292974::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
-NewGame.tscn::PackedScene::8343482360881582560::1732292974::0::1::::<><>::res://scripts/new_game.gd<>uid://hxs1qpyu2mp7::::res://assets/images/backgrounds/bg_1.webp<>res://scripts/ui.gd<>res://scripts/re_card_1.gd<>uid://dyyblqjpcax5f::::res://assets/images/cards/reverses/reverse_ai.png<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dky62xh2pa87a::::res://assets/images/cards/re/1_RE.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://7f83t5s3fqy0::::res://assets/ui/icons/time_button_hoover.png<>res://scripts/re_card_2.gd<>uid://c46waxfcvk3ku::::res://assets/audio/sfx/107341__thompsonman__beeps.wav<>res://scripts/re_card_3.gd<>uid://c2vq2cdq2jk8s::::res://assets/images/cards/re/2_RE.webp<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/hs_card_1.gd<>res://scripts/MainMenu.gdshader<>uid://yc8hhxfvl7s3::::res://assets/images/cards/re/3_RE.webp<>res://scripts/hs_card_2.gd<>res://scripts/hs_card_3.gd<>res://scenes/empty_frame_1.gd<>uid://2lpri815ef21::::res://assets/images/cards/hs/8_HS.webp<>res://scenes/empty_frame_2.gd<>res://scenes/empty_frame_3.gd<>uid://b17msdx0loyam::::res://assets/images/frames/white frame stat right.png<>res://scenes/empty_frame_4.gd<>uid://djwiktfjhat8t::::res://assets/images/cards/hs/11_HS.webp<>uid://04d8k2g7nynj::::res://assets/images/frames/red frame stat right.png<>res://scenes/empty_frame_5.gd<>res://scenes/empty_frame_6.gd<>res://scenes/empty_frame_7.gd<>uid://df2oulaqso2q4::::res://assets/images/frames/empty_frame_IA.png<>res://scenes/empty_frame_8.gd<>uid://icaube7fsw4o::::res://assets/ui/icons/time_button.png<>res://scenes/empty_frame_9.gd<>res://scenes/empty_frame_10.gd<>res://scenes/empty_frame_11.gd<>res://scripts/game_manager.gd<>uid://c0du73jdhtldw::::res://assets/ui/score/psychologist_ia-removebg.png<>res://scenes/empty_frame_12.gd<>uid://1vf0dlpehlid::::res://assets/images/frames/empty_frame.png<>res://scripts/deck_manager.gd<>uid://cei51d04hknyf::::res://assets/ui/score/talking-removebg.png<>uid://bmreek6wff1et::::res://assets/ui/score/token_frame_2.png<>uid://c03ueobtq7tfh::::res://assets/ui/tokens/token_ciberbullying.png<>uid://7qe3of5u2ij1::::res://assets/ui/tokens/token_exclusión_social.png<>uid://dla8767vymhyx::::res://assets/ui/tokens/token_físico.png<>uid://lgvchbwtyqv6::::res://assets/ui/tokens/token_psicologico.png<>uid://db8qp3kuo3bl5::::res://assets/ui/tokens/token_sexual.png<>uid://d0bhyauxi414w::::res://assets/ui/score/score_frame.png<>res://scenes/control_token.gd<>uid://chxua1x0n4lx3::::res://assets/ui/tokens/token_verbal.png<>uid://up7rceiha7li::::res://assets/ui/score/boy_1.png<>res://scenes/ic_card.gd
-RegisterUser.tscn::PackedScene::6858974625120363631::1731805476::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
-ic_card.gd::GDScript::-1::1732271673::0::1::::<>Control<>::
 exclusion_social_token.gd::GDScript::-1::1732273363::0::1::::<>Control<>::
 fisico_token.gd::GDScript::-1::1732273035::0::1::::<>Control<>::
+ic_card.gd::GDScript::-1::1732271673::0::1::::<>Control<>::
+LoginScreen.tscn::PackedScene::1313656412464842337::1732325551::0::1::::<><>::uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>res://scripts/login_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://tmcckyoghhtp::::res://assets/audio/sfx/611451__eminyildirim__ui-click-menu-hover.mp3
+MainMenu.tscn::PackedScene::375375461929223059::1732325552::0::1::::<><>::res://scripts/main_menu.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>uid://bo8csdsex1d3i::::res://assets/fonts/AmaticSC-Bold.ttf<>uid://dx2fo7t2540dk::::res://assets/audio/music/Stand Strong.mp3<>res://scripts/MainMenu.gdshader<>uid://bmqx20spjktk8::::res://assets/images/backgrounds/bg_card_intuition_info.png<>res://scripts/bg_card_1_texture_button.gd<>uid://c2ndnemxcb3qi::::res://assets/images/backgrounds/bg_card_strategy_stats.png<>res://scripts/bg_card_2_texture_button.gd<>res://scripts/option_window.gd<>uid://don1lj4prc0rk::::res://assets/audio/sfx/146721__leszek_szary__menu-click.wav
+NewGame.tscn::PackedScene::8343482360881582560::1732325551::0::1::::<><>::res://scripts/new_game.gd<>uid://bk6oojhaayb2d::::res://assets/images/backgrounds/bg_6.webp<>res://scripts/ui.gd<>res://scripts/re_card_1.gd<>uid://dyyblqjpcax5f::::res://assets/images/cards/reverses/reverse_ai.png<>uid://dyk8m7os7qjrp::::res://assets/images/cards/bu/1_BU.webp<>uid://dky62xh2pa87a::::res://assets/images/cards/re/1_RE.webp<>uid://dvxsg8fyqxya6::::res://assets/fonts/Roboto-Medium.ttf<>uid://7f83t5s3fqy0::::res://assets/ui/icons/time_button_hoover.png<>res://scripts/re_card_2.gd<>uid://c46waxfcvk3ku::::res://assets/audio/sfx/107341__thompsonman__beeps.wav<>res://scripts/re_card_3.gd<>uid://c2vq2cdq2jk8s::::res://assets/images/cards/re/2_RE.webp<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/hs_card_1.gd<>res://scripts/MainMenu.gdshader<>uid://yc8hhxfvl7s3::::res://assets/images/cards/re/3_RE.webp<>res://scripts/hs_card_2.gd<>res://scripts/hs_card_3.gd<>res://scenes/empty_frame_1.gd<>uid://2lpri815ef21::::res://assets/images/cards/hs/8_HS.webp<>res://scenes/empty_frame_2.gd<>res://scenes/empty_frame_3.gd<>uid://b17msdx0loyam::::res://assets/images/frames/white frame stat right.png<>res://scenes/empty_frame_4.gd<>uid://djwiktfjhat8t::::res://assets/images/cards/hs/11_HS.webp<>uid://04d8k2g7nynj::::res://assets/images/frames/red frame stat right.png<>res://scenes/empty_frame_5.gd<>res://scenes/empty_frame_6.gd<>res://scenes/empty_frame_7.gd<>uid://df2oulaqso2q4::::res://assets/images/frames/empty_frame_IA.png<>res://scenes/empty_frame_8.gd<>uid://icaube7fsw4o::::res://assets/ui/icons/time_button.png<>res://scenes/empty_frame_9.gd<>res://scenes/empty_frame_10.gd<>res://scenes/empty_frame_11.gd<>res://scripts/game_manager.gd<>uid://c0du73jdhtldw::::res://assets/ui/score/psychologist_ia-removebg.png<>res://scenes/empty_frame_12.gd<>uid://1vf0dlpehlid::::res://assets/images/frames/empty_frame.png<>res://scripts/deck_manager.gd<>uid://cei51d04hknyf::::res://assets/ui/score/talking-removebg.png<>uid://bmreek6wff1et::::res://assets/ui/score/token_frame_2.png<>uid://c03ueobtq7tfh::::res://assets/ui/tokens/token_ciberbullying.png<>uid://7qe3of5u2ij1::::res://assets/ui/tokens/token_exclusión_social.png<>uid://dla8767vymhyx::::res://assets/ui/tokens/token_físico.png<>uid://lgvchbwtyqv6::::res://assets/ui/tokens/token_psicologico.png<>uid://db8qp3kuo3bl5::::res://assets/ui/tokens/token_sexual.png<>uid://d0bhyauxi414w::::res://assets/ui/score/score_frame.png<>res://scenes/control_token.gd<>uid://chxua1x0n4lx3::::res://assets/ui/tokens/token_verbal.png<>uid://up7rceiha7li::::res://assets/ui/score/boy_1.png<>uid://fhg2qf3v8h5f::::res://assets/ui/icons/black_icon-removebg-preview.png<>uid://dd0g7p6kj8tuk::::res://assets/ui/icons/green_icon_base-removebg-preview.png<>res://scenes/ic_card.gd
 psicologico_token.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
-ciberbullying_token.gd::GDScript::-1::1732273147::0::1::::<>Control<>::
-control_token.gd::GDScript::-1::1732274086::0::1::::<>Control<>::
-verbal_token.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
+RegisterUser.tscn::PackedScene::6858974625120363631::1731805476::0::1::::<><>::uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf<>res://scripts/register_user.gd<>uid://dkg7a2xmpg4dg::::res://assets/ui/backgrounds/login_bg_3.png
 sexual_token.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
-tokens_control.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
 show_score_player.gd::GDScript::-1::1732188317::0::1::::<>RefCounted<>::
 StatisticsScreen.tscn::PackedScene::5665065429576043442::1731801714::0::1::::<><>::res://scripts/statistics_screen.gd<>uid://bceo6mdndisde::::res://assets/fonts/Roboto-Bold.ttf
-::res://scripts/::1732292974
+tokens_control.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
+verbal_token.gd::GDScript::-1::1732273125::0::1::::<>Control<>::
+::res://scripts/::1732325552
 bg_card_1_texture_button.gd::GDScript::-1::1731799875::0::1::::<>TextureButton<>::
 bg_card_2_texture_button.gd::GDScript::-1::1731799875::0::1::::<>TextureButton<>::
 card.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
@@ -286,18 +292,18 @@ deck_bullying.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 deck_manager.gd::GDScript::-1::1732042268::0::1::::<>Control<>::
 deck_player.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 game_config.gd::GDScript::-1::1732118371::0::1::::<>Node<>::
-game_manager.gd::GDScript::-1::1732291253::0::1::::<>Control<>::
+game_manager.gd::GDScript::-1::1732298860::0::1::::<>Control<>::
 global_data.gd::GDScript::-1::1732285330::0::1::::<>Node<>::
 hs_card_1.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 hs_card_2.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 hs_card_3.gd::GDScript::-1::1732273925::0::1::::<>Control<>::
 login_screen.gd::GDScript::-1::1731972185::0::1::::<>Control<>::
-MainMenu.gdshader::Shader::-1::1732292974::0::1::::<><>::
+MainMenu.gdshader::Shader::-1::1732325552::0::1::::<><>::
 main_menu.gd::GDScript::-1::1731972185::0::1::::<>Control<>::
 new_game.gd::GDScript::-1::1731974693::0::1::::<>Control<>::
 option_window.gd::GDScript::-1::1732179690::0::1::::<>Window<>::
 register_user.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
-re_card_1.gd::GDScript::-1::1732093090::0::1::::<>Control<>::
+re_card_1.gd::GDScript::-1::1732325405::0::1::::<>Control<>::
 re_card_2.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 re_card_3.gd::GDScript::-1::1731805476::0::1::::<>Control<>::
 statistics_screen.gd::GDScript::-1::1731805476::0::1::::<>Control<>::

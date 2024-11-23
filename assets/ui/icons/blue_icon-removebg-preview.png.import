@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcx5byd5wo121"
-path="res://.godot/imported/icono_hamburguesa.png-c3deb5c3dd2be5b7630598f7b16e6040.ctex"
+uid="uid://b31x6xu7ml3mq"
+path="res://.godot/imported/blue_icon-removebg-preview.png-1fccf2e33aef68721dc1eb8412cef89e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/icons/icono_hamburguesa.png"
-dest_files=["res://.godot/imported/icono_hamburguesa.png-c3deb5c3dd2be5b7630598f7b16e6040.ctex"]
+source_file="res://assets/ui/icons/blue_icon-removebg-preview.png"
+dest_files=["res://.godot/imported/blue_icon-removebg-preview.png-1fccf2e33aef68721dc1eb8412cef89e.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=80 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://bk6oojhaayb2d" path="res://assets/images/backgrounds/bg_6.webp" id="2_6p4sg"]
@@ -52,6 +52,9 @@
 [ext_resource type="Script" path="res://scenes/control_token.gd" id="36_1rugo"]
 [ext_resource type="Texture2D" uid="uid://chxua1x0n4lx3" path="res://assets/ui/tokens/token_verbal.png" id="36_cv20o"]
 [ext_resource type="Texture2D" uid="uid://up7rceiha7li" path="res://assets/ui/score/boy_1.png" id="37_a0yc1"]
+[ext_resource type="Texture2D" uid="uid://fhg2qf3v8h5f" path="res://assets/ui/icons/black_icon-removebg-preview.png" id="41_q260e"]
+[ext_resource type="Texture2D" uid="uid://dd0g7p6kj8tuk" path="res://assets/ui/icons/green_icon_base-removebg-preview.png" id="42_rxyif"]
+[ext_resource type="Texture2D" uid="uid://dh56g4pjx8qii" path="res://assets/ui/icons/green_icon.png" id="42_tmxjh"]
 [ext_resource type="Script" path="res://scenes/ic_card.gd" id="50_qhjjh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
@@ -968,6 +971,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureRect3" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -144.286
 offset_top = 620.0
 offset_right = 355.714
@@ -977,6 +981,7 @@ tooltip_text = "Tokens"
 texture = ExtResource("32_wr4bk")
 
 [node name="TextureRect4" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -144.286
 offset_top = 255.715
 offset_right = 355.714
@@ -986,6 +991,7 @@ tooltip_text = "Tokens"
 texture = ExtResource("33_pjo0i")
 
 [node name="TextureRect5" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -142.857
 offset_top = 380.0
 offset_right = 357.143
@@ -995,6 +1001,7 @@ tooltip_text = "Tokens"
 texture = ExtResource("34_ih81s")
 
 [node name="TextureRect6" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -144.286
 offset_top = 498.571
 offset_right = 355.714
@@ -1004,6 +1011,7 @@ tooltip_text = "Tokens"
 texture = ExtResource("35_4vy8p")
 
 [node name="TextureRect7" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -144.286
 offset_top = 5.71498
 offset_right = 355.714
@@ -1013,6 +1021,7 @@ tooltip_text = "Tokens"
 texture = ExtResource("36_cv20o")
 
 [node name="TextureRect2" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
+layout_mode = 0
 offset_left = -144.286
 offset_top = 128.571
 offset_right = 355.714
@@ -1327,6 +1336,39 @@ offset_right = 1469.77
 offset_bottom = 1259.31
 texture = ExtResource("7_ajnv4")
 stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -28.4622
+offset_top = 1146.15
+offset_right = 238.538
+offset_bottom = 1410.15
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Afinidad Tipo Sexual"
+texture = ExtResource("41_q260e")
+
+[node name="TextureRect2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -28.4617
+offset_top = 1284.61
+offset_right = 239.538
+offset_bottom = 1550.61
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Afinidad Tipo Exclusión Social"
+texture = ExtResource("42_tmxjh")
+
+[node name="TextureRect3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1/CardImage"]
+z_index = 4
+layout_mode = 0
+offset_left = -36.1541
+offset_top = 1423.08
+offset_right = 231.846
+offset_bottom = 1689.08
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Afinidad Tipo Exclusión Social"
+texture = ExtResource("42_rxyif")
 
 [node name="TitleCardLabel" type="Label" parent="DeckManager/DeckPlayer/RECard1"]
 z_index = 2

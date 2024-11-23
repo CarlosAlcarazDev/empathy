@@ -342,8 +342,6 @@ func start_turn():
 	
 # Función para verificar el resultado del turno
 # Refactorización de la función `check_game_result` 22/11/2024
-# Refactorización de la función `check_game_result`
-# Función principal que verifica el resultado del turno
 func check_game_result():
 	# Actualiza la información del bullying en las etiquetas
 	update_bullying_info()
