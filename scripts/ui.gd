@@ -14,11 +14,13 @@ extends Control
 # Referencias a los nodos de la escena
 @onready var ready_texture_button = $ReadyTextureButton
 @onready var reverse_anverse_toggle_button = $ReverseAnverseToggleButton
-@onready var ia_name_label = $ShowScore/ShowScoreIA/IANameLabel
 
+@onready var ia_name_label = $ScoreTokenIA/IANameLabel
 
 @onready var player_name_label = $ScoreTokenPlayer/PlayerNameLabel
 
+@onready var player_texture_rect = $ScoreTokenIA/PlayerTextureRect
+@onready var ia_texture_rect = $ScoreTokenIA/IATextureRect
 
 
 # Definimos la señal personalizada
@@ -28,21 +30,46 @@ var showing_reverses = false  # Indica si las cartas están mostrando el reverso
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("dificultad ia: ", GameConfig.ia_difficulty)
+	update_ia_texture()
 	ia_name_label.text = get_difficulty_text(GameConfig.ia_difficulty)
 	player_name_label.text = GlobalData.user
 	update_button_text()
+
+# Asigna una imagen dependiendo de la dificultad
+func update_ia_texture():
+	var image_path: String = ""
 	
-# Método para convertir dificultad en texto
+	match GameConfig.ia_difficulty:
+		0:
+			image_path = "res://assets/ui/score/ia_boy_1.png"  # Ruta para Estudiante
+		1:
+			image_path = "res://assets/ui/score/mujer_2.png"   # Ruta para Profesor
+		2:
+			image_path = "res://assets/ui/score/mujer_3.png"  # Ruta para Psicólogo
+		_:
+			image_path = "res://assets/ui/score/hombre_1.png"  # Imagen por defecto
+	
+	# Cargar la imagen y asignarla al TextureRect
+	var texture = load(image_path)
+	if texture:
+		ia_texture_rect.texture = texture
+		print("Imagen cargada:", image_path)
+	else:
+		print("Error: No se pudo cargar la imagen en la ruta:", image_path)
+	
+# Método para convertir un entero en texto de dificultad
 func get_difficulty_text(difficulty: int) -> String:
 	match difficulty:
-		GameConfig.Difficulty.ESTUDIANTE:
+		0:
 			return "Estudiante"
-		GameConfig.Difficulty.PROFESOR:
+		1:
 			return "Profesor"
-		GameConfig.Difficulty.PSICOLOGO:
+		2:
 			return "Psicólogo"
 		_:
 			return "Desconocido"
+
 
 func _on_options_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")

@@ -76,9 +76,12 @@ func _ready():
 	GameConfig.antialiasing_selected = antialiasing_option.selected
 
 	# Configura el OptionButton con opciones de dificultad de la IA
-	ia_difficulty_option.add_item("Principiante - Estudiante", GameConfig.Difficulty.ESTUDIANTE) #Índice 0
-	ia_difficulty_option.add_item("Intermedio - Profesor", GameConfig.Difficulty.PROFESOR) #Índice 1
-	ia_difficulty_option.add_item("Experto - Psicólogo", GameConfig.Difficulty.PSICOLOGO) #Índice 2
+	#ia_difficulty_option.add_item("Principiante - Estudiante", GameConfig.Difficulty.ESTUDIANTE) #Índice 0
+	#ia_difficulty_option.add_item("Intermedio - Profesor", GameConfig.Difficulty.PROFESOR) #Índice 1
+	#ia_difficulty_option.add_item("Experto - Psicólogo", GameConfig.Difficulty.PSICOLOGO) #Índice 2
+	ia_difficulty_option.add_item("Principiante - Estudiante", 0) #Índice 0
+	ia_difficulty_option.add_item("Intermedio - Profesor", 1) #Índice 1
+	ia_difficulty_option.add_item("Experto - Psicólogo", 2) #Índice 2
 		# Refleja el valor cargado de dificultad
 	print("Valor cargado de dificultad IA antes de asignar:", GameConfig.ia_difficulty)
 	ia_difficulty_option.selected = GameConfig.ia_difficulty
@@ -153,7 +156,9 @@ func save_config():
 		file.store_line(str(music_slider.value))  # Guardar el volumen de música en la primera línea
 		file.store_line(str(sfx_slider.value))        # Guardar el volumen de SFX correctamente
 		file.store_line(str(antialiasing_option.selected))  # Guardar el índice seleccionado del antialiasing
-		file.store_line(str(GameConfig.ia_difficulty)) # Guardar el índice seleccionado de la dificultad de la ia
+		#file.store_line(str(GameConfig.ia_difficulty)) # Guardar el índice seleccionado de la dificultad de la ia
+		file.store_line(str(ia_difficulty_option.selected)) # Guardar el índice seleccionado de la dificultad de la ia
+		
 		file.close()
 		#print("Configuración guardada en user://game_config.cfg")
 
@@ -177,7 +182,7 @@ func load_config():
 				
 			if iadifficulty_line.is_valid_int():
 				iadifficulty_selected = iadifficulty_line.to_int()
-				GameConfig.ia_difficulty = iadifficulty_selected  # Asegura persistencia
+				GameConfig.ia_difficulty = iadifficulty_selected  # Asegura persiste				GameConfig.ia_difficulty = GameConfig.Difficulty(iadifficulty_selected)  # Cast explícito
 			file.close()
 			print("Configuración cargada desde user://game_config.cfg")
 		else:

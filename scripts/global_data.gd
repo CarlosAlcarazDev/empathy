@@ -45,5 +45,14 @@ func toggle_reverses():
 var total_player_score: float = 0.0
 var total_ia_score: float = 0.0
 
+#Partial Score
+var re_total_score: float = 0.0
+var hs_total_score: float = 0.0
+
+#Multiplier
+var re_multiplier: float = 0.0
+var hs_multiplier: float = 0.0
+
 #Combos
 var combo_player: int = 0
+var combo_ia: int = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=76 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://bk6oojhaayb2d" path="res://assets/images/backgrounds/bg_6.webp" id="2_6p4sg"]
@@ -37,21 +37,20 @@
 [ext_resource type="Script" path="res://scenes/empty_frame_10.gd" id="24_hnmll"]
 [ext_resource type="Script" path="res://scenes/empty_frame_11.gd" id="25_echva"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="25_ldt3k"]
-[ext_resource type="Texture2D" uid="uid://c0du73jdhtldw" path="res://assets/ui/score/psychologist_ia-removebg.png" id="26_44bqo"]
 [ext_resource type="Script" path="res://scenes/empty_frame_12.gd" id="26_hgev6"]
 [ext_resource type="Texture2D" uid="uid://1vf0dlpehlid" path="res://assets/images/frames/empty_frame.png" id="26_xmiw3"]
 [ext_resource type="Script" path="res://scripts/deck_manager.gd" id="27_ybia5"]
-[ext_resource type="Texture2D" uid="uid://cei51d04hknyf" path="res://assets/ui/score/talking-removebg.png" id="28_njitj"]
-[ext_resource type="Texture2D" uid="uid://bmreek6wff1et" path="res://assets/ui/score/token_frame_2.png" id="28_t11wd"]
+[ext_resource type="Texture2D" uid="uid://cei51d04hknyf" path="res://assets/ui/score/score/talking-removebg.png" id="28_njitj"]
+[ext_resource type="Texture2D" uid="uid://bmreek6wff1et" path="res://assets/ui/score/score/token_frame_2.png" id="28_t11wd"]
 [ext_resource type="Texture2D" uid="uid://c03ueobtq7tfh" path="res://assets/ui/tokens/token_ciberbullying.png" id="31_v30i8"]
 [ext_resource type="Texture2D" uid="uid://7qe3of5u2ij1" path="res://assets/ui/tokens/token_exclusión_social.png" id="32_wr4bk"]
 [ext_resource type="Texture2D" uid="uid://dla8767vymhyx" path="res://assets/ui/tokens/token_físico.png" id="33_pjo0i"]
 [ext_resource type="Texture2D" uid="uid://lgvchbwtyqv6" path="res://assets/ui/tokens/token_psicologico.png" id="34_ih81s"]
 [ext_resource type="Texture2D" uid="uid://db8qp3kuo3bl5" path="res://assets/ui/tokens/token_sexual.png" id="35_4vy8p"]
-[ext_resource type="Texture2D" uid="uid://d0bhyauxi414w" path="res://assets/ui/score/score_frame.png" id="35_iq1e5"]
+[ext_resource type="Texture2D" uid="uid://d0bhyauxi414w" path="res://assets/ui/score/score/score_frame.png" id="35_iq1e5"]
 [ext_resource type="Script" path="res://scenes/control_token.gd" id="36_1rugo"]
 [ext_resource type="Texture2D" uid="uid://chxua1x0n4lx3" path="res://assets/ui/tokens/token_verbal.png" id="36_cv20o"]
-[ext_resource type="Texture2D" uid="uid://up7rceiha7li" path="res://assets/ui/score/boy_1.png" id="37_a0yc1"]
+[ext_resource type="Texture2D" uid="uid://up7rceiha7li" path="res://assets/ui/score/score/boy_1.png" id="37_a0yc1"]
 [ext_resource type="Script" path="res://scenes/ic_card.gd" id="50_qhjjh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
@@ -376,7 +375,7 @@ text = "Reverso"
 [node name="EndTurnPopup" type="Window" parent="UI"]
 transparent_bg = true
 initial_position = 1
-size = Vector2i(630, 480)
+size = Vector2i(750, 415)
 visible = false
 transient = true
 exclusive = true
@@ -390,20 +389,13 @@ theme_override_styles/embedded_border = SubResource("StyleBoxFlat_x88fj")
 theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jcovi")
 
 [node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
-offset_right = 630.0
-offset_bottom = 480.0
+offset_right = 750.0
+offset_bottom = 415.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fdknx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/EndTurnPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 750.0
+offset_bottom = 415.0
 size_flags_horizontal = 3
 
 [node name="ResultadoLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
@@ -424,6 +416,7 @@ theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 20
 text = "Situación de Bullying"
+horizontal_alignment = 1
 
 [node name="NameTypeBullyingLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
 layout_mode = 2
@@ -431,6 +424,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
 
 [node name="NeedsBullyingLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
 custom_minimum_size = Vector2(511, 15)
@@ -440,6 +434,7 @@ theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
 text = "Respuesta rápida y eficaz, apoyo constante y comprensión profunda de las emociones de la víctima para ayudar en su recuperación y protección."
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="HSeparator2" type="HSeparator" parent="UI/EndTurnPopup/VBoxContainer"]
@@ -452,18 +447,11 @@ theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 20
 text = "Nombre Player ¡¡COMBINACIÓN PERFECTA!!"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
 layout_mode = 2
-
-[node name="RELabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 18
-text = "Respuesta Empática: "
+size_flags_horizontal = 4
 
 [node name="NameRELabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -472,20 +460,11 @@ theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
 text = "Educación sobre bullying"
-
-[node name="PointsRELabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 18
-text = "5 puntos      "
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="UI/EndTurnPopup/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="HSLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer2"]
 visible = false
@@ -495,6 +474,7 @@ theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
 text = "Habilidad Social:  "
+horizontal_alignment = 1
 
 [node name="NameHSLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -502,16 +482,18 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
-text = "Escucha Activa"
+text = "Escucha ActivaSADASDFA23423423423423423"
+horizontal_alignment = 1
 
 [node name="PointsHSLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="CorrectStrategyWhyLabel" type="Label" parent="UI/EndTurnPopup/VBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
@@ -521,6 +503,8 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 18
+text = "\"Fomentar el diálogo abierto sobre la importancia de respetar las decisiones personales y cómo la ridiculización puede afectar a los individuos puede ayudar a abordar los problemas subyacentes. La comunicación asertiva permite a los estudiantes expresar sus sentimientos y necesidades de manera clara, promoviendo la resolución de conflictos y el entendimiento mutuo.\""
+horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="HSeparator4" type="HSeparator" parent="UI/EndTurnPopup/VBoxContainer"]
@@ -654,17 +638,17 @@ color = Color(1, 1, 0.556863, 0)
 
 [node name="ContinueButton" type="Button" parent="UI/EndTurnPopup"]
 z_index = 16
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 1.0
 offset_left = -125.0
-offset_top = 196.0
+offset_top = -50.0
 offset_right = 125.0
-offset_bottom = 227.0
+offset_bottom = -19.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_vertical = 8
 theme_override_colors/font_hover_color = Color(0.74902, 0.74902, 0.74902, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -905,134 +889,11 @@ offset_bottom = 593.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("21_7m3oo")
 
-[node name="ShowScore" type="Control" parent="UI"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ShowScoreIA" type="TextureRect" parent="UI/ShowScore"]
-layout_mode = 0
-offset_left = 114.0
-offset_top = 3.0
-offset_right = 411.0
-offset_bottom = 477.0
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("26_44bqo")
-
-[node name="IANameLabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 23.0
-offset_right = 276.0
-offset_bottom = 73.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 25
-text = "Profesor Lupin"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="IAScoreLabel" type="Label" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 373.0
-offset_right = 268.0
-offset_bottom = 443.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 35
-text = "Puntuación"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ComboTextureRect" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 411.428
-offset_right = 471.0
-offset_bottom = 525.428
-scale = Vector2(0.5, 0.5)
-tooltip_text = "Combinaciones perfectas"
-texture = ExtResource("28_t11wd")
-
-[node name="ComboLabel" type="Label" parent="UI/ShowScore/ShowScoreIA/ComboTextureRect"]
-layout_mode = 0
-offset_left = 34.0
-offset_top = 9.0
-offset_right = 206.0
-offset_bottom = 100.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 52
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect3" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -144.286
-offset_top = 620.0
-offset_right = 355.714
-offset_bottom = 1120.0
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("32_wr4bk")
-
-[node name="TextureRect4" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -144.286
-offset_top = 255.715
-offset_right = 355.714
-offset_bottom = 755.715
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("33_pjo0i")
-
-[node name="TextureRect5" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -142.857
-offset_top = 380.0
-offset_right = 357.143
-offset_bottom = 880.0
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("34_ih81s")
-
-[node name="TextureRect6" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -144.286
-offset_top = 498.571
-offset_right = 355.714
-offset_bottom = 998.571
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("35_4vy8p")
-
-[node name="TextureRect7" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -144.286
-offset_top = 5.71498
-offset_right = 355.714
-offset_bottom = 505.715
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("36_cv20o")
-
-[node name="TextureRect2" type="TextureRect" parent="UI/ShowScore/ShowScoreIA"]
-layout_mode = 0
-offset_left = -144.286
-offset_top = 128.571
-offset_right = 355.714
-offset_bottom = 628.571
-scale = Vector2(0.25, 0.25)
-tooltip_text = "Tokens"
-texture = ExtResource("31_v30i8")
-
 [node name="ScoreTokenPlayer" type="Control" parent="UI"]
 anchors_preset = 0
-offset_left = 112.0
+offset_left = 100.0
 offset_top = 740.0
-offset_right = 152.0
+offset_right = 140.0
 offset_bottom = 780.0
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer"]
@@ -1193,6 +1054,173 @@ texture = ExtResource("31_v30i8")
 script = ExtResource("36_1rugo")
 
 [node name="PlayerTextureRect" type="TextureRect" parent="UI/ScoreTokenPlayer"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -18.0
+offset_right = 215.0
+offset_bottom = 217.0
+texture = ExtResource("37_a0yc1")
+
+[node name="ScoreTokenIA" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 102.0
+offset_right = 140.0
+offset_bottom = 142.0
+
+[node name="Panel" type="Panel" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -34.0
+offset_right = 216.0
+offset_bottom = 269.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kqste")
+
+[node name="IANameLabel" type="Label" parent="UI/ScoreTokenIA"]
+z_index = 10
+layout_mode = 0
+offset_left = 30.0
+offset_top = -44.0
+offset_right = 192.0
+offset_bottom = -19.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jj4db")
+text = "Jugador"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowScoreIA" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -49.0
+offset_right = 1481.0
+offset_bottom = 2030.0
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("35_iq1e5")
+
+[node name="IAScoreLabel" type="Label" parent="UI/ScoreTokenIA/ShowScoreIA"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 1663.0
+offset_right = 1406.0
+offset_bottom = 1981.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 180
+text = "Puntuación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboTextureRect2" type="TextureRect" parent="UI/ScoreTokenIA/ShowScoreIA"]
+visible = false
+layout_mode = 0
+offset_left = 1043.75
+offset_top = 1881.25
+offset_right = 2068.75
+offset_bottom = 2381.25
+scale = Vector2(0.5, 0.5)
+tooltip_text = "Combinaciones perfectas"
+texture = ExtResource("28_t11wd")
+flip_h = true
+
+[node name="ComboLabel" type="Label" parent="UI/ScoreTokenIA/ShowScoreIA/ComboTextureRect2"]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 38.0
+offset_right = 888.0
+offset_bottom = 449.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 350
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D" type="Line2D" parent="UI/ScoreTokenIA/ShowScoreIA"]
+position = Vector2(-400.8, 0)
+scale = Vector2(5.30806, 1)
+points = PackedVector2Array(338.08, 1668.75, 93.1696, 1668.75)
+width = 8.0
+
+[node name="ComboLabel" type="Button" parent="UI/ScoreTokenIA/ShowScoreIA"]
+layout_mode = 0
+offset_left = 1031.25
+offset_top = 1887.5
+offset_right = 1518.25
+offset_bottom = 2113.5
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_tilu5")
+theme_override_font_sizes/font_size = 180
+theme_override_styles/disabled = SubResource("StyleBoxFlat_a0lhs")
+disabled = true
+toggle_mode = true
+button_pressed = true
+text = "0"
+
+[node name="ExclusionSocialToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -83.0002
+offset_top = 257.0
+offset_right = 417.0
+offset_bottom = 757.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Exclusión Social"
+texture = ExtResource("32_wr4bk")
+
+[node name="FisicoToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 52.0005
+offset_right = 416.0
+offset_bottom = 552.001
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Físico"
+texture = ExtResource("33_pjo0i")
+
+[node name="PsicologicoToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 122.0
+offset_right = 416.0
+offset_bottom = 622.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Psicológico"
+texture = ExtResource("34_ih81s")
+
+[node name="SexualToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 190.0
+offset_right = 416.0
+offset_bottom = 690.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Sexual"
+texture = ExtResource("35_4vy8p")
+
+[node name="VerbalToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -89.0
+offset_right = 416.0
+offset_bottom = 411.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Verbal"
+texture = ExtResource("36_cv20o")
+
+[node name="CiberbullyingToken" type="TextureRect" parent="UI/ScoreTokenIA"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = -20.0
+offset_right = 416.0
+offset_bottom = 480.0
+scale = Vector2(0.14, 0.14)
+tooltip_text = "Token Ciberbullying"
+texture = ExtResource("31_v30i8")
+
+[node name="IATextureRect" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
 offset_left = 9.0
 offset_top = -18.0
@@ -1454,6 +1482,7 @@ stretch_mode = 6
 
 [node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 38.4609
 offset_right = 363.846
@@ -1463,6 +1492,7 @@ texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 276.922
 offset_right = 363.846
@@ -1472,6 +1502,7 @@ texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -128.166
 offset_top = 523.647
 offset_right = 371.834
@@ -1481,6 +1512,7 @@ texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -135.858
 offset_top = 769.801
 offset_right = 364.142
@@ -1567,6 +1599,7 @@ stretch_mode = 6
 
 [node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 38.4609
 offset_right = 363.846
@@ -1576,6 +1609,7 @@ texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 276.922
 offset_right = 363.846
@@ -1585,6 +1619,7 @@ texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -128.166
 offset_top = 523.647
 offset_right = 371.834
@@ -1594,6 +1629,7 @@ texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -135.858
 offset_top = 769.801
 offset_right = 364.142
@@ -1680,6 +1716,7 @@ stretch_mode = 6
 
 [node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 38.4609
 offset_right = 363.846
@@ -1689,6 +1726,7 @@ texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 276.922
 offset_right = 363.846
@@ -1698,6 +1736,7 @@ texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -128.166
 offset_top = 523.647
 offset_right = 371.834
@@ -1707,6 +1746,7 @@ texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -135.858
 offset_top = 769.801
 offset_right = 364.142
@@ -1793,6 +1833,7 @@ stretch_mode = 6
 
 [node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 38.4609
 offset_right = 363.846
@@ -1802,6 +1843,7 @@ texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 276.922
 offset_right = 363.846
@@ -1811,6 +1853,7 @@ texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -128.166
 offset_top = 523.647
 offset_right = 371.834
@@ -1820,6 +1863,7 @@ texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -135.858
 offset_top = 769.801
 offset_right = 364.142
@@ -1906,6 +1950,7 @@ stretch_mode = 6
 
 [node name="Token1" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 38.4609
 offset_right = 363.846
@@ -1915,6 +1960,7 @@ texture = ExtResource("32_wr4bk")
 
 [node name="Token2" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -136.154
 offset_top = 276.922
 offset_right = 363.846
@@ -1924,6 +1970,7 @@ texture = ExtResource("31_v30i8")
 
 [node name="Token3" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -128.166
 offset_top = 523.647
 offset_right = 371.834
@@ -1933,6 +1980,7 @@ texture = ExtResource("33_pjo0i")
 
 [node name="Token4" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3/CardImage"]
 z_index = 4
+layout_mode = 0
 offset_left = -135.858
 offset_top = 769.801
 offset_right = 364.142

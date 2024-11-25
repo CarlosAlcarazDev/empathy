@@ -104,7 +104,7 @@ var countdown_sound_playing = false
 @onready var needs_bullying_label = $"../UI/EndTurnPopup/VBoxContainer/NeedsBullyingLabel"
 @onready var player_label = $"../UI/EndTurnPopup/VBoxContainer/PlayerLabel"
 @onready var name_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/NameRELabel"
-@onready var points_re_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer/PointsRELabel"
+
 @onready var name_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/NameHSLabel"
 @onready var points_hs_label = $"../UI/EndTurnPopup/VBoxContainer/HBoxContainer2/PointsHSLabel"
 @onready var ia_label = $"../UI/EndTurnPopup/VBoxContainer/IALabel"
@@ -122,14 +122,19 @@ var countdown_sound_playing = false
 @onready var iare_card = $"../DeckManager/DeckIA/IARECard"
 @onready var iahs_card = $"../DeckManager/DeckIA/IAHSCard"
 
-@onready var ia_score_label = $"../UI/ShowScore/ShowScoreIA/IAScoreLabel"
 
-@onready var ia_name_label = $"../UI/ShowScore/ShowScoreIA/IANameLabel"
+@onready var ia_score_label = $"../UI/ScoreTokenIA/ShowScoreIA/IAScoreLabel"
+
+
+@onready var ia_name_label = $"../UI/ScoreTokenIA/IANameLabel"
 
 
 
 
 @onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboLabel"
+
+
+@onready var combo_label_ia = $"../UI/ScoreTokenIA/ShowScoreIA/ComboLabel"
 
 @onready var player_score_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
 
@@ -358,18 +363,25 @@ func check_game_result():
 	var combination_result = check_valid_combination(player_bullying_card, player_re_card, player_hs_card)
 	var valid_combination = combination_result[0]
 	var raw_match = combination_result[1]
+	var combination_result_ia = check_valid_combination(player_bullying_card, ia_re_card, ia_hs_card)
+	var valid_combination_ia = combination_result_ia[0]
+	
 	
 	# Calcula puntuaciones
 	# Actualiza las etiquetas del jugador y la IA
 	var player_score = calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination)
 	update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card)
+	var ia_score = calculate_ia_score(player_bullying_card, ia_re_card, ia_hs_card, valid_combination_ia)
 	#var ia_score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
-	var ia_score =100
-	update_ia_labels(ia_score, ia_re_card, ia_hs_card)
+	print("total score: player_score: ", player_score)
+	print("total score: ia_score: ", ia_score)
+	#var ia_score =100
+	#update_ia_labels(ia_score, ia_re_card, ia_hs_card)
 	
 	# Actualizar las puntuaciones totales y el combo
 	update_total_scores(player_score, ia_score)
 	update_combo(player_score, valid_combination)
+	update_combo_ia(ia_score, valid_combination_ia)
 	
 	# Finalizar el turno
 	end_turn_actions()
@@ -408,15 +420,7 @@ func check_valid_combination(player_bullying_card, player_re_card, player_hs_car
 # Calcula la puntuación del jugador
 func calculate_player_score(player_bullying_card, player_re_card, player_hs_card, valid_combination):
 	if valid_combination:
-		return 200
-	#if player_re_card and player_hs_card:
-		#return calculate_score(player_bullying_card, player_re_card, player_hs_card)
-	#if player_re_card:
-		#return calculate_score(player_bullying_card, player_re_card, null)
-	#if player_hs_card:
-		#return calculate_score(player_bullying_card, null, player_hs_card)
-	#return 0
-	
+		return 1500
 	# Inicializa una variable para almacenar la puntuación
 	var score = 0
 
@@ -425,6 +429,19 @@ func calculate_player_score(player_bullying_card, player_re_card, player_hs_card
 		score = calculate_score(player_bullying_card, player_re_card, player_hs_card)
 
 	return score
+# Calcula la puntuación de la ia
+func calculate_ia_score(player_bullying_card, ia_re_card, ia_hs_card, valid_combination_ia):
+	if valid_combination_ia:
+		return 1500
+	# Inicializa una variable para almacenar la puntuación
+	var score = 0
+
+	# Calcula la puntuación según las cartas seleccionadas
+	if ia_re_card or ia_hs_card:
+		score = calculate_score(player_bullying_card, ia_re_card, ia_hs_card)
+
+	return score
+
 
 # Actualiza las etiquetas del jugador
 func update_player_labels(player_score, valid_combination, raw_match, player_re_card, player_hs_card):
@@ -433,20 +450,23 @@ func update_player_labels(player_score, valid_combination, raw_match, player_re_
 	if player_re_card:
 		var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
 		#name_re_label.text = player_re_card.nombre #+ " Multiplicador " + str(get_affinity_multiplier(player_re_card.afinidad, player_bullying_card.tipo))
-		
+		name_re_label.text = player_re_card.nombre + " - Factor Afinidad x" + str(GlobalData.re_multiplier) + " - Puntuación: " + str(GlobalData.re_total_score)
 	else:
 		name_re_label.text = "NO HAS ELEGIDO CARTA DE RESPUESTA EMPÁTICA"
 	if player_hs_card:
 		var player_bullying_card = deck_manager.get_card_bu_by_id(card_bullying.id_carta)
 		#name_hs_label.text = player_hs_card.nombre # + " Multiplicador " + str(get_affinity_multiplier(player_hs_card.afinidad, player_bullying_card.tipo))
+		name_hs_label.text = player_hs_card.nombre + " - Factor Afinidad x" + str(GlobalData.hs_multiplier) + " - Puntuación: " + str(GlobalData.hs_total_score)
 	else:
 		name_hs_label.text = "NO HAS ELEGIDO CARTA DE HABILIDAD SOCIAL"
 	if valid_combination:
-		player_label.text = GlobalData.user + " ¡COMBINACIÓN PERFECTA!"
+		player_label.text = GlobalData.user + " ¡COMBINACIÓN PERFECTA! +1500 PUNTOS"
+		name_re_label.text = player_re_card.nombre
+		name_hs_label.text = player_hs_card.nombre
 		correct_strategy_why_label.text = raw_match["por_que"]
 		#points_hs_label.text = str(200) + " puntos"
-	elif player_score >= 150:
-		player_label.text = GlobalData.user + " ¡PUNTUACIÓN SUPERIOR +1 COMBO!"
+	elif player_score >= 600:
+		player_label.text = GlobalData.user + " ¡PUNTUACIÓN SUPERIOR A 600 +1 COMBO!"
 		#points_hs_label.text = str(player_score) + " puntos"
 		
 	#else:
@@ -462,16 +482,25 @@ func update_ia_labels(ia_score, ia_re_card, ia_hs_card):
 func update_total_scores(player_score, ia_score):
 	GlobalData.total_player_score += player_score
 	GlobalData.total_ia_score += ia_score
-	total_points_player_label.text = str(GlobalData.total_player_score) + " puntos"
-	total_points_ia_label.text = str(GlobalData.total_ia_score) + " puntos"
-	ia_score_label.text = str(GlobalData.total_ia_score)
+	#total_points_player_label.text = str(GlobalData.total_player_score) + " puntos"
+	#total_points_ia_label.text = str(GlobalData.total_ia_score) + " puntos"
 	player_score_label.text = str(GlobalData.total_player_score)
+	ia_score_label.text = str(GlobalData.total_ia_score)
+	
 
 # Actualiza el combo según las reglas
 func update_combo(player_score, valid_combination):
-	if valid_combination or player_score >= 150:
+	if valid_combination or player_score >= 600:
 		GlobalData.combo_player += 1
 	combo_label.text = str(GlobalData.combo_player)
+
+# Actualiza el combo ia según las reglas
+func update_combo_ia(ia_score, valid_combination):
+	if valid_combination or ia_score >= 600:
+		GlobalData.combo_ia += 1
+	combo_label_ia.text = str(GlobalData.combo_ia)
+	print("GlobalData.combo_ia", str(GlobalData.combo_ia))
+
 
 # Acciones al final del turno
 func end_turn_actions():
@@ -485,63 +514,81 @@ func end_turn_actions():
 #Función para calcular la puntuación total de un jugador o la IA
 func calculate_score(bullying_card, re_card, hs_card) -> float:
 	#Inicializamos las puntuaciones individuales
-	var total_score = 0.0
-	var attributes_count = 0
+	var total_score: float = 0.0
+	var attributes_count: float = 0
 	
 	# Variables para acumular puntuaciones específicas de RE y HS
-	var re_total_score = 0.0
-	var hs_total_score = 0.0
+	var re_total_score: float = 0.0
+	var hs_total_score: float = 0.0
 
 	# Cálculo para los atributos de RE
 	if re_card != null:
 		var re_multiplier = get_affinity_multiplier(re_card.afinidad, bullying_card.tipo)
-		var partial_score = 0
+		GlobalData.re_multiplier = re_multiplier
+		var partial_score: float = 0.0
 		print ("re_multiplier", re_multiplier)
 		print ("bulling_card afinidad re ", re_card.afinidad, bullying_card.tipo)
 		if bullying_card.empatia > 0:
-			var empathy_score = (min(re_card.empatia, bullying_card.empatia) / bullying_card.empatia) * 10 * re_multiplier
+			var empathy_score: float = 0.0
+			empathy_score = round(float(min(re_card.empatia, bullying_card.empatia)) / float(bullying_card.empatia) * 10 * float(re_multiplier) * 10)
 			re_total_score += empathy_score
 			attributes_count += 1
-
+			print("total:re_card.empatia ", str(re_card.empatia))
+			print("total:bullying_card.empatia", str(bullying_card.empatia))
+			print("total: " , empathy_score)
+			print("total:  re_multiplier: ", str(re_multiplier))
 		if bullying_card.apoyo_emocional > 0:
-			var emotional_support_score = (min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / bullying_card.apoyo_emocional) * 10 * re_multiplier
+			var emotional_support_score: float = 0.0
+			emotional_support_score = round((min(re_card.apoyo_emocional, bullying_card.apoyo_emocional) / float(bullying_card.apoyo_emocional)) * 10 * float(re_multiplier) * 10)
 			re_total_score += emotional_support_score
 			attributes_count += 1
+			print("total:re_card.apoyo_emociona ", str(re_card.apoyo_emocional))
+			print("total:bullying_card.apoyo_emocional", str(bullying_card.apoyo_emocional))
+			print("total: " , emotional_support_score)
+			print("total:  re_multiplier: ", str(re_multiplier))
 		if bullying_card.intervencion > 0:
-			var intervention_score = (min(re_card.intervencion, bullying_card.intervencion) / bullying_card.intervencion) * 10 * re_multiplier
+			var intervention_score: float = 0.0
+			intervention_score = round((min(re_card.intervencion, bullying_card.intervencion) / float(bullying_card.intervencion)) * 10 * float(re_multiplier) * 10)
 			re_total_score += intervention_score
 			partial_score += partial_score
+			print("total:re_card.intervencion ", str(re_card.intervencion))
+			print("total:bullying_card.intervencion", str(bullying_card.intervencion))
+			print("total: " , intervention_score)
+			print("total:  re_multiplier: ", str(re_multiplier))
 	
 		# Mostrar en la etiqueta el nombre de la carta RE junto con su puntuación total
-		name_re_label.text = re_card.nombre + " - Factor Afinidad x" + str(re_multiplier) + " - Puntuación: " + str(re_total_score)
-		print("name_re_label.text = re_card.nombre +  - Puntuación:  + strre_total_score" + str(re_total_score))
+		#name_re_label.text = re_card.nombre + " - Factor Afinidad x" + str(re_multiplier) + " - Puntuación: " + str(re_total_score)
 
 	# Cálculo para los atributos de HS
 	if hs_card != null:
 		var hs_multiplier = get_affinity_multiplier(hs_card.afinidad, bullying_card.tipo)
+		GlobalData.hs_multiplier = hs_multiplier
 		print ("bulling_card afinidad hs ", hs_card.afinidad, bullying_card.tipo)
 		print ("hs_multiplier", hs_multiplier)
 		if bullying_card.comunicacion > 0:
-			var communication_score = (min(hs_card.comunicacion, bullying_card.comunicacion) / bullying_card.comunicacion) * 10 * hs_multiplier
+			var communication_score: float = 0.0
+			communication_score = round((min(hs_card.comunicacion, bullying_card.comunicacion) / float(bullying_card.comunicacion)) * 10 * float(hs_multiplier) * 10)
 			hs_total_score += communication_score
 			attributes_count += 1
 		if bullying_card.resolucion_de_conflictos > 0:
-			var conflict_resolution_score = (min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / bullying_card.resolucion_de_conflictos) * 10 * hs_multiplier
+			var conflict_resolution_score: float = 0.0
+			conflict_resolution_score = round((min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos) / float(bullying_card.resolucion_de_conflictos)) * 10 * float(hs_multiplier) * 10)
 			hs_total_score += conflict_resolution_score
 			attributes_count += 1
 	   # Mostrar en la etiqueta el nombre de la carta HS junto con su puntuación total
-			name_hs_label.text = hs_card.nombre + " - Factor Afinidad x" + str(hs_multiplier) + " - Puntuación: " + str(hs_total_score)
+			#name_hs_label.text = hs_card.nombre + " - Factor Afinidad x" + str(hs_multiplier) + " - Puntuación: " + str(hs_total_score)
 			print("name_hs_label.text = hs_card.nombre +  - Puntuación:  + str(hs_total_score)" + str(hs_total_score))
 
 	# Agregar las puntuaciones de RE y HS al total general
+	GlobalData.re_total_score = re_total_score
+	GlobalData.hs_total_score = hs_total_score
 	
 	total_score += re_total_score
 	total_score += hs_total_score
 	print("total_score: "+  str(total_score))
-	# Calculamos el promedio si hay atributos evaluados
-	if attributes_count > 0:
-		return total_score 
-	return 0
+	
+	return total_score 
+	
 	
 # Función auxiliar para calcular el multiplicador de afinidad
 func get_affinity_multiplier(card_affinity: Dictionary, bullying_type: String) -> float:

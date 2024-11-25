@@ -8,20 +8,21 @@
 extends Node
 
 # Enum de dificultad
-enum Difficulty { ESTUDIANTE, PROFESOR, PSICOLOGO }
+#enum Difficulty { ESTUDIANTE, PROFESOR, PSICOLOGO }
 
 # Modo de partida
 var game_mode: String = ""
 
 
 # Dificultad de la IA: "Estudiante", "Profesor", "Psicólogo"
-var ia_difficulty: Difficulty = Difficulty.PROFESOR  # Valor por defecto
+#var ia_difficulty: Difficulty = Difficulty.PROFESOR  # Valor por defecto
 
 # Opciones
 var music_volume: int
 var sfx_volume: int
 var antialiasing_selected: int
 var temp_antialiasing_selected: int
+var ia_difficulty: int = 0
 
 
 # Called when the node enters the scene tree for the first time.
