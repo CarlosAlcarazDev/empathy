@@ -23,6 +23,7 @@ signal card_chosen_re(card_id)
 # Referencias a los nodos de la escena
 @onready var re_card_3 = $"."
 @onready var number_card_label = $NumberCardLabel
+@onready var beep_audio_stream_player = $"../../../UI/BeepAudioStreamPlayer"
 
 # Define las constantes escalas de la carta
 const NORMAL_SCALE = Vector2(0.13, 0.13)
@@ -69,7 +70,7 @@ func on_gui_input(event):
 		# Si hay una carta en TARGET_POSITION, restáurala a su posición original
 		if GlobalData.current_card_in_target_positionRE != null and GlobalData.current_card_in_target_positionRE != self:
 			GlobalData.current_card_in_target_positionRE.move_to_original_position()
-
+		play_beep_sound()	
 		# Mueve esta carta a TARGET_POSITION
 		is_moved = true  # Marca la carta como movida para que no vuelva al estado original
 		position = TARGET_POSITION
@@ -91,3 +92,10 @@ func move_to_original_position():
 	if GlobalData.current_card_in_target_positionRE == self:
 		GlobalData.current_card_in_target_positionRE = null
 	print("Carta devuelta a la posición original: ", self)
+
+
+# Función para reproducir el sonido
+func play_beep_sound():
+	if beep_audio_stream_player.playing:
+		beep_audio_stream_player.stop()
+	beep_audio_stream_player.play()

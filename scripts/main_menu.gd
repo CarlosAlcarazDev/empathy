@@ -76,7 +76,9 @@ func _ready():
 	# Carga la configuración de las opciones guardadas en users
 	load_config()
 	# Carga el volumen del juego
-	var volume_db = lerp(-80, 0, volume["music"] / 100.0)
+	
+	var volume_db = (-80 +(volume["music"] / 100) * 80)
+	#var volume_db = lerp(-80, 0, volume["music"] / 100.0)
 	music_player.volume_db = volume_db
 	volume_db = lerp(-80, 0, volume["sfx"] / 100.0)
 	beep_audio_stream_player.volume_db = volume_db

@@ -18,9 +18,17 @@ extends Control
 @onready var ia_name_label = $ScoreTokenIA/IANameLabel
 
 @onready var player_name_label = $ScoreTokenPlayer/PlayerNameLabel
+@onready var blur_overlay = $Overlay/BlurOverlay
 
-@onready var player_texture_rect = $ScoreTokenIA/PlayerTextureRect
+
 @onready var ia_texture_rect = $ScoreTokenIA/IATextureRect
+
+@onready var game_over = $GameOver
+
+@onready var defeat_texture_rect = $GameOver/DefeatTextureRect
+
+@onready var audio_stream_player = $AudioStreamPlayer
+@onready var beep_audio_stream_player = $BeepAudioStreamPlayer
 
 
 # Definimos la señal personalizada
@@ -28,8 +36,11 @@ signal reverse_anverse_toggled(showing_reverses: bool)
 
 var showing_reverses = false  # Indica si las cartas están mostrando el reverso
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	print("dificultad ia: ", GameConfig.ia_difficulty)
 	update_ia_texture()
 	ia_name_label.text = get_difficulty_text(GameConfig.ia_difficulty)
@@ -71,8 +82,6 @@ func get_difficulty_text(difficulty: int) -> String:
 			return "Desconocido"
 
 
-func _on_options_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 
 func _on_reverse_anverse_toggle_button_pressed():

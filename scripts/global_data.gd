@@ -56,3 +56,6 @@ var hs_multiplier: float = 0.0
 #Combos
 var combo_player: int = 0
 var combo_ia: int = 0
+
+#Abort
+var abort = false

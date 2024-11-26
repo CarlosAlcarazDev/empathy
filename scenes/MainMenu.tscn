@@ -17,6 +17,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w366t"]
 shader = ExtResource("5_4lncx")
 shader_parameter/blur_size = 5.0
+shader_parameter/darkness_factor = 0.5
 
 [sub_resource type="Theme" id="Theme_d07m3"]
 

@@ -76,7 +76,7 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 1 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_30_SECONDS = 5 * 60  # En segundos (5 minutos) 
 const COUNTDOWN_20_MINUTES = 25 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
@@ -130,7 +130,6 @@ var countdown_sound_playing = false
 
 
 
-
 @onready var combo_label = $"../UI/ScoreTokenPlayer/ShowScorePlayer/ComboLabel"
 
 
@@ -141,6 +140,13 @@ var countdown_sound_playing = false
 
 
 @onready var correct_strategy_why_label = $"../UI/EndTurnPopup/VBoxContainer/CorrectStrategyWhyLabel"
+@onready var game_over_control = $"../UI/GameOver"
+@onready var defeat_texture_rect = $"../UI/GameOver/DefeatTextureRect"
+
+
+
+@onready var new_game_option_window = $"../UI/NewGameOptionWindow"
+@onready var beep_audio_stream_player = $"../UI/BeepAudioStreamPlayer"
 
 
 # Flag para controlar si jugador/IA han elegido cartas
@@ -377,6 +383,8 @@ func check_game_result():
 	print("total score: ia_score: ", ia_score)
 	#var ia_score =100
 	#update_ia_labels(ia_score, ia_re_card, ia_hs_card)
+	if !valid_combination:
+		correct_strategy_why_label.text = str(player_score) + " puntos total turno"
 	
 	# Actualizar las puntuaciones totales y el combo
 	update_total_scores(player_score, ia_score)
@@ -469,8 +477,8 @@ func update_player_labels(player_score, valid_combination, raw_match, player_re_
 		player_label.text = GlobalData.user + " ¡PUNTUACIÓN SUPERIOR A 600 +1 COMBO!"
 		#points_hs_label.text = str(player_score) + " puntos"
 		
-	#else:
-		#points_hs_label.text = str(GlobalData.total_player_score) + " puntos"
+	
+		
 
 # Actualiza las etiquetas de la IA
 func update_ia_labels(ia_score, ia_re_card, ia_hs_card):
@@ -609,8 +617,18 @@ func get_affinity_multiplier(card_affinity: Dictionary, bullying_type: String) -
 
 # Función cuando el juego termine
 func game_over():
+	print("")
 	print("Juego Terminado.")
-
+	if GlobalData.abort == true:
+		var material = blur_overlay.material
+		if material is ShaderMaterial:
+			# Cambia el valor de los parámetros del ShaderMaterial
+			#material.set_shader_parameter("blur_size", 10.0)  # Ajusta el Blur Size
+			material.set_shader_parameter("darkness_factor", 0.05)  # Ajusta el Darkness Factor
+			
+		game_over_control.visible = true
+		defeat_texture_rect.visible = true
+		#get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 ###############################################################################
 ###############################################################################
@@ -666,6 +684,7 @@ func show_card_with_delay_hs(card_to_show, card_data, reverse_flag):
 func async_show_card_re(card_to_show, card_data, reverse_flag):
 	var random_delay_re = randf_range(1, 5)
 	await get_tree().create_timer(random_delay_re).timeout
+	play_beep_sound()
 	card_to_show.visible = true
 	hide_random_cards(1)
 	display_ia_card_re(card_data, card_to_show, reverse_flag)
@@ -675,6 +694,7 @@ func async_show_card_re(card_to_show, card_data, reverse_flag):
 func async_show_card_hs(card_to_show, card_data, reverse_flag):
 	var random_delay_hs = randf_range(1, 5)
 	await get_tree().create_timer(random_delay_hs).timeout
+	play_beep_sound()
 	card_to_show.visible = true
 	hide_random_cards(1)
 	display_ia_card_hs(card_data, card_to_show, reverse_flag)
@@ -1296,7 +1316,10 @@ func _on_reverse_anverse_toggled(showing_reverses: bool):
 
 
 func _on_options_button_pressed():
-	get_tree().change_scene_to_file("res://scripts/main_menu.gd")
+	#game_over_control.visible = true
+	#defeat_texture_rect.visible = true
+	blur_overlay.visible = true
+	new_game_option_window.visible = true
 
 # Función para cargar el JSON de estrategias correctas
 func load_strategy(file_path: String) -> Variant:
@@ -1335,3 +1358,19 @@ func find_combination(json_data: Array, card_id: int, selected_re: int, selected
 					return combinacion  # Retornar la combinación coincidente
 			break  # Terminar la búsqueda si se encontró la carta
 	return {} # Retornar un Dictionary vacío si no se encontró ninguna combinación
+
+
+func _on_continue_options_button_pressed():
+	blur_overlay.visible = false
+	new_game_option_window.visible = false
+
+
+func _on_abort_button_pressed():
+	GlobalData.abort = true
+	change_state(GameState.GAME_OVER)
+
+	# Función para reproducir el sonido
+func play_beep_sound():
+	if beep_audio_stream_player.playing:
+		beep_audio_stream_player.stop()
+	beep_audio_stream_player.play()

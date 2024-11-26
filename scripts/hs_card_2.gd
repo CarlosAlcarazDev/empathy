@@ -18,6 +18,7 @@
 extends Control
 # Señal que se emitirá cuando la carta sea seleccionada. Enviará el id de la carta
 signal card_chosen_hs(card_id)
+@onready var beep_audio_stream_player = $"../../../UI/BeepAudioStreamPlayer"
 
 # Referencias a los nodos de la escena
 @onready var re_card_1 = $"."
@@ -68,7 +69,7 @@ func on_gui_input(event):
 		# Si hay una carta en TARGET_POSITION, restáurala a su posición original
 		if GlobalData.current_card_in_target_positionHS != null and GlobalData.current_card_in_target_positionHS != self:
 			GlobalData.current_card_in_target_positionHS.move_to_original_position()
-
+		play_beep_sound()	
 		# Mueve esta carta a TARGET_POSITION
 		is_moved = true  # Marca la carta como movida para que no vuelva al estado original
 		position = TARGET_POSITION
@@ -89,3 +90,10 @@ func move_to_original_position():
 	if GlobalData.current_card_in_target_positionHS == self:
 		GlobalData.current_card_in_target_positionHS = null
 	print("Carta devuelta a la posición original: ", self)
+
+
+# Función para reproducir el sonido
+func play_beep_sound():
+	if beep_audio_stream_player.playing:
+		beep_audio_stream_player.stop()
+	beep_audio_stream_player.play()
