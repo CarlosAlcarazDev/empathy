@@ -1,12 +1,7 @@
 res://scenes/NewGame.tscn
 res://scripts/MainMenu.gdshader
-res://scripts/game_manager.gd
-res://scripts/global_data.gd
 res://scenes/LoginScreen.tscn
 res://scenes/MainMenu.tscn
 res://scenes/CreditsScreen.tscn
-res://scripts/ui.gd
-res://scripts/control_token.gd
-res://scripts/new_game.gd
-res://scenes/game_over.gd
-res://scripts/hs_card_2.gd
+res://scripts/game_manager.gd
+res://scripts/deck_manager.gd

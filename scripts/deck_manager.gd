@@ -291,7 +291,7 @@ func get_card_hs_by_id(card_id: int) -> CardsHS:
 			print("Carta - ID:", card.id_carta, "Nombre:", card.nombre)
 			i = i+1
 		else:
-			print("Elemento en deck_re no es una instancia de CardsRE:", card)
+			print("Elemento en deck_hs no es una instancia de Cardshs:", card)
 	for card in raw_deck_hs:
 		if int(card.id_carta) == int(card_id):  # Comparar el ID de la carta
 			print("get_carta_dentro del for", card.nombre)

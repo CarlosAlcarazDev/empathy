@@ -77,7 +77,7 @@ var current_state = GameState.PREPARE
 
 # Constantes para los tiempos de cuenta atrás
 const COUNTDOWN_30_SECONDS = 4 * 60  # En segundos (5 minutos) 
-const COUNTDOWN_20_MINUTES = 2 * 60  # En segundos (25 minutos)
+const COUNTDOWN_20_MINUTES = 4 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
 var countdown_30_seconds = COUNTDOWN_30_SECONDS # Temporizador de turno
@@ -171,6 +171,11 @@ var countdown_sound_playing = false
 @onready var verbal_token = $"../UI/ScoreTokenPlayer/VerbalToken"
 @onready var ciberbullying_token = $"../UI/ScoreTokenPlayer/CiberbullyingToken"
 
+@onready var audio_stream_token = $"../UI/AudioStreamToken"
+@onready var subtitles_label = $"../UI/SubtitlesControl/Panel/SubtitlesLabel"
+@onready var subtitles_control = $"../UI/SubtitlesControl"
+
+
 # Diccionario con las nuevas texturas para los tokens
 var token_textures: Dictionary = {
 	"exclusión_social": preload("res://assets/ui/tokens/token_exclusión_social.png"),
@@ -249,6 +254,7 @@ func _ready():
 	var volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_countdown_audio_stream_player.volume_db = volume_db
 	beep_audio_stream_player.volume_db = volume_db
+	audio_stream_token.volume_db = volume_db
 	# Cambia el estado inicial a "PREPARE"
 	change_state(GameState.PREPARE)
 	
@@ -1293,7 +1299,7 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
-	var image_path = "res://assets/images/cards/re/" + str(card.id_carta) + "_RE.webp"
+	var image_path = "res://assets/images/cards/hs/" + str(card.id_carta) + "_HS.webp"
 	# Cargar la imagen
 	var texture = load(image_path)
 	# Verificar si la textura fue cargada correctamente
@@ -1558,7 +1564,15 @@ func play_beep_sound(audio_file: String):
 	beep_audio_stream_player.play()
 
 
-
+# Diccionario para rastrear la cantidad de tokens previamente obtenidos
+var last_token_count: Dictionary = {
+	"ciberbullying": 0,
+	"exclusión_social": 0,
+	"físico": 0,
+	"psicológico": 0,
+	"sexual": 0,
+	"verbal": 0
+}
 # Función para actualizar las texturas de los tokens
 func update_token_textures():
 	 # Mapear los nodos a sus respectivos tipos
@@ -1579,6 +1593,83 @@ func update_token_textures():
 				if token_node and new_texture:
 					token_node.texture = new_texture  # Cambiar la textura
 # Actualizar el Label del token para mostrar el número de tokens ganados
-				var token_label = token_node.get_node("Label")  # Suponiendo que el Label está dentro del nodo del token
+				var token_label = token_node.get_node("Panel/Label")  # Suponiendo que el Label está dentro del nodo del token
 				if token_label:
 					token_label.text = str(GlobalData.token_earned_player[bullying_type])  # Actualizar con el número de tokens
+
+				# Verificar si el número de tokens ha aumentado
+				var current_count = GlobalData.token_earned_player[bullying_type]
+				if current_count > last_token_count[bullying_type]:  # Si hay un nuevo token
+					play_token_audio(normalize_bullying_type(bullying_type))
+					last_token_count[bullying_type] = current_count  # Actualizar el conteo
+
+		
+# Diccionario con los archivos de audio para cada token
+var token_sfx: Dictionary = {
+	"ciberbullying": [
+		"res://assets/audio/sfx/ciberbullying_1.ogg",
+		"res://assets/audio/sfx/ciberbullying_2.ogg"
+	],
+	"exclusión_social": [
+		"res://assets/audio/sfx/exclusión_social.ogg",
+		"res://assets/audio/sfx/exclusión_social_2.ogg"
+	],
+	"físico": [
+		"res://assets/audio/sfx/físico_1.ogg",
+		"res://assets/audio/sfx/físico_2.ogg"
+	],
+	"psicológico": [
+		"res://assets/audio/sfx/psicológico_1.ogg",
+		"res://assets/audio/sfx/psicológico_2.ogg"
+	],
+	"sexual": [
+		"res://assets/audio/sfx/sexual_1.ogg",
+		"res://assets/audio/sfx/sexual_2.ogg"
+	],
+	"verbal": [
+		"res://assets/audio/sfx/verbal_1.ogg",
+		"res://assets/audio/sfx/verbal_2.ogg"
+	]
+}
+# Diccionario que asocia cada archivo de sonido con su mensaje
+var token_sfx_messages: Dictionary = {
+	"res://assets/audio/sfx/sexual_1.ogg": "¡Increíble! Has conseguido un token de comprensión sobre el bullying sexual.",
+	"res://assets/audio/sfx/sexual_2.ogg": "¡Otro paso adelante! Un token de tipo sexual es tuyo.",
+	"res://assets/audio/sfx/verbal_1.ogg": "¡Gran trabajo! Has ganado un token por abordar el bullying verbal.",
+	"res://assets/audio/sfx/verbal_2.ogg": "¡Bien hecho! Un token de bullying verbal se une a tu marcador.",
+	"res://assets/audio/sfx/físico_1.ogg": "Has obtenido un token por superar el bullying físico. ¡Sigues avanzando!",
+	"res://assets/audio/sfx/físico_2.ogg": "Un token de tipo físico ahora es tuyo.",
+	"res://assets/audio/sfx/ciberbullying_1.ogg": "¡Fantástico! Has logrado un token por tratar el ciberbullying.",
+	"res://assets/audio/sfx/ciberbullying_2.ogg": "¡Sigue así! Un token de ciberbullying ha sido desbloqueado.",
+	"res://assets/audio/sfx/psicológico_1.ogg": "¡Bien hecho! Has conseguido un token por tratar el bullying psicológico.",
+	"res://assets/audio/sfx/psicológico_2.ogg": "¡Gran progreso! Un token de tipo psicológico es tuyo.",
+	"res://assets/audio/sfx/exclusión_social.ogg": "¡Felicidades! Un token de exclusión social se une a tu marcador.",
+	"res://assets/audio/sfx/exclusión_social_2.ogg": "¡Increíble! Has desbloqueado un token por abordar la exclusión social."
+}
+func play_token_audio(token_type: String):
+	if token_sfx.has(token_type):
+		var sfx_list = token_sfx[token_type]
+		if sfx_list.size() > 0:
+			var random_index = randi() % sfx_list.size()  # Selecciona aleatoriamente
+			var selected_sfx_path = sfx_list[random_index]  # Ruta al archivo de sonido
+			var selected_sfx = load(selected_sfx_path)
+
+			# Reproducir el archivo de audio
+			#var audio_player = $"../UI/AudioStreamToken"  # Asegúrate de tener un nodo AudioStreamPlayer en tu escena
+			audio_stream_token.stream = selected_sfx
+			audio_stream_token.play()
+
+			# Llamada a token_sfx_messages para obtener el mensaje asociado
+			if token_sfx_messages.has(selected_sfx_path):
+				var message = token_sfx_messages[selected_sfx_path]  # Mensaje correspondiente al audio
+				display_message(message)  # Mostrar el mensaje	
+				
+func display_message(message: String):
+	if subtitles_control and subtitles_label:
+		subtitles_label.text = message  # Mostrar el mensaje en el Label
+		subtitles_control.visible = true  # Hacer visible el control que contiene el subtítulo
+
+
+func _on_audio_stream_token_finished():
+	if subtitles_label:
+		subtitles_control.visible = false
