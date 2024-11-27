@@ -76,7 +76,7 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 5 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_30_SECONDS = 0.5 * 60  # En segundos (5 minutos) 
 const COUNTDOWN_20_MINUTES = 25 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
@@ -148,6 +148,7 @@ var countdown_sound_playing = false
 @onready var new_game_option_window = $"../UI/NewGameOptionWindow"
 @onready var beep_audio_stream_player = $"../UI/BeepAudioStreamPlayer"
 
+@onready var audio_stream_player = $"../UI/AudioStreamPlayer"
 
 # Flag para controlar si jugador/IA han elegido cartas
 var player_chosen = false
@@ -198,7 +199,7 @@ func _ready():
 	# Configurar el volumen del sonido
 	var volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_countdown_audio_stream_player.volume_db = volume_db
-	
+	beep_audio_stream_player.volume_db = volume_db
 	# Cambia el estado inicial a "PREPARE"
 	change_state(GameState.PREPARE)
 	
@@ -235,6 +236,11 @@ func _process(delta):
 
 # Manejar la cuenta atrás del turno
 func handle_countdown(delta):
+	# Movido a _on_sync_timer_timeout
+	#if countdown_20_minutes > 0:
+		#countdown_20_minutes -= delta
+		#countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
+
 	if countdown_30_seconds > 0:
 		countdown_30_seconds -= delta
 		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Aceptar" cuando queden más de 10 segundos
@@ -257,17 +263,23 @@ func handle_countdown(delta):
 			auto_select_player_cards()
 		if ia_selected_card_re == null or ia_selected_card_hs == null:
 			auto_select_ia_cards()
+		play_beep_sound("res://assets/audio/sfx/traimory-whoosh-hit-the-box-cinematic-trailer-sound-effects-193411.ogg")
+		if new_game_option_window.visible == true:
+			new_game_option_window.visible = false
 		# Mover al siguiente estado
 		change_state(GameState.CHECK_RESULT)
 	# Actualizar el contador global de 20 minutos
-	if countdown_20_minutes > 0:
-		countdown_20_minutes -= delta
-		countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
 
 # Función para manejar el temporizador de sincronización
 func _on_sync_timer_timeout():
 	# Imprimir estado actual del juego (Depuración)
 	print("Estado actual del juego: ", current_state)
+	if countdown_20_minutes > 0:
+		countdown_20_minutes -= 1
+		countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
+	else:
+		print("Tiempo Global Terminado")
+		change_state(GameState.GAME_OVER)
 
 
 ###############################################################################
@@ -512,10 +524,10 @@ func update_combo_ia(ia_score, valid_combination):
 
 # Acciones al final del turno
 func end_turn_actions():
-	ready_button.disabled = true
-	disable_card_interaction()
+	#ready_button.disabled = true
+	#disable_card_interaction()
 	blur_overlay.visible = true
-	end_turn_popup.show()
+	end_turn_popup.visible = true
 
 	
 	
@@ -625,7 +637,8 @@ func game_over():
 			# Cambia el valor de los parámetros del ShaderMaterial
 			#material.set_shader_parameter("blur_size", 10.0)  # Ajusta el Blur Size
 			material.set_shader_parameter("darkness_factor", 0.05)  # Ajusta el Darkness Factor
-			
+		audio_stream_player.stop()
+		play_beep_sound("res://assets/audio/sfx/traimory-hit-low-gun-shot-cinematic-trailer-sound-effects-161154.mp3")	
 		game_over_control.visible = true
 		defeat_texture_rect.visible = true
 		#get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
@@ -684,7 +697,7 @@ func show_card_with_delay_hs(card_to_show, card_data, reverse_flag):
 func async_show_card_re(card_to_show, card_data, reverse_flag):
 	var random_delay_re = randf_range(1, 5)
 	await get_tree().create_timer(random_delay_re).timeout
-	play_beep_sound()
+	play_beep_sound("res://assets/audio/sfx/seleccionar_carta.ogg")
 	card_to_show.visible = true
 	hide_random_cards(1)
 	display_ia_card_re(card_data, card_to_show, reverse_flag)
@@ -694,7 +707,7 @@ func async_show_card_re(card_to_show, card_data, reverse_flag):
 func async_show_card_hs(card_to_show, card_data, reverse_flag):
 	var random_delay_hs = randf_range(1, 5)
 	await get_tree().create_timer(random_delay_hs).timeout
-	play_beep_sound()
+	play_beep_sound("res://assets/audio/sfx/seleccionar_carta.ogg")
 	card_to_show.visible = true
 	hide_random_cards(1)
 	display_ia_card_hs(card_data, card_to_show, reverse_flag)
@@ -914,6 +927,7 @@ func _on_ready_texture_button_pressed():
 
 # Función para manejar el evento del botón "aceptar"
 func _on_ready_button_pressed():
+	play_beep_sound("res://assets/audio/sfx/traimory-whoosh-hit-the-box-cinematic-trailer-sound-effects-193411.ogg")
 	if (player_selected_card_re == null or player_selected_card_hs == null):
 		# Si el jugador no seleccionó cartas, asignarlas automáticamente
 		auto_select_player_cards()
@@ -942,12 +956,13 @@ func _on_ready_button_pressed():
 
 # Señal que se activa al presionar botón "Continuar"
 func _on_continue_button_pressed():
+	play_beep_sound("res://assets/audio/sfx/click.ogg")
 	print("Iniciando el siguiente turno.")
 	#Ocultar el modal y permitir interacción nuevamente
 	ready_texture_button.disabled = false
 	ready_texture_button.release_focus()  
 	blur_overlay.visible = false
-	end_turn_popup.hide()
+	end_turn_popup.visible = false
 	enable_card_interaction()
 	
 	# Verifica si el juego debe terminar (tiempo finalizado o no hay más cartas en el mazo bu) o iniciar el siguiente turno
@@ -1302,6 +1317,7 @@ func has_ia_chosen() -> bool:
 
 # Maneja la señal y actualiza la visualización de las cartas
 func _on_reverse_anverse_toggled(showing_reverses: bool):
+	play_beep_sound("res://assets/audio/sfx/flipcard-91468.mp3")
 	# Actualizar las cartas RE
 	display_card_re(player_cards_re[0], re_card_1, showing_reverses)
 	display_card_re(player_cards_re[1], re_card_2, showing_reverses)
@@ -1316,6 +1332,7 @@ func _on_reverse_anverse_toggled(showing_reverses: bool):
 
 
 func _on_options_button_pressed():
+	play_beep_sound("res://assets/audio/sfx/click.ogg")
 	#game_over_control.visible = true
 	#defeat_texture_rect.visible = true
 	blur_overlay.visible = true
@@ -1361,16 +1378,24 @@ func find_combination(json_data: Array, card_id: int, selected_re: int, selected
 
 
 func _on_continue_options_button_pressed():
+	play_beep_sound("res://assets/audio/sfx/click.ogg")
 	blur_overlay.visible = false
 	new_game_option_window.visible = false
 
 
 func _on_abort_button_pressed():
+	play_beep_sound("res://assets/audio/sfx/click.ogg")
 	GlobalData.abort = true
 	change_state(GameState.GAME_OVER)
 
 	# Función para reproducir el sonido
-func play_beep_sound():
-	if beep_audio_stream_player.playing:
-		beep_audio_stream_player.stop()
+func play_beep_sound(audio_file: String):
+	print("sonido: ", audio_file)
+	# Cargar el archivo de audio en tiempo de ejecución
+	var audio_stream = load(audio_file)
+	# Asignar el audio al AudioStreamPlayer
+	beep_audio_stream_player.stream = audio_stream
+	#
+	#if beep_audio_stream_player.playing:
+		#beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()

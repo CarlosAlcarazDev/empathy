@@ -31,6 +31,9 @@ extends Window
 
 @onready var audio_stream_player = $"../AudioStreamPlayer"
 
+@onready var beep_audio_stream_player = $"../BeepAudioStreamPlayer"
+
+@onready var beep_countdown_audio_stream_player = $"../BeepCountdownAudioStreamPlayer"
 
 @onready var blur_overlay = $"../Overlay/BlurOverlay"
 
@@ -91,9 +94,10 @@ func _on_music_volume_changed(value):
 
 func _on_sfx_volume_changed(value):
 	GameConfig.sfx_volume = value
-	var volume_db = lerp(-80, 0, value / 100.0)
-	#beep_audio_stream_player.volume_db = volume_db
-	#play_beep_sound()
+	var volume_db = (-50+(value / 100) *50)
+	beep_audio_stream_player.volume_db = volume_db
+	beep_countdown_audio_stream_player.volume_db = volume_db
+	play_beep_sound("res://assets/audio/sfx/token_verbal.mp3")
 	print("Nuevo volumen de SFX:", value)
 
 	
@@ -175,3 +179,15 @@ func _on_credits_button_pressed():
 func _on_continue_option_button_pressed():
 	
 	blur_overlay.visible = false
+	
+	# Función para reproducir el sonido
+func play_beep_sound(audio_file: String):
+	print("sonido: ", audio_file)
+	# Cargar el archivo de audio en tiempo de ejecución
+	var audio_stream = load(audio_file)
+	# Asignar el audio al AudioStreamPlayer
+	beep_audio_stream_player.stream = audio_stream
+	#
+	#if beep_audio_stream_player.playing:
+		#beep_audio_stream_player.stop()
+	beep_audio_stream_player.play()

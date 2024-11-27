@@ -9,6 +9,7 @@ extends Control
 @onready var reverse_anverse_toggle_button = $UI/ReverseAnverseToggleButton
 @onready var audio_stream_player = $UI/AudioStreamPlayer
 @onready var beep_audio_stream_player = $UI/BeepAudioStreamPlayer
+@onready var beep_countdown_audio_stream_player = $UI/BeepCountdownAudioStreamPlayer
 
 # Controlador de canciones
 var current_song_index = -1
@@ -20,6 +21,8 @@ var song_list = [
 		"res://assets/audio/music/epic_orchestral_5.mp3",
 		"res://assets/audio/music/epic_orchestral_6.mp3"
 ]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Reinicia combos y scores
@@ -32,12 +35,14 @@ func _ready():
 	GlobalData.total_ia_score = 0
 	GlobalData.total_player_score = 0
 	
-	
+	audio_stream_player.connect("finished", Callable(self, "_on_audio_stream_player_finished"))
+
 	
 	var volume_db = lerp(-80, 0, GameConfig.music_volume / 100.0)
 	audio_stream_player.volume_db = volume_db
 	volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_audio_stream_player.volume_db = volume_db
+	beep_countdown_audio_stream_player.volume_db = volume_db
 	start_playlist()
 func start_playlist():
 	# Baraja la lista de canciones para reproducirlas aleatoriamente
@@ -45,19 +50,20 @@ func start_playlist():
 	play_next_song()
 
 func play_next_song():
+	print("repro Cambiando a la siguiente canción...")
 	current_song_index += 1
-	
 	if current_song_index >= song_list.size():
 		current_song_index = 0  # Reinicia la lista si llegamos al final
-	
-	# Cargar y reproducir la canción
+		song_list.shuffle()
 	var song_path = song_list[current_song_index]
+	print("repro Cargando canción:", song_path)
 	var song = load(song_path) as AudioStream
 	if song:
 		audio_stream_player.stream = song
 		audio_stream_player.play()
-		print("Reproduciendo:", song_path)
+		print("repro Reproduciendo:", song_path)
 
 func _on_audio_stream_player_finished():
 	# Cuando termine la canción, pasa a la siguiente
+	print("repro cancion ha llegado a su fin")
 	play_next_song()

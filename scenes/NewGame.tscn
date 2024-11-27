@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=87 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://bk6oojhaayb2d" path="res://assets/images/backgrounds/bg_6.webp" id="2_6p4sg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://c2vq2cdq2jk8s" path="res://assets/images/cards/re/2_RE.webp" id="10_sekqc"]
 [ext_resource type="FontFile" uid="uid://bceo6mdndisde" path="res://assets/fonts/Roboto-Bold.ttf" id="11_d1wdg"]
 [ext_resource type="Script" path="res://scripts/hs_card_1.gd" id="11_l50vo"]
+[ext_resource type="Script" path="res://scenes/end_turn_popup.gd" id="11_uph4r"]
 [ext_resource type="Shader" path="res://scripts/MainMenu.gdshader" id="12_2qn3g"]
 [ext_resource type="Texture2D" uid="uid://yc8hhxfvl7s3" path="res://assets/images/cards/re/3_RE.webp" id="12_f4pui"]
 [ext_resource type="Script" path="res://scripts/hs_card_2.gd" id="12_yyw1s"]
@@ -55,7 +56,6 @@
 [ext_resource type="Texture2D" uid="uid://4xmp7w3s88tc" path="res://assets/ui/backgrounds/defeat_1_borderless.png" id="37_phoy5"]
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="38_apwvo"]
 [ext_resource type="Script" path="res://scenes/new_game_option_window.gd" id="39_7n31t"]
-[ext_resource type="AudioStream" uid="uid://ckvsd67vtke4s" path="res://assets/audio/sfx/seleccionar_carta.ogg" id="41_3tfqq"]
 [ext_resource type="Script" path="res://scripts/ic_card.gd" id="50_qhjjh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
@@ -101,8 +101,6 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-
-[sub_resource type="Theme" id="Theme_b1oja"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x88fj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -362,7 +360,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 35
-text = "28:00"
+text = "25:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -438,11 +436,11 @@ exclusive = true
 unresizable = true
 borderless = true
 transparent = true
-theme = SubResource("Theme_b1oja")
 theme_override_colors/title_color = Color(1, 1, 1, 1)
 theme_override_colors/title_outline_modulate = Color(1, 1, 1, 1)
 theme_override_styles/embedded_border = SubResource("StyleBoxFlat_x88fj")
 theme_override_styles/embedded_unfocused_border = SubResource("StyleBoxFlat_jcovi")
+script = ExtResource("11_uph4r")
 
 [node name="Panel" type="Panel" parent="UI/EndTurnPopup"]
 offset_right = 750.0
@@ -1474,7 +1472,6 @@ text = "Guardar partida"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UI"]
 
 [node name="BeepAudioStreamPlayer" type="AudioStreamPlayer" parent="UI"]
-stream = ExtResource("41_3tfqq")
 
 [node name="ReadyButton" type="Button" parent="."]
 layout_mode = 2

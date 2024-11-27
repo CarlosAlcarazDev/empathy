@@ -92,6 +92,10 @@ func move_to_original_position():
 
 # Función para reproducir el sonido
 func play_beep_sound():
+	# Cargar el archivo de audio en tiempo de ejecución
+	var audio_stream = load("res://assets/audio/sfx/seleccionar_carta.ogg")
+	# Asignar el audio al AudioStreamPlayer
+	beep_audio_stream_player.stream = audio_stream
 	if beep_audio_stream_player.playing:
 		beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()

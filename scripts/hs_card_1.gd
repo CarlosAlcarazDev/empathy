@@ -91,9 +91,12 @@ func move_to_original_position():
 		GlobalData.current_card_in_target_positionHS = null
 	print("Carta devuelta a la posición original: ", self)
 
-
 # Función para reproducir el sonido
 func play_beep_sound():
+	# Cargar el archivo de audio en tiempo de ejecución
+	var audio_stream = load("res://assets/audio/sfx/seleccionar_carta.ogg")
+	# Asignar el audio al AudioStreamPlayer
+	beep_audio_stream_player.stream = audio_stream
 	if beep_audio_stream_player.playing:
 		beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()

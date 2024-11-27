@@ -12,7 +12,7 @@
 extends Node
 
 # Variables del usuario
-var user = "Carlos"
+var user = ""
 var id = ""
 var password = ""
 var created_at = {
