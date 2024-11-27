@@ -1,5 +1,5 @@
-AudioStreamPlayer
 Label
+AudioStreamPlayer
 Panel
 Window
 Button
@@ -12,4 +12,3 @@ ColorRect
 Control
 Line2D
 Polygon2D
-TextEdit

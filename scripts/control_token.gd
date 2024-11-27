@@ -1,7 +1,8 @@
 
 extends Control
 
-@onready var beep_audio_stream_player = $"../../BeepAudioStreamPlayer"
+
+@onready var beep_audio_stream_player = $"/root/NewGame/UI/BeepAudioStreamPlayer"
 
 # Define las constantes escalas de la carta
 const NORMAL_SCALE = Vector2(0.14, 0.14)

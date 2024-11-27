@@ -56,6 +56,55 @@ var hs_multiplier: float = 0.0
 #Combos
 var combo_player: int = 0
 var combo_ia: int = 0
+# Declarar la nueva variable token_combos
+var token_combos_player: Dictionary = {
+	"verbal": 0,
+	"exclusión_social": 0,
+	"psicológico": 0,
+	"físico": 0,
+	"sexual": 0,
+	"ciberbullying": 0
+}
+var token_combos_ia: Dictionary = {
+	"verbal": 0,
+	"exclusión_social": 0,
+	"psicológico": 0,
+	"físico": 0,
+	"sexual": 0,
+	"ciberbullying": 0
+}
+# Declarar la nueva variable token_combos
+var token_earned_player: Dictionary = {
+	"verbal": 0,
+	"exclusión_social": 0,
+	"psicológico": 0,
+	"físico": 0,
+	"sexual": 0,
+	"ciberbullying": 0
+}
+var token_earned_ia: Dictionary = {
+	"verbal": 0,
+	"exclusión_social": 0,
+	"psicológico": 0,
+	"físico": 0,
+	"sexual": 0,
+	"ciberbullying": 0
+}
+
 
 #Abort
-var abort = false
+var game_over_abort = false
+var game_over_time_or_bu = false
+
+
+# Método para convertir un entero en texto de dificultad
+func get_difficulty_text(difficulty: int) -> String:
+	match difficulty:
+		0:
+			return "Estudiante"
+		1:
+			return "Profesor"
+		2:
+			return "Psicólogo"
+		_:
+			return "Desconocido"

@@ -25,7 +25,7 @@ extends Control
 
 @onready var game_over = $GameOver
 
-@onready var defeat_texture_rect = $GameOver/DefeatTextureRect
+
 
 @onready var audio_stream_player = $AudioStreamPlayer
 @onready var beep_audio_stream_player = $BeepAudioStreamPlayer

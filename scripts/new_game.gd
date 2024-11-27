@@ -34,6 +34,8 @@ func _ready():
 	GlobalData.hs_total_score = 0
 	GlobalData.total_ia_score = 0
 	GlobalData.total_player_score = 0
+	GlobalData.game_over_time_or_bu = false
+	GlobalData.game_over_abort = false
 	
 	audio_stream_player.connect("finished", Callable(self, "_on_audio_stream_player_finished"))
 

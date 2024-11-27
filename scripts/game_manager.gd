@@ -76,8 +76,8 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 0.5 * 60  # En segundos (5 minutos) 
-const COUNTDOWN_20_MINUTES = 25 * 60  # En segundos (25 minutos)
+const COUNTDOWN_30_SECONDS = 4 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_20_MINUTES = 2 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
 var countdown_30_seconds = COUNTDOWN_30_SECONDS # Temporizador de turno
@@ -141,7 +141,7 @@ var countdown_sound_playing = false
 
 @onready var correct_strategy_why_label = $"../UI/EndTurnPopup/VBoxContainer/CorrectStrategyWhyLabel"
 @onready var game_over_control = $"../UI/GameOver"
-@onready var defeat_texture_rect = $"../UI/GameOver/DefeatTextureRect"
+
 
 
 
@@ -149,6 +149,38 @@ var countdown_sound_playing = false
 @onready var beep_audio_stream_player = $"../UI/BeepAudioStreamPlayer"
 
 @onready var audio_stream_player = $"../UI/AudioStreamPlayer"
+@onready var game_result_texture_rect = $"../UI/GameOver/GameResultTextureRect"
+@onready var game_result_label = $"../UI/GameOver/GameResultTextureRect/GameResultLabel"
+
+@onready var score_token_ia = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA"
+@onready var score_token_player = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"
+
+@onready var game_over_player_scorelabel = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
+@onready var game_over_ia_score_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/ShowScoreIA/IAScoreLabel"
+
+@onready var game_over_ia_name_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/IANameLabel"
+@onready var game_over_ia_combo_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/ShowScoreIA/ComboLabel"
+
+@onready var game_over_player_name_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/PlayerNameLabel"
+@onready var game_over_player_combo_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ShowScorePlayer/ComboLabel"
+
+@onready var exclusion_social_token = $"../UI/ScoreTokenPlayer/ExclusionSocialToken"
+@onready var fisico_token = $"../UI/ScoreTokenPlayer/FisicoToken"
+@onready var psicologico_token = $"../UI/ScoreTokenPlayer/PsicologicoToken"
+@onready var sexual_token = $"../UI/ScoreTokenPlayer/SexualToken"
+@onready var verbal_token = $"../UI/ScoreTokenPlayer/VerbalToken"
+@onready var ciberbullying_token = $"../UI/ScoreTokenPlayer/CiberbullyingToken"
+
+# Diccionario con las nuevas texturas para los tokens
+var token_textures: Dictionary = {
+	"exclusión_social": preload("res://assets/ui/tokens/token_exclusión_social.png"),
+	"físico": preload("res://assets/ui/tokens/token_físico.png"),
+	"psicológico": preload("res://assets/ui/tokens/token_psicologico.png"),
+	"sexual": preload("res://assets/ui/tokens/token_sexual.png"),
+	"verbal": preload("res://assets/ui/tokens/token_verbal.png"),
+	"ciberbullying": preload("res://assets/ui/tokens/token_ciberbullying.png")
+}
+
 
 # Flag para controlar si jugador/IA han elegido cartas
 var player_chosen = false
@@ -182,6 +214,23 @@ signal card_chosen_hs(card_id)
 var combo_player = 0
 var combo_ia = 0
 
+# Diccionario con reglas de tokens
+var token_rules: Dictionary = {
+	"sexual": {"max_tokens": 2, "combos_per_token": 1},
+	"verbal": {"max_tokens": 4, "combos_per_token": 4},
+	"físico": {"max_tokens": 2, "combos_per_token": 4},
+	"ciberbullying": {"max_tokens": 2, "combos_per_token": 3},
+	"psicológico": {"max_tokens": 2, "combos_per_token": 5},
+	"exclusión_social": {"max_tokens": 2, "combos_per_token": 4}
+}
+# Diccionario con los nodos de los tokens
+var token_nodes: Dictionary = {}
+
+
+
+var sync_timer = Timer.new()
+
+
 const JSON_CORRECT_STRATEGY_PATH = "res://data/correct_strategy.json"
 		
 
@@ -204,7 +253,7 @@ func _ready():
 	change_state(GameState.PREPARE)
 	
 	# Temporizador para sincronización regular del estado del juego
-	var sync_timer = Timer.new()
+	
 	sync_timer.set_wait_time(1.0) 
 	sync_timer.set_one_shot(false)
 	sync_timer.connect("timeout", Callable(self, "_on_sync_timer_timeout"))
@@ -253,7 +302,7 @@ func handle_countdown(delta):
 			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
 			ready_button.text = "%d" % max(int(countdown_30_seconds), 0)
 			# Empezar el sonido de cuenta regresiva cuando quedan 10 segundos
-			if countdown_30_seconds <= 10 and not countdown_sound_playing:
+			if countdown_30_seconds <= 10 and not countdown_sound_playing and countdown_20_minutes > 10 :
 				beep_countdown_audio_stream_player.play()  # Reproduce el sonido
 				countdown_sound_playing = true
 	else:
@@ -277,9 +326,19 @@ func _on_sync_timer_timeout():
 	if countdown_20_minutes > 0:
 		countdown_20_minutes -= 1
 		countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
+				# Reproducir el sonido cuando el temporizador llega a 10
+		if countdown_20_minutes == 10:
+			print("Reproduciendo beep_countdown porque quedan 10 segundos.")
+			if beep_countdown_audio_stream_player:  # Asegúrate de que el nodo existe
+				beep_countdown_audio_stream_player.stream = load("res://assets/audio/sfx/mega-horn-gloomiest-signer-cinematic-trailer-sound-effects-124762.ogg")
+				beep_countdown_audio_stream_player.play()
 	else:
 		print("Tiempo Global Terminado")
+		GlobalData.game_over_time_or_bu = true
 		change_state(GameState.GAME_OVER)
+		if sync_timer:
+			print("parar temporizador de sincronizacion")
+			sync_timer.stop()
 
 
 ###############################################################################
@@ -356,6 +415,7 @@ func prepare_game():
 
 # Función para manejar el turno del jugador
 func start_turn():
+	update_token_textures()
 	print("Turno del jugador y la IA.")
 	# Reiniciar los estados del turno
 	reset_turn_state()
@@ -510,18 +570,49 @@ func update_total_scores(player_score, ia_score):
 
 # Actualiza el combo según las reglas
 func update_combo(player_score, valid_combination):
+	print("normalice: ", normalize_bullying_type(card_bullying.tipo))
 	if valid_combination or player_score >= 600:
 		GlobalData.combo_player += 1
+		# Incrementar en token_combos según el tipo de bullying
+		var bullying_type = normalize_bullying_type(card_bullying.tipo)  # Obtener el tipo de bullying de la carta actual
+		if GlobalData.token_combos_player.has(bullying_type):
+			GlobalData.token_combos_player[bullying_type] += 1  # Sumar 1 al contador del tipo de bullying correspondiente
+			# Verificar y otorgar tokens
+			var current_combos = GlobalData.token_combos_player[bullying_type]
+			check_and_award_tokens(bullying_type, current_combos)
+			
+	
 	combo_label.text = str(GlobalData.combo_player)
 
 # Actualiza el combo ia según las reglas
 func update_combo_ia(ia_score, valid_combination):
+	print("normalice: ", normalize_bullying_type(card_bullying.tipo))
 	if valid_combination or ia_score >= 600:
 		GlobalData.combo_ia += 1
+		# Incrementar en token_combos según el tipo de bullying
+		var bullying_type = normalize_bullying_type(card_bullying.tipo)  # Obtener el tipo de bullying de la carta actual
+		if GlobalData.token_combos_ia.has(bullying_type):
+			GlobalData.token_combos_ia[bullying_type] += 1  # Sumar 1 al contador del tipo de bullying correspondiente
+	
 	combo_label_ia.text = str(GlobalData.combo_ia)
 	print("GlobalData.combo_ia", str(GlobalData.combo_ia))
 
 
+# Verifica y otorga tokens según los combos realizados
+func check_and_award_tokens(bullying_type: String, combo_count: int):
+	if token_rules.has(normalize_bullying_type(bullying_type)):
+		var rule = token_rules[normalize_bullying_type(bullying_type)]
+		var max_tokens = rule["max_tokens"]
+		var combos_per_token = rule["combos_per_token"]
+
+		# Calcular cuántos tokens corresponden según los combos actuales
+		var tokens_earned = min(combo_count / combos_per_token, max_tokens)
+		
+				# Guardar en la variable global los tokens ganados
+		if GlobalData.token_earned_player.has(normalize_bullying_type(bullying_type)):
+			GlobalData.token_earned_player[normalize_bullying_type(bullying_type)] = tokens_earned
+
+	
 # Acciones al final del turno
 func end_turn_actions():
 	#ready_button.disabled = true
@@ -626,22 +717,86 @@ func get_affinity_multiplier(card_affinity: Dictionary, bullying_type: String) -
 				return 0.5
 	print("La carta utilizada no tiene afinidad específica con el bullying de tipo ", bullying_type, ". Se multiplica por 1.")
 	return 1.0  # Por defecto si no se encuentra la afinidad	
+# Función para normalizar los nombres de tipos de bullying
+func normalize_bullying_type(bullying_type: String) -> String:
+	return bullying_type.to_lower().replace(" ", "_")
 
-# Función cuando el juego termine
 func game_over():
-	print("")
+	print("GlobalData.tokens_earned")
+	print(GlobalData.token_combos_player)
+# {"verbal": 2, "exclusión_social": 1, "psicológico": 0, "físico": 3, "sexual": 0, "ciberbullying": 1}
+	print("GlobalData.tokens_earned")
+	print(GlobalData.token_combos_ia)
+#	 {"verbal": 1, "exclusión_social": 0, "psicológico": 2, "físico": 2, "sexual": 1, "ciberbullying": 0}
+
+	print("GlobalData.token_earned")
+	print(GlobalData.token_earned_player)
 	print("Juego Terminado.")
-	if GlobalData.abort == true:
+	# Verifica si el juego terminó por tiempo o condición especial
+	if GlobalData.game_over_time_or_bu == true:
+		var texture_path = ""
+		beep_audio_stream_player.stop()
+		beep_countdown_audio_stream_player.stop()
+		score_token_ia.visible = true
+		score_token_player.visible = true
+		game_over_ia_name_label.text = GlobalData.get_difficulty_text(GameConfig.ia_difficulty)
+		game_over_ia_combo_label.text = str(GlobalData.combo_ia)
+		game_over_player_name_label.text = GlobalData.user
+		game_over_player_combo_label.text = str(GlobalData.combo_player)
+		game_over_player_scorelabel.text = str(GlobalData.total_player_score)
+		game_over_ia_score_label.text = str(GlobalData.total_ia_score)
+
+		if GlobalData.total_player_score > GlobalData.total_ia_score:
+			# Victoria
+			print("time out: victoria")
+			game_result_label.text = "VICTORIA"
+			texture_path = "res://assets/ui/backgrounds/victory_2.png"
+		elif GlobalData.total_player_score < GlobalData.total_ia_score:
+			# Derrota
+			print("time out: derrota")
+			game_result_label.text = "DERROTA"
+			texture_path = "res://assets/ui/backgrounds/defeat_1_borderless.png"
+		else:
+			# Empate
+			print("time out: empate")
+			game_result_label.text = "EMPATE"
+			texture_path = "res://assets/ui/backgrounds/draw_1.png"  # Ruta a la textura de empate
+
+		# Aplicar efectos visuales
+		blur_overlay.visible = true
 		var material = blur_overlay.material
 		if material is ShaderMaterial:
-			# Cambia el valor de los parámetros del ShaderMaterial
-			#material.set_shader_parameter("blur_size", 10.0)  # Ajusta el Blur Size
-			material.set_shader_parameter("darkness_factor", 0.05)  # Ajusta el Darkness Factor
+			material.set_shader_parameter("darkness_factor", 0.05)
 		audio_stream_player.stop()
-		play_beep_sound("res://assets/audio/sfx/traimory-hit-low-gun-shot-cinematic-trailer-sound-effects-161154.mp3")	
+		play_beep_sound("res://assets/audio/sfx/traimory-hit-low-gun-shot-cinematic-trailer-sound-effects-161154.mp3")
 		game_over_control.visible = true
-		defeat_texture_rect.visible = true
-		#get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+
+		# Asignar la textura al TextureRect dinámicamente
+		var result_texture = load(texture_path)
+		game_result_texture_rect.texture = result_texture
+		game_result_texture_rect.visible = true
+
+	else:
+		# Si el juego terminó por abortar
+		if GlobalData.game_over_abort == true:
+			beep_audio_stream_player.stop()
+			beep_countdown_audio_stream_player.stop()
+			var texture_path = "res://assets/ui/backgrounds/defeat_1_borderless.png"
+			print("Juego terminado por abandono")
+			game_result_label.text = "ABANDONO"
+			blur_overlay.visible = true
+			var material = blur_overlay.material
+			if material is ShaderMaterial:
+				material.set_shader_parameter("darkness_factor", 0.05)
+			audio_stream_player.stop()
+			play_beep_sound("res://assets/audio/sfx/traimory-hit-low-gun-shot-cinematic-trailer-sound-effects-161154.mp3")
+			game_over_control.visible = true
+
+			# Asignar la textura al TextureRect dinámicamente
+			var result_texture = load(texture_path)
+			game_result_texture_rect.texture = result_texture
+			game_result_texture_rect.visible = true
+
 
 ###############################################################################
 ###############################################################################
@@ -887,6 +1042,7 @@ func update_bullying_card():
 	else:
 		# Si no hay cartas de bullying, finalizar el juego
 		print("No quedan cartas de bullying. Terminando el juego.")
+		GlobalData.game_over_time_or_bu = true
 		change_state(GameState.GAME_OVER) # Cambia el estado del juego a "GAME_OVER"
 
 
@@ -967,6 +1123,7 @@ func _on_continue_button_pressed():
 	
 	# Verifica si el juego debe terminar (tiempo finalizado o no hay más cartas en el mazo bu) o iniciar el siguiente turno
 	if countdown_20_minutes <= 0 or deck_manager.deck_bu.size() == 0:
+		GlobalData.game_over_time_or_bu = true
 		change_state(GameState.GAME_OVER)
 	else:
 		replenish_cards()
@@ -1385,7 +1542,7 @@ func _on_continue_options_button_pressed():
 
 func _on_abort_button_pressed():
 	play_beep_sound("res://assets/audio/sfx/click.ogg")
-	GlobalData.abort = true
+	GlobalData.game_over_abort = true
 	change_state(GameState.GAME_OVER)
 
 	# Función para reproducir el sonido
@@ -1399,3 +1556,29 @@ func play_beep_sound(audio_file: String):
 	#if beep_audio_stream_player.playing:
 		#beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()
+
+
+
+# Función para actualizar las texturas de los tokens
+func update_token_textures():
+	 # Mapear los nodos a sus respectivos tipos
+	token_nodes = {
+		"exclusión_social": exclusion_social_token,
+		"físico": fisico_token,
+		"psicológico": psicologico_token,
+		"sexual": sexual_token,
+		"verbal": verbal_token,
+		"ciberbullying": ciberbullying_token
+	}
+	# Iterar sobre los tipos de bullying
+	for bullying_type in GlobalData.token_earned_player.keys():
+		if GlobalData.token_earned_player[bullying_type] > 0:  # Si se ha ganado al menos un token
+			if token_nodes.has(normalize_bullying_type(bullying_type)) and token_textures.has(normalize_bullying_type(bullying_type)):
+				var token_node = token_nodes[bullying_type]
+				var new_texture = token_textures[bullying_type]
+				if token_node and new_texture:
+					token_node.texture = new_texture  # Cambiar la textura
+# Actualizar el Label del token para mostrar el número de tokens ganados
+				var token_label = token_node.get_node("Label")  # Suponiendo que el Label está dentro del nodo del token
+				if token_label:
+					token_label.text = str(GlobalData.token_earned_player[bullying_type])  # Actualizar con el número de tokens
