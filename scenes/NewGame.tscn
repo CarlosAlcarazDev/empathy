@@ -1096,6 +1096,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1143,6 +1144,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/FisicoToken"]
+layout_mode = 0
 offset_left = 428.57
 offset_top = -21.3984
 offset_right = 941.57
@@ -1190,6 +1192,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/PsicologicoToken"]
+layout_mode = 0
 offset_left = 428.571
 offset_top = -14.2859
 offset_right = 941.571
@@ -1237,6 +1240,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/SexualToken"]
+layout_mode = 0
 offset_left = 428.571
 offset_top = -14.2859
 offset_right = 941.571
@@ -1332,6 +1336,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/CiberbullyingToken"]
+layout_mode = 0
 offset_left = 428.571
 offset_top = -14.2859
 offset_right = 941.571
@@ -1458,6 +1463,7 @@ tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1484,6 +1490,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1503,6 +1510,7 @@ tooltip_text = "Token Físico"
 texture = ExtResource("41_xbhwa")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/FisicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1529,6 +1537,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/FisicoToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1548,6 +1557,7 @@ tooltip_text = "Token Psicológico"
 texture = ExtResource("42_fpm0a")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/PsicologicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1574,6 +1584,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/PsicologicoToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1593,6 +1604,7 @@ tooltip_text = "Token Sexual"
 texture = ExtResource("43_jtpoo")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/SexualToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1619,6 +1631,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/SexualToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1638,6 +1651,7 @@ tooltip_text = "Token Verbal"
 texture = ExtResource("44_f5h2d")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/VerbalToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1664,6 +1678,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/VerbalToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1683,6 +1698,7 @@ tooltip_text = "Token Ciberbullying"
 texture = ExtResource("45_87ql6")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenIA/CiberbullyingToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1709,6 +1725,7 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/CiberbullyingToken"]
+layout_mode = 0
 offset_left = 428.573
 offset_top = -7.14286
 offset_right = 941.573
@@ -1913,6 +1930,7 @@ tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1949,6 +1967,7 @@ tooltip_text = "Token Físico"
 texture = ExtResource("41_xbhwa")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/FisicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1985,6 +2004,7 @@ tooltip_text = "Token Psicológico"
 texture = ExtResource("42_fpm0a")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/PsicologicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2021,6 +2041,7 @@ tooltip_text = "Token Sexual"
 texture = ExtResource("43_jtpoo")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/SexualToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2057,6 +2078,7 @@ tooltip_text = "Token Verbal"
 texture = ExtResource("44_f5h2d")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/VerbalToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2093,6 +2115,7 @@ tooltip_text = "Token Ciberbullying"
 texture = ExtResource("45_87ql6")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/CiberbullyingToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2236,6 +2259,7 @@ tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2272,6 +2296,7 @@ tooltip_text = "Token Físico"
 texture = ExtResource("41_xbhwa")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/FisicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2308,6 +2333,7 @@ tooltip_text = "Token Psicológico"
 texture = ExtResource("42_fpm0a")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/PsicologicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2344,6 +2370,7 @@ tooltip_text = "Token Sexual"
 texture = ExtResource("43_jtpoo")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/SexualToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2380,6 +2407,7 @@ tooltip_text = "Token Verbal"
 texture = ExtResource("44_f5h2d")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/VerbalToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2416,6 +2444,7 @@ tooltip_text = "Token Ciberbullying"
 texture = ExtResource("45_87ql6")
 
 [node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/CiberbullyingToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0

@@ -37,6 +37,37 @@ func _ready():
 	GlobalData.total_player_score = 0
 	GlobalData.game_over_time_or_bu = false
 	GlobalData.game_over_abort = false
+	GlobalData.token_earned_ia["verbal"] = 0
+	GlobalData.token_earned_ia["exclusión_social"] = 0
+	GlobalData.token_earned_ia["psicológico"] = 0
+	GlobalData.token_earned_ia["físico"] = 0
+	GlobalData.token_earned_ia["sexual"] = 0
+	GlobalData.token_earned_ia["ciberbullying"] = 0
+	GlobalData.token_earned_player["verbal"] = 0
+	GlobalData.token_earned_player["exclusión_social"] = 0
+	GlobalData.token_earned_player["psicológico"] = 0
+	GlobalData.token_earned_player["físico"] = 0
+	GlobalData.token_earned_player["sexual"] = 0
+	GlobalData.token_earned_player["ciberbullying"] = 0
+	GlobalData.token_combos_ia["verbal"] = 0
+	GlobalData.token_combos_ia["exclusión_social"] = 0
+	GlobalData.token_combos_ia["psicológico"] = 0
+	GlobalData.token_combos_ia["físico"] = 0
+	GlobalData.token_combos_ia["sexual"] = 0
+	GlobalData.token_combos_ia["ciberbullying"] = 0
+	GlobalData.token_combos_player["verbal"] = 0
+	GlobalData.token_combos_player["exclusión_social"] = 0
+	GlobalData.token_combos_player["psicológico"] = 0
+	GlobalData.token_combos_player["físico"] = 0
+	GlobalData.token_combos_player["sexual"] = 0
+	GlobalData.token_combos_player["ciberbullying"] = 0
+	
+
+	print("comb1: GlobalData.token_combos_player", GlobalData.token_combos_player)
+	print("comb1: GlobalData.token_earned_player", GlobalData.token_earned_player)
+	print("comb1: GlobalData.token_combos_ia", GlobalData.token_combos_ia)
+	print("comb1: GlobalData.token_earned_ia", GlobalData.token_earned_ia)
+
 
 
 	audio_stream_player.connect("finished", Callable(self, "_on_audio_stream_player_finished"))

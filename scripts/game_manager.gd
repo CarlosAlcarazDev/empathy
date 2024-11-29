@@ -295,6 +295,32 @@ const JSON_CORRECT_STRATEGY_PATH = "res://data/correct_strategy.json"
 func _ready():
 	
 	randomize() #Asegura que se inicie el generados de numeros aleatorios
+	GlobalData.token_earned_ia["verbal"] = 0
+	GlobalData.token_earned_ia["exclusión_social"] = 0
+	GlobalData.token_earned_ia["psicológico"] = 0
+	GlobalData.token_earned_ia["físico"] = 0
+	GlobalData.token_earned_ia["sexual"] = 0
+	GlobalData.token_earned_ia["ciberbullying"] = 0
+	GlobalData.token_earned_player["verbal"] = 0
+	GlobalData.token_earned_player["exclusión_social"] = 0
+	GlobalData.token_earned_player["psicológico"] = 0
+	GlobalData.token_earned_player["físico"] = 0
+	GlobalData.token_earned_player["sexual"] = 0
+	GlobalData.token_earned_player["ciberbullying"] = 0
+	GlobalData.token_combos_ia["verbal"] = 0
+	GlobalData.token_combos_ia["exclusión_social"] = 0
+	GlobalData.token_combos_ia["psicológico"] = 0
+	GlobalData.token_combos_ia["físico"] = 0
+	GlobalData.token_combos_ia["sexual"] = 0
+	GlobalData.token_combos_ia["ciberbullying"] = 0
+	GlobalData.token_combos_player["verbal"] = 0
+	GlobalData.token_combos_player["exclusión_social"] = 0
+	GlobalData.token_combos_player["psicológico"] = 0
+	GlobalData.token_combos_player["físico"] = 0
+	GlobalData.token_combos_player["sexual"] = 0
+	GlobalData.token_combos_player["ciberbullying"] = 0
+	
+	update_token_textures()
 	# Configurar el volumen del sonido
 	var volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_countdown_audio_stream_player.volume_db = volume_db
@@ -1841,10 +1867,10 @@ var last_token_count_ia: Dictionary = {
 }
 # Función para actualizar las texturas de los tokens
 func update_token_textures():
-	print("combo: GlobalData.token_combos_player", GlobalData.token_combos_player)
-	print("combo: GlobalData.token_earned_player", GlobalData.token_earned_player)
-	print("combo: GlobalData.token_combos_ia", GlobalData.token_combos_ia)
-	print("combo: GlobalData.token_earned_ia", GlobalData.token_earned_ia)
+	print("combo2: GlobalData.token_combos_player", GlobalData.token_combos_player)
+	print("combo2: GlobalData.token_earned_player", GlobalData.token_earned_player)
+	print("combo2: GlobalData.token_combos_ia", GlobalData.token_combos_ia)
+	print("combo2: GlobalData.token_earned_ia", GlobalData.token_earned_ia)
 
 	#
 	## Actualizar el ComboHealth para cada tipo de bullying
