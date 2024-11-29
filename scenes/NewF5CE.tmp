@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=100 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://dukyjdb258r8x" path="res://assets/images/backgrounds/bg_12.webp" id="2_hikk8"]
@@ -46,10 +46,11 @@
 [ext_resource type="Texture2D" uid="uid://7qe3of5u2ij1" path="res://assets/ui/tokens/token_exclusión_social.png" id="32_wr4bk"]
 [ext_resource type="Texture2D" uid="uid://dla8767vymhyx" path="res://assets/ui/tokens/token_físico.png" id="33_pjo0i"]
 [ext_resource type="Texture2D" uid="uid://lgvchbwtyqv6" path="res://assets/ui/tokens/token_psicologico.png" id="34_ih81s"]
+[ext_resource type="Texture2D" uid="uid://db8qp3kuo3bl5" path="res://assets/ui/tokens/token_sexual.png" id="35_4vy8p"]
 [ext_resource type="Texture2D" uid="uid://ba7f5a0qbxhj3" path="res://assets/ui/icons/combo_health_10.png" id="35_733o0"]
 [ext_resource type="Texture2D" uid="uid://d0bhyauxi414w" path="res://assets/ui/score/score_frame.png" id="35_iq1e5"]
 [ext_resource type="Script" path="res://scripts/control_token.gd" id="36_1rugo"]
-[ext_resource type="Texture2D" uid="uid://3iggth5vserg" path="res://assets/ui/icons/combo_health_1.png" id="36_22phj"]
+[ext_resource type="Texture2D" uid="uid://chxua1x0n4lx3" path="res://assets/ui/tokens/token_verbal.png" id="36_cv20o"]
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="37_8j3cm"]
 [ext_resource type="Texture2D" uid="uid://up7rceiha7li" path="res://assets/ui/score/boy_1.png" id="37_a0yc1"]
 [ext_resource type="Texture2D" uid="uid://cvu6jcmbylna3" path="res://assets/ui/backgrounds/victory_2.png" id="38_a25bx"]
@@ -1060,9 +1061,9 @@ text = "0"
 [node name="ExclusionSocialToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
 layout_mode = 0
 offset_left = -84.0002
-offset_top = 259.0
+offset_top = 260.0
 offset_right = 416.0
-offset_bottom = 759.0
+offset_bottom = 760.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
@@ -1096,10 +1097,10 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/ExclusionSocialToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
+offset_left = 428.571
+offset_top = -14.2859
+offset_right = 941.571
+offset_bottom = 4971.71
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("35_733o0")
 stretch_mode = 2
@@ -1143,10 +1144,10 @@ text = "0"
 horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/FisicoToken"]
-offset_left = 428.57
-offset_top = -21.3984
-offset_right = 941.57
-offset_bottom = 4964.6
+offset_left = 428.571
+offset_top = -14.2859
+offset_right = 941.571
+offset_bottom = 4971.71
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("35_733o0")
 stretch_mode = 2
@@ -1285,12 +1286,12 @@ horizontal_alignment = 1
 
 [node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenPlayer/VerbalToken"]
 layout_mode = 0
-offset_left = 428.572
-offset_top = -21.4141
-offset_right = 941.572
-offset_bottom = 4964.59
+offset_left = 428.571
+offset_top = -14.2859
+offset_right = 941.571
+offset_bottom = 4971.71
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("36_22phj")
+texture = ExtResource("35_733o0")
 stretch_mode = 2
 
 [node name="CiberbullyingToken" type="TextureRect" parent="UI/ScoreTokenPlayer"]
@@ -1457,41 +1458,6 @@ scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
 
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/ExclusionSocialToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/ExclusionSocialToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/ExclusionSocialToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
-
 [node name="FisicoToken" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
 offset_left = -84.0
@@ -1501,41 +1467,6 @@ offset_bottom = 552.001
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Físico"
 texture = ExtResource("41_xbhwa")
-
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/FisicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/FisicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/FisicoToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
 
 [node name="PsicologicoToken" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
@@ -1547,41 +1478,6 @@ scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Psicológico"
 texture = ExtResource("42_fpm0a")
 
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/PsicologicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/PsicologicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/PsicologicoToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
-
 [node name="SexualToken" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
 offset_left = -84.0
@@ -1591,41 +1487,6 @@ offset_bottom = 690.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Sexual"
 texture = ExtResource("43_jtpoo")
-
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/SexualToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/SexualToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/SexualToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
 
 [node name="VerbalToken" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
@@ -1637,41 +1498,6 @@ scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Verbal"
 texture = ExtResource("44_f5h2d")
 
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/VerbalToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/VerbalToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/VerbalToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
-
 [node name="CiberbullyingToken" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
 offset_left = -84.0
@@ -1681,41 +1507,6 @@ offset_bottom = 480.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Ciberbullying"
 texture = ExtResource("45_87ql6")
-
-[node name="Panel" type="Panel" parent="UI/ScoreTokenIA/CiberbullyingToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/ScoreTokenIA/CiberbullyingToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
-
-[node name="ComboHealth" type="TextureRect" parent="UI/ScoreTokenIA/CiberbullyingToken"]
-offset_left = 428.573
-offset_top = -7.14286
-offset_right = 941.573
-offset_bottom = 4978.86
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("35_733o0")
-stretch_mode = 2
 
 [node name="IATextureRect" type="TextureRect" parent="UI/ScoreTokenIA"]
 layout_mode = 0
@@ -1910,33 +1701,7 @@ offset_right = 740.0
 offset_bottom = 757.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Exclusión Social"
-texture = ExtResource("40_hppje")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/ExclusionSocialToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/ExclusionSocialToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("32_wr4bk")
 
 [node name="FisicoToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -1946,33 +1711,7 @@ offset_right = 740.0
 offset_bottom = 552.001
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Físico"
-texture = ExtResource("41_xbhwa")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/FisicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/FisicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("33_pjo0i")
 
 [node name="PsicologicoToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -1982,33 +1721,7 @@ offset_right = 740.0
 offset_bottom = 622.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Psicológico"
-texture = ExtResource("42_fpm0a")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/PsicologicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/PsicologicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("34_ih81s")
 
 [node name="SexualToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -2018,33 +1731,7 @@ offset_right = 740.0
 offset_bottom = 690.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Sexual"
-texture = ExtResource("43_jtpoo")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/SexualToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/SexualToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("35_4vy8p")
 
 [node name="VerbalToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -2054,33 +1741,7 @@ offset_right = 740.0
 offset_bottom = 411.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Verbal"
-texture = ExtResource("44_f5h2d")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/VerbalToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/VerbalToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("36_cv20o")
 
 [node name="CiberbullyingToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -2090,33 +1751,7 @@ offset_right = 740.0
 offset_bottom = 480.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Ciberbullying"
-texture = ExtResource("45_87ql6")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/CiberbullyingToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA/CiberbullyingToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+texture = ExtResource("31_v30i8")
 
 [node name="IATextureRect" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenIA"]
 layout_mode = 0
@@ -2234,32 +1869,7 @@ offset_bottom = 757.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Exclusión Social"
 texture = ExtResource("40_hppje")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ExclusionSocialToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ExclusionSocialToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="FisicoToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0
@@ -2270,32 +1880,7 @@ offset_bottom = 552.001
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Físico"
 texture = ExtResource("41_xbhwa")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/FisicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/FisicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="PsicologicoToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0
@@ -2306,32 +1891,7 @@ offset_bottom = 622.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Psicológico"
 texture = ExtResource("42_fpm0a")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/PsicologicoToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/PsicologicoToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="SexualToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0
@@ -2342,32 +1902,7 @@ offset_bottom = 690.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Sexual"
 texture = ExtResource("43_jtpoo")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/SexualToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/SexualToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="VerbalToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0
@@ -2378,32 +1913,7 @@ offset_bottom = 411.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Verbal"
 texture = ExtResource("44_f5h2d")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/VerbalToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/VerbalToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="CiberbullyingToken" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0
@@ -2414,32 +1924,7 @@ offset_bottom = 480.0
 scale = Vector2(0.14, 0.14)
 tooltip_text = "Token Ciberbullying"
 texture = ExtResource("45_87ql6")
-
-[node name="Panel" type="Panel" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/CiberbullyingToken"]
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 190.0
-offset_bottom = 190.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_t5in8")
-
-[node name="Label" type="Label" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/CiberbullyingToken/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -147.0
-offset_right = 125.0
-offset_bottom = 147.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_tilu5")
-theme_override_font_sizes/font_size = 250
-text = "0"
-horizontal_alignment = 1
+script = ExtResource("36_1rugo")
 
 [node name="PlayerTextureRect" type="TextureRect" parent="UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"]
 layout_mode = 0

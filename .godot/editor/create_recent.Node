@@ -1,5 +1,6 @@
-Control
 TextureRect
+TextureProgressBar
+Control
 Panel
 Label
 AudioStreamPlayer
@@ -11,4 +12,3 @@ HSlider
 HSeparator
 ColorRect
 Line2D
-Polygon2D

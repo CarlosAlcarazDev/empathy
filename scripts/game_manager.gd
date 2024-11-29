@@ -77,7 +77,7 @@ var current_state = GameState.PREPARE
 
 # Constantes para los tiempos de cuenta atrás
 const COUNTDOWN_30_SECONDS = 4 * 60  # En segundos (5 minutos) 
-const COUNTDOWN_20_MINUTES = 4 * 60  # En segundos (25 minutos)
+const COUNTDOWN_20_MINUTES = 2 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
 var countdown_30_seconds = COUNTDOWN_30_SECONDS # Temporizador de turno
@@ -154,6 +154,7 @@ var countdown_sound_playing = false
 
 @onready var score_token_ia = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA"
 @onready var score_token_player = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer"
+@onready var vs_label = $"../UI/GameOver/GameResultTextureRect/VSLabel"
 
 @onready var game_over_player_scorelabel = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ShowScorePlayer/PlayerScorelabel"
 @onready var game_over_ia_score_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/ShowScoreIA/IAScoreLabel"
@@ -171,6 +172,15 @@ var countdown_sound_playing = false
 @onready var verbal_token = $"../UI/ScoreTokenPlayer/VerbalToken"
 @onready var ciberbullying_token = $"../UI/ScoreTokenPlayer/CiberbullyingToken"
 
+@onready var exclusion_social_token_ia = $"../UI/ScoreTokenIA/ExclusionSocialToken"
+@onready var fisico_token_ia = $"../UI/ScoreTokenIA/FisicoToken"
+@onready var psicologico_token_ia = $"../UI/ScoreTokenIA/PsicologicoToken"
+@onready var sexual_token_ia = $"../UI/ScoreTokenIA/SexualToken"
+@onready var verbal_token_ia = $"../UI/ScoreTokenIA/VerbalToken"
+@onready var ciberbullying_token_ia = $"../UI/ScoreTokenIA/CiberbullyingToken"
+
+
+
 @onready var audio_stream_token = $"../UI/AudioStreamToken"
 @onready var subtitles_label = $"../UI/SubtitlesControl/Panel/SubtitlesLabel"
 @onready var subtitles_control = $"../UI/SubtitlesControl"
@@ -180,6 +190,21 @@ var countdown_sound_playing = false
 @onready var intervention_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/InterventionTextureRect"
 @onready var comunication_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/ComunicationTextureRect"
 @onready var conflict_resolution_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/ConflictResolutionTextureRect"
+
+@onready var exclusion_combo_health = $"../UI/ScoreTokenPlayer/ExclusionSocialToken/ComboHealth"
+@onready var fisic_combo_health = $"../UI/ScoreTokenPlayer/FisicoToken/ComboHealth"
+@onready var psicologic_combo_health = $"../UI/ScoreTokenPlayer/PsicologicoToken/ComboHealth"
+@onready var sexual_combo_health = $"../UI/ScoreTokenPlayer/SexualToken/ComboHealth"
+@onready var verbal_combo_health = $"../UI/ScoreTokenPlayer/VerbalToken/ComboHealth"
+@onready var ciber_combo_health = $"../UI/ScoreTokenPlayer/CiberbullyingToken/ComboHealth"
+
+@onready var exclusion_combo_health_ia = $"../UI/ScoreTokenIA/ExclusionSocialToken/ComboHealth"
+@onready var fisic_combo_health_ia = $"../UI/ScoreTokenIA/FisicoToken/ComboHealth"
+@onready var psicologic_combo_health_ia = $"../UI/ScoreTokenIA/PsicologicoToken/ComboHealth"
+@onready var sexual_combo_health_ia = $"../UI/ScoreTokenIA/SexualToken/ComboHealth"
+@onready var verbal_combo_health_ia = $"../UI/ScoreTokenIA/VerbalToken/ComboHealth"
+@onready var ciber_combo_health_ia = $"../UI/ScoreTokenIA/CiberbullyingToken/ComboHealth"
+
 
 
 # Diccionario con las nuevas texturas para los tokens
@@ -236,7 +261,21 @@ var token_rules: Dictionary = {
 }
 # Diccionario con los nodos de los tokens
 var token_nodes: Dictionary = {}
+var token_nodes_ia: Dictionary = {}
 
+# Mapear el progreso de combos a las texturas correspondientes
+var combo_health_textures: Dictionary = {
+	1: preload("res://assets/ui/icons/combo_health_1.png"),
+	2: preload("res://assets/ui/icons/combo_health_2.png"),
+	3: preload("res://assets/ui/icons/combo_health_3.png"),
+	4: preload("res://assets/ui/icons/combo_health_4.png"),
+	5: preload("res://assets/ui/icons/combo_health_5.png"),
+	6: preload("res://assets/ui/icons/combo_health_6.png"),
+	7: preload("res://assets/ui/icons/combo_health_7.png"),
+	8: preload("res://assets/ui/icons/combo_health_8.png"),
+	9: preload("res://assets/ui/icons/combo_health_9.png"),
+	10: preload("res://assets/ui/icons/combo_health_10.png")
+}
 
 
 var sync_timer = Timer.new()
@@ -606,6 +645,9 @@ func update_combo_ia(ia_score, valid_combination):
 		if GlobalData.token_combos_ia.has(bullying_type):
 			GlobalData.token_combos_ia[bullying_type] += 1  # Sumar 1 al contador del tipo de bullying correspondiente
 	
+			var current_combos = GlobalData.token_combos_ia[bullying_type]
+			check_and_award_tokens_ia(bullying_type, current_combos)
+			
 	combo_label_ia.text = str(GlobalData.combo_ia)
 	print("GlobalData.combo_ia", str(GlobalData.combo_ia))
 
@@ -624,7 +666,21 @@ func check_and_award_tokens(bullying_type: String, combo_count: int):
 		if GlobalData.token_earned_player.has(normalize_bullying_type(bullying_type)):
 			GlobalData.token_earned_player[normalize_bullying_type(bullying_type)] = tokens_earned
 
-	
+# Verifica y otorga tokens según los combos realizados
+func check_and_award_tokens_ia(bullying_type: String, combo_count: int):
+	if token_rules.has(normalize_bullying_type(bullying_type)):
+		var rule = token_rules[normalize_bullying_type(bullying_type)]
+		var max_tokens = rule["max_tokens"]
+		var combos_per_token = rule["combos_per_token"]
+
+		# Calcular cuántos tokens corresponden según los combos actuales
+		var tokens_earned = min(combo_count / combos_per_token, max_tokens)
+		
+				# Guardar en la variable global los tokens ganados
+		if GlobalData.token_earned_ia.has(normalize_bullying_type(bullying_type)):
+			GlobalData.token_earned_ia[normalize_bullying_type(bullying_type)] = tokens_earned
+
+		
 # Acciones al final del turno
 func end_turn_actions():
 	#ready_button.disabled = true
@@ -757,17 +813,38 @@ func game_over():
 		game_over_player_combo_label.text = str(GlobalData.combo_player)
 		game_over_player_scorelabel.text = str(GlobalData.total_player_score)
 		game_over_ia_score_label.text = str(GlobalData.total_ia_score)
-
+		score_token_player.get_node("ExclusionSocialToken/Panel/Label").text = str(GlobalData.token_earned_player["exclusión_social"])
+		score_token_player.get_node("FisicoToken/Panel/Label").text = str(GlobalData.token_earned_player["físico"])
+		score_token_player.get_node("PsicologicoToken/Panel/Label").text = str(GlobalData.token_earned_player["psicológico"])
+		score_token_player.get_node("SexualToken/Panel/Label").text = str(GlobalData.token_earned_player["sexual"])
+		score_token_player.get_node("VerbalToken/Panel/Label").text = str(GlobalData.token_earned_player["verbal"])
+		score_token_player.get_node("CiberbullyingToken/Panel/Label").text = str(GlobalData.token_earned_player["ciberbullying"])
+		
+		score_token_ia.get_node("ExclusionSocialToken/Panel/Label").text = str(GlobalData.token_earned_ia["exclusión_social"])
+		score_token_ia.get_node("FisicoToken/Panel/Label").text = str(GlobalData.token_earned_ia["físico"])
+		score_token_ia.get_node("PsicologicoToken/Panel/Label").text = str(GlobalData.token_earned_ia["psicológico"])
+		score_token_ia.get_node("SexualToken/Panel/Label").text = str(GlobalData.token_earned_ia["sexual"])
+		score_token_ia.get_node("VerbalToken/Panel/Label").text = str(GlobalData.token_earned_ia["verbal"])
+		score_token_ia.get_node("CiberbullyingToken/Panel/Label").text = str(GlobalData.token_earned_ia["ciberbullying"])
+		
+		update_token_textures_game_over()
+		
 		if GlobalData.total_player_score > GlobalData.total_ia_score:
 			# Victoria
 			print("time out: victoria")
 			game_result_label.text = "VICTORIA"
 			texture_path = "res://assets/ui/backgrounds/victory_2.png"
+			score_token_ia.visible = true
+			score_token_player.visible = true
+			vs_label.visible = true
 		elif GlobalData.total_player_score < GlobalData.total_ia_score:
 			# Derrota
 			print("time out: derrota")
 			game_result_label.text = "DERROTA"
 			texture_path = "res://assets/ui/backgrounds/defeat_1_borderless.png"
+			score_token_ia.visible = true
+			score_token_player.visible = true
+			vs_label.visible = true
 		else:
 			# Empate
 			print("time out: empate")
@@ -796,6 +873,9 @@ func game_over():
 			var texture_path = "res://assets/ui/backgrounds/defeat_1_borderless.png"
 			print("Juego terminado por abandono")
 			game_result_label.text = "ABANDONO"
+			score_token_ia.visible = false
+			score_token_player.visible = false
+			vs_label.visible = false
 			blur_overlay.visible = true
 			var material = blur_overlay.material
 			if material is ShaderMaterial:
@@ -1750,8 +1830,112 @@ var last_token_count: Dictionary = {
 	"sexual": 0,
 	"verbal": 0
 }
+# Diccionario para rastrear la cantidad de tokens previamente obtenidos
+var last_token_count_ia: Dictionary = {
+	"ciberbullying": 0,
+	"exclusión_social": 0,
+	"físico": 0,
+	"psicológico": 0,
+	"sexual": 0,
+	"verbal": 0
+}
 # Función para actualizar las texturas de los tokens
 func update_token_textures():
+	print("combo: GlobalData.token_combos_player", GlobalData.token_combos_player)
+	print("combo: GlobalData.token_earned_player", GlobalData.token_earned_player)
+	print("combo: GlobalData.token_combos_ia", GlobalData.token_combos_ia)
+	print("combo: GlobalData.token_earned_ia", GlobalData.token_earned_ia)
+
+	#
+	## Actualizar el ComboHealth para cada tipo de bullying
+	var combos_per_token = token_rules["verbal"]["combos_per_token"]
+	var combos = GlobalData.token_combos_player["verbal"]		
+	var progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	verbal_combo_health.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["físico"]["combos_per_token"]
+	combos = GlobalData.token_combos_player["físico"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	fisic_combo_health.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["sexual"]["combos_per_token"]
+	combos = GlobalData.token_combos_player["sexual"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	sexual_combo_health.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["psicológico"]["combos_per_token"]
+	combos = GlobalData.token_combos_player["psicológico"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	psicologic_combo_health.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["exclusión_social"]["combos_per_token"]
+	combos = GlobalData.token_combos_player["exclusión_social"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	exclusion_combo_health.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["ciberbullying"]["combos_per_token"]
+	combos = GlobalData.token_combos_player["ciberbullying"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	ciber_combo_health.texture = combo_health_textures[progress]				
+	
+	#
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["verbal"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["verbal"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	verbal_combo_health_ia.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["físico"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["físico"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	fisic_combo_health_ia.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["sexual"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["sexual"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	sexual_combo_health_ia.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["psicológico"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["psicológico"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	psicologic_combo_health_ia.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["exclusión_social"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["exclusión_social"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	exclusion_combo_health_ia.texture = combo_health_textures[progress]
+	## Actualizar el ComboHealth para cada tipo de bullying
+	combos_per_token = token_rules["ciberbullying"]["combos_per_token"]
+	combos = GlobalData.token_combos_ia["ciberbullying"]		
+	progress = int(ceil(float(combos % combos_per_token) / combos_per_token * 10))
+	print("combo: progress", progress)
+	progress = clamp(progress, 1, 10)
+	ciber_combo_health_ia.texture = combo_health_textures[progress]				
+	
+	
+		
 	 # Mapear los nodos a sus respectivos tipos
 	token_nodes = {
 		"exclusión_social": exclusion_social_token,
@@ -1761,16 +1945,26 @@ func update_token_textures():
 		"verbal": verbal_token,
 		"ciberbullying": ciberbullying_token
 	}
-	# Iterar sobre los tipos de bullying
+		 # Mapear los nodos a sus respectivos tipos
+	token_nodes_ia = {
+		"exclusión_social": exclusion_social_token_ia,
+		"físico": fisico_token_ia,
+		"psicológico": psicologico_token_ia,
+		"sexual": sexual_token_ia,
+		"verbal": verbal_token_ia,
+		"ciberbullying": ciberbullying_token_ia
+	}
+	# Iterar sobre los tipos de bullying player
 	for bullying_type in GlobalData.token_earned_player.keys():
 		if GlobalData.token_earned_player[bullying_type] > 0:  # Si se ha ganado al menos un token
 			if token_nodes.has(normalize_bullying_type(bullying_type)) and token_textures.has(normalize_bullying_type(bullying_type)):
 				var token_node = token_nodes[bullying_type]
 				var new_texture = token_textures[bullying_type]
+				
 				if token_node and new_texture:
 					token_node.texture = new_texture  # Cambiar la textura
-# Actualizar el Label del token para mostrar el número de tokens ganados
-				var token_label = token_node.get_node("Panel/Label")  # Suponiendo que el Label está dentro del nodo del token
+				# Actualizar el Label del token para mostrar el número de tokens ganados
+				var token_label = token_node.get_node("Panel/Label")  
 				if token_label:
 					token_label.text = str(GlobalData.token_earned_player[bullying_type])  # Actualizar con el número de tokens
 
@@ -1779,6 +1973,25 @@ func update_token_textures():
 				if current_count > last_token_count[bullying_type]:  # Si hay un nuevo token
 					play_token_audio(normalize_bullying_type(bullying_type))
 					last_token_count[bullying_type] = current_count  # Actualizar el conteo
+	# Iterar sobre los tipos de bullying ia
+	for bullying_type in GlobalData.token_earned_ia.keys():
+		if GlobalData.token_earned_ia[bullying_type] > 0:  # Si se ha ganado al menos un token
+			if token_nodes_ia.has(normalize_bullying_type(bullying_type)) and token_textures.has(normalize_bullying_type(bullying_type)):
+				var token_node = token_nodes_ia[bullying_type]
+				var new_texture = token_textures[bullying_type]
+				
+				if token_node and new_texture:
+					token_node.texture = new_texture  # Cambiar la textura
+				# Actualizar el Label del token para mostrar el número de tokens ganados
+				var token_label = token_node.get_node("Panel/Label")  
+				if token_label:
+					token_label.text = str(GlobalData.token_earned_ia[bullying_type])  # Actualizar con el número de tokens
+
+				# Verificar si el número de tokens ha aumentado
+				var current_count_ia = GlobalData.token_earned_ia[bullying_type]
+				if current_count_ia > last_token_count_ia[bullying_type]:  # Si hay un nuevo token
+					#play_token_audio(normalize_bullying_type(bullying_type))
+					last_token_count_ia[bullying_type] = current_count_ia  # Actualizar el conteo
 
 		
 # Diccionario con los archivos de audio para cada token
@@ -1824,6 +2037,7 @@ var token_sfx_messages: Dictionary = {
 	"res://assets/audio/sfx/exclusión_social_2.ogg": "¡Increíble! Has desbloqueado un token por abordar la exclusión social."
 }
 func play_token_audio(token_type: String):
+	print("suena audio")
 	if token_sfx.has(token_type):
 		var sfx_list = token_sfx[token_type]
 		if sfx_list.size() > 0:
@@ -1834,6 +2048,8 @@ func play_token_audio(token_type: String):
 			# Reproducir el archivo de audio
 			#var audio_player = $"../UI/AudioStreamToken"  # Asegúrate de tener un nodo AudioStreamPlayer en tu escena
 			audio_stream_token.stream = selected_sfx
+			var volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
+			audio_stream_token.volume_db = volume_db
 			audio_stream_token.play()
 
 			# Llamada a token_sfx_messages para obtener el mensaje asociado
@@ -1850,3 +2066,43 @@ func display_message(message: String):
 func _on_audio_stream_token_finished():
 	if subtitles_label:
 		subtitles_control.visible = false
+
+
+func update_token_textures_game_over():
+	# Referencia a los nodos de los tokens del jugador
+	var player_token_nodes = {
+		"exclusión_social": score_token_player.get_node("ExclusionSocialToken"),
+		"físico": score_token_player.get_node("FisicoToken"),
+		"psicológico": score_token_player.get_node("PsicologicoToken"),
+		"sexual": score_token_player.get_node("SexualToken"),
+		"verbal": score_token_player.get_node("VerbalToken"),
+		"ciberbullying": score_token_player.get_node("CiberbullyingToken")
+	}
+
+	# Referencia a los nodos de los tokens de la IA
+	var ia_token_nodes = {
+		"exclusión_social": score_token_ia.get_node("ExclusionSocialToken"),
+		"físico": score_token_ia.get_node("FisicoToken"),
+		"psicológico": score_token_ia.get_node("PsicologicoToken"),
+		"sexual": score_token_ia.get_node("SexualToken"),
+		"verbal": score_token_ia.get_node("VerbalToken"),
+		"ciberbullying": score_token_ia.get_node("CiberbullyingToken")
+	}
+
+	# Actualizar las texturas para los tokens del jugador
+	for bullying_type in GlobalData.token_earned_player.keys():
+		if GlobalData.token_earned_player[bullying_type] > 0:
+			if player_token_nodes.has(bullying_type):
+				var token_node = player_token_nodes[bullying_type]
+				if token_textures.has(bullying_type):
+					token_node.texture = token_textures[bullying_type]
+					token_node.get_node("Panel/Label").text = str(GlobalData.token_earned_player[bullying_type])
+
+	# Actualizar las texturas para los tokens de la IA
+	for bullying_type in GlobalData.token_earned_ia.keys():
+		if GlobalData.token_earned_ia[bullying_type] > 0:
+			if ia_token_nodes.has(bullying_type):
+				var token_node = ia_token_nodes[bullying_type]
+				if token_textures.has(bullying_type):
+					token_node.texture = token_textures[bullying_type]
+					token_node.get_node("Panel/Label").text = str(GlobalData.token_earned_ia[bullying_type])

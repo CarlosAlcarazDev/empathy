@@ -3,3 +3,6 @@ res://scripts/MainMenu.gdshader
 res://scenes/NewGame.tscn
 res://scenes/MainMenu.tscn
 res://scenes/CreditsScreen.tscn
+res://scripts/game_manager.gd
+res://scripts/global_data.gd
+res://scripts/new_game.gd

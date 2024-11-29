@@ -10,6 +10,7 @@ extends Control
 @onready var audio_stream_player = $UI/AudioStreamPlayer
 @onready var beep_audio_stream_player = $UI/BeepAudioStreamPlayer
 @onready var beep_countdown_audio_stream_player = $UI/BeepCountdownAudioStreamPlayer
+@onready var audio_stream_token = $UI/AudioStreamToken
 
 # Controlador de canciones
 var current_song_index = -1
@@ -36,7 +37,8 @@ func _ready():
 	GlobalData.total_player_score = 0
 	GlobalData.game_over_time_or_bu = false
 	GlobalData.game_over_abort = false
-	
+
+
 	audio_stream_player.connect("finished", Callable(self, "_on_audio_stream_player_finished"))
 
 	
@@ -45,6 +47,7 @@ func _ready():
 	volume_db = lerp(-80, 0, GameConfig.sfx_volume / 100.0)
 	beep_audio_stream_player.volume_db = volume_db
 	beep_countdown_audio_stream_player.volume_db = volume_db
+	audio_stream_token.volume_db = volume_db
 	start_playlist()
 func start_playlist():
 	# Baraja la lista de canciones para reproducirlas aleatoriamente
