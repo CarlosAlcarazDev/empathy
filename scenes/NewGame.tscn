@@ -1,7 +1,7 @@
-[gd_scene load_steps=94 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=99 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
-[ext_resource type="Texture2D" uid="uid://bk6oojhaayb2d" path="res://assets/images/backgrounds/bg_6.webp" id="2_6p4sg"]
+[ext_resource type="Texture2D" uid="uid://dukyjdb258r8x" path="res://assets/images/backgrounds/bg_12.webp" id="2_hikk8"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_q5ib0"]
 [ext_resource type="Script" path="res://scripts/re_card_1.gd" id="5_goa0y"]
 [ext_resource type="Texture2D" uid="uid://dyyblqjpcax5f" path="res://assets/images/cards/reverses/reverse_ai.png" id="6_p02oi"]
@@ -61,7 +61,12 @@
 [ext_resource type="Texture2D" uid="uid://byqyx0dqaha8r" path="res://assets/ui/tokens/token_sexual_bn.png" id="43_jtpoo"]
 [ext_resource type="Texture2D" uid="uid://cexk6hajb1bwf" path="res://assets/ui/tokens/token_verbal_bn.png" id="44_f5h2d"]
 [ext_resource type="Texture2D" uid="uid://8coj62fmtlkw" path="res://assets/ui/tokens/token_ciberbullying_bn.png" id="45_87ql6"]
+[ext_resource type="Texture2D" uid="uid://dpdi8jch6q4je" path="res://assets/ui/icons/empathy_gradient_blue_red_20_4.png" id="49_p55k3"]
+[ext_resource type="Texture2D" uid="uid://wbnpnr5yjdyq" path="res://assets/ui/icons/apoyo_emocional_gradient_blue_red_20_6.png" id="50_m81ou"]
 [ext_resource type="Script" path="res://scripts/ic_card.gd" id="50_qhjjh"]
+[ext_resource type="Texture2D" uid="uid://h5amphcnjm71" path="res://assets/ui/icons/intervención_gradient_blue_red_20_8.png" id="51_je1lb"]
+[ext_resource type="Texture2D" uid="uid://0dbtgq37xr1x" path="res://assets/ui/icons/comunicacion_gradient_blue_red_20_3.png" id="52_ra073"]
+[ext_resource type="Texture2D" uid="uid://bitq56chkqbw6" path="res://assets/ui/icons/resolución_de_conflictos_gradient_blue_red_20_9.png" id="53_dmsja"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ax13"]
 bg_color = Color(0.6, 0.6, 0.6, 0.694118)
@@ -278,7 +283,7 @@ z_index = -1
 layout_mode = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_6p4sg")
+texture = ExtResource("2_hikk8")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 1
@@ -1064,6 +1069,7 @@ texture = ExtResource("40_hppje")
 script = ExtResource("36_1rugo")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer/ExclusionSocialToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1101,6 +1107,7 @@ texture = ExtResource("41_xbhwa")
 script = ExtResource("36_1rugo")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer/FisicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1138,6 +1145,7 @@ texture = ExtResource("42_fpm0a")
 script = ExtResource("36_1rugo")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer/PsicologicoToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -1175,6 +1183,7 @@ texture = ExtResource("43_jtpoo")
 script = ExtResource("36_1rugo")
 
 [node name="Panel" type="Panel" parent="UI/ScoreTokenPlayer/SexualToken"]
+layout_mode = 0
 offset_left = -60.0
 offset_top = -60.0
 offset_right = 190.0
@@ -2112,10 +2121,72 @@ offset_right = 1375.0
 offset_bottom = 1839.0
 theme_override_fonts/font = ExtResource("7_tilu5")
 theme_override_font_sizes/font_size = 70
-text = "Fomentar un ambiente donde todos se sientan seguros para expresar sus pensamientos y sentimientos sin miedo a ser juzgados. El diálogo abierto es fundamental para la comunicación efectiva y la resolución de conflictos."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="StatsBu" type="Control" parent="DeckManager/DeckBullying/BullyingCard"]
+visible = false
+anchors_preset = 0
+offset_left = 124.0
+offset_top = 1261.0
+offset_right = 164.0
+offset_bottom = 1301.0
+
+[node name="EmpathyTextureRect" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard/StatsBu"]
+z_index = 1
+layout_mode = 1
+offset_left = 72.0
+offset_top = 28.0
+offset_right = 5620.0
+offset_bottom = 540.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("49_p55k3")
+stretch_mode = 2
+
+[node name="EmotionalSupportTextureRect" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard/StatsBu"]
+z_index = 1
+layout_mode = 0
+offset_left = 72.0
+offset_top = 131.0
+offset_right = 5620.0
+offset_bottom = 648.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("50_m81ou")
+stretch_mode = 2
+
+[node name="InterventionTextureRect" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard/StatsBu"]
+z_index = 1
+layout_mode = 0
+offset_left = 72.0
+offset_top = 236.0
+offset_right = 5636.0
+offset_bottom = 748.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("51_je1lb")
+stretch_mode = 2
+
+[node name="ComunicationTextureRect" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard/StatsBu"]
+z_index = 1
+layout_mode = 0
+offset_left = 72.0
+offset_top = 340.0
+offset_right = 5620.0
+offset_bottom = 852.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("52_ra073")
+stretch_mode = 2
+
+[node name="ConflictResolutionTextureRect" type="TextureRect" parent="DeckManager/DeckBullying/BullyingCard/StatsBu"]
+z_index = 1
+layout_mode = 0
+offset_left = 72.0
+offset_top = 444.0
+offset_right = 5620.0
+offset_bottom = 956.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("53_dmsja")
+stretch_mode = 2
 
 [node name="DeckPlayer" type="Control" parent="DeckManager"]
 anchors_preset = 0
@@ -2237,6 +2308,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="EmpathyTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
+visible = false
+z_index = 1
+layout_mode = 1
+offset_left = 196.0
+offset_top = 1381.31
+offset_right = 5744.0
+offset_bottom = 1893.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("49_p55k3")
+stretch_mode = 2
+
+[node name="EmotionalSupportTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.0
+offset_top = 1484.31
+offset_right = 5744.0
+offset_bottom = 2001.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("50_m81ou")
+stretch_mode = 2
+
+[node name="InterventionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard1"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.0
+offset_top = 1589.31
+offset_right = 5760.0
+offset_bottom = 2101.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("51_je1lb")
+stretch_mode = 2
+
 [node name="RECard2" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
 offset_left = 557.3
@@ -2353,6 +2460,42 @@ text = "Involucrarse de manera directa en ofrecer ayuda y soporte a quienes lo n
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="EmpathyTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2"]
+visible = false
+z_index = 1
+layout_mode = 1
+offset_left = 196.005
+offset_top = 1381.31
+offset_right = 5744.0
+offset_bottom = 1893.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("49_p55k3")
+stretch_mode = 2
+
+[node name="EmotionalSupportTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.005
+offset_top = 1484.31
+offset_right = 5744.0
+offset_bottom = 2001.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("50_m81ou")
+stretch_mode = 2
+
+[node name="InterventionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard2"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.005
+offset_top = 1589.31
+offset_right = 5760.0
+offset_bottom = 2101.31
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("51_je1lb")
+stretch_mode = 2
 
 [node name="RECard3" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
@@ -2471,6 +2614,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="EmpathyTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3"]
+visible = false
+z_index = 1
+layout_mode = 1
+offset_left = 196.0
+offset_top = 1381.29
+offset_right = 5744.0
+offset_bottom = 1893.29
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("49_p55k3")
+stretch_mode = 2
+
+[node name="EmotionalSupportTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.0
+offset_top = 1484.29
+offset_right = 5744.0
+offset_bottom = 2001.29
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("50_m81ou")
+stretch_mode = 2
+
+[node name="InterventionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/RECard3"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 196.0
+offset_top = 1589.29
+offset_right = 5760.0
+offset_bottom = 2101.29
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("51_je1lb")
+stretch_mode = 2
+
 [node name="HSCard1" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
 offset_left = 962.5
@@ -2587,6 +2766,30 @@ text = "La inteligencia emocional es la capacidad de reconocer, comprender y ges
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="ComunicationTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 186.0
+offset_top = 1461.0
+offset_right = 2251.0
+offset_bottom = 1973.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("52_ra073")
+stretch_mode = 2
+
+[node name="ConflictResolutionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard1"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 186.0
+offset_top = 1576.0
+offset_right = 5205.0
+offset_bottom = 2088.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("53_dmsja")
+stretch_mode = 2
 
 [node name="HSCard2" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
@@ -2705,6 +2908,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="ComunicationTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 186.001
+offset_top = 1461.0
+offset_right = 5734.0
+offset_bottom = 1973.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("52_ra073")
+stretch_mode = 2
+
+[node name="ConflictResolutionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard2"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 186.001
+offset_top = 1576.0
+offset_right = 5734.0
+offset_bottom = 2088.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("53_dmsja")
+stretch_mode = 2
+
 [node name="HSCard3" type="Control" parent="DeckManager/DeckPlayer"]
 anchors_preset = 0
 offset_left = 1367.7
@@ -2821,6 +3048,30 @@ text = "La resiliencia es la capacidad de recuperarse rápidamente de las dificu
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="ComunicationTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = 1461.0
+offset_right = 5734.0
+offset_bottom = 1973.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("52_ra073")
+stretch_mode = 2
+
+[node name="ConflictResolutionTextureRect" type="TextureRect" parent="DeckManager/DeckPlayer/HSCard3"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 186.0
+offset_top = 1576.0
+offset_right = 5734.0
+offset_bottom = 2088.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("53_dmsja")
+stretch_mode = 2
 
 [node name="ICCard" type="Control" parent="DeckManager/DeckPlayer"]
 visible = false

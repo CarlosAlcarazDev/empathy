@@ -1,7 +1,5 @@
-res://scenes/NewGame.tscn
-res://scripts/MainMenu.gdshader
 res://scenes/LoginScreen.tscn
+res://scripts/MainMenu.gdshader
+res://scenes/NewGame.tscn
 res://scenes/MainMenu.tscn
 res://scenes/CreditsScreen.tscn
-res://scripts/game_manager.gd
-res://scripts/deck_manager.gd

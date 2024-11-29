@@ -8,7 +8,7 @@
 	{
 		"id": 2,
 		"nombre": "Rumores maliciosos en línea",
-		"tipo": "Cyberbullying",
+		"tipo": "Ciberbullying",
 		"descripcion": "Se inventan y comparten rumores sobre una estudiante en redes Sociales, arruinando su reputación y haciéndola sentir fatal."
 	},
 	{
@@ -37,7 +37,7 @@
 	},
 	{
 		"id": 7,
-		"nombre": "Publicaciones humillantes en redes Sociales",
+		"nombre": "Publicaciones humillantes en RRSS",
 		"tipo": "Ciberbullying",
 		"descripcion": "Se suben fotos o videos embarazosos de una estudiante a redes Sociales sin su permiso, dejándola súper avergonzada."
 	},
@@ -133,7 +133,7 @@
 	},
 	{
 		"id": 23,
-		"nombre": "Intimidación por estatus socioeconómico",
+		"nombre": "Intimidación por status socioeconómico",
 		"tipo": "Físico",
 		"descripcion": "Burlas y exclusión hacia una estudiante basadas en su situación económica, ya sea por tener más o menos recursos."
 	},
@@ -163,7 +163,7 @@
 	},
 	{
 		"id": 28,
-		"nombre": "Hostigamiento en redes Sociales",
+		"nombre": "Hostigamiento en Redes Sociales",
 		"tipo": "Ciberbullying",
 		"descripcion": "Un estudiante sufre acoso y comentarios negativos constantes en sus perfiles de redes Sociales, que no lo dejan en paz."
 	},
@@ -235,13 +235,13 @@
 	},
 	{
 		"id": 40,
-		"nombre": "Presión para consumir sustacias",
+		"nombre": "Presión para consumir sustancias",
 		"tipo": "Físico",
 		"descripcion": "Se presiona a un estudiante para que consuma alcohol, drogas o tabaco, aunque no quiera hacerlo."
 	},
 	{
 		"id": 41,
-		"nombre": "Intrigas para afectar amistades",
+		"nombre": "Intrigas para afectar a amistades",
 		"tipo": "Exclusión Social",
 		"descripcion": "Se manipula y miente para romper o dañar las amistades de una estudiante, generando conflictos innecesarios."
 	},

@@ -174,6 +174,12 @@ var countdown_sound_playing = false
 @onready var audio_stream_token = $"../UI/AudioStreamToken"
 @onready var subtitles_label = $"../UI/SubtitlesControl/Panel/SubtitlesLabel"
 @onready var subtitles_control = $"../UI/SubtitlesControl"
+@onready var stats_bu = $"../DeckManager/DeckBullying/BullyingCard/StatsBu"
+@onready var empathy_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/EmpathyTextureRect"
+@onready var emotional_support_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/EmotionalSupportTextureRect"
+@onready var intervention_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/InterventionTextureRect"
+@onready var comunication_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/ComunicationTextureRect"
+@onready var conflict_resolution_texture_rect = $"../DeckManager/DeckBullying/BullyingCard/StatsBu/ConflictResolutionTextureRect"
 
 
 # Diccionario con las nuevas texturas para los tokens
@@ -1173,15 +1179,67 @@ func display_card_re(card: CardsRE, card_node: Control, is_reverse: bool):
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
 	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
-	card_node.get_node("DescriptionCardLabel").text = card.descripcion
-	if is_reverse:
-		print("is_reverse ", is_reverse)
-		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
-		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
-	else:
-		print("is_reverse ", is_reverse)
-		card_node.get_node("TypeCardLabel").text = "Descripción"
-		card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	#card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	if GameConfig.game_mode == "Intuición":
+		if is_reverse:
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+			card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+		else:
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Descripción"
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+			
+	elif GameConfig.game_mode == "Estrategia":
+		if is_reverse:
+			card_node.get_node("EmpathyTextureRect").visible = false
+			card_node.get_node("EmotionalSupportTextureRect").visible = false
+			card_node.get_node("InterventionTextureRect").visible = false
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Descripción"
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+		else:
+			card_node.get_node("EmpathyTextureRect").visible = true
+			card_node.get_node("EmotionalSupportTextureRect").visible = true
+			card_node.get_node("InterventionTextureRect").visible = true
+			# Mostrar estadísticas de la carta
+			card_node.get_node("TypeCardLabel").text = "Estadísticas"
+			card_node.get_node("DescriptionCardLabel").text = ""
+
+			# Configurar las estadísticas (Empatía, Apoyo, etc.)
+
+			var icon_path = ""
+			var texture_icon
+
+			# Empatía
+			icon_path = "res://assets/ui/icons/empathy_gradient_blue_red_20_" + str(clamp(card.empatia, 1, 10)) + ".png"
+			texture_icon = load(icon_path)
+			if texture_icon:
+				card_node.get_node("EmpathyTextureRect").texture = texture_icon
+				card_node.get_node("EmpathyTextureRect").tooltip_text = "Empatía: " + str(card.empatia)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Empatía")
+
+			# Apoyo emocional
+			icon_path = "res://assets/ui/icons/apoyo_emocional_gradient_blue_red_20_" + str(clamp(card.apoyo_emocional, 1, 10)) + ".png"
+			texture_icon = load(icon_path)
+			if texture_icon:
+				card_node.get_node("EmotionalSupportTextureRect").texture = texture_icon
+				card_node.get_node("EmotionalSupportTextureRect").tooltip_text = "Apoyo Emocional: " + str(card.apoyo_emocional)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Apoyo Emocional")
+
+			# Intervención
+			icon_path = "res://assets/ui/icons/intervención_gradient_blue_red_20_" + str(clamp(card.intervencion, 1, 10)) + ".png"
+			texture_icon = load(icon_path)
+			if texture_icon:
+				card_node.get_node("InterventionTextureRect").texture = texture_icon
+				card_node.get_node("InterventionTextureRect").tooltip_text = "Intervención: " + str(card.intervencion)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Intervención")
+
+			
+
    
 	# Mapeo de nombres de afinidades a nombres de archivos de imagen
 	var affinity_image_map = {
@@ -1314,16 +1372,81 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta)
 	#card_node.get_node("TypeCardLabel").text = "Empatía: %d, Apoyo: %d, Intervención: %d" % [card.empatia, card.apoyo_emocional, card.intervencion]
-	card_node.get_node("DescriptionCardLabel").text = card.descripcion
-	if is_reverse:
-		print("is_reverse ", is_reverse)
-		card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
-		card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
-	else:
-		print("is_reverse ", is_reverse)
-		card_node.get_node("TypeCardLabel").text = "Descripción"
-		card_node.get_node("DescriptionCardLabel").text = card.descripcion
-   
+	#card_node.get_node("DescriptionCardLabel").text = card.descripcion
+	if GameConfig.game_mode == "Intuición":
+		if is_reverse:
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Contexto en el juego"
+			card_node.get_node("DescriptionCardLabel").text = card.contexto_en_el_juego
+		else:
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Descripción"
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+			
+	elif GameConfig.game_mode == "Estrategia":
+		if is_reverse:
+			card_node.get_node("ComunicationTextureRect").visible = false
+			card_node.get_node("ConflictResolutionTextureRect").visible = false
+			print("is_reverse ", is_reverse)
+			card_node.get_node("TypeCardLabel").text = "Descripción"
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+		else:
+			card_node.get_node("ComunicationTextureRect").visible = true
+			card_node.get_node("ConflictResolutionTextureRect").visible = true
+			# Mostrar estadísticas de la carta
+			card_node.get_node("TypeCardLabel").text = "Estadísticas"
+			card_node.get_node("DescriptionCardLabel").text = ""
+
+			# Configurar las estadísticas (Empatía, Apoyo, etc.)
+
+			var icon_path = ""
+			var texture_icon
+
+				## Empatía
+				#icon_path = "res://assets/ui/icons/empathy_gradient_blue_red_20_" + str(clamp(card.empatia, 1, 10)) + ".png"
+				#texture_icon = load(icon_path)
+				#if texture_icon:
+					#stats_node.get_node("EmpathyTextureRect").texture = texture_icon
+					#stats_node.get_node("EmpathyTextureRect").tooltip_text = "Empatía: " + str(card.empatia)
+				#else:
+					#print("Error: No se pudo cargar la imagen para la estadística Empatía")
+#
+				## Apoyo emocional
+				#icon_path = "res://assets/ui/icons/apoyo_emocional_gradient_blue_red_20_" + str(clamp(card.apoyo_emocional, 1, 10)) + ".png"
+				#texture_icon = load(icon_path)
+				#if texture_icon:
+					#stats_node.get_node("EmotionalSupportTextureRect").texture = texture_icon
+					#stats_node.get_node("EmotionalSupportTextureRect").tooltip_text = "Apoyo Emocional: " + str(card.apoyo_emocional)
+				#else:
+					#print("Error: No se pudo cargar la imagen para la estadística Apoyo Emocional")
+#
+				## Intervención
+				#icon_path = "res://assets/ui/icons/intervención_gradient_blue_red_20_" + str(clamp(card.intervencion, 1, 10)) + ".png"
+				#texture_icon = load(icon_path)
+				#if texture_icon:
+					#stats_node.get_node("InterventionTextureRect").texture = texture_icon
+					#stats_node.get_node("InterventionTextureRect").tooltip_text = "Intervención: " + str(card.intervencion)
+				#else:
+					#print("Error: No se pudo cargar la imagen para la estadística Intervención")
+
+				# Comunicación
+			icon_path = "res://assets/ui/icons/comunicacion_gradient_blue_red_20_" + str(clamp(card.comunicacion, 1, 10)) + ".png"
+			texture_icon = load(icon_path)
+			if texture_icon:
+				card_node.get_node("ComunicationTextureRect").texture = texture_icon
+				card_node.get_node("ComunicationTextureRect").tooltip_text = "Comunicación: " + str(card.comunicacion)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Comunicación")
+
+			# Resolución de Conflictos
+			icon_path = "res://assets/ui/icons/resolución_de_conflictos_gradient_blue_red_20_" + str(clamp(card.resolucion_de_conflictos, 1, 10)) + ".png"
+			texture_icon = load(icon_path)
+			if texture_icon:
+				card_node.get_node("ConflictResolutionTextureRect").texture = texture_icon
+				card_node.get_node("ConflictResolutionTextureRect").tooltip_text = "Resolución de Conflictos: " + str(card.resolucion_de_conflictos)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Resolución de Conflictos")
+
 	# Mapeo de nombres de afinidades a nombres de archivos de imagen
 	var affinity_image_map = {
 		"Sexual": "token_sexual.png",
@@ -1379,12 +1502,15 @@ func display_card_hs(card: CardsHS, card_node: Control, is_reverse: bool):
 
 # Función para actualizar la interfaz con los datos de la carta de bullying
 func display_card_bu(card: CardsBU, card_node: Control, is_reverse: bool):
+
 	# Obtener la referencia al nodo de la imagen de la carta
 	var card_image_node = card_node.get_node("CardImage")
 	# Construir la ruta a la imagen basándonos en el id de la carta
 	var image_path = "res://assets/images/cards/bu/" + str(card.id_carta) + "_BU.webp"
 	# Cargar la imagen
 	var texture = load(image_path)
+	var icon_path = ""  # Crear la ruta completa del icono
+	var texture_icon
 	# Verificar si la textura fue cargada correctamente
 	if texture:
 		# Establecer la textura en el nodo `CardImage`
@@ -1392,32 +1518,83 @@ func display_card_bu(card: CardsBU, card_node: Control, is_reverse: bool):
 	else:
 		# Mostrar un mensaje de error si la imagen no se encuentra
 		print("Error: No se pudo cargar la imagen en la ruta: ", image_path)
-
 	# Actualiza los elementos de la UI en el nodo de la carta especificada
 	card_node.get_node("TitleCardLabel").text = card.nombre
 	card_node.get_node("NumberCardLabel").text = str(card.id_carta) 
-	#card_node.get_node("TypeCardLabel").text = card.tipo
-	if is_reverse:
-		print("is_reverse ", is_reverse)
-		print("updatebu_necesidadclave", card.necesidades_clave)
-		card_node.get_node("TypeCardLabel").text = card.tipo
-		card_node.get_node("DescriptionCardLabel").text = "Enfoque principal: \n" + card.enfoque_principal
-		
-	else:
-		print("is_reverse ", is_reverse)
-		card_node.get_node("DescriptionCardLabel").text = card.descripcion
-		card_node.get_node("TypeCardLabel").text = card.tipo
-	#card_node.get_node("DescriptionCardLabel").text = card.descripcion
-	## Construir el texto para mostrar los stats en DescriptionCardLabel
-	#var description_text = "Descripción:\n" + card.descripcion + "\n\n"
-	#description_text += "Estadísticas:\n"
-	#description_text += "- Empatía: " + str(card.empatia) + "\n"
-	#description_text += "- Apoyo Emocional: " + str(card.apoyo_emocional) + "\n"
-	#description_text += "- Intervención: " + str(card.intervencion) + "\n"
-	#description_text += "- Comunicación: " + str(card.comunicacion) + "\n"
-	#description_text += "- Resolución de Conflictos: " + str(card.resolucion_de_conflictos) + "\n\n"
-## Asignar el texto formateado al nodo DescriptionCardLabel
-	#card_node.get_node("DescriptionCardLabel").text = description_text
+	card_node.get_node("TypeCardLabel").text = card.tipo
+	# Verifica el modo de juego
+	if GameConfig.game_mode == "Intuición":
+
+		#card_node.get_node("TypeCardLabel").text = card.tipo
+		if is_reverse:
+			print("is_reverse ", is_reverse)
+			print("updatebu_necesidadclave", card.necesidades_clave)
+			
+			card_node.get_node("DescriptionCardLabel").text = "Enfoque principal: \n" + card.enfoque_principal
+			
+		else:
+			print("is_reverse ", is_reverse)
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+			
+	elif GameConfig.game_mode == "Estrategia":
+		# Modo Estrategia:
+				# Actualiza los elementos de la UI en el nodo de la carta especificada
+		#card_node.get_node("TitleCardLabel").text = card.nombre
+		#card_node.get_node("NumberCardLabel").text = str(card.id_carta) 
+		#card_node.get_node("TypeCardLabel").text = card.tipo
+		if is_reverse:
+			stats_bu.visible = false
+			print("is_reverse ", is_reverse)
+			print("updatebu_necesidadclave", card.necesidades_clave)
+			#card_node.get_node("TypeCardLabel").text = card.tipo
+			card_node.get_node("DescriptionCardLabel").text = card.descripcion
+			#card_node.get_node("DescriptionCardLabel").text = "Enfoque principal: \n" + card.enfoque_principal
+			
+		else:
+			stats_bu.visible = true
+			var stats_node = card_node.get_node("StatsBu")
+			card_node.get_node("DescriptionCardLabel").text = ""
+			icon_path = "res://assets/ui/icons/empathy_gradient_blue_red_20_" + str(clamp(card.empatia, 1, 10)) + ".png"  # Crear la ruta completa del icono
+			texture_icon = load(icon_path)
+			if texture_icon:
+				empathy_texture_rect.texture = texture_icon
+				empathy_texture_rect.tooltip_text = "Empatía: " + str(card.empatia)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Empatía")	
+						
+			icon_path = "res://assets/ui/icons/apoyo_emocional_gradient_blue_red_20_" + str(clamp(card.apoyo_emocional, 1, 10)) + ".png"  # Crear la ruta completa del icono
+			texture_icon = load(icon_path)
+			if texture_icon:
+				emotional_support_texture_rect.texture = texture_icon
+				emotional_support_texture_rect.tooltip_text = "Apoyo Emocional: " + str(card.apoyo_emocional)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Apoyo Emocional")			
+
+			icon_path = "res://assets/ui/icons/intervención_gradient_blue_red_20_" + str(clamp(card.intervencion, 1, 10)) + ".png"  # Crear la ruta completa del icono
+			texture_icon = load(icon_path)
+			if texture_icon:
+				intervention_texture_rect.texture = texture_icon
+				intervention_texture_rect.tooltip_text = "Intervención: " + str(card.intervencion)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Intervencion")			
+
+			icon_path = "res://assets/ui/icons/comunicacion_gradient_blue_red_20_" + str(clamp(card.comunicacion, 1, 10)) + ".png"  # Crear la ruta completa del icono
+			texture_icon = load(icon_path)
+			if texture_icon:
+				comunication_texture_rect.texture = texture_icon
+				comunication_texture_rect.tooltip_text = "Comunicación: " + str(card.comunicacion)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Comunicacion")			
+
+			icon_path = "res://assets/ui/icons/resolución_de_conflictos_gradient_blue_red_20_" + str(clamp(card.resolucion_de_conflictos, 1, 10)) + ".png"  # Crear la ruta completa del icono
+			texture_icon = load(icon_path)
+			if texture_icon:
+				conflict_resolution_texture_rect.texture = texture_icon
+				conflict_resolution_texture_rect.tooltip_text = "Resolución de Conflictos: " + str(card.resolucion_de_conflictos)
+			else:
+				print("Error: No se pudo cargar la imagen para la estadística Resolucion de Conflictos")			
+
+
 
 	# Cambiar el marco de la carta según su tipo
 	var card_frame_node = card_node.get_node("CardFrame")  # Nodo `CardFrame` que cambia dependiendo del tipo

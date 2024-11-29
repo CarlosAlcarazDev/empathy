@@ -11,7 +11,7 @@ extends Node
 #enum Difficulty { ESTUDIANTE, PROFESOR, PSICOLOGO }
 
 # Modo de partida
-var game_mode: String = ""
+var game_mode: String = "Estrategia"
 
 
 # Dificultad de la IA: "Estudiante", "Profesor", "Psicólogo"

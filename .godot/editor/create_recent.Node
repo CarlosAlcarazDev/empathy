@@ -1,5 +1,6 @@
-Panel
 Control
+TextureRect
+Panel
 Label
 AudioStreamPlayer
 Window
@@ -8,7 +9,6 @@ HBoxContainer
 VBoxContainer
 HSlider
 HSeparator
-TextureRect
 ColorRect
 Line2D
 Polygon2D
