@@ -192,15 +192,15 @@ func close_option_window():
 func _on_strategy_button_pressed():
 	GameConfig.game_mode = "Estrategia"
 	close_mode_selection_window()
-	await get_tree().create_timer(2.5).timeout
-	get_tree().change_scene_to_file("res://scenes/NewGame.tscn")
+	await get_tree().create_timer(0.3).timeout
+	get_tree().change_scene_to_file("res://scenes/LoadingGame.tscn")
 
 # Señal botón intuición presionado	
 func _on_intuition_button_pressed():
 	GameConfig.game_mode = "Intuición"
 	close_mode_selection_window()
-	await get_tree().create_timer(2.5).timeout
-	get_tree().change_scene_to_file("res://scenes/NewGame.tscn")
+	await get_tree().create_timer(0.3).timeout
+	get_tree().change_scene_to_file("res://scenes/LoadingGame.tscn")
 
 # Señal ok en ventana modal salir presionado. Sale del juego
 func _on_ok_button_pressed():

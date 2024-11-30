@@ -1,9 +1,10 @@
-TextureRect
+AudioStreamPlayer
+Label
+AnimationPlayer
 TextureProgressBar
+TextureRect
 Control
 Panel
-Label
-AudioStreamPlayer
 Window
 Button
 HBoxContainer
@@ -11,4 +12,3 @@ VBoxContainer
 HSlider
 HSeparator
 ColorRect
-Line2D

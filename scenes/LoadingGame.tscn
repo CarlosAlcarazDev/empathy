@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbpbkjok3r51x"]
+
+[ext_resource type="Script" path="res://scenes/loading_game.gd" id="1_oanud"]
+[ext_resource type="Texture2D" uid="uid://c4iscvj7tp1jh" path="res://assets/images/backgrounds/bg_10.webp" id="1_phkj5"]
+[ext_resource type="Texture2D" uid="uid://c0kkb05pt2l0v" path="res://assets/ui/icons/apoyo_emocional_gradient_blue_red_20_10.png" id="3_8hgr6"]
+[ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="3_12xun"]
+[ext_resource type="AudioStream" uid="uid://dbvmpervmnuj4" path="res://assets/audio/sfx/traimory-hit-low-gun-shot-cinematic-trailer-sound-effects-161154.mp3" id="5_fe0t5"]
+
+[sub_resource type="Animation" id="Animation_ktwcw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingTextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [15.0]
+}
+
+[sub_resource type="Animation" id="Animation_kjtrd"]
+resource_name = "loading"
+length = 3.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingTextureProgressBar:value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 55.0, 60.0, 65.0, 70.0, 75.0, 80.0, 85.0, 90.0, 95.0, 100.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wifop"]
+_data = {
+"RESET": SubResource("Animation_ktwcw"),
+"loading": SubResource("Animation_kjtrd")
+}
+
+[node name="LoadingGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oanud")
+
+[node name="BackGroundTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_phkj5")
+
+[node name="LoadingLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 753.0
+offset_top = 706.0
+offset_right = 1167.0
+offset_bottom = 896.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_12xun")
+theme_override_font_sizes/font_size = 150
+text = "Cargando"
+
+[node name="LoadingTextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 519.0
+offset_top = -160.0
+offset_right = 4147.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.16, 0.16)
+value = 15.0
+texture_progress = ExtResource("3_8hgr6")
+
+[node name="LoadingAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wifop")
+}
+
+[node name="GoAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fe0t5")

@@ -76,22 +76,22 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_30_SECONDS = 4 * 60  # En segundos (5 minutos) 
-const COUNTDOWN_20_MINUTES = 2 * 60  # En segundos (25 minutos)
+const COUNTDOWN_TURN = 4 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_GAME = 1 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
-var countdown_30_seconds = COUNTDOWN_30_SECONDS # Temporizador de turno
-var countdown_20_minutes = COUNTDOWN_20_MINUTES # Temporizador de partida global
+var countdown_turn = COUNTDOWN_TURN # Temporizador de turno
+var countdown_game = COUNTDOWN_GAME # Temporizador de partida global
 # Flag para controlar el sonido de cuenta regresiva, aseguramos que suena una vez
 var countdown_sound_playing = false  
 
 # Referencias adicionales de la interfaz
 
-@onready var countdown_30_seconds_label = $"../UI/CountdownTurn/Panel/Countdown30SecondsLabel"
+@onready var countdown_turn_label = $"../UI/CountdownTurn/Panel/Countdown30SecondsLabel"
 
 @onready var beep_countdown_audio_stream_player = $"../UI/BeepCountdownAudioStreamPlayer"
 
-@onready var countdown_20_minutes_label = $"../UI/CountdownTotal/Panel/Countdown20MinutesLabel"
+@onready var countdown_game_label = $"../UI/CountdownTotal/Panel/Countdown20MinutesLabel"
 
 @onready var end_turn_popup = $"../UI/EndTurnPopup"
 
@@ -205,6 +205,19 @@ var countdown_sound_playing = false
 @onready var verbal_combo_health_ia = $"../UI/ScoreTokenIA/VerbalToken/ComboHealth"
 @onready var ciber_combo_health_ia = $"../UI/ScoreTokenIA/CiberbullyingToken/ComboHealth"
 
+@onready var ex_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/ExclusionSocialToken/Panel2/ScoreTokenLabel"
+@onready var fi_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/FisicoToken/Panel2/ScoreTokenLabel"
+@onready var ps_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/PsicologicoToken/Panel2/ScoreTokenLabel"
+@onready var se_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/SexualToken/Panel2/ScoreTokenLabel"
+@onready var ve_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/VerbalToken/Panel2/ScoreTokenLabel"
+@onready var ci_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenPlayer/CiberbullyingToken/Panel2/ScoreTokenLabel"
+
+@onready var ex_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/ExclusionSocialToken/Panel2/ScoreTokenLabel"
+@onready var fi_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/FisicoToken/Panel2/ScoreTokenLabel"
+@onready var ps_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/PsicologicoToken/Panel2/ScoreTokenLabel"
+@onready var se_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/SexualToken/Panel2/ScoreTokenLabel"
+@onready var ve_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/VerbalToken/Panel2/ScoreTokenLabel"
+@onready var ci_ia_score_token_label = $"../UI/GameOver/GameResultTextureRect/ScoreTokenIA/CiberbullyingToken/Panel2/ScoreTokenLabel"
 
 
 # Diccionario con las nuevas texturas para los tokens
@@ -363,23 +376,23 @@ func _process(delta):
 # Manejar la cuenta atrás del turno
 func handle_countdown(delta):
 	# Movido a _on_sync_timer_timeout
-	#if countdown_20_minutes > 0:
-		#countdown_20_minutes -= delta
-		#countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
+	#if countdown_game > 0:
+		#countdown_game -= delta
+		#countdown_game_label.text = "%d:%02d" % [int(countdown_game) / 60, int(countdown_game) % 60]
 
-	if countdown_30_seconds > 0:
-		countdown_30_seconds -= delta
+	if countdown_turn > 0:
+		countdown_turn -= delta
 		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Aceptar" cuando queden más de 10 segundos
-		if countdown_30_seconds > 10:
+		if countdown_turn > 10:
 			ready_button.text = "Aceptar"
-			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
+			countdown_turn_label.text = "%02d:%02d" % [int(countdown_turn) / 60, int(countdown_turn) % 60]
 
 		else:
 			# Mostrar la cuenta atrás cuando queden 10 segundos o menos
-			countdown_30_seconds_label.text = "%02d:%02d" % [int(countdown_30_seconds) / 60, int(countdown_30_seconds) % 60]
-			ready_button.text = "%d" % max(int(countdown_30_seconds), 0)
+			countdown_turn_label.text = "%02d:%02d" % [int(countdown_turn) / 60, int(countdown_turn) % 60]
+			ready_button.text = "%d" % max(int(countdown_turn), 0)
 			# Empezar el sonido de cuenta regresiva cuando quedan 10 segundos
-			if countdown_30_seconds <= 10 and not countdown_sound_playing and countdown_20_minutes > 10 :
+			if countdown_turn <= 10 and not countdown_sound_playing and countdown_game > 10 :
 				beep_countdown_audio_stream_player.play()  # Reproduce el sonido
 				countdown_sound_playing = true
 	else:
@@ -400,11 +413,11 @@ func handle_countdown(delta):
 func _on_sync_timer_timeout():
 	# Imprimir estado actual del juego (Depuración)
 	print("Estado actual del juego: ", current_state)
-	if countdown_20_minutes > 0:
-		countdown_20_minutes -= 1
-		countdown_20_minutes_label.text = "%d:%02d" % [int(countdown_20_minutes) / 60, int(countdown_20_minutes) % 60]
+	if countdown_game > 0:
+		countdown_game -= 1
+		countdown_game_label.text = "%d:%02d" % [int(countdown_game) / 60, int(countdown_game) % 60]
 				# Reproducir el sonido cuando el temporizador llega a 10
-		if countdown_20_minutes == 10:
+		if countdown_game == 10:
 			print("Reproduciendo beep_countdown porque quedan 10 segundos.")
 			if beep_countdown_audio_stream_player:  # Asegúrate de que el nodo existe
 				beep_countdown_audio_stream_player.stream = load("res://assets/audio/sfx/mega-horn-gloomiest-signer-cinematic-trailer-sound-effects-124762.ogg")
@@ -653,7 +666,7 @@ func update_combo(player_score, valid_combination):
 		# Incrementar en token_combos según el tipo de bullying
 		var bullying_type = normalize_bullying_type(card_bullying.tipo)  # Obtener el tipo de bullying de la carta actual
 		if GlobalData.token_combos_player.has(bullying_type):
-			GlobalData.token_combos_player[bullying_type] += 1  # Sumar 1 al contador del tipo de bullying correspondiente
+			GlobalData.token_combos_player[bullying_type] += 1 # Sumar 1 al contador del tipo de bullying correspondiente
 			# Verificar y otorgar tokens
 			var current_combos = GlobalData.token_combos_player[bullying_type]
 			check_and_award_tokens(bullying_type, current_combos)
@@ -833,12 +846,7 @@ func game_over():
 		beep_countdown_audio_stream_player.stop()
 		score_token_ia.visible = true
 		score_token_player.visible = true
-		game_over_ia_name_label.text = GlobalData.get_difficulty_text(GameConfig.ia_difficulty)
-		game_over_ia_combo_label.text = str(GlobalData.combo_ia)
-		game_over_player_name_label.text = GlobalData.user
-		game_over_player_combo_label.text = str(GlobalData.combo_player)
-		game_over_player_scorelabel.text = str(GlobalData.total_player_score)
-		game_over_ia_score_label.text = str(GlobalData.total_ia_score)
+
 		score_token_player.get_node("ExclusionSocialToken/Panel/Label").text = str(GlobalData.token_earned_player["exclusión_social"])
 		score_token_player.get_node("FisicoToken/Panel/Label").text = str(GlobalData.token_earned_player["físico"])
 		score_token_player.get_node("PsicologicoToken/Panel/Label").text = str(GlobalData.token_earned_player["psicológico"])
@@ -853,8 +861,75 @@ func game_over():
 		score_token_ia.get_node("VerbalToken/Panel/Label").text = str(GlobalData.token_earned_ia["verbal"])
 		score_token_ia.get_node("CiberbullyingToken/Panel/Label").text = str(GlobalData.token_earned_ia["ciberbullying"])
 		
-		update_token_textures_game_over()
+
 		
+		update_token_textures_game_over()
+
+		var total_token_player: int = 0
+		var total_token_ia: int = 0
+
+		if GlobalData.token_earned_player["verbal"] > 0:
+			ve_score_token_label.text = "+ " + str(GlobalData.token_earned_player["verbal"] * 1000)
+			total_token_player += GlobalData.token_earned_player["verbal"] * 1000
+
+		if GlobalData.token_earned_player["exclusión_social"] > 0:
+			ex_score_token_label.text = "+ " + str(GlobalData.token_earned_player["exclusión_social"] * 1000)
+			total_token_player += GlobalData.token_earned_player["exclusión_social"] * 1000
+
+		if GlobalData.token_earned_player["físico"] > 0:
+			fi_score_token_label.text = "+ " + str(GlobalData.token_earned_player["físico"] * 1000)
+			total_token_player += GlobalData.token_earned_player["físico"] * 1000
+
+		if GlobalData.token_earned_player["sexual"] > 0:
+			se_score_token_label.text = "+ " + str(GlobalData.token_earned_player["sexual"] * 1000)
+			total_token_player += GlobalData.token_earned_player["sexual"] * 1000
+
+		if GlobalData.token_earned_player["ciberbullying"] > 0:
+			ci_score_token_label.text = "+ " + str(GlobalData.token_earned_player["ciberbullying"] * 1000)
+			total_token_player += GlobalData.token_earned_player["ciberbullying"] * 1000
+
+		if GlobalData.token_earned_player["psicológico"] > 0:
+			ps_score_token_label.text = "+ " + str(GlobalData.token_earned_player["psicológico"] * 1000)
+			total_token_player += GlobalData.token_earned_player["psicológico"] * 1000
+
+		# Actualiza el puntaje total del jugador
+		GlobalData.total_player_score += total_token_player
+		
+		if GlobalData.token_earned_ia["verbal"] > 0:
+			ve_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["verbal"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["verbal"] * 1000
+
+		if GlobalData.token_earned_ia["exclusión_social"] > 0:
+			ex_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["exclusión_social"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["exclusión_social"] * 1000
+
+		if GlobalData.token_earned_ia["físico"] > 0:
+			fi_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["físico"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["físico"] * 1000
+
+		if GlobalData.token_earned_ia["sexual"] > 0:
+			se_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["sexual"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["sexual"] * 1000
+
+		if GlobalData.token_earned_ia["ciberbullying"] > 0:
+			ci_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["ciberbullying"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["ciberbullying"] * 1000
+
+		if GlobalData.token_earned_ia["psicológico"] > 0:
+			ps_ia_score_token_label.text = "+ " + str(GlobalData.token_earned_ia["psicológico"] * 1000)
+			total_token_ia += GlobalData.token_earned_ia["psicológico"] * 1000
+
+		# Actualiza el puntaje total del jugador
+		GlobalData.total_ia_score += total_token_ia
+
+		# Asignación de valores finales a las etiquetas de texto
+		game_over_ia_name_label.text = GlobalData.get_difficulty_text(GameConfig.ia_difficulty)
+		game_over_ia_combo_label.text = str(GlobalData.combo_ia)
+		game_over_player_name_label.text = GlobalData.user
+		game_over_player_combo_label.text = str(GlobalData.combo_player)
+		game_over_player_scorelabel.text = str(GlobalData.total_player_score)
+		game_over_ia_score_label.text = str(GlobalData.total_ia_score)
+
 		if GlobalData.total_player_score > GlobalData.total_ia_score:
 			# Victoria
 			print("time out: victoria")
@@ -1017,8 +1092,8 @@ func reset_turn_state():
 	# Habilitar el botón "Aceptar" y restablecer el contador de tiempo
 	ready_button.disabled = false
 	ready_button.visible = true
-	countdown_30_seconds_label.text = "Aceptar" 
-	countdown_30_seconds = COUNTDOWN_30_SECONDS
+	countdown_turn_label.text = "Aceptar" 
+	countdown_turn = COUNTDOWN_TURN
 	ready_button.text = "Aceptar"
 	countdown_sound_playing = false
 	# No muestra la carta elegida
@@ -1182,8 +1257,8 @@ func _on_ready_texture_button_pressed():
 		countdown_sound_playing = false  # Restablece flag
 	
 	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
-	countdown_30_seconds = 0
-	countdown_30_seconds_label.text = "OK"
+	countdown_turn = 0
+	countdown_turn_label.text = "OK"
 	ready_button.text = "OK"
 	ready_texture_button.disabled = true
 	ready_texture_button.set_pressed(false)
@@ -1212,8 +1287,8 @@ func _on_ready_button_pressed():
 		countdown_sound_playing = false  # Restablece flag
 	
 	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
-	countdown_30_seconds = 0
-	countdown_30_seconds_label.text = "OK"
+	countdown_turn = 0
+	countdown_turn_label.text = "OK"
 	ready_button.disabled = true
 	#ready_button.set_pressed(false)
 	
@@ -1240,7 +1315,7 @@ func _on_continue_button_pressed():
 	enable_card_interaction()
 	
 	# Verifica si el juego debe terminar (tiempo finalizado o no hay más cartas en el mazo bu) o iniciar el siguiente turno
-	if countdown_20_minutes <= 0 or deck_manager.deck_bu.size() == 0:
+	if countdown_game <= 0 or deck_manager.deck_bu.size() == 0:
 		GlobalData.game_over_time_or_bu = true
 		change_state(GameState.GAME_OVER)
 	else:
