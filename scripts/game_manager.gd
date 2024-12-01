@@ -19,7 +19,7 @@
 #	start_turn(): Función para manejar el turno del jugador
 #	check_game_result(): Función para verificar el resultado del turno
 #	game_over(): Función cuando el juego termine
-#	choose_ia_cards(): Función para elegir las cartas de la IA de forma aleatoria (IA PRIMITIVA, IA ALUMNO)
+#	choose_ia_cards_alumno(): Función para elegir las cartas de la IA Sesgo Negativo-Factor error humano-Restricciones puntuación, sin afinidad (IA ALUMNO)
 #	reset_turn_state(): Función para reiniciar el estado del turno
 #	auto_select_player_cards(): Función para seleccionar cartas automáticamente para el jugador
 #	auto_select_ia_cards(): Función para seleccionar cartas automáticamente para la IA
@@ -514,6 +514,22 @@ func start_turn():
 	# La IA selecciona automaticamente sus cartas 
 	choose_ia_cards()
 	
+
+func choose_ia_cards():
+	match GameConfig.ia_difficulty:
+		0:
+			print("Alumno: La IA ha elegido el modo fácil (Alumno).")
+			choose_ia_cards_alumno()
+		1:
+			print("Alumno: La IA ha elegido el modo medio (Profesor).")
+			choose_ia_cards_profesor()
+		2:
+			print("Alumno: La IA ha elegido el modo difícil (Psicólogo).")
+			choose_ia_cards_psicologo()
+		_:
+			print("Error: Dificultad no reconocida. Seleccionando por defecto modo fácil.")
+			choose_ia_cards_alumno()
+			
 # Función para verificar el resultado del turno
 # Refactorización de la función `check_game_result` 22/11/2024
 func check_game_result():
@@ -997,42 +1013,329 @@ func game_over():
 ###############################################################################
 ###############################################################################
 
-# Función para elegir las cartas de la IA de forma aleatoria (IA PRIMITIVA, IA ALUMNO)
-func choose_ia_cards():
-	print("La IA está eligiendo sus cartas.")
-#	Seleccionar cartas aleatorias de los mazos disponibles
-	var random_index_re = randi() % ai_cards_re.size()
-	var random_index_hs = randi() % ai_cards_hs.size()
 
-	# Asignar las cartas seleccionadas
-	ia_selected_card_re = ai_cards_re[random_index_re].id_carta
-	ia_selected_card_hs = ai_cards_hs[random_index_hs].id_carta
-	
+func choose_ia_cards_profesor():
+	print("Profesor: La IA está eligiendo sus cartas con lógica optimizada para IA Profesor - media.")
+	print("Alumno: Carta de bullying actual ", card_bullying.nombre)
+	print("Profesor: nº ", card_bullying.id_carta)
+
+	# Cargar el archivo JSON de estrategias correctas para evitar combinaciones perfectas
+	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
+
+	# Inicializar listas para las combinaciones válidas
+	var valid_combinations = []
+	var bullying_card = card_bullying  # La carta de bullying actual
+
+	# Evaluar todas las combinaciones posibles de RE y HS
+	for re_card in ai_cards_re:
+		for hs_card in ai_cards_hs:
+			# Verificar que la combinación no sea perfecta
+			var is_perfect_combination = find_combination(json_correct, bullying_card.id_carta, re_card.id_carta, hs_card.id_carta).size() > 0
+			
+			if is_perfect_combination:
+				print("Profesor: Ignorando combinación perfecta: RE =", re_card.nombre, "HS =", hs_card.nombre)
+				continue  # Ignorar combinaciones perfectas
+			
+			# Calcular la puntuación de la combinación
+			var score = calculate_score(bullying_card, re_card, hs_card)
+			#Imprimir cada combinación con su puntuación
+			print("Profesor: Combinación posible: RE =", re_card.nombre, "HS =", hs_card.nombre, "Score =", score)
+
+			# Evitar afinidades altas
+			var has_high_affinity = re_card.afinidad[bullying_card.tipo] == "Alta" or hs_card.afinidad[bullying_card.tipo] == "Alta"
+			
+			if score <= 650 and has_high_affinity:
+				print("Profesor: Combinación válida encontrada: RE =", re_card.nombre, "HS =", hs_card.nombre, "Score =", score)
+				valid_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+
+			
+	# Variables para almacenar las cartas seleccionadas
+	var chosen_re_card
+	var chosen_hs_card
+
+	# Verificar si hay combinaciones válidas
+	if valid_combinations.size() == 0:
+		print("Profesor: No hay combinaciones válidas. Seleccionando score más bajo.")
+		var all_combinations = []
+
+		# Generar todas las combinaciones posibles
+		for re_card in ai_cards_re:
+			for hs_card in ai_cards_hs:
+				var score = calculate_score(bullying_card, re_card, hs_card)
+				all_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+
+		# Ordenar todas las combinaciones por puntaje
+		all_combinations.sort_custom(func(a, b): return a["score"] < b["score"])
+
+		# Tomar la combinación con el puntaje más bajo
+		var chosen_combination = all_combinations[0]
+		chosen_re_card = chosen_combination["re_card"]
+		chosen_hs_card = chosen_combination["hs_card"]
+
+		print("Profesor: Combinación seleccionada: RE =", chosen_re_card.nombre, 
+		"HS =", chosen_hs_card.nombre, 
+		"Score =", chosen_combination["score"])
+
+		ia_selected_card_re = chosen_re_card.id_carta
+		ia_selected_card_hs = chosen_hs_card.id_carta
+	else:
+		# Separar las cartas RE y HS según su puntuación
+		var re_cards_sorted = valid_combinations.duplicate()
+		var hs_cards_sorted = valid_combinations.duplicate()
+		# Ordenar cartas RE por menor puntuación total
+		re_cards_sorted.sort_custom(func(a, b): return calculate_re_card_score(a["re_card"], bullying_card) < calculate_re_card_score(b["re_card"], bullying_card))
+
+		print("Profesor: Cartas RE ordenadas por menor puntuación total:")
+		for card_data in re_cards_sorted:
+			var card = card_data["re_card"]
+			var score = calculate_re_card_score(card, bullying_card)
+			print("Profesor: - Carta RE: ", card.nombre, " | Puntuación: ", score, 
+				  " | Empatía: ", card.empatia, 
+				  ", Apoyo Emocional: ", card.apoyo_emocional, 
+				  ", Intervención: ", card.intervencion)
+
+		# Ordenar cartas HS por mayor puntuación total
+		hs_cards_sorted.sort_custom(func(a, b): return calculate_hs_card_score(a["hs_card"], bullying_card) > calculate_hs_card_score(b["hs_card"], bullying_card))
+
+		print("Profesor: Cartas HS ordenadas por mayor puntuación total:")
+		for card_data in hs_cards_sorted:
+			var card = card_data["hs_card"]
+			var score = calculate_hs_card_score(card, bullying_card)
+			print("Profesor: - Carta HS: ", card.nombre, " | Puntuación: ", score, 
+				  " | Comunicación: ", card.comunicacion, 
+				  ", Resolución de Conflictos: ", card.resolucion_de_conflictos)
+
+		# Seleccionar las cartas finales: peor RE y mejor HS
+		chosen_re_card = re_cards_sorted[0]["re_card"]
+		chosen_hs_card = hs_cards_sorted[0]["hs_card"]
+
+		print("Profesor: Seleccionando combinación óptima:")
+		print("Profesor: - Peor carta RE: ", chosen_re_card.nombre," | Puntuación: ", calculate_re_card_score(chosen_re_card, bullying_card))
+		print("Profesor: - Mejor carta HS: ", chosen_hs_card.nombre," | Puntuación: ", calculate_hs_card_score(chosen_hs_card, bullying_card))
+
+		ia_selected_card_re = chosen_re_card.id_carta
+		ia_selected_card_hs = chosen_hs_card.id_carta
+
+	# Mostrar las cartas elegidas y sus atributos
+	print("Profesor: Carta RE seleccionada por la IA:")
+	print("Profesor: Nombre:", chosen_re_card.nombre)
+	print("Profesor: Atributos: Empatía =", chosen_re_card.empatia, ", Apoyo Emocional =", chosen_re_card.apoyo_emocional, ", Intervención =", chosen_re_card.intervencion)
 
 	
-	# Mostrar las cartas elegidas en la consola para verificar
-	print("Carta RE seleccionada por la IA: ", ia_selected_card_re)
-	print("Carta HS seleccionada por la IA: ", ia_selected_card_hs)
+	print("Profesor: Carta HS seleccionada por la IA:")
+	print("Profesor: Nombre:", chosen_hs_card.nombre)
+	print("Profesor: Atributos: Comunicación =", chosen_hs_card.comunicacion, ", Resolución de Conflictos =", chosen_hs_card.resolucion_de_conflictos)
+
+	# Visualización de cartas seleccionadas
 	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
 	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
-	
-	#Llamada para generar proceso aleatorio en la visualización de seleccion de cartas
 	show_card_with_delay_re(iare_card, ia_re_card, GlobalData.showing_reverses)
 	show_card_with_delay_hs(iahs_card, ia_hs_card, GlobalData.showing_reverses)
-	
+
+	# Marcar que la IA ha terminado de elegir sus cartas
+	ia_chosen = true
+# Función para calcular la puntuación de una carta RE respecto a la carta de bullying
+func calculate_re_card_score(re_card, bullying_card) -> float:
+	var score = 0.0
+	if re_card.empatia > 0 and bullying_card.empatia > 0:
+		score += min(re_card.empatia, bullying_card.empatia)
+	if re_card.apoyo_emocional > 0 and bullying_card.apoyo_emocional > 0:
+		score += min(re_card.apoyo_emocional, bullying_card.apoyo_emocional)
+	if re_card.intervencion > 0 and bullying_card.intervencion > 0:
+		score += min(re_card.intervencion, bullying_card.intervencion)
+	return score
+
+# Función para calcular la puntuación de una carta HS respecto a la carta de bullying
+func calculate_hs_card_score(hs_card, bullying_card) -> float:
+	var score = 0.0
+	if hs_card.comunicacion > 0 and bullying_card.comunicacion > 0:
+		score += min(hs_card.comunicacion, bullying_card.comunicacion)
+	if hs_card.resolucion_de_conflictos > 0 and bullying_card.resolucion_de_conflictos > 0:
+		score += min(hs_card.resolucion_de_conflictos, bullying_card.resolucion_de_conflictos)
+	return score
+
+
+func choose_ia_cards_psicologo():
+	print("psicologo: La IA está eligiendo sus cartas con lógica optimizada para IA Psicólogo - media.")	
+	print("psicologo: Carta de bullying actual ", card_bullying.nombre)
+	print("psicologo: nº ", card_bullying.id_carta)
+
+	# Cargar el archivo JSON de estrategias correctas para identificar combinaciones perfectas
+	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
+
+	# Inicializar variables para almacenar las cartas seleccionadas
+	var chosen_re_card = null
+	var chosen_hs_card = null
+
+	# Evaluar todas las combinaciones posibles de RE y HS para encontrar una combinación perfecta
+	print("psicologo: Buscando combinaciones perfectas...")
+	for re_card in ai_cards_re:
+		for hs_card in ai_cards_hs:
+			# Verificar si es una combinación perfecta
+			var is_perfect_combination = find_combination(json_correct, card_bullying.id_carta, re_card.id_carta, hs_card.id_carta).size() > 0
+			if is_perfect_combination:
+				print("psicologo: Combinación perfecta encontrada: RE =", re_card.nombre, "HS =", hs_card.nombre)
+				chosen_re_card = re_card
+				chosen_hs_card = hs_card
+				break
+		if chosen_re_card != null and chosen_hs_card != null:
+			break
+
+	# Si no se encuentra una combinación perfecta, buscar las mejores cartas RE y HS con afinidad alta
+	if chosen_re_card == null or chosen_hs_card == null:
+		print("psicologo: No se encontró una combinación perfecta. Buscando las mejores cartas con afinidad alta...")
+
+		# Evaluar todas las combinaciones posibles
+		var valid_combinations = []
+		for re_card in ai_cards_re:
+			for hs_card in ai_cards_hs:
+				var has_high_affinity = re_card.afinidad[card_bullying.tipo] == "Alta" or hs_card.afinidad[card_bullying.tipo] == "Alta"
+				var score = calculate_score(card_bullying, re_card, hs_card)
+				if has_high_affinity:
+					
+					valid_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+			# Si no hay afinidad alta, considerar todas las combinaciones
+				elif valid_combinations.size() == 0: 
+					valid_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+
+		# Verificar si hay combinaciones válidas
+		if valid_combinations.size() > 0:
+			# Ordenar combinaciones por puntaje (de mayor a menor)
+			valid_combinations.sort_custom(func(a, b): return a["score"] > b["score"])
+			print("psicologo: Combinaciones válidas ordenadas por puntaje:")
+			for combination in valid_combinations:
+				print("psicologo: RE =", combination["re_card"].nombre, 
+					  "| HS =", combination["hs_card"].nombre, 
+					  "| Score =", combination["score"])
+
+			# Seleccionar la mejor combinación
+			var best_combination = valid_combinations[0]
+			chosen_re_card = best_combination["re_card"]
+			chosen_hs_card = best_combination["hs_card"]
+		else:
+			print("psicologo: No hay combinaciones válidas con afinidad alta.")
+			return  # Terminar si no hay cartas válidas
+
+	# Asignar las cartas seleccionadas
+	ia_selected_card_re = chosen_re_card.id_carta
+	ia_selected_card_hs = chosen_hs_card.id_carta
+
+	# Mostrar las cartas elegidas y sus atributos
+	print("psicologo: Carta RE seleccionada por la IA:")
+	print("psicologo: Nombre:", chosen_re_card.nombre)
+	print("psicologo: Atributos: Empatía =", chosen_re_card.empatia, 
+		  ", Apoyo Emocional =", chosen_re_card.apoyo_emocional, 
+		  ", Intervención =", chosen_re_card.intervencion)
+
+	print("psicologo: Carta HS seleccionada por la IA:")
+	print("psicologo: Nombre:", chosen_hs_card.nombre)
+	print("psicologo: Atributos: Comunicación =", chosen_hs_card.comunicacion, 
+		  ", Resolución de Conflictos =", chosen_hs_card.resolucion_de_conflictos)
+
+	# Visualización de cartas seleccionadas
+	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
+	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
+	show_card_with_delay_re(iare_card, ia_re_card, GlobalData.showing_reverses)
+	show_card_with_delay_hs(iahs_card, ia_hs_card, GlobalData.showing_reverses)
+
+	# Marcar que la IA ha terminado de elegir sus cartas
+	ia_chosen = true
+
+# Función para elegir las cartas de la IA Alumno con lógica mejorada
+func choose_ia_cards_alumno():
+	print("Alumno: La IA está eligiendo sus cartas con lógica mejorada para IA Alumno - fácil.")
+	print("Alumno: Carta de bullying actual ", card_bullying.nombre)
+	print("Alumno: nº ", card_bullying.id_carta)
+	# Cargar el archivo JSON de estrategias correctas para evitar combinaciones perfectas
+	var json_correct = load_strategy(JSON_CORRECT_STRATEGY_PATH)
+
+	# Inicializar listas para las combinaciones válidas
+	var valid_combinations = []
+	var bullying_card = card_bullying  # La carta de bullying actual
+
+	# Evaluar todas las combinaciones posibles de RE y HS
+	for re_card in ai_cards_re:
+		for hs_card in ai_cards_hs:
+			# Verificar que la combinación no sea perfecta
+			var is_perfect_combination = find_combination(json_correct, bullying_card.id_carta, re_card.id_carta, hs_card.id_carta).size() > 0
+			
+			if is_perfect_combination:
+				print("Alumno: Ignorando combinación perfecta: RE =", re_card.nombre, "HS =", hs_card.nombre)
+				continue  # Ignorar combinaciones perfectas
+				
+			
+			# Calcular la puntuación de la combinación
+			var score = calculate_score(bullying_card, re_card, hs_card)
+			#Imprimir cada combinación con su puntuación
+			print("Alumno: Combinación posible: RE =", re_card.nombre, "HS =", hs_card.nombre, "Score =", score)
+
+			# Evitar afinidades altas o puntajes superiores a 600
+			var has_high_affinity = re_card.afinidad[bullying_card.tipo] == "Alta" or hs_card.afinidad[bullying_card.tipo] == "Alta"
+
+			if score <= 600 and not has_high_affinity:
+				print("Alumno: Combinación válida encontrada: RE =", re_card.nombre, "HS =", hs_card.nombre, "Score =", score)
+				valid_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+
+	# Si no hay combinaciones válidas, selecciona score más bajo
+	if valid_combinations.size() == 0:
+		print("Alumno: No hay combinaciones válidas. Seleccionando score más bajo.")
+		var all_combinations = []
+
+		# Generar todas las combinaciones posibles
+		for re_card in ai_cards_re:
+			for hs_card in ai_cards_hs:
+				var score = calculate_score(bullying_card, re_card, hs_card)
+				all_combinations.append({"score": score, "re_card": re_card, "hs_card": hs_card})
+
+		# Ordenar todas las combinaciones por puntaje
+		all_combinations.sort_custom(func(a, b): return a["score"] < b["score"])
+
+		# Tomar la combinación con el puntaje más bajo
+		var chosen_combination = all_combinations[0]
+
+		print("Alumno: Combinación seleccionada: RE =", chosen_combination["re_card"].nombre, 
+		"HS =", chosen_combination["hs_card"].nombre, 
+		"Score =", chosen_combination["score"])
+
+		ia_selected_card_re = chosen_combination["re_card"].id_carta
+		ia_selected_card_hs = chosen_combination["hs_card"].id_carta
+	else:
+		# Ordenar combinaciones válidas por puntaje (de menor a mayor)
+		print("Alumno: Ordenando combinaciones válidas por puntaje.")
+		valid_combinations.sort_custom(func(a, b): return a["score"] > b["score"])
+		print("Alumno: Combinaciones válidas ordenadas:")
+		for combination in valid_combinations:
+			print("Alumno: RE =", combination["re_card"].nombre, "HS =", combination["hs_card"].nombre, "Score =", combination["score"])
+
+		# Seleccionar una combinación al azar de las tres con menor puntaje
+		var worst_combinations = valid_combinations.slice(0, min(3, valid_combinations.size()))
+		var chosen_combination = worst_combinations[randi() % worst_combinations.size()]
+		print("Alumno: Combinación seleccionada: RE =", chosen_combination["re_card"].nombre, "HS =", chosen_combination["hs_card"].nombre, "Score =", chosen_combination["score"])
+
+		ia_selected_card_re = chosen_combination["re_card"].id_carta
+		ia_selected_card_hs = chosen_combination["hs_card"].id_carta
+		print("Alumno: Combinación seleccionada: RE = ",ia_selected_card_re," ", chosen_combination["re_card"].nombre, "HS = ", ia_selected_card_hs, " ", chosen_combination["hs_card"].nombre, "Score =", chosen_combination["score"])
+
+	# Mostrar las cartas elegidas en la consola para verificar
+	print("Alumno: Carta RE seleccionada por la IA: ", ia_selected_card_re)
+	print("Alumno: Carta HS seleccionada por la IA: ", ia_selected_card_hs)
+
+	# Visualización de cartas seleccionadas
+	var ia_re_card = deck_manager.get_card_re_by_id(int(ia_selected_card_re))
+	var ia_hs_card = deck_manager.get_card_hs_by_id(int(ia_selected_card_hs))
+	show_card_with_delay_re(iare_card, ia_re_card, GlobalData.showing_reverses)
+	show_card_with_delay_hs(iahs_card, ia_hs_card, GlobalData.showing_reverses)
+
 	# Marcar que la IA ha terminado de elegir sus cartas
 	ia_chosen = true
 	
-	## Espera n segundos a mostrar la carta (simula pensamiento)
-	#var random_delay_re = randf_range(1, 5)
-	#await get_tree().create_timer(random_delay_re).timeout
-	#iare_card.visible = true
-	#display_ia_card_re(ia_re_card, iare_card, GlobalData.showing_reverses)
-	#var random_delay_hs = randf_range(1, 5)
-	#await get_tree().create_timer(random_delay_hs).timeout
-	#iahs_card.visible = true
-	#display_ia_card_hs(ia_hs_card, iahs_card, GlobalData.showing_reverses)
 	
+func _compare_combinations_by_score(a, b) -> int: 
+	if a["score"] < b["score"]: 
+		return -1 
+	elif a["score"] > b["score"]: 
+		return 1 
+	return 0
 # Función para mostrar iare_card con un delay aleatorio
 func show_card_with_delay_re(card_to_show, card_data, reverse_flag):
 	async_show_card_re(card_to_show, card_data, reverse_flag)

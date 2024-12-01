@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://dq4v62olhary3"]
+[gd_scene load_steps=101 format=3 uid="uid://dq4v62olhary3"]
 
 [ext_resource type="Script" path="res://scripts/new_game.gd" id="1_eh8bj"]
 [ext_resource type="Texture2D" uid="uid://dukyjdb258r8x" path="res://assets/images/backgrounds/bg_12.webp" id="2_hikk8"]
@@ -54,6 +54,7 @@
 [ext_resource type="Texture2D" uid="uid://up7rceiha7li" path="res://assets/ui/score/boy_1.png" id="37_a0yc1"]
 [ext_resource type="Texture2D" uid="uid://cvu6jcmbylna3" path="res://assets/ui/backgrounds/victory_2.png" id="38_a25bx"]
 [ext_resource type="FontFile" uid="uid://bo8csdsex1d3i" path="res://assets/fonts/AmaticSC-Bold.ttf" id="38_apwvo"]
+[ext_resource type="Texture2D" uid="uid://u3dyfk1mrqwm" path="res://assets/ui/score/girl_2.png" id="38_ll7f6"]
 [ext_resource type="Script" path="res://scenes/new_game_option_window.gd" id="39_7n31t"]
 [ext_resource type="Texture2D" uid="uid://c8mmq4leduvn5" path="res://assets/ui/tokens/token_exclusión_social_bn.png" id="40_hppje"]
 [ext_resource type="Texture2D" uid="uid://bboks5ajispvd" path="res://assets/ui/tokens/token_físico_bn.png" id="41_xbhwa"]
@@ -1358,7 +1359,7 @@ offset_left = 9.0
 offset_top = -18.0
 offset_right = 215.0
 offset_bottom = 217.0
-texture = ExtResource("37_a0yc1")
+texture = ExtResource("38_ll7f6")
 
 [node name="ScoreTokenIA" type="Control" parent="UI"]
 layout_mode = 3
