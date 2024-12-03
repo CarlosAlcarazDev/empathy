@@ -13,7 +13,7 @@ extends Node
 
 # Variables del usuario
 var user = ""
-var id = ""
+var id 
 var password = ""
 var created_at = {
 			"day": 9,
@@ -108,3 +108,9 @@ func get_difficulty_text(difficulty: int) -> String:
 			return "Psicólogo"
 		_:
 			return "Desconocido"
+
+#Datos partida guardada
+var saved_game_data: Dictionary = {}
+
+#Datos de finalizacion de turno
+var final_countdown_turn: int = 0

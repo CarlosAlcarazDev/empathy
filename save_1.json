@@ -1,0 +1,37 @@
+{
+	"ai_cards_hs": [
+		"<Resource#-9223371920974542604>",
+		"<Resource#-9223371921192646425>",
+		"<Resource#-9223371920924210953>"
+	],
+	"ai_cards_re": [
+		"<Resource#-9223371920488003313>",
+		"<Resource#-9223371920773216002>",
+		"<Resource#-9223371920655775483>"
+	],
+	"ai_score": 980,
+	"combo_ia": 1,
+	"combo_player": 1,
+	"countdown_game": 52,
+	"countdown_turn": 237.322222222222,
+	"current_state": 1,
+	"ia_selected_cards": {
+		"hs": 2,
+		"re": 12
+	},
+	"player_cards_hs": [
+		"<Resource#-9223371920991319821>",
+		"<Resource#-9223371921159091991>",
+		"<Resource#-9223371921008097038>"
+	],
+	"player_cards_re": [
+		"<Resource#-9223371920202790624>",
+		"<Resource#-9223371920756438785>",
+		"<Resource#-9223371920286676709>"
+	],
+	"player_score": 693,
+	"player_selected_cards": {
+		"hs": null,
+		"re": null
+	}
+}

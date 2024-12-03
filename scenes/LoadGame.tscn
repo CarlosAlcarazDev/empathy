@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=3 uid="uid://dlkhcyd4u5h5g"]
+
+[ext_resource type="Script" path="res://scenes/load_game.gd" id="1_ial5y"]
+[ext_resource type="FontFile" uid="uid://dvxsg8fyqxya6" path="res://assets/fonts/Roboto-Medium.ttf" id="2_faln2"]
+[ext_resource type="Texture2D" uid="uid://h3u68tj4tqy" path="res://assets/images/backgrounds/bg_7.webp" id="2_ttiha"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oe7r6"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0431373, 0.270588, 0.415686, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuruc"]
+bg_color = Color(0.6, 0.6, 0.6, 0.254902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xodms"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dt5iv"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl5mb"]
+bg_color = Color(0.0784314, 0.388235, 0.580392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35si0"]
+bg_color = Color(0.0784314, 0.388235, 0.580392, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhasp"]
+bg_color = Color(0.0431373, 0.270588, 0.415686, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="LoadGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ial5y")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ttiha")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -508.5
+offset_top = -175.0
+offset_right = 508.5
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("2_faln2")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/panel = SubResource("StyleBoxFlat_oe7r6")
+theme_override_styles/selected_focus = SubResource("StyleBoxFlat_xuruc")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 720.0
+offset_right = 1469.0
+offset_bottom = 786.0
+
+[node name="LoadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_faln2")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_xodms")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dt5iv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jl5mb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_35si0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hhasp")
+text = "Cargar partida"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.74902, 0.74902, 0.74902, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_faln2")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/focus = SubResource("StyleBoxFlat_xodms")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_dt5iv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jl5mb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_35si0")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hhasp")
+text = "Volver"

@@ -12,7 +12,3 @@ func _ready():
 	
 	position = ORIGINAL_POSITION6
 	#scale = SCALE
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

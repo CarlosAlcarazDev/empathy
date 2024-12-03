@@ -258,3 +258,8 @@ func play_beep_sound():
 	if beep_audio_stream_player.playing:
 		beep_audio_stream_player.stop()
 	beep_audio_stream_player.play()
+
+
+func _on_load_game_button_pressed():
+	await get_tree().create_timer(0.3).timeout
+	get_tree().change_scene_to_file("res://scenes/LoadGame.tscn")

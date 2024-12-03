@@ -294,8 +294,7 @@ var combo_health_textures: Dictionary = {
 
 var sync_timer = Timer.new()
 
-var turn:int = 0
-var nueva_partida
+
 const JSON_CORRECT_STRATEGY_PATH = "res://data/correct_strategy.json"
 
 # Ruta del archivo JSON donde se almacenan los datos de guardar partidas
@@ -311,14 +310,41 @@ const SAVE_DATA_FILE := "user://save.json"
 
 # Función que se ejecuta al inicializar el nodo game_manager
 func _ready():
-	nueva_partida = Game.new(GlobalData.user, GlobalData.id, GameConfig.game_mode, GameConfig.ia_difficulty)
-	turn = 0
-	randomize()
+	#
+	#randomize() #Asegura que se inicie el generados de numeros aleatorios
+	#GlobalData.token_earned_ia["verbal"] = 0
+	#GlobalData.token_earned_ia["exclusión_social"] = 0
+	#GlobalData.token_earned_ia["psicológico"] = 0
+	#GlobalData.token_earned_ia["físico"] = 0
+	#GlobalData.token_earned_ia["sexual"] = 0
+	#GlobalData.token_earned_ia["ciberbullying"] = 0
+	#GlobalData.token_earned_player["verbal"] = 0
+	#GlobalData.token_earned_player["exclusión_social"] = 0
+	#GlobalData.token_earned_player["psicológico"] = 0
+	#GlobalData.token_earned_player["físico"] = 0
+	#GlobalData.token_earned_player["sexual"] = 0
+	#GlobalData.token_earned_player["ciberbullying"] = 0
+	#GlobalData.token_combos_ia["verbal"] = 0
+	#GlobalData.token_combos_ia["exclusión_social"] = 0
+	#GlobalData.token_combos_ia["psicológico"] = 0
+	#GlobalData.token_combos_ia["físico"] = 0
+	#GlobalData.token_combos_ia["sexual"] = 0
+	#GlobalData.token_combos_ia["ciberbullying"] = 0
+	#GlobalData.token_combos_player["verbal"] = 0
+	#GlobalData.token_combos_player["exclusión_social"] = 0
+	#GlobalData.token_combos_player["psicológico"] = 0
+	#GlobalData.token_combos_player["físico"] = 0
+	#GlobalData.token_combos_player["sexual"] = 0
+	#GlobalData.token_combos_player["ciberbullying"] = 0
+	#
 	 # Si hay datos de partida guardados, cárgalos
 	if GlobalData.saved_game_data:
+		print("Cargando partida guardada desde GlobalData.saved_game_data...")
 		load_game_from_save(GlobalData.saved_game_data)
+		print("GlobalData.saved_game_data)", GlobalData.saved_game_data)
 	else:
 		print("Iniciando una nueva partida.")
+
 		# Configura valores predeterminados
 		GlobalData.token_earned_ia = {
 			"verbal": 0,
@@ -394,6 +420,11 @@ func _process(delta):
 
 # Manejar la cuenta atrás del turno
 func handle_countdown(delta):
+	# Movido a _on_sync_timer_timeout
+	#if countdown_game > 0:
+		#countdown_game -= delta
+		#countdown_game_label.text = "%d:%02d" % [int(countdown_game) / 60, int(countdown_game) % 60]
+
 	if countdown_turn > 0:
 		countdown_turn -= delta
 		# Actualizar la UI dependiendo del tiempo restante. Mostrar "Aceptar" cuando queden más de 10 segundos
@@ -593,64 +624,6 @@ func check_game_result():
 	update_total_scores(player_score, ia_score)
 	update_combo(player_score, valid_combination)
 	update_combo_ia(ia_score, valid_combination_ia)
-	# Incrementar el turno
-	turn += 1
-
-   
-	# Preparar los datos necesarios
-	var carta_bu = {"id": player_bullying_card.id_carta, "nombre": player_bullying_card.nombre}
-	var cartas_ia = {
-		"re": ia_re_card.nombre,
-		"hs": ia_hs_card.nombre,
-		"combo": GlobalData.combo_ia,
-		"perfecta": valid_combination_ia
-	}
-	#var cartas_jugador = {
-		#"re": player_re_card.nombre,
-		#"hs": player_hs_card.nombre,
-		#"tiempo_turno": COUNTDOWN_TURN-countdown_turn,
-		#"combo": GlobalData.combo_player,
-		#"perfecta": valid_combination
-	#}
-	var cartas_jugador = {
-		"re": player_re_card.nombre if player_re_card else "-1",
-		"hs": player_hs_card.nombre if player_hs_card else "-1",
-		"tiempo_turno": COUNTDOWN_TURN - GlobalData.final_countdown_turn,
-		"combo": GlobalData.combo_player if GlobalData.combo_player else -1,
-		"perfecta": valid_combination if valid_combination else -1
-	}
-	# Determina el ganador de la tirada
-	var ganador_tirada = ""
-	if player_score > ia_score:
-		ganador_tirada = "Jugador"
-	elif player_score < ia_score:
-		ganador_tirada = "IA"
-	else:
-		ganador_tirada = "Empate"
-	var combos_ia = GlobalData.combo_ia
-	var combos_jugador = GlobalData.combo_player
-	var token_ia = GlobalData.token_earned_ia
-	var token_jugador = GlobalData.token_earned_player
-
-	# Crear la nueva tirada
-	var nueva_tirada = Tirada.new(
-		turn,
-		carta_bu,
-		cartas_ia,
-		cartas_jugador,
-		ganador_tirada,
-		combos_ia,
-		combos_jugador,
-		token_ia,
-		token_jugador
-	)
-
-	# Depuración
-	print("Nueva tirada creada:", nueva_tirada)
-
-	nueva_partida.add_tirada(nueva_tirada)
-	save_game_persistence(nueva_partida)
-	
 	
 	# Finalizar el turno
 	end_turn_actions()
@@ -1088,11 +1061,8 @@ func game_over():
 			var result_texture = load(texture_path)
 			game_result_texture_rect.texture = result_texture
 			game_result_texture_rect.visible = true
-	
-	nueva_partida.ganador = game_result_label.text
-	nueva_partida.tiempo_total_partida = COUNTDOWN_GAME - countdown_game
-	nueva_partida.partida_abandonada = GlobalData.game_over_abort
-	save_game_persistence(nueva_partida)
+
+
 ###############################################################################
 ###############################################################################
 #                           TURNO DEL JUGADOR E IA                            #
@@ -1646,7 +1616,6 @@ func _on_ready_texture_button_pressed():
 		countdown_sound_playing = false  # Restablece flag
 	
 	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
-	GlobalData.final_countdown_turn = countdown_turn
 	countdown_turn = 0
 	countdown_turn_label.text = "OK"
 	ready_button.text = "OK"
@@ -1677,7 +1646,6 @@ func _on_ready_button_pressed():
 		countdown_sound_playing = false  # Restablece flag
 	
 	#Finalizar la cuenta regresiva y desactivar el botón "aceptar"
-	GlobalData.final_countdown_turn = countdown_turn
 	countdown_turn = 0
 	countdown_turn_label.text = "OK"
 	ready_button.disabled = true
@@ -2599,15 +2567,6 @@ func update_token_textures_game_over():
 					token_node.texture = token_textures[bullying_type]
 					token_node.get_node("Panel/Label").text = str(GlobalData.token_earned_ia[bullying_type])
 
-
-###############################################################################
-###############################################################################
-#                           GUARDAR PARTIDA                                   #
-# GUARDA PARTIDA, PERO NO CARGA BIEN LA PARTIDA								  #
-###############################################################################
-###############################################################################
-
-
 func save_game():
 	print("Comenzando el guardado de la partida...")
 
@@ -2707,7 +2666,52 @@ func _on_save_button_pressed():
 	await get_tree().create_timer(0.3).timeout
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 #
-
+#func load_game_from_save(save_data: Dictionary):
+	#print("Cargando partida guardada...")
+#
+	## Reconstruir los mazos
+	#var decks = rebuild_decks_from_save(save_data)
+	##var deck_re = decks["deck_re"]
+	##var deck_hs = decks["deck_hs"]
+	##var deck_bu = decks["deck_bu"]
+#
+	## Reconstruir las manos
+	#var hands = rebuild_hands_from_save(save_data)
+	#player_cards_re = hands["player_hand_re"]
+	#player_cards_hs = hands["player_hand_hs"]
+	#ai_cards_re = hands["ai_hand_re"]
+	#ai_cards_hs = hands["ai_hand_hs"]
+#
+## Cargar la carta de bullying actual
+	#var current_bullying_card_id = int(save_data.get("current_bullying_card"))
+	##var card_bullying = null
+	#print("current_bullying_card_id: ", current_bullying_card_id)
+	## Buscar la carta en el mazo BU
+	#for card in deck_bu:
+		#if card.id_carta == current_bullying_card_id:
+			#card_bullying = card
+			#break
+#
+	#if card_bullying == null:
+		#print("Advertencia: No se encontró la carta de bullying con ID:", current_bullying_card_id)
+	#else:
+		#print("Carta de bullying actual:", card_bullying.nombre)
+	#
+	## Cargar contadores
+	##countdown_turn = save_data.get("countdown_turn", 0)
+	##countdown_game = save_data.get("countdown_game", 0)
+	#countdown_turn = COUNTDOWN_TURN
+	#countdown_game = COUNTDOWN_GAME
+#
+	## Actualizar estado global
+	#GlobalData.total_player_score = save_data.get("player_score", 0)
+	#GlobalData.total_ia_score = save_data.get("ai_score", 0)
+#
+	#print("Partida cargada exitosamente.")
+	## Cambiar el estado del juego a preparación
+	#GlobalData.game_over_time_or_bu = false
+	#change_state(GameState.TURN)
+#
 
 func rebuild_decks_from_save(save_data: Dictionary):
 	print("Reconstruyendo mazos directamente desde los datos guardados...")
@@ -2734,9 +2738,17 @@ func rebuild_decks_from_save(save_data: Dictionary):
 			print("Error: No se pudo crear carta HS con ID:", id)
 	print("Mazo HS reconstruido:", deck_hs.size(), "cartas")
 
-	var deck_bu = load_bu_deck(save_data)
-	
+	# Reconstruir Mazo BU
+	deck_manager.deck_bu.clear()
+	var deck_bu = load_bu_deck()
+	deck_manager.deck_bu = deck_bu
 
+	#return {
+		#"deck_re": deck_re,
+		#"deck_hs": deck_hs,
+		#"deck_bu": deck_bu
+	#}
+	
 func load_game_from_save(save_data: Dictionary):
 	deck_manager.load_cards_bu_from_json()
 	deck_manager.load_cards_hs_from_json()
@@ -2804,21 +2816,11 @@ func load_game_from_save(save_data: Dictionary):
 		if card.id_carta == current_bullying_card_id:
 			card_bullying = card
 			break
-			
-	
+
 	if card_bullying == null:
 		print("Advertencia: No se encontró la carta de bullying con ID:", current_bullying_card_id)
 	else:
 		print("Carta de bullying actual:", card_bullying.nombre)
-	print("save:->CARTAS INICIALES DESPUÉS DE CARGAR:")
-	print("save:->Player RE:", player_cards_re.map(func(c): return c.id_carta))
-	print("save:->Player HS:", player_cards_hs.map(func(c): return c.id_carta))
-	print("save:->AI RE:", ai_cards_re)
-	print("save:->AI HS:", ai_cards_hs.map(func(c): return c.id_carta))
-	print("save:->Bullying Card:", card_bullying.id_carta)
-	print("save:->Mazo RE:", deck_manager.deck_re.map(func(c): return c.id_carta))
-	print("save:->Mazo HS:", deck_manager.deck_hs.map(func(c): return c.id_carta))
-	print("save:->Mazo BU:", deck_manager.deck_bu.map(func(c): return c.id_carta))
 
 	# Continuar con la configuración de la partida
 	change_state(GameState.LOADING)
@@ -2992,7 +2994,7 @@ func create_cards_bu(cards_data: Array, stats_bu_data: Dictionary) -> Array:
 	print("Cartas BU creadas:", deck_bu.size(), "cartas.")
 	return deck_bu
 
-func load_bu_deck(save_data: Dictionary):
+func load_bu_deck():
 	var file = FileAccess.open("res://data/deck_bu.json", FileAccess.READ)
 	if file:
 		var data = file.get_as_text()
@@ -3006,33 +3008,12 @@ func load_bu_deck(save_data: Dictionary):
 				var stats_data = stats_file.get_as_text()
 				var stats_json = JSON.new()
 				var stats_result = stats_json.parse(stats_data)
-				# Array para acumular todas las cartas filtradas
-				var all_filtered_cards = []
+
 				if stats_result == OK:
 					var stats_bu_data = stats_json.data
-
-					# Filtrar cartas según current_deck_bullying en save_data
-					var filtered_cards = []
-					var current_deck_bu = save_data.get("current_deck_bullying", [])
-					#print("save:->>IDs de current_deck_bullying en save_data:", current_deck_bu)
-					for card_id in current_deck_bu:
-						filtered_cards = cards_data.filter(func(c): return c.get("id") == int(card_id))
-						#print("save:->>IDs de current_deck_bullying en save_data:", filtered_cards)
-						if filtered_cards.size() > 0:
-							var card_data = filtered_cards[0]  # Acceder al primer elemento
-							print("Carta encontrada: ID", card_data)
-							all_filtered_cards.append(card_data)  # Añadir al array principal
-						
-						else:
-							print("Error: Carta con ID", card_id, "no encontrada en datos JSON de BU.")
-
-
-					# Crear las instancias de las cartas filtradas
-					
-					var deck_bu_ = create_cards_bu(all_filtered_cards, stats_bu_data)
-					print("save:->>IDs de current_deck_bullying en save_data deck_bu:", deck_bu_)
-					print("save:->>IDs de current_deck_bullying en save_data:", filtered_cards)
-					return deck_bu_
+					var deck_bu = create_cards_bu(cards_data, stats_bu_data)
+					print("Mazo BU cargado con éxito:", deck_bu.size(), "cartas.")
+					return deck_bu
 				else:
 					print("Error al parsear el archivo de estadísticas de BU.")
 			else:
@@ -3042,173 +3023,3 @@ func load_bu_deck(save_data: Dictionary):
 	else:
 		print("Error: No se pudo abrir el archivo JSON de BU.")
 	return []
-
-
-###############################################################################
-###############################################################################
-#                           PERSISTENCIA DE DATOS PARA ESTADISTICAS           #
-###############################################################################
-###############################################################################
-##Funciona a medias, no guarda el jugador ni su id
-#func save_game_persistence(current_game: Game):
-	#const SAVE_FILE_PATH = "user://game.json"
-#
-	## Cargar los datos guardados previamente
-	#var saved_data = load_saved_games_persistence()
-#
-	## Verificar que "partidas" existe en el archivo cargado
-	#if "partidas" not in saved_data:
-		#saved_data["partidas"] = []
-#
-	## Buscar la partida existente por número de partida
-	#var partida_actualizada = false
-	#for partida in saved_data["partidas"]:
-		#if partida["numero_partida"] == current_game.numero_partida:
-			## Actualizar la lista de tiradas con las nuevas
-			#partida["tiradas"] = current_game.tiradas.map(func(tirada: Tirada): return {
-				#"numero_tirada": tirada.numero_tirada,
-				#"carta_bu": tirada.carta_bu,
-				#"cartas_ia": tirada.cartas_ia,
-				#"cartas_jugador": tirada.cartas_jugador,
-				#"ganador_tirada": tirada.ganador_tirada,
-				#"combos_ia": tirada.combos_ia,
-				#"combos_jugador": tirada.combos_jugador,
-				#"token_ia": tirada.token_ia,
-				#"token_jugador": tirada.token_jugador
-			#})
-			## Actualizar otros campos relevantes
-			#partida["ganador"] = current_game.ganador
-			#partida["tiempo_total_partida"] = current_game.tiempo_total_partida
-			#partida["partida_abandonada"] = current_game.partida_abandonada
-			#partida_actualizada = true
-			#break
-#
-	## Si no se encontró la partida, añadirla como nueva
-	#if not partida_actualizada:
-		#saved_data["partidas"].append({
-			#"jugador": current_game.nombre_jugador,
-			#"id_jugador": current_game.id_jugador,
-			#"numero_partida": current_game.numero_partida,
-			#"modo_juego": current_game.modo_juego,
-			#"nivel_dificultad": current_game.ia_dificultad,
-			#"tiradas": current_game.tiradas.map(func(tirada: Tirada): return {
-				#"numero_tirada": tirada.numero_tirada,
-				#"carta_bu": tirada.carta_bu,
-				#"cartas_ia": tirada.cartas_ia,
-				#"cartas_jugador": tirada.cartas_jugador,
-				#"ganador_tirada": tirada.ganador_tirada,
-				#"combos_ia": tirada.combos_ia,
-				#"combos_jugador": tirada.combos_jugador,
-				#"token_ia": tirada.token_ia,
-				#"token_jugador": tirada.token_jugador
-			#}),
-			#"ganador": current_game.ganador,
-			#"tiempo_total_partida": current_game.tiempo_total_partida,
-			#"partida_abandonada": current_game.partida_abandonada
-		#})
-#
-	## Guardar los datos actualizados en el archivo
-	#var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
-	#if file:
-		#file.store_string(JSON.stringify(saved_data, "\t"))  # Guardar como JSON formateado
-		#file.close()
-		#print("Partida guardada con éxito en:", SAVE_FILE_PATH)
-	#else:
-		#print("Error al abrir el archivo para guardar la partida.")
-
-func save_game_persistence(current_game: Game):
-	const SAVE_FILE_PATH = "user://game.json"
-
-	# Cargar los datos guardados previamente
-	var saved_data = load_saved_games_persistence()
-
-	# Verificar que "partidas" existe en el archivo cargado
-	if "partidas" not in saved_data:
-		saved_data["partidas"] = []
-
-	# Buscar partidas del jugador actual
-	var jugador_partidas = null
-	for partidas in saved_data["partidas"]:
-		if partidas["id_jugador"] == current_game.id_jugador:
-			jugador_partidas = partidas
-			break
-
-	# Si no se encontró al jugador, agregar un nuevo bloque de partidas para él
-	if not jugador_partidas:
-		jugador_partidas = {
-			"id_jugador": current_game.id_jugador,
-			"jugador": current_game.nombre_jugador,
-			"partidas": []
-		}
-		saved_data["partidas"].append(jugador_partidas)
-
-	# Verificar si existe la partida actual por número de partida
-	var partida_actualizada = false
-	for partida in jugador_partidas["partidas"]:
-		if partida["numero_partida"] == current_game.numero_partida:
-			# Actualizar la lista de tiradas con las nuevas
-			partida["tiradas"] = current_game.tiradas.map(func(tirada: Tirada): return {
-				"numero_tirada": tirada.numero_tirada,
-				"carta_bu": tirada.carta_bu,
-				"cartas_ia": tirada.cartas_ia,
-				"cartas_jugador": tirada.cartas_jugador,
-				"ganador_tirada": tirada.ganador_tirada,
-				"combos_ia": tirada.combos_ia,
-				"combos_jugador": tirada.combos_jugador,
-				"token_ia": tirada.token_ia,
-				"token_jugador": tirada.token_jugador
-			})
-			# Actualizar otros campos relevantes
-			partida["ganador"] = current_game.ganador
-			partida["tiempo_total_partida"] = current_game.tiempo_total_partida
-			partida["partida_abandonada"] = current_game.partida_abandonada
-			partida_actualizada = true
-			break
-
-	# Si no se encontró la partida, añadirla como nueva
-	if not partida_actualizada:
-		var nuevo_numero_partida = jugador_partidas["partidas"].size() + 1
-		jugador_partidas["partidas"].append({
-			"numero_partida": nuevo_numero_partida,
-			"modo_juego": current_game.modo_juego,
-			"nivel_dificultad": current_game.ia_dificultad,
-			"tiradas": current_game.tiradas.map(func(tirada: Tirada): return {
-				"numero_tirada": tirada.numero_tirada,
-				"carta_bu": tirada.carta_bu,
-				"cartas_ia": tirada.cartas_ia,
-				"cartas_jugador": tirada.cartas_jugador,
-				"ganador_tirada": tirada.ganador_tirada,
-				"combos_ia": tirada.combos_ia,
-				"combos_jugador": tirada.combos_jugador,
-				"token_ia": tirada.token_ia,
-				"token_jugador": tirada.token_jugador
-			}),
-			"ganador": current_game.ganador,
-			"tiempo_total_partida": current_game.tiempo_total_partida,
-			"partida_abandonada": current_game.partida_abandonada
-		})
-
-	# Guardar los datos actualizados en el archivo
-	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
-	if file:
-		file.store_string(JSON.stringify(saved_data, "\t"))  # Guardar como JSON formateado
-		file.close()
-		print("Partida guardada con éxito en:", SAVE_FILE_PATH)
-	else:
-		print("Error al abrir el archivo para guardar la partida.")
-
-
-func load_saved_games_persistence() -> Dictionary:
-	const SAVE_FILE_PATH = "user://game.json"
-	var file = FileAccess.open(SAVE_FILE_PATH, FileAccess.READ)
-	if not file:
-		print("Archivo de partidas no encontrado, creando un nuevo registro...")
-		return {"partidas": []}
-	if file:
-		var data = file.get_as_text()
-		var json = JSON.new()
-		var parse_result = json.parse_string(data)
-		return parse_result
-
-	print("Error al cargar los datos guardados.")
-	return {"partidas": []}

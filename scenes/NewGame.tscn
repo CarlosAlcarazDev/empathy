@@ -4338,6 +4338,7 @@ script = ExtResource("25_ldt3k")
 [connection signal="gui_input" from="UI/GameOver/GameResultTextureRect" to="UI/GameOver" method="_on_defeat_texture_rect_gui_input"]
 [connection signal="pressed" from="UI/NewGameOptionWindow/VBoxContainer/HBoxContainer3/ContinueButton" to="GameManager" method="_on_continue_options_button_pressed"]
 [connection signal="pressed" from="UI/NewGameOptionWindow/VBoxContainer/HBoxContainer3/AbortButton" to="GameManager" method="_on_abort_button_pressed"]
+[connection signal="pressed" from="UI/NewGameOptionWindow/VBoxContainer/HBoxContainer3/SaveButton" to="GameManager" method="_on_save_button_pressed"]
 [connection signal="finished" from="UI/AudioStreamPlayer" to="UI" method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="UI/AudioStreamToken" to="GameManager" method="_on_audio_stream_token_finished"]
 [connection signal="finished" from="UI/BeepAudioStreamPlayer" to="UI" method="_on_audio_stream_player_finished"]

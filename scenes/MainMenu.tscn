@@ -600,6 +600,7 @@ stream = ExtResource("11_1oieo")
 [connection signal="mouse_entered" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/LoadGameButton" to="." method="_on_load_game_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_mouse_entered"]

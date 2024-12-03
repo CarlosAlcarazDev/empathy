@@ -160,12 +160,6 @@ func _on_cancel_option_button_pressed():
 
 	blur_overlay.visible = false
 
-# Función para reproducir el sonido
-#func play_beep_sound():
-	#if beep_audio_stream_player.playing:
-		#beep_audio_stream_player.stop()
-	#beep_audio_stream_player.play()
-
 # Señal boton estadísticas presionado
 func _on_statistics_button_pressed():
 	GameConfig.music_volume = music_slider.value
