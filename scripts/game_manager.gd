@@ -77,8 +77,8 @@ var current_state = GameState.PREPARE
 @onready var ready_texture_button = $"../UI/ReadyTextureButton"
 
 # Constantes para los tiempos de cuenta atrás
-const COUNTDOWN_TURN = 4 * 60  # En segundos (5 minutos) 
-const COUNTDOWN_GAME = 1 * 60  # En segundos (25 minutos)
+const COUNTDOWN_TURN = 5 * 60  # En segundos (5 minutos) 
+const COUNTDOWN_GAME = 2 * 60  # En segundos (25 minutos)
 
 # Variables de tiempo
 var countdown_turn = COUNTDOWN_TURN # Temporizador de turno

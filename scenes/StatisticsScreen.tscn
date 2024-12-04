@@ -14,46 +14,41 @@ script = ExtResource("1_h0gp4")
 
 [node name="EscapeLabel" type="Label" parent="."]
 layout_mode = 1
-offset_right = 155.0
-offset_bottom = 23.0
+offset_left = 1747.0
+offset_top = 1042.0
+offset_right = 1902.0
+offset_bottom = 1065.0
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 19
 text = "Esc para salir"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -210.0
-offset_top = -190.0
-offset_right = 356.0
-offset_bottom = 191.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 383.0
+offset_bottom = 161.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 24
 text = "Perfil del Jugador"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="IDHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="IDHBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="IDLabel" type="Label" parent="VBoxContainer/IDHBoxContainer"]
+[node name="IDLabel" type="Label" parent="VBoxContainer2/IDHBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
 text = "ID del Jugador"
 
-[node name="IDPlayer" type="Label" parent="VBoxContainer/IDHBoxContainer"]
+[node name="IDPlayer" type="Label" parent="VBoxContainer2/IDHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -61,16 +56,16 @@ theme_override_font_sizes/font_size = 20
 text = "123"
 horizontal_alignment = 1
 
-[node name="UsernameHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="UsernameHBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer"]
+[node name="UsernameLabel" type="Label" parent="VBoxContainer2/UsernameHBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
 text = "Nombre de usuario"
 
-[node name="UsernamePlayer" type="Label" parent="VBoxContainer/UsernameHBoxContainer"]
+[node name="UsernamePlayer" type="Label" parent="VBoxContainer2/UsernameHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -79,16 +74,16 @@ text = "Carlos"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DateHBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="DateHBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer"]
+[node name="DateLabel" type="Label" parent="VBoxContainer2/DateHBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
 text = "Fecha de creación"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer"]
+[node name="DatePlayer" type="Label" parent="VBoxContainer2/DateHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -96,7 +91,17 @@ theme_override_font_sizes/font_size = 20
 text = "03/12/1978"
 horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 223.0
+offset_right = 474.0
+offset_bottom = 870.0
+
+[node name="HSeparator8" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
@@ -109,178 +114,210 @@ horizontal_alignment = 1
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="IDHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="IDLabel" type="Label" parent="VBoxContainer/IDHBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Nº de inicios de sesión"
-
-[node name="IDPlayer" type="Label" parent="VBoxContainer/IDHBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "53"
-horizontal_alignment = 1
-
 [node name="UsernameHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="UsernameLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
+[node name="TotalGamesLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
 text = "Partidas iniciadas
 "
 
-[node name="UsernamePlayer" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
+[node name="TotalGamesPlayerLabel" type="Label" parent="VBoxContainer/UsernameHBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DateHBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Partidas ganadas         "
-
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "12"
-horizontal_alignment = 1
-
-[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "(20% de las jugadas)"
-horizontal_alignment = 1
-
-[node name="DateHBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Partidas perdidas         "
-
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 15
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "6"
-horizontal_alignment = 1
-
-[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "(30% de las jugadas)"
-horizontal_alignment = 1
-
-[node name="DateHBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+[node name="AbandonedGamesLabel" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
 text = "Partidas abandonadas"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "5"
-horizontal_alignment = 1
-
-[node name="DatePlayer2" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+[node name="AbandonedGamesPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "(20% de las jugadas)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DateHBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CompletedGamesLabel" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Partidas completadas   "
+
+[node name="CompletedGamesPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DateHBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AverageDurationLabel" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Tiempo promedio de las partidas"
+
+[node name="AverageDurationPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
 [node name="DateHBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
+[node name="AverageIntuitionLabel" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Puntuación media"
+text = "Promedio partidas modo Intuición"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
+[node name="AverageIntuitionPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "67"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DateHBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AverageStrategyLabel" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Promedio partidas modo Estrategia"
+
+[node name="AverageStrategyPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
+
+[node name="DateHBoxContainer16" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AverageIAAlumnoLabel" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Promedio IA Alumno"
+
+[node name="AverageIaAlumnoPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer17" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AverageIAProfesorLabel" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Promedio IA Profesor"
+
+[node name="AverageIAProfesorPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="DateHBoxContainer18" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AverageIAPsicologoLabel" type="Label" parent="VBoxContainer/DateHBoxContainer18"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+text = "Promedio IA Psicólogo"
+
+[node name="AverageIAPsicologoPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer18"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 24
+text = "Estadísticas jugador"
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
 
 [node name="DateHBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
+[node name="WinLabel" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Media tiempos por tiradas"
+text = "Partidas ganadas"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
+[node name="WinPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer6"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "15.2 s"
 horizontal_alignment = 1
 
 [node name="DateHBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
+[node name="LossesLabel" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Cartas Innovación y creatividad conseguidas"
+text = "Partidas perdidas"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
+[node name="LosserPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer9"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "1"
 horizontal_alignment = 1
 
 [node name="DateHBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
+[node name="AbandonsLabel" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Total de estrategias efectivas"
+text = "Partidas abandonadas"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
+[node name="AbandonsPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer10"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -291,13 +328,13 @@ horizontal_alignment = 1
 [node name="DateHBoxContainer11" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
+[node name="AverageCombosLabel" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Total de estrategias efectivas"
+text = "Promedio de combos por partida"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
+[node name="AverageCombosPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer11"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -308,13 +345,13 @@ horizontal_alignment = 1
 [node name="DateHBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
+[node name="MaxCombosLabel" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Total tokens desde inicio"
+text = "Máximo de combos en una partida"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
+[node name="MaxCombosPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer7"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -325,17 +362,13 @@ horizontal_alignment = 1
 [node name="DateHBoxContainer12" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
+[node name="AverageTurnLabel" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Tokens bullying Sexual"
+text = "Tiempo promedio de los turnos"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
+[node name="AverageTurnPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer12"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -343,20 +376,29 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 
+[node name="HSeparator6" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l5hmj")
+theme_override_font_sizes/font_size = 24
+text = "Estadísticas tiradas"
+horizontal_alignment = 1
+
+[node name="HSeparator7" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="DateHBoxContainer13" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
+[node name="TotalTiradasLabel" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Tokens bullying Físico"
+text = "Total tiradas"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
+[node name="TotalTiradasPlayerLabel" type="Label" parent="VBoxContainer/DateHBoxContainer13"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -367,17 +409,13 @@ horizontal_alignment = 1
 [node name="DateHBoxContainer14" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
+[node name="PlayerWinLabel" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Tokens Ciberbullying"
+text = "Tiradas ganadas por el jugador"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
+[node name="PlayerWinTiradasLabel" type="Label" parent="VBoxContainer/DateHBoxContainer14"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -388,17 +426,13 @@ horizontal_alignment = 1
 [node name="DateHBoxContainer15" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
+[node name="RatioPlayerWinLabel" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
 theme_override_font_sizes/font_size = 20
-text = "Tokens bullying Psicológico"
+text = "Ratio de tiradas ganadas por el jugador"
 
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
+[node name="RatioPlayerWinTiradasLabel" type="Label" parent="VBoxContainer/DateHBoxContainer15"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_fonts/font = ExtResource("2_l5hmj")
@@ -406,61 +440,22 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 
-[node name="DateHBoxContainer16" type="HBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 224.0
+offset_right = 939.0
+offset_bottom = 753.0
+
+[node name="HSeparator6" type="HSeparator" parent="VBoxContainer3"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
+[node name="Label4" type="Label" parent="VBoxContainer3"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Tokens bullying Exclusión Social"
-
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer16"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "1"
+theme_override_font_sizes/font_size = 24
+text = "Estadísticas tokens"
 horizontal_alignment = 1
 
-[node name="DateHBoxContainer17" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HSeparator7" type="HSeparator" parent="VBoxContainer3"]
 layout_mode = 2
-
-[node name="Label6" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
-layout_mode = 2
-text = "          "
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Tokens bullying Verbal"
-
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer17"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "1"
-horizontal_alignment = 1
-
-[node name="DateHBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="DateLabel" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "Tokens por partida"
-
-[node name="DatePlayer" type="Label" parent="VBoxContainer/DateHBoxContainer8"]
-layout_mode = 2
-size_flags_horizontal = 10
-theme_override_fonts/font = ExtResource("2_l5hmj")
-theme_override_font_sizes/font_size = 20
-text = "1"
-horizontal_alignment = 1

@@ -1,7 +1,7 @@
+VBoxContainer
 TextureRect
 Panel
 HBoxContainer
-VBoxContainer
 Button
 ItemList
 Control
