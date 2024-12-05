@@ -114,3 +114,36 @@ var saved_game_data: Dictionary = {}
 
 #Datos de finalizacion de turno
 var final_countdown_turn: int = 0
+
+# Datos compartidos
+var token_data = {}
+
+# Método para configurar los datos
+func set_token_data(data: Dictionary):
+	token_data = data
+
+# Método para obtener los datos
+func get_token_data() -> Dictionary:
+	return token_data
+	
+# Datos compartidos
+var games_data = {}
+
+# Método para configurar los datos
+func set_games_data(data: Dictionary):
+	games_data = data
+
+# Método para obtener los datos
+func get_games_data() -> Dictionary:
+	return games_data
+
+# Datos compartidos
+var average_data = {}
+
+# Método para configurar los datos
+func set_average_data(data: Dictionary):
+	average_data = data
+
+# Método para obtener los datos
+func get_average_data() -> Dictionary:
+	return average_data

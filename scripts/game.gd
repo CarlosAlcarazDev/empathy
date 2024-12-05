@@ -10,6 +10,9 @@ class_name Game
 @export var ganador: String
 @export var tiempo_total_partida: int
 @export var partida_abandonada: bool
+@export var token_ia: Dictionary               # Tokens ganados por la IA
+@export var token_jugador: Dictionary          # Tokens ganados por el jugador
+
 
 
 
@@ -21,6 +24,7 @@ func _init(
 	_ganador := "",
 	_tiempo_total_partida := 0,
 	_partida_abandonada := false
+	
 ):
 	print("Inicializando la partida...")
 
